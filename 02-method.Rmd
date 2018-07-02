@@ -15,8 +15,12 @@ Tweets, shouldn't be restricted to a table; it removes interesting and insightfu
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">ICYMI, 📊 Easy viz from <a href="https://twitter.com/hashtag/rtweet?src=hash&amp;ref_src=twsrc%5Etfw">#rtweet</a> data!<br>🐦 &quot;GraphTweets: Visualise Twitter Interactions&quot; ✩ <a href="https://twitter.com/jdatap?ref_src=twsrc%5Etfw">@jdatap</a><a href="https://t.co/SCN0Ycy7Z7">https://t.co/SCN0Ycy7Z7</a> <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://twitter.com/hashtag/dataviz?src=hash&amp;ref_src=twsrc%5Etfw">#dataviz</a> <a href="https://t.co/9W4cNkEjf8">pic.twitter.com/9W4cNkEjf8</a></p>&mdash; Mara Averick (@dataandme) <a href="https://twitter.com/dataandme/status/1012380619425374210?ref_src=twsrc%5Etfw">June 28, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-[@dataandme](https://twitter.com/dataandme) tweets [@jdatap](https://twitter.com/jdatap). This should not be a single row of data isolated to my response to Mara's tweet. These should be looked at as connected data points; what better way than a network.
+[dataandme](https://twitter.com/dataandme) tweets [jdatap](https://twitter.com/jdatap). This should not be a single row of data isolated to my response to Mara's tweet. These should be looked at as connected data points; what better way than a network.
 
 ## Networks
 
 The beauty of networks is that they do not remove complexity and their implicit insights, they instead map it. Thereby making sense of the complexity and _revealing_ insights.
+
+That is the aim of the _twinetverse_.
+
+By allowing the analyst a view tweets in a totally new fashion, _twinetverse_ enables uncovering new insights that otherwise would not be apparent.

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The twinetverse</title>
+  <meta name="description" content="An in-depth look at the twinetverse.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="The twinetverse" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="An in-depth look at the twinetverse." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The twinetverse" />
+  
+  <meta name="twitter:description" content="An in-depth look at the twinetverse." />
+  
+
+<meta name="author" content="John Coene">
+
+
+<meta name="date" content="2018-07-03">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="pkgs.html">
+<link rel="next" href="advanced.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
+<script src="libs/sigma-1.2.1/sigma.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.layout.forceAtlas2.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.layout.noverlap.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.parallelEdges.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.plugins.animate.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.customShapes.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.plugins.dragNodes.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.customEdgeShapes.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.plugins.relativeSize.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.edgeDots.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.edgeLabels.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.parsers.gexf.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.exporters.svg.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.plugins.neighborhoods.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.plugins.filter.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.snapshot.js"></script>
+<script src="libs/sigmajs-binding-0.1.1.9000/sigmajs.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The twinetverse Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>3</b> Methods</a><ul>
+<li class="chapter" data-level="3.1" data-path="methods.html"><a href="methods.html#tweets"><i class="fa fa-check"></i><b>3.1</b> Tweets</a></li>
+<li class="chapter" data-level="3.2" data-path="methods.html"><a href="methods.html#networks"><i class="fa fa-check"></i><b>3.2</b> Networks</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="pkgs.html"><a href="pkgs.html"><i class="fa fa-check"></i><b>4</b> Packages</a><ul>
+<li class="chapter" data-level="4.1" data-path="pkgs.html"><a href="pkgs.html#rtweet"><i class="fa fa-check"></i><b>4.1</b> rtweet</a></li>
+<li class="chapter" data-level="4.2" data-path="pkgs.html"><a href="pkgs.html#graphtweets"><i class="fa fa-check"></i><b>4.2</b> graphTweets</a></li>
+<li class="chapter" data-level="4.3" data-path="pkgs.html"><a href="pkgs.html#sigmajs"><i class="fa fa-check"></i><b>4.3</b> sigmajs</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>5</b> Get Started</a><ul>
+<li class="chapter" data-level="5.1" data-path="get-started.html"><a href="get-started.html#get-tweets"><i class="fa fa-check"></i><b>5.1</b> Get tweets</a></li>
+<li class="chapter" data-level="5.2" data-path="get-started.html"><a href="get-started.html#build-graph"><i class="fa fa-check"></i><b>5.2</b> Build graph</a></li>
+<li class="chapter" data-level="5.3" data-path="get-started.html"><a href="get-started.html#visualise"><i class="fa fa-check"></i><b>5.3</b> Visualise</a></li>
+<li class="chapter" data-level="5.4" data-path="get-started.html"><a href="get-started.html#recap"><i class="fa fa-check"></i><b>5.4</b> Recap</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="advanced.html"><a href="advanced.html"><i class="fa fa-check"></i><b>6</b> Advanced</a><ul>
+<li class="chapter" data-level="6.1" data-path="advanced.html"><a href="advanced.html#collect"><i class="fa fa-check"></i><b>6.1</b> Collect</a></li>
+<li class="chapter" data-level="6.2" data-path="advanced.html"><a href="advanced.html#build"><i class="fa fa-check"></i><b>6.2</b> Build</a></li>
+<li class="chapter" data-level="6.3" data-path="advanced.html"><a href="advanced.html#visualise-1"><i class="fa fa-check"></i><b>6.3</b> Visualise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="http://twinetverse.john-coene.com" target="blank">The twinetverse site</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The twinetverse</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="get-started" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Get Started</h1>
+<p>Here we just briefly explore each package and, together with the <em>twinetverse</em>. As expected the first thing to do is to collect the necessary data using rtweet, see the <a href="pkgs.html#pkgs">packages</a> section to get setup to set this up.</p>
+<div id="get-tweets" class="section level2">
+<h2><span class="header-section-number">5.1</span> Get tweets</h2>
+<p>Let’s create a token.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(twinetverse)
+
+TK &lt;-<span class="st"> </span><span class="kw">create_token</span>(
+  <span class="st">&quot;My Application Name&quot;</span>,
+  <span class="dt">consumer_key =</span> <span class="st">&quot;XxxxXxXXxXx&quot;</span>,
+  <span class="dt">consumer_secret =</span> <span class="st">&quot;XxxxXxXXxXx&quot;</span>,
+  <span class="dt">access_token =</span> <span class="st">&quot;XxxxXxXXxXx&quot;</span>,
+  <span class="dt">access_secret =</span> <span class="st">&quot;XxxxXxXXxXx&quot;</span>
+)</code></pre></div>
+<p>Now that you have a token you are ready to download get Twitter data. Before we do so let’s save our token; we’re going to use it quite a lot and there is no need to create a new one every time.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveRDS</span>(TK, <span class="dt">file =</span> <span class="st">&quot;token.rds&quot;</span>)</code></pre></div>
+<p>You can also load your token with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TK &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="dt">file =</span> <span class="st">&quot;token.rds&quot;</span>)</code></pre></div>
+<p>rtweet and the token you lets you do a lot of things, however within the context of the <em>twinetverse</em> we mainly use <code>search_tweets</code> to get tweets.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tweets &lt;-<span class="st"> </span><span class="kw">search_tweets</span>(<span class="st">&quot;rstats&quot;</span>, <span class="dt">token =</span> TK)</code></pre></div>
+<pre><code>## Searching for tweets...</code></pre>
+<pre><code>## Finished collecting tweets!</code></pre>
+<p>The <code>search_tweets</code> function takes a few arguments which we’ll eventually get into, above we run the simplest possible call; return tweets about “rstats”, a reference to the R <span class="citation">(R Core Team <a href="#ref-R-base">2018</a>)</span> Twitter <a href="https://twitter.com/search?q=rstats">#hashtag</a>, by default the function returns 100 tweets (<code>n = 100</code>). Note that we also pass our token.</p>
+</div>
+<div id="build-graph" class="section level2">
+<h2><span class="header-section-number">5.2</span> Build graph</h2>
+<p>Now we can use the second package part of the <em>twinetverse</em>, graphTweets. Again, we’ll run a vary basic call to get a basic graph. There’s a lot more to the package but we’ll get into that later.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">net &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gt_edges</span>(text, screen_name, status_id)</code></pre></div>
+<p>What did we just do? We simply call <code>gt_edges</code> on our tweets, specifying a few column names from our data.frame of tweets. The functions extracts the edges of the network; who is tagging who in the tweets. For instance, we now know that charlyaztec tags ibobriakov in a tweet.</p>
+<p>Well, not really because the object returned is of an unfamiliar class.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(net)</code></pre></div>
+<pre><code>## [1] &quot;graphTweets&quot;</code></pre>
+<p>To extracts the results from graphTweets run <code>gt_collect</code>, this will work at any point in the chain of pipes (<code>%&gt;%</code>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">net &lt;-<span class="st"> </span>net <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gt_collect</span>()
+
+<span class="kw">class</span>(net)</code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<p>Ok great but this returns a list and we agreed in the <a href="methods" class="uri">methods</a> section that data.frames are much clearer. Yes, but networks consist of two data.frames, one for edges and another for nodes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(net)</code></pre></div>
+<pre><code>## [1] &quot;edges&quot; &quot;nodes&quot;</code></pre>
+<p>Great, we have both nodes and edges, not really. We only have edges, <code>net$nodes</code> is actually <code>NULL</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(net, class)</code></pre></div>
+<pre><code>## $edges
+## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;
+## 
+## $nodes
+## [1] &quot;NULL&quot;</code></pre>
+<p>Well, we only ran <code>gt_edges</code> so it make sense that we only have edges. Let’s scrap that and get both nodes and edges.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">net &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gt_edges</span>(text, screen_name, status_id) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># get edges</span>
+<span class="st">  </span><span class="kw">gt_nodes</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># get nodes</span>
+<span class="st">  </span><span class="kw">gt_collect</span>() <span class="co"># collect</span>
+
+<span class="kw">lapply</span>(net, class)</code></pre></div>
+<pre><code>## $edges
+## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;
+## 
+## $nodes
+## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<p>Before we move on, something to note. graphTweets <em>requires</em> that you run the functions in the correct order, first <code>gt_edges</code> and second <code>gt_nodes</code>. This is because one can only know the nodes of a graph based on the edges.</p>
+<p>Now we’re good, we have downloaded tweets and have everything we need to visualise it; nodes and edges.</p>
+</div>
+<div id="visualise" class="section level2">
+<h2><span class="header-section-number">5.3</span> Visualise</h2>
+<p>We can visualise the network with <em>sigmajs</em>. Then again, it’s very easy and follows the same idea as <em>graphTweets</em>; we pipe our nodes and edges through. Before we do so, let’s unpack our network for clarity’s sake, and rename some columns to conform with sigmajs’ convention.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># unpack nodes</span>
+nodes &lt;-<span class="st"> </span>net<span class="op">$</span>nodes
+
+nodes<span class="op">$</span>id &lt;-<span class="st"> </span><span class="kw">as.factor</span>(nodes<span class="op">$</span>nodes) <span class="co"># sigmajs requires a unique id (named id)</span>
+nodes<span class="op">$</span>size &lt;-<span class="st"> </span>nodes<span class="op">$</span>n_edges <span class="co"># sigmajs requires node size named size</span>
+
+<span class="co"># unpack edges</span>
+edges &lt;-<span class="st"> </span>net<span class="op">$</span>edges
+
+edges<span class="op">$</span>id &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">nrow</span>(edges)) <span class="co"># sigmajs requires a unique id (named id)</span></code></pre></div>
+<p>sigmajs has a specific but sensible naming convention as well as basic minimal requirements.</p>
+<ul>
+<li>Nodes must at least include <code>id</code>, and <code>size</code></li>
+<li>Edges must at least include <code>id</code>, <code>source</code>, and <code>target</code>.</li>
+</ul>
+<p>Let’s visualise that.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sigmajs</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">sg_nodes</span>(nodes, id, size) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">sg_edges</span>(edges, id, source, target)</code></pre></div>
+<div id="htmlwidget-7c65c248796d162e10eb" class="sigmajs html-widget" style="width:100%;height:480px;">
+<button type="button" style="display:block;"></button>
+</div>
+<script type="application/json" data-for="htmlwidget-7c65c248796d162e10eb">{"x":{"data":{"nodes":[{"id":"_R_Foundationhttps//tco/vvrFvpS45n","size":" 1","x":" 1.012148","y":" 5.107943"},{"id":"5amVintage","size":" 1","x":" 4.325771","y":"14.665945"},{"id":"andschar","size":" 1","x":" 7.756280","y":"19.520810"},{"id":"AStavrakoudis","size":" 1","x":"16.318476","y":" 5.697758"},{"id":"bgreenwell8","size":" 5","x":"18.678712","y":"13.692576"},{"id":"bradleyboehmke","size":" 1","x":" 7.094114","y":"18.560367"},{"id":"BU_BAArchAnth","size":" 1","x":" 1.935067","y":"11.419191"},{"id":"canlumibao","size":" 1","x":" 9.988053","y":" 6.705805"},{"id":"ch_birnbaum","size":" 1","x":" 9.870433","y":"16.298382"},{"id":"charlyaztec","size":" 2","x":"14.307768","y":" 5.354600"},{"id":"chbergma","size":" 1","x":" 4.806406","y":"10.074381"},{"id":"CivicAngela","size":" 1","x":"15.252949","y":"10.979887"},{"id":"CleveArguelles","size":" 4","x":" 4.388437","y":" 8.244655"},{"id":"dataandme","size":" 1","x":" 6.932092","y":"10.609349"},{"id":"dirkzitt","size":" 2","x":" 1.543003","y":"10.666333"},{"id":"Drake's","size":" 2","x":" 8.510344","y":"15.095886"},{"id":"ebhcmedstats","size":" 1","x":" 1.506442","y":" 9.471120"},{"id":"emilycfarrer","size":" 1","x":"11.304853","y":" 9.280518"},{"id":"eoinbrazil","size":" 2","x":" 5.443468","y":"13.428808"},{"id":"FC_rstats's","size":" 1","x":" 1.756042","y":" 5.272306"},{"id":"FloydHub_","size":" 1","x":" 4.297125","y":"11.752524"},{"id":"hrbrmstr","size":" 1","x":"14.021082","y":" 7.400645"},{"id":"ibobriakov","size":" 1","x":"19.498630","y":" 7.538476"},{"id":"ikashnitsky","size":" 5","x":"14.456418","y":" 4.632498"},{"id":"je_mclaughlin","size":" 1","x":"12.844424","y":"10.968086"},{"id":"jLewnard","size":" 1","x":" 2.018638","y":" 2.976814"},{"id":"johncarey03755#hungaryelections","size":" 1","x":"17.756932","y":"13.546832"},{"id":"junoclient","size":" 1","x":" 9.464879","y":" 5.372613"},{"id":"KirkDBorne","size":" 1","x":"14.998310","y":" 4.905969"},{"id":"LippertAM","size":" 1","x":" 1.173906","y":"17.235163"},{"id":"littvay","size":" 1","x":" 7.072330","y":" 4.025206"},{"id":"markroepke","size":" 1","x":"16.649742","y":"14.397774"},{"id":"medzihorsky","size":" 1","x":"18.268376","y":" 8.183417"},{"id":"missdkingsbury","size":" 1","x":" 5.503482","y":" 2.941850"},{"id":"moinahmed","size":" 1","x":"15.153683","y":" 6.259066"},{"id":"mybinderteam","size":" 1","x":"15.893822","y":"19.784094"},{"id":"NumFOCUS","size":" 1","x":"19.616567","y":"14.776471"},{"id":"Ognyanova","size":" 1","x":"18.253328","y":"15.673548"},{"id":"oke_jason","size":" 1","x":" 3.007744","y":"15.558879"},{"id":"PaulCampbell91https//tco/fvK2aOdaXk","size":" 3","x":"18.458876","y":"18.366143"},{"id":"preslavrachev","size":" 1","x":" 1.153085","y":" 9.773876"},{"id":"RConsortium","size":" 1","x":"11.878732","y":" 7.119177"},{"id":"rctatman","size":" 4","x":"17.993657","y":"16.895989"},{"id":"RevoAndrie","size":" 1","x":"13.989250","y":" 7.083852"},{"id":"RLadiesChicago","size":" 1","x":"19.232767","y":"12.564779"},{"id":"RodriguezvFabi","size":" 1","x":"12.625466","y":"13.969413"},{"id":"RoelandtN42","size":" 1","x":"11.764236","y":" 5.943931"},{"id":"rOpenSci","size":" 1","x":" 9.602566","y":" 3.191936"},{"id":"rstatstweet","size":"19","x":"17.637226","y":"13.524856"},{"id":"rstudio","size":" 1","x":"12.302823","y":" 4.284537"},{"id":"RStudioJoe","size":" 1","x":" 8.006991","y":"10.701379"},{"id":"sdbernard's","size":" 1","x":"12.520308","y":"17.830369"},{"id":"simonjhix","size":" 1","x":" 9.460543","y":"10.269127"},{"id":"StatProgDC","size":" 2","x":" 4.849248","y":" 7.556676"},{"id":"theboysmithy","size":" 1","x":"18.974870","y":"10.115138"},{"id":"Torvaney","size":" 1","x":"13.280354","y":"18.600261"},{"id":"TulaneNews","size":" 1","x":" 9.796644","y":"10.772825"},{"id":"TulaneURF","size":" 1","x":"15.942408","y":"18.651936"},{"id":"tvpollet","size":" 1","x":" 9.420440","y":"11.728998"},{"id":"UCBerkeleySPH","size":" 2","x":" 5.970196","y":"12.871463"},{"id":"wahalulu","size":" 1","x":"11.883456","y":"18.311740"},{"id":"whyRconf","size":" 1","x":"10.398654","y":"16.044368"}],"edges":[{"id":"1","source":"charlyaztec","target":"ibobriakov"},{"id":"2","source":"charlyaztec","target":"missdkingsbury"},{"id":"3","source":"CivicAngela","target":"RLadiesChicago"},{"id":"4","source":"bgreenwell8","target":"bgreenwell8"},{"id":"5","source":"rstatstweet","target":"Drake's"},{"id":"6","source":"rstatstweet","target":"StatProgDC"},{"id":"7","source":"rstatstweet","target":"KirkDBorne"},{"id":"8","source":"rstatstweet","target":"hrbrmstr"},{"id":"9","source":"rstatstweet","target":"chbergma"},{"id":"10","source":"rstatstweet","target":"PaulCampbell91https//tco/fvK2aOdaXk"},{"id":"11","source":"rstatstweet","target":"bgreenwell8"},{"id":"12","source":"rstatstweet","target":"whyRconf"},{"id":"13","source":"rstatstweet","target":"UCBerkeleySPH"},{"id":"14","source":"rstatstweet","target":"TulaneURF"},{"id":"15","source":"rstatstweet","target":"RStudioJoe"},{"id":"16","source":"rstatstweet","target":"RConsortium"},{"id":"17","source":"rstatstweet","target":"emilycfarrer"},{"id":"18","source":"rstatstweet","target":"RodriguezvFabi"},{"id":"19","source":"rstatstweet","target":"canlumibao"},{"id":"20","source":"rstatstweet","target":"ch_birnbaum"},{"id":"21","source":"rstatstweet","target":"TulaneNews"},{"id":"22","source":"rstatstweet","target":"NumFOCUS"},{"id":"23","source":"rstatstweet","target":"rOpenSci"},{"id":"24","source":"Torvaney","target":"FC_rstats's"},{"id":"25","source":"LippertAM","target":"ikashnitsky"},{"id":"26","source":"markroepke","target":"bgreenwell8"},{"id":"27","source":"eoinbrazil","target":"theboysmithy"},{"id":"28","source":"eoinbrazil","target":"sdbernard's"},{"id":"29","source":"BU_BAArchAnth","target":"Ognyanova"},{"id":"30","source":"moinahmed","target":"ikashnitsky"},{"id":"31","source":"rctatman","target":"preslavrachev"},{"id":"32","source":"rctatman","target":"junoclient"},{"id":"33","source":"rctatman","target":"mybinderteam"},{"id":"34","source":"rctatman","target":"FloydHub_"},{"id":"35","source":"CleveArguelles","target":"medzihorsky"},{"id":"36","source":"CleveArguelles","target":"littvay"},{"id":"37","source":"CleveArguelles","target":"simonjhix"},{"id":"38","source":"CleveArguelles","target":"johncarey03755#hungaryelections"},{"id":"39","source":"dirkzitt","target":"RevoAndrie"},{"id":"40","source":"dirkzitt","target":"rstudio"},{"id":"41","source":"5amVintage","target":"Drake's"},{"id":"42","source":"wahalulu","target":"StatProgDC"},{"id":"43","source":"je_mclaughlin","target":"PaulCampbell91https//tco/fvK2aOdaXk"},{"id":"44","source":"AStavrakoudis","target":"ikashnitsky"},{"id":"45","source":"oke_jason","target":"ebhcmedstats"},{"id":"46","source":"dataandme","target":"PaulCampbell91https//tco/fvK2aOdaXk"},{"id":"47","source":"bradleyboehmke","target":"bgreenwell8"},{"id":"48","source":"tvpollet","target":"_R_Foundationhttps//tco/vvrFvpS45n"},{"id":"49","source":"RoelandtN42","target":"ikashnitsky"},{"id":"50","source":"andschar","target":"ikashnitsky"},{"id":"51","source":"jLewnard","target":"UCBerkeleySPH"}]},"type":"canvas","crosstalk":{"crosstalk_key":null,"crosstalk_group":null}},"evals":[],"jsHooks":[]}</script>
+<p>This graph does not look great. We’ll beautify that later on.</p>
+</div>
+<div id="recap" class="section level2">
+<h2><span class="header-section-number">5.4</span> Recap</h2>
+<p>This section aimed at demonstrating the basic of the package and order in which to use its components. The chapter may look long~ish but the code is not, here it is put together.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+<span class="co"># COLLECT</span>
+tweets &lt;-<span class="st"> </span><span class="kw">search_tweets</span>(<span class="st">&quot;rstats&quot;</span>, <span class="dt">token =</span> TK)
+
+<span class="co"># BUILD</span>
+net &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gt_edges</span>(text, screen_name, status_id) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gt_nodes</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gt_collect</span>() 
+
+nodes &lt;-<span class="st"> </span>net<span class="op">$</span>nodes
+
+nodes<span class="op">$</span>id &lt;-<span class="st"> </span><span class="kw">as.factor</span>(nodes<span class="op">$</span>nodes) 
+nodes<span class="op">$</span>size &lt;-<span class="st"> </span>nodes<span class="op">$</span>n_edges 
+
+edges &lt;-<span class="st"> </span>net<span class="op">$</span>edges
+
+edges<span class="op">$</span>id &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">nrow</span>(edges))
+
+<span class="co"># Visualise</span>
+<span class="kw">sigmajs</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">sg_nodes</span>(nodes, id, size) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">sg_edges</span>(edges, id, source, target)</code></pre></div>
+<ol style="list-style-type: decimal">
+<li>We <strong>collect</strong> the data</li>
+<li>We <strong>build</strong> the graph</li>
+<li>We <strong>visualise</strong> the network</li>
+</ol>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-base">
+<p>R Core Team. 2018. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="pkgs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="advanced.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["twinetbook.pdf", "twinetbook.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

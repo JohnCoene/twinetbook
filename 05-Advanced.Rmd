@@ -1,0 +1,62 @@
+# Advanced {#advanced}
+
+```{r, echo=FALSE, include=FALSE}
+library(twinetverse)
+
+TK <- readRDS("twitter_token.rds")
+```
+
+In this chapter we essentially replicate what we did in the [Get Started chapter](get-started) but in a somewhat more advanced manner as we introduce a few new functions.
+
+## Collect
+
+Let's collect more tweets this time, we'll also set `include_rts = FALSE` as we dont't need the same tweet twice given what we do. Remember to load your token if you're in a new environment.
+
+```{r, eval=TRUE}
+tweets <- search_tweets("rstats", n = 1000, token = TK, include_rts = FALSE)
+```
+
+## Build
+
+Let's build the graph, just like we did before.
+
+```{r, eval=TRUE}
+net <- tweets %>% 
+  gt_edges(text, screen_name, status_id) %>% 
+  gt_nodes() %>% 
+  gt_collect()
+```
+
+## Visualise
+
+Let's make a slightly more interesting visualisation this time.
+
+* We add labels (on hover).
+* We add color (by node size).
+* We layout the graph appropriately.
+
+```{r, eval=TRUE}
+library(dplyr)
+
+nodes <- net$nodes
+edges <- net$edges
+
+nodes <- nodes %>% 
+  arrange(n_edges) %>% 
+  mutate(
+    id = nodes,
+    label = nodes,
+    size = n_edges,
+    color = colorRampPalette(c("#5fc1e8", "#127ba3"))(n())
+  )
+
+edges$id <- seq(1, nrow(edges))
+
+# Visualise
+sigmajs() %>% 
+  sg_nodes(nodes, id, label, size, color) %>% 
+  sg_edges(edges, id, source, target) %>% 
+  sg_layout()
+```
+
+Already looking better.

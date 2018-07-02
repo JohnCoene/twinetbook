@@ -40,6 +40,8 @@ _Note that the package lets you do much more than simply downloading tweets, how
 
 The [graphTweets](http://graphtweets.john-coene.com/) package lets you build lists of nodes and edges from tweets collected with rtweet. The package is faily straighforward and inludes but a few functions. However it still enables you to extract valuable variables to build dynamic graphs.
 
+All functions of the package start with `gt_`.
+
 graphTweets fills the seecond step in visualising Twitter interactions, **building** the graphs from the collected data.
 
 ## sigmajs
@@ -58,5 +60,7 @@ Features:
 * Events in Shiny
 * Buttons to trigger interactions.
 * and more.
+
+All functions of the package start with `sg_`.
 
 sigmajs is the final piece of the puzzle, **visualising** the graphs we have built.
