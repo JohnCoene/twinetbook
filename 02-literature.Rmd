@@ -1,0 +1,62 @@
+# Packages {#pkgs}
+
+Below are the packages that are included in the _twinetverse_ and what they bring to our endeavour of visualising Twitter interactions.
+
+## rtweet
+
+<a href="http://rtweet.info/" target="_blank">
+<img src="http://rtweet.info/reference/figures/logo.png" align="left" style="max-height:150px;margin-right:2%;"/>
+</a>
+
+If we are going to visualise Twitter interactions we are going to need data, namely tweets. The [rtweet](http://rtweet.info/) package wraps the [Twitter API](https://developer.twitter.com/en/docs.html), thereby giving R users easy access to tweets. 
+
+The rtweet package requires some set up. This is not only extremely easy but also very well explained on rtweet's [official website](http://rtweet.info/articles/auth.html), so head over there if the short description below does not satisfy.
+
+In essence, you will need a Twitter "app" to access its API (via rtweet), to create one:
+
+1. Head over to [apps.twitter.com](https://apps.twitter.com/) and login or signup if you do not have a Twitter account.
+2. Click create an app.
+3. In the following form, enter an app name, whatever you want, this does not matter.
+4. Enter a description, then again, it doesn't matter.
+5. Website, simply put a valid website, you can link to your Twitter profile if you do not have one, i.e.: [https://twitter.com/jdatap](https://twitter.com/jdatap)
+6. Callback URL, this is **important**, in there put the following: `http://127.0.0.1:1410`.
+
+You're now setup, take note of the following under "Keys abd Access Tokens", as you will need it to create your token and fetch tweets:
+
+* Consumer Key (API Key)
+* Consumer Secret (API Secret)
+* Access Token
+* Access Token Secret
+
+rtweet fills the very first step in visualising Twitter interactions, *collecting* the necessary data.
+
+_Note that the package lets you do much more than simply downloading tweets, however, this is its main function within the twinetverse._
+
+## graphTweets
+
+<a href="http://graphTweets.john-coene.com/" target="_blank">
+<img src="http://graphtweets.john-coene.com/logo.png" align="left" style="max-height:150px;margin-right:2%;"/>
+</a>
+
+The [graphTweets](http://graphtweets.john-coene.com/) package lets you build lists of nodes and edges from tweets collected with rtweet. The package is faily straighforward and inludes but a few functions. However it still enables you to extract valuable variables to build dynamic graphs.
+
+graphTweets fills the seecond step in visualising Twitter interactions, **building** the graphs from the collected data.
+
+## sigmajs
+
+<a href="http://sigmajs.john-coene.com/" target="_blank">
+<img src="http://sigmajs.john-coene.com/reference/figures/logo.png" align="left" style="max-height:150px;margin-right:2%;"/>
+</a>
+
+[sigmajs](http://sigmajs.john-coene.com/) is a powerful library to visualise the networks we have built using graphTweets. The package, like graphTweets, is pipe-friendly (`%>%`), therefore making it easy to go from building a graph to visualising it. It can also easily let you visualise dynamic networks, which is otherwise not evident in R.
+
+Features:
+
+* Highly interactive
+* Crosstalk integrated
+* Includes Shiny proxies
+* Events in Shiny
+* Buttons to trigger interactions.
+* and more.
+
+sigmajs is the final piece of the puzzle, **visualising** the graphs we have built.

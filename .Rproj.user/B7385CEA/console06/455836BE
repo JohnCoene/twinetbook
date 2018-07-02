@@ -1,0 +1,82 @@
+[0m[0K]0;[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0K[?25lt[0K[5G[?25h[6G[7G[?25l$ git i[0K[?25h[?25ln[0K[8G[?25h[9G[?25l$ git ini[0K[?25ht[0K[?25l
+[0K[?25hInitialized empty Git repository in C:/Users/JCOE/Documents/Projects/twinetbo[0Ko[?25l
+k/.git/[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add r[0K[?25h[?25le[0K[12G[?25h[13G[?25l$ git add rem[0K[?25ho[0Kt[0Ke[0K[18G[?25l$ git add remote r[0K[?25ho[0Kg[0Ki[0Ki[0K[?25l$ git add remote rogi[0K[?25h[?25l$ git add remote rog[0K[?25h[?25l$ git add remote ro[0K[21G[?25h[20G[?25l$ git add remote r[0K[?25h[?25l$ git add remote[0K[18G[?25h[?25l$ git add remote o[0K[?25hr[0Ki[0Kg[0Ki[0Kn[0K[25G[?25l$ git add remote origin https://JohnCoene@bitbucket.org/JohnCoene/twinetbook.[0K
+git[0K[?25h[?25l
+[0K[?25hfatal: pathspec 'remote' did not match any files[0K[?25l
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git add remote origin https://JohnCoene@bitbucket.org/JohnCoene/twinetbook.[0K
+git[0K[?25h[3G[2G[1G[?25l[1A[77G[?25h[76G[74G[73G[72G[71G[70G[69G[68G[67G[66G[65G[64G[63G[62G[61G[60G[59G[58G[56G[55G[53G[52G[51G[50G[49G[48G[47G[46G[45G[44G[43G[42G[41G[39G[38G[37G[36G[35G[33G[32G[31G[29G[28G[27G[26G[25G[24G[23G[22G[21G[19G[18G[17G[16G[17G[?25l$ git add remote  origin https://JohnCoene@bitbucket.org/JohnCoene/twinetbook[0K
+.git[0K[1A[18G[?25h[?25l$ git add remote d origin https://JohnCoene@bitbucket.org/JohnCoene/twinetboo[0K
+k.git[0K[1A[19G[?25h[?25l$ git add remote  origin https://JohnCoene@bitbucket.org/JohnCoene/twinetbook[0K
+k.git[0K[1A[19G[?25h[?25l
+.git[0K[1A[18G[?25h[?25l$ git add remote a origin https://JohnCoene@bitbucket.org/JohnCoene/twinetboo[0K
+k.git[0K[1A[19G[?25h[?25l$ git add remote ad origin https://JohnCoene@bitbucket.org/JohnCoene/twinetbo[0K
+ok.git[0K[1A[20G[?25h[?25l$ git add remote add origin https://JohnCoene@bitbucket.org/JohnCoene/twinetb[0K
+ook.git[0K[1A[21G[?25h[20G[19G[18G[17G[16G[15G[14G[13G[12G[11G[?25l$ git addremote add origin https://JohnCoene@bitbucket.org/JohnCoene/twinetbo[0K
+ok.git[0K[1A[10G[?25h[?25l$ git adremote add origin https://JohnCoene@bitbucket.org/JohnCoene/twinetboo[0K
+k.git[0K[1A[9G[?25h[?25l$ git aremote add origin https://JohnCoene@bitbucket.org/JohnCoene/twinetbook[0K
+.git[0K[1A[8G[?25h[?25l$ git remote add origin https://JohnCoene@bitbucket.org/JohnCoene/twinetbook.[0K
+git[0K[1A[7G[?25h[?25l
+
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l[13AInitialized empty Git repository in C:/Users/JCOE/Documents/Projects/twinetbook/.git/[0K
+[0K
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0K
+[0m$ git add remote origin https://JohnCoene@bitbucket.org/JohnCoene/twinetbook.[0K
+git[0K
+fatal: pathspec 'remote' did not match any files[0K
+[0K
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0K
+[0m$ git remote add origin https://JohnCoene@bitbucket.org/JohnCoene/twinetbook.[0K
+git[0K
+[0K
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0K
+[0m$[0K
+[0K[1A[3G[?25h[?25l$ g[0K
+[0K[1A[4G[?25h[?25l$ gi[0K
+[0K[1A[5G[?25h[?25l$ git[0K
+[0K[1A[6G[?25h[7G[?25l$ git s[0K
+[0K[1A[8G[?25h[?25l$ git st[0K
+[0K[1A[9G[?25h[?25l$ git sta[0K
+[0K[1A[10G[?25h[?25l$ git stat[0K
+[0K[1A[11G[?25h[?25l$ git statu[0K
+[0K[1A[12G[?25h[?25l$ git status[0K
+[0K[1A[13G[?25h[?25l
+[?25hOn branch master[0K[?25l
+[0K
+No commits yet[0K
+[0K
+Untracked files:[0K
+  (use "git add <file>..." to include in what will be committed)[0K
+[0K
+        [0;31m.Rproj.user/[0m[0K
+        [0;31m01-intro.Rmd[0m[0K
+        [0;31m02-literature.Rmd[0m[0K
+        [0;31m03-method.Rmd[0m[0K
+        [0;31m04-application.Rmd[0m[0K
+        [0;31m05-summary.Rmd[0m[0K
+        [0;31m06-references.Rmd[0m[0K
+        [0;31mREADME.md[0m[0K
+        [0;31m_book/[0m[0K
+        [0;31m_bookdown.yml[0m[0K
+        [0;31m_bookdown_files/[0m[0K
+        [0;31m_output.yml[0m[0K
+        [0;31mbook.bib[0m[0K
+        [0;31mindex.Rmd[0m[0K
+        [0;31mpackages.bib[0m[0K
+        [0;31mpreamble.tex[0m[0K
+        [0;31mstyle.css[0m[0K
+        [0;31mtwinetbook.Rproj[0m[0K
+[0K
+nothing added to commit but untracked files present (use "git add" to track)[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$ g[0K[?25hi[0K[?25lt[0K[5G[?25h[6G[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[?25hA[0K[?25l
+[0K[?25h
