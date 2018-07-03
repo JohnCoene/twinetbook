@@ -9,7 +9,7 @@ TK <- readRDS("twitter_token.rds")
 
 Here we just briefly explore each package and, together with the _twinetverse_. As expected the first thing to do is to collect the necessary data using rtweet, see the [packages](#pkgs) section to get setup to set this up.
 
-## Get tweets
+## Collect
 
 Let's create a token.
 
@@ -45,7 +45,7 @@ tweets <- search_tweets("rstats", token = TK)
 
 The `search_tweets` function takes a few arguments which we'll eventually get into, above we run the simplest possible call; calling for tweets about "rstats", a reference to the R [@R-base] Twitter [#hashtag](https://twitter.com/search?q=rstats), by default the function returns 100 tweets. Note that we also pass our token to the function.
 
-## Build graph
+## Build
 
 Now we can use the second package part of the _twinetverse_, graphTweets. Again, we'll run a vary basic call to get a basic graph. There's a lot more to the package which we'll get into later.
 

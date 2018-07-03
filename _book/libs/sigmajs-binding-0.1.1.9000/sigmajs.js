@@ -202,14 +202,15 @@ HTMLWidgets.widget({
 				// start noverlap
 				if (x.hasOwnProperty('noverlap')) {
 					var noverlap = s.configNoverlap(x.noverlap);
+					if (x.noverlapStart === true) {
+						s.startNoverlap();
+					}
 					
 				  if(x.button.event === 'noverlap'){
 				    button.addEventListener("click", function(event) {
 				      s.startNoverlap();
 				    });
-				  } else {
-				    s.startNoverlap();
-				  }
+				  } 
 				}
 
 				// custom shapes
