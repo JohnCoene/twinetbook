@@ -132,7 +132,7 @@ sigmajs() %>%
   sg_edges(edges, id, source, target)
 ```
 
-This graph does not look great. We'll beautify that later on.
+This graph does not look great. We'll beautify that later on. You may also notice that the graph contains surprisingly few nodes given that we queried 100 tweets. This is because our visualisation only includes tweets that mention other users and most tweets just do not. There is an easy remedy to this in the [advanced](advanced) chapter.
 
 ## Recap
 

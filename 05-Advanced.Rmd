@@ -10,10 +10,19 @@ In this chapter we essentially replicate what we did in the [Get Started chapter
 
 ## Collect
 
-Let's collect more tweets this time, we'll also set `include_rts = FALSE` as we dont't need the same tweet twice given what we do. Remember to load your token if you're in a new environment.
+Let's collect more tweets this time, we'll also set `include_rts = FALSE` as we dont't need the same tweet multiple times, it does not add information. We also pass a slightly more sophisticated query to the search tweet endpoint, this is often overlooked, the Twitter API provides [sophisticated operators](https://developer.twitter.com/en/docs/tweets/search/guides/standard-operators.html), you are not limited to search for a single keyword.
+
+Query tweets that:
+
+- Include `#rstats`
+- Include a mention i.e.: `@jdatap`
+- Are not re-tweets
+
+Remember to load your token if you're in a new environment.
 
 ```{r, eval=TRUE}
-tweets <- search_tweets("rstats", n = 1000, token = TK, include_rts = FALSE)
+# TK <- readRDS(file = "token.rds")
+tweets <- search_tweets("#rstats filter:mentions", n = 1000, token = TK, include_rts = FALSE)
 ```
 
 ## Build
@@ -34,6 +43,7 @@ Let's make a slightly more interesting visualisation this time.
 * We add labels (on hover).
 * We add color (by node size).
 * We layout the graph appropriately.
+* We use settings to change the minimum and maximum node size as well as the edges color.
 
 ```{r, eval=TRUE}
 library(dplyr)
@@ -53,10 +63,18 @@ nodes <- nodes %>%
 edges$id <- seq(1, nrow(edges))
 
 # Visualise
-sigmajs() %>% 
+sigmajs("webgl") %>% 
   sg_nodes(nodes, id, label, size, color) %>% 
   sg_edges(edges, id, source, target) %>% 
-  sg_layout()
+  sg_layout(layout = igraph::layout_components) %>% 
+  sg_settings(
+    edgeColor = "default",
+    defaultEdgeColor = "#d3d3d3",
+    minNodeSize = 1,
+    maxNodeSize = 4,
+    minEdgeSize = 0.3,
+    maxEdgeSize = 0.3
+  )
 ```
 
 Already looking better.

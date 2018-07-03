@@ -79,4 +79,22 @@ nothing added to commit but untracked files present (use "git add" to track)[0K
 [0K[?25h[?25l
 [0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
 $ g[0K[?25hi[0K[?25lt[0K[5G[?25h[6G[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[?25hA[0K[?25l
+]0;[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git r[0K[?25he[0Km[0Ko[0Kt[0Ke[0K[14G[?25l$ git remote a[0K[?25hd[0K[?25l$ git remote a[0K[?25hd[0Kd[0K[18G[?25l$ git remote add o[0K[?25hr[0Ki[0Kg[0Ki[0K[?25l$ git remote add orig[0K[?25h[?25l$ git remote add ori[0K[?25h[?25l$ git remote add or[0K[?25h[?25l$ git remote add o[0K[?25h[?25l$ git remote add[0K[18G[?25h[?25l$ git remote add g[0K[?25hi[0Kt[0Kh[0Ku[0Kb[0K[25G[?25l$ git remote add github https://github.com/JohnCoene/twinetbook.git[0K[?25h[?25l
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0m[0K[1A[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25h[?25li[0K[4G[?25h[5G[?25l$ git[0K[?25h[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l$ git push g[0K[?25hi[0Kt[0Kh[0Ku[0Kb[0K[19G[?25l$ git push github m[0K[19G[?25h[20G[?25l$ git push github ma[0K[?25hs[0Kt[0Ke[0Kr[0K[?25l
+[0K[?25hCounting objects: 168, done.[0K[?25l
+[0K[?25hDelta compression using up to 4 threads.[0K[?25l
+Compressing objects: 100% (109/109), done.[0K
+Writing objects: 100% (168/168), 486.22 KiB | 24.31 MiB/s, done.[0K
+Total 168 (delta 35), reused 168 (delta 35)[0K
+[0K[?25hremote: Resolving deltas: 100% (35/35), done.[0K[?25l
+To https://github.com/JohnCoene/twinetbook.git[0K
+ * [new branch]      master -> master[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[?25hA[0K[?25l
 [0K[?25h
