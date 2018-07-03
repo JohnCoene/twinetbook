@@ -1,11 +1,7 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
 # Get Started {#get-started}
 
 ```{r setup, echo=FALSE, include=FALSE}
+library(dplyr)
 library(twinetverse)
 
 TK <- readRDS("twitter_token.rds")
@@ -35,30 +31,32 @@ Now that you have a token you are ready to download get Twitter data. Before we 
 saveRDS(TK, file = "token.rds")
 ```
 
-You can also load your token with:
+You can always load your token with:
 
 ```{r, eval=FALSE}
-TK <- readRDS(file = "token.rds")
+TK <- readRDS("token.rds")
 ```
 
-rtweet and the token you lets you do a lot of things, however within the context of the _twinetverse_ we mainly use `search_tweets` to get tweets.
+rtweet lets you do a lot of things, however within the context of the _twinetverse_ we mainly use `search_tweets` to get tweets.
 
 ```{r collect, eval=TRUE}
 tweets <- search_tweets("rstats", token = TK)
 ```
 
-The `search_tweets` function takes a few arguments which we'll eventually get into, above we run the simplest possible call; return tweets about "rstats", a reference to the R [@R-base] Twitter [#hashtag](https://twitter.com/search?q=rstats), by default the function returns 100 tweets (`n = 100`). Note that we also pass our token.
+The `search_tweets` function takes a few arguments which we'll eventually get into, above we run the simplest possible call; calling for tweets about "rstats", a reference to the R [@R-base] Twitter [#hashtag](https://twitter.com/search?q=rstats), by default the function returns 100 tweets. Note that we also pass our token to the function.
 
 ## Build graph
 
-Now we can use the second package part of the _twinetverse_, graphTweets. Again, we'll run a vary basic call to get a basic graph. There's a lot more to the package but we'll get into that later.
+Now we can use the second package part of the _twinetverse_, graphTweets. Again, we'll run a vary basic call to get a basic graph. There's a lot more to the package which we'll get into later.
 
 ```{r, eval=TRUE}
 net <- tweets %>% 
   gt_edges(text, screen_name, status_id)
 ```
 
-What did we just do? We simply call `gt_edges` on our tweets, specifying a few column names from our data.frame of tweets. The functions extracts the edges of the network; who is tagging who in the tweets. For instance, we now know that `r net$edges[1,1]` tags `r net$edges[1,2]` in a tweet.
+What did we just do? We simply call `gt_edges` on our tweets, specifying a few column names from our data.frame of tweets. The functions extracts the edges of the network; who is sending the tweet and who they tag in their the tweets. 
+
+For instance, we now know that `r net$edges[1,1]` tags `r net$edges[1,2]` in a tweet.
 
 Well, not really because the object returned is of an unfamiliar class.
 
@@ -104,17 +102,28 @@ Now we're good, we have downloaded tweets and have everything we need to visuali
 
 ## Visualise
 
-We can visualise the network with _sigmajs_. Then again, it's very easy and follows the same idea as _graphTweets_; we pipe our nodes and edges through. Before we do so, let's unpack our network for clarity's sake, and rename some columns to conform with sigmajs' convention.
+We can visualise the network with _sigmajs_. Then again, it's very easy and follows the same idea as _graphTweets_; we pipe our nodes and edges through. Before we do so, let's unpack our network for clarity's sake, and inspect nodes and edges.
+
+```{r, eval=FALSE}
+nodes <- net$nodes
+edges <- net$edges
+head(edges); head(nodes)
+```
+
+```{r, eval=TRUE, echo=FALSE}
+nodes <- net$nodes
+edges <- net$edges
+knitr::kable(head(edges))
+knitr::kable(head(nodes))
+```
+
+In the nodes data frame the column `n_edges` is the number edges the node appears in. Edges simplz returns `source` and `target`; source essentially corresponds to `screen_name` passed in `gt_edges`, it is the user who posted the tweet. In contrast, `target` includes the users that were tagged in the `text` of the tweet.
+
+Below we rename a few columns, to meet sigmajs' naming convention.
 
 ```{r}
-# unpack nodes
-nodes <- net$nodes
-
 nodes$id <- as.factor(nodes$nodes) # sigmajs requires a unique id (named id)
 nodes$size <- nodes$n_edges # sigmajs requires node size named size
-
-# unpack edges
-edges <- net$edges
 
 edges$id <- seq(1, nrow(edges)) # sigmajs requires a unique id (named id)
 ```
@@ -126,13 +135,17 @@ sigmajs has a specific but sensible naming convention as well as basic minimal r
 
 Let's visualise that.
 
-```{r}
+```{r, eval=TRUE}
 sigmajs() %>% 
   sg_nodes(nodes, id, size) %>% 
   sg_edges(edges, id, source, target)
 ```
 
-This graph does not look great. We'll beautify that later on. You may also notice that the graph contains surprisingly few nodes given that we queried 100 tweets. This is because our visualisation only includes tweets that mention other users and most tweets just do not. There is an easy remedy to this in the [advanced](advanced) chapter.
+This graph does not look great. We'll beautify that later on. 
+
+Nevermind that, what's on the graph exactly? Each disk on the graph is a twitter handle, they are connected when one has tagged the other in the a tweet.
+
+You may also notice that the graph contains surprisingly few nodes given that we queried 100 tweets. This is because our visualisation only includes tweets that mention other users and most tweets just do not. There is an easy remedy to this in the [advanced](advanced) chapter.
 
 ## Recap
 

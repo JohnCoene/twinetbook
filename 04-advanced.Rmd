@@ -10,9 +10,9 @@ In this chapter we essentially replicate what we did in the [Get Started chapter
 
 ## Collect
 
-Let's collect more tweets this time, we'll also set `include_rts = FALSE` as we dont't need the same tweet multiple times, it does not add information. We also pass a slightly more sophisticated query to the search tweet endpoint, this is often overlooked, the Twitter API provides [sophisticated operators](https://developer.twitter.com/en/docs/tweets/search/guides/standard-operators.html), you are not limited to search for a single keyword.
+Let's collect more tweets this time, we'll also set `include_rts = FALSE` as we dont't need the same tweet multiple times, it does not add information. We also pass a slightly more sophisticated query to the search tweet endpoint, this is often overlooked, the Twitter API provides [sophisticated operators](https://developer.twitter.com/en/docs/tweets/search/guides/standard-operators.html), you are not limited to searching for a single keyword.
 
-Query tweets that:
+We query tweets that:
 
 - Include `#rstats`
 - Include a mention i.e.: `@jdatap`
@@ -27,7 +27,7 @@ tweets <- search_tweets("#rstats filter:mentions", n = 1000, token = TK, include
 
 ## Build
 
-Let's build the graph, just like we did before.
+Let's build the graph, just like we did before. There is more to graphTweets but we won't look into that just yet.
 
 ```{r, eval=TRUE}
 net <- tweets %>% 
@@ -42,7 +42,7 @@ Let's make a slightly more interesting visualisation this time.
 
 * We add labels (on hover).
 * We add color (by node size).
-* We layout the graph appropriately.
+* We layout the graph appropriately using igraph [@R-igraph].
 * We use settings to change the minimum and maximum node size as well as the edges color.
 
 ```{r, eval=TRUE}

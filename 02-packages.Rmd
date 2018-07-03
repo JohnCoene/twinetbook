@@ -1,6 +1,6 @@
 # Packages {#pkgs}
 
-Below are the packages that are included in the _twinetverse_ and what they bring to our endeavour of visualising Twitter interactions.
+Below are the packages thatmake up in the _twinetverse_ as well as some explanation of what they bring to visualising Twitter interactions.
 
 ## rtweet
 
@@ -8,7 +8,7 @@ Below are the packages that are included in the _twinetverse_ and what they brin
 <img src="http://rtweet.info/reference/figures/logo.png" align="left" style="max-height:150px;margin-right:2%;"/>
 </a>
 
-If we are going to visualise Twitter interactions we are going to need data, namely tweets. The [rtweet](http://rtweet.info/) package wraps the [Twitter API](https://developer.twitter.com/en/docs.html), thereby giving R users easy access to tweets. 
+If we are going to visualise Twitter interactions we are going to need data, namely tweets. The rtweet [@R-rtweet] package wraps the [Twitter API](https://developer.twitter.com/en/docs.html), thereby giving R users easy access to tweets. 
 
 The rtweet package requires some set up. This is not only extremely easy but also very well explained on rtweet's [official website](http://rtweet.info/articles/auth.html), so head over there if the short description below does not satisfy.
 
@@ -38,7 +38,7 @@ _Note that the package lets you do much more than simply downloading tweets, how
 <img src="http://graphtweets.john-coene.com/logo.png" align="left" style="max-height:150px;margin-right:2%;"/>
 </a>
 
-The [graphTweets](http://graphtweets.john-coene.com/) package lets you build lists of nodes and edges from tweets collected with rtweet. The package is faily straighforward and inludes but a few functions. However it still enables you to extract valuable variables to build dynamic graphs.
+The graphTweets [@R-graphTweets] package lets you build lists of nodes and edges from tweets collected with rtweet. The package is faily straighforward and inludes but a few functions. However, it still enables you to extract construct dynamic graphs.
 
 All functions of the package start with `gt_`.
 
@@ -50,7 +50,7 @@ graphTweets fills the seecond step in visualising Twitter interactions, **buildi
 <img src="http://sigmajs.john-coene.com/reference/figures/logo.png" align="left" style="max-height:150px;margin-right:2%;"/>
 </a>
 
-[sigmajs](http://sigmajs.john-coene.com/) is a powerful library to visualise the networks we have built using graphTweets. The package, like graphTweets, is pipe-friendly (`%>%`), therefore making it easy to go from building a graph to visualising it. It can also easily let you visualise dynamic networks, which is otherwise not evident in R.
+sigmajs [@R-sigmajs] is a powerful library to visualise the networks we have built using graphTweets. The package, like graphTweets, is pipe-friendly (`%>%`), therefore making it easy to go from building a graph to visualising it. It can also easily represent dynamic networks, something otherwise not evident in R.
 
 Features:
 
