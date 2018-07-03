@@ -2,87 +2,6 @@
 [0K
 [0K
 [0K
-[0K[24A[4G[?25h[?25l$ gi[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[24A[4G[?25h[5G[?25l$ git[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[24A[6G[?25h[7G[?25l$ git a[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[24A[8G[?25h[?25l$ git ad[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
 [0K
 [0K
 [0K
@@ -1016,4 +935,70 @@ warning: LF will be replaced by CRLF in .Rproj.user/shared/notebooks/paths.[0K
 The file will have its original line endings in your working directory.[0K
 [0K[?25h[?25l
 [0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[?25hA[0K
+[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[?25hA[0K[?25l
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25h[?25lm[0K[15G[?25h[16G[17G[?25l$ git commit -m "[0K[?25h"[0K[18G[?25l$ git commit -m "a"[0K[19G[?25h[?25l$ git commit -m "ad"[0K[20G[?25h[?25l$ git commit -m "add"[0K[21G[?25h[?25l$ git commit -m "adde"[0K[22G[?25h[?25l$ git commit -m "added"[0K[23G[?25h[?25l$ git commit -m "adde"[0K[22G[?25h[?25l$ git commit -m "add"[0K[?25h[21G[?25l$ git commit -m "ad"[0K[20G[?25h[?25l$ git commit -m "a"[0K[19G[?25h[?25l$ git commit -m ""[0K[18G[?25h[?25l$ git commit -m "c"[0K[19G[?25h[?25l$ git commit -m "co"[0K[20G[?25h[?25l$ git commit -m "cor"[0K[21G[?25h[?25l$ git commit -m "corr"[0K[22G[?25h[?25l$ git commit -m "corre"[0K[23G[?25h[?25l$ git commit -m "correc"[0K[23G[?25h[24G[?25l$ git commit -m "correct"[0K[25G[?25h[?25l$ git commit -m "correcti"[0K[26G[?25h[?25l$ git commit -m "correctio"[0K[26G[?25h[27G[?25l$ git commit -m "correction"[0K[28G[?25h[?25l$ git commit -m "corrections"[0K[29G[?25h[?25l$ git commit -m "corrections "[0K[30G[?25h[?25l$ git commit -m "corrections r"[0K[30G[?25h[31G[?25l$ git commit -m "corrections re"[0K[32G[?25h[?25l$ git commit -m "corrections rem"[0K[33G[?25h[?25l$ git commit -m "corrections remo"[0K[34G[?25h[?25l$ git commit -m "corrections remov"[0K[34G[?25h[35G[?25l$ git commit -m "corrections remove"[0K[36G[?25h[?25l$ git commit -m "corrections removed"[0K[37G[?25h[?25l$ git commit -m "corrections removed "[0K[38G[?25h[?25l$ git commit -m "corrections removed m"[0K[38G[?25h[39G[?25l$ git commit -m "corrections removed me"[0K[40G[?25h[?25l$ git commit -m "corrections removed met"[0K[41G[?25h[?25l$ git commit -m "corrections removed meth"[0K[42G[?25h[?25l$ git commit -m "corrections removed metho"[0K[43G[?25h[?25l$ git commit -m "corrections removed method"[0K[43G[?25h[44G[?25l$ git commit -m "corrections removed methods"[0K[45G[?25h[?25l
+[0K[?25h[master adba8a4] corrections removed methods[0K[?25l
+ 22 files changed, 1645 insertions(+), 1268 deletions(-)[0K
+ rewrite .Rproj.user/B7385CEA/console06/455836BE (80%)[0K
+ rewrite .Rproj.user/B7385CEA/console06/INDEX001 (84%)[0K
+ delete mode 100644 02-method.Rmd[0K
+ rename 03-packages.Rmd => 02-packages.Rmd (71%)[0K
+ rename 04-starting.Rmd => 03-starting.Rmd (69%)[0K
+ rename 05-Advanced.Rmd => 04-advanced.Rmd (87%)[0K
+ rename 06-references.Rmd => 05-references.Rmd (100%)[0K
+ rewrite _book/advanced.html (91%)[0K
+ delete mode 100644 _book/methods.html[0K
+ rewrite _book/search_index.json (86%)[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$ git[0K[?25h[7G[?25l$ git p[0K[?25hu[0Ks[0K[?25lh[0K[10G[?25h[11G[?25l
+[0K[?25hCounting objects: 29, done.[0K[?25l
+Delta compression using up to 4 threads.[0K
+Compressing objects:  29% (8/27)[0K[1G[?25hCompressing objects: 100% (27/27), done.[0K[?25l
+Writing objects:  72% (21/29)[0K[1G[?25hWriting objects: 100% (29/29), 58.45 KiB | 2.16 MiB/s, done.[0K[?25l
+Total 29 (delta 17), reused 0 (delta 0)[0K
+[0K[?25hTo https://bitbucket.org/JohnCoene/twinetbook.git[0K[?25l
+   24fdeaf..adba8a4  master -> master[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$ git push github master[0K
+[0K[?25hCounting objects: 29, done.[0K[?25l
+Delta compression using up to 4 threads.[0K
+Compressing objects:  77% (21/27)[0K[1G[?25hCompressing objects: 100% (27/27), done.[0K[?25l
+Writing objects:  72% (21/29)[0K[1G[?25hWriting objects: 100% (29/29), 58.45 KiB | 2.09 MiB/s, done.[0K[?25l
+Total 29 (delta 17), reused 0 (delta 0)[0K
+[0K[?25hremote: Resolving deltas: 100% (17/17), completed with 15 local objects.[0K[?25l
+To https://github.com/JohnCoene/twinetbook.git[0K
+   24fdeaf..adba8a4  master -> master[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l[12A[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetboo[0Kk
+[0;36m (master)[0K
+[0m$ git push github master[0K
+Counting objects: 29, done.[0K
+Delta compression using up to 4 threads.[0K
+Compressing objects: 100% (27/27), done.[0K
+Writing objects: 100% (29/29), 58.45 KiB | [0K2
+.09 MiB/s, done.[0K
+Total 29 (delta 17), reused 0 (delta 0)[0K
+remote: Resolving deltas: 100% (17/17), com[0Kp
+leted with 15 local objects.[0K
+To https://github.com/JohnCoene/twinetbook.[0Kg
+it[0K
+   24fdeaf..adba8a4  master -> master[0K
+[0K
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetboo[0Kk
+[0;36m (master)[0K
+[0m$[0K[3G[?25h[?25l[8Aremote: Resolving deltas: 100% (17/17), completed with 15 local objects.[0K
+To https://github.com/JohnCoene/twinetbook.git[0K
+   24fdeaf..adba8a4  master -> master[0K
+[0K
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0K
+[0m$[0K
+[0K
+[0K
+[0K[3A[3G[?25h[0m[0K]0;[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[?25hA[0K

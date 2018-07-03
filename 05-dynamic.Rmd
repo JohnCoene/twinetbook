@@ -1,0 +1,62 @@
+# Dynamic {#dynamic}
+
+```{r, echo=FALSE, include=FALSE}
+library(twinetverse)
+
+TK <- readRDS("twitter_token.rds")
+```
+
+So far we have been drawing static graphs, in this chapter we look at dynamic ones, namely temporal. 
+
+## Rationale
+
+We've been visualising Twitter interactions in a static manner, but they are dynamic when you think of it, we've been drawing all encompassing snapshots. So let's take into account the time factor; tweets are posted at specific time and should technically have specific life span (tweets do not "live" eternally").
+
+We'll collect some tweets again, but feel free to use previously collected tweets; nothing changes at this stage.
+
+```{r, eval=TRUE}
+# TK <- readRDS(file = "token.rds")
+tweets <- search_tweets("#rstats filter:mentions", n = 5000, token = TK, include_rts = FALSE)
+```
+
+Now onto building the graph.
+
+```{r, eval=TRUE}
+net <- tweets %>% 
+  gt_edges(text, screen_name, status_id, created_at = "created_at") %>% 
+  gt_nodes() %>% 
+  gt_dyn() %>% 
+  gt_collect()
+```
+
+Quite a few things differ from previous graphs we have built.
+
+1. We pass `created_at` in `gt_edges`. This in effect adds the `created_at` column to our edges, so that we know the created time of post in which the edge appears.
+2. We use `gt_dyn` which stands for `dynamic`, which essentially computes the time at which edges and nodes should appear and disappear.
+
+```{r, eval=TRUE}
+lapply(net, head)
+```
+
+```{r, eval=FALSE, echo = FALSE}
+knitr::kable(head(net$edges))
+knitr::kable(head(net$nodes))
+```
+
+Now for the visualisation, let's build it step by step; first we prep the data as we did before, essentially renaming a few columns. However, we also run a few computations
+
+```{r}
+library(dplyr)
+library(zeallot)
+
+c(edges, nodes) %<-% net # unpack
+
+nodes <- nodes %>% 
+  mutate(
+    id = source,
+    label = source,
+    start = as.numeric(start),
+    start = start - min(start),
+    end = max(start)
+  )
+```
