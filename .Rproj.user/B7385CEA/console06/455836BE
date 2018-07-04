@@ -1001,4 +1001,29 @@ To https://github.com/JohnCoene/twinetbook.git[0K
 [0K
 [0K[3A[3G[?25h[0m[0K]0;[?25l
 [0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[?25hA[0K
+[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[?25hA[0K[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[7G[?25h[8G[?25l$ git pu[0K[?25hl[0Kl[0K[12G[?25l$ git pull o[0K[?25hr[0Ki[0Kg[0Ki[0Kn[0K[19G[?25l$ git pull origin m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
+[0K[?25hFrom https://bitbucket.org/JohnCoene/twinetbook[0K[?25l
+ * branch            master     -> FETCH_HEAD[0K
+[0K[?25hUpdating 7442752..7a46990[0K[?25l
+Fast-forward[0K
+[0K[?25h .Rproj.user/shared/notebooks/paths               |  22 [0;32m+[0;31m-[0m[0K[?25l
+ 03-starting.Rmd                                  |   4 [0;32m+[0;31m-[0m[0K
+ 05-dynamic.Rmd                                   | 119 [0;32m++++++[0;31m-[0m[0K
+ _book/advanced.html                              | 202 [0;32m+++++[0;31m------[0m[0K
+ _book/dynamic.html                               | 433 [0;32m+++++++++++++++++++++++[0m[0K
+ _book/get-started.html                           | 296 [0;32m+++++++[0;31m---------[0m[0K
+ _book/index.html                                 | 114 [0;32m+++[0;31m---[0m[0K
+ _book/intro.html                                 | 112 [0;32m+++[0;31m---[0m[0K
+ _book/libs/sigmajs-binding-0.1.1.9000/sigmajs.js |   7 [0;32m+[0;31m-[0m[0K
+ _book/pkgs.html                                  | 126 [0;32m+++[0;31m----[0m[0K
+ _book/references.html                            | 120 [0;32m+++[0;31m----[0m[0K
+ _book/search_index.json                          |   5 [0;32m+[0;31m-[0m[0K
+ packages.bib                                     |  22 [0;32m+[0;31m-[0m[0K
+ 13 files changed, 997 insertions(+), 585 deletions(-)[0K
+ create mode 100644 _book/dynamic.html[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[?25hA[0K[?25l
+[0K[?25h
