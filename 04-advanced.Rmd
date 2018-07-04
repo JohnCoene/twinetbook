@@ -6,17 +6,19 @@ library(twinetverse)
 TK <- readRDS("twitter_token.rds")
 ```
 
-In this chapter we essentially replicate what we did in the [Get Started chapter](get-started) but in a somewhat more advanced manner as we introduce a few new functions.
+In this chapter we essentially replicate what we did in the Get Started [chapter](get-started) but in a somewhat more advanced manner as we introduce a new functions and arguments.
 
 ## Collect
 
-Let's collect more tweets this time, we'll also set `include_rts = FALSE` as we dont't need the same tweet multiple times, it does not add information. We also pass a slightly more sophisticated query to the search tweet endpoint, this is often overlooked, the Twitter API provides [sophisticated operators](https://developer.twitter.com/en/docs/tweets/search/guides/standard-operators.html), you are not limited to searching for a single keyword.
+Let's collect more tweets this time, we'll also optimise our Twitter query. This is very useful as the Twitter API (like the vast majority of APIs) limits the amount of data you can access by imposing a [rate limit](https://developer.twitter.com/en/docs/basics/rate-limiting.html).
 
-We query tweets that:
+We set `include_rts = FALSE` as we don't need the same tweet multiple times, it does not add information to our graph (currently but it could). We also pass a slightly more sophisticated query to the search tweet endpoint. This is too often overlooked, the Twitter API provides [advanced operators](https://developer.twitter.com/en/docs/tweets/search/guides/standard-operators.html): you are not limited to searching a single keyword every time.
+
+We query 1,000 tweets that:
 
 - Include `#rstats`
-- Include a mention i.e.: `@jdatap`
-- Are not re-tweets
+- Include a [mention](https://help.twitter.com/en/using-twitter/mentions-and-replies) i.e.: `@jdatap`
+- Are original (not re-tweets)
 
 Remember to load your token if you're in a new environment.
 
@@ -40,10 +42,10 @@ net <- tweets %>%
 
 Let's make a slightly more interesting visualisation this time.
 
-* We add labels (on hover).
-* We add color (by node size).
-* We layout the graph appropriately using igraph [@R-igraph].
-* We use settings to change the minimum and maximum node size as well as the edges color.
+* We add labels that will display on hover.
+* We color the nodes according to their size.
+* We layout the graph appropriately using one of igraph's [@R-igraph] many layout algorithms.
+* We use sigmajs' settings to change the minimum and maximum node size as well as the edges color.
 
 ```{r, eval=TRUE}
 library(dplyr)
@@ -57,7 +59,7 @@ nodes <- nodes %>%
     id = nodes,
     label = nodes,
     size = n_edges,
-    color = colorRampPalette(c("#5fc1e8", "#127ba3"))(n())
+    color = colorRampPalette(c("#1dcaff", "#00aced", "#0084b4"))(n())
   )
 
 edges$id <- seq(1, nrow(edges))
@@ -66,14 +68,10 @@ edges$id <- seq(1, nrow(edges))
 sigmajs("webgl") %>% 
   sg_nodes(nodes, id, label, size, color) %>% 
   sg_edges(edges, id, source, target) %>% 
-  sg_layout(layout = igraph::layout_components) %>% 
+  sg_layout() %>% 
   sg_settings(
     edgeColor = "default",
-    defaultEdgeColor = "#d3d3d3",
-    minNodeSize = 1,
-    maxNodeSize = 4,
-    minEdgeSize = 0.3,
-    maxEdgeSize = 0.3
+    defaultEdgeColor = "#d3d3d3"
   )
 ```
 

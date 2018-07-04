@@ -161,9 +161,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
 <li class="chapter" data-level="3" data-path="pkgs.html"><a href="pkgs.html"><i class="fa fa-check"></i><b>3</b> Packages</a><ul>
-<li class="chapter" data-level="3.1" data-path="pkgs.html"><a href="pkgs.html#rtweet"><i class="fa fa-check"></i><b>3.1</b> rtweet</a></li>
-<li class="chapter" data-level="3.2" data-path="pkgs.html"><a href="pkgs.html#graphtweets"><i class="fa fa-check"></i><b>3.2</b> graphTweets</a></li>
-<li class="chapter" data-level="3.3" data-path="pkgs.html"><a href="pkgs.html#sigmajs"><i class="fa fa-check"></i><b>3.3</b> sigmajs</a></li>
+<li class="chapter" data-level="3.1" data-path="pkgs.html"><a href="pkgs.html#rtweet"><i class="fa fa-check"></i><b>3.1</b> rtweet</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="pkgs.html"><a href="pkgs.html#setup"><i class="fa fa-check"></i><b>3.1.1</b> Setup</a></li>
+<li class="chapter" data-level="3.1.2" data-path="pkgs.html"><a href="pkgs.html#usage"><i class="fa fa-check"></i><b>3.1.2</b> Usage</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="pkgs.html"><a href="pkgs.html#graphtweets"><i class="fa fa-check"></i><b>3.2</b> graphTweets</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="pkgs.html"><a href="pkgs.html#rationale"><i class="fa fa-check"></i><b>3.2.1</b> Rationale</a></li>
+<li class="chapter" data-level="3.2.2" data-path="pkgs.html"><a href="pkgs.html#usage-1"><i class="fa fa-check"></i><b>3.2.2</b> Usage</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="pkgs.html"><a href="pkgs.html#sigmajs"><i class="fa fa-check"></i><b>3.3</b> sigmajs</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="pkgs.html"><a href="pkgs.html#usage-2"><i class="fa fa-check"></i><b>3.3.1</b> Usage</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>4</b> Get Started</a><ul>
 <li class="chapter" data-level="4.1" data-path="get-started.html"><a href="get-started.html#collect"><i class="fa fa-check"></i><b>4.1</b> Collect</a></li>
@@ -177,7 +185,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="advanced.html"><a href="advanced.html#visualise-1"><i class="fa fa-check"></i><b>5.3</b> Visualise</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="dynamic.html"><a href="dynamic.html"><i class="fa fa-check"></i><b>6</b> Dynamic</a><ul>
-<li class="chapter" data-level="6.1" data-path="dynamic.html"><a href="dynamic.html#rationale"><i class="fa fa-check"></i><b>6.1</b> Rationale</a></li>
+<li class="chapter" data-level="6.1" data-path="dynamic.html"><a href="dynamic.html#rationale-1"><i class="fa fa-check"></i><b>6.1</b> Rationale</a></li>
 <li class="chapter" data-level="6.2" data-path="dynamic.html"><a href="dynamic.html#collect-2"><i class="fa fa-check"></i><b>6.2</b> Collect</a></li>
 <li class="chapter" data-level="6.3" data-path="dynamic.html"><a href="dynamic.html#build-2"><i class="fa fa-check"></i><b>6.3</b> Build</a></li>
 <li class="chapter" data-level="6.4" data-path="dynamic.html"><a href="dynamic.html#visualise-2"><i class="fa fa-check"></i><b>6.4</b> Visualise</a></li>
@@ -212,6 +220,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <img src="http://rtweet.info/reference/figures/logo.png" align="left" style="max-height:150px;margin-right:2%;"/>
 </a></p>
 <p>If we are going to visualise Twitter interactions we are going to need data, namely tweets. The rtweet <span class="citation">(Kearney <a href="#ref-R-rtweet">2018</a>)</span> package wraps the <a href="https://developer.twitter.com/en/docs.html">Twitter API</a>, thereby giving R users easy access to tweets.</p>
+<div id="setup" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Setup</h3>
 <p>The rtweet package requires some set up. This is not only extremely easy but also very well explained on rtweet’s <a href="http://rtweet.info/articles/auth.html">official website</a>, so head over there if the short description below does not satisfy.</p>
 <p>In essence, you will need a Twitter “app” to access its API (via rtweet), to create one:</p>
 <ol style="list-style-type: decimal">
@@ -229,17 +239,28 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>Access Token</li>
 <li>Access Token Secret</li>
 </ul>
+</div>
+<div id="usage" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Usage</h3>
 <p>rtweet fills the very first step in visualising Twitter interactions, <em>collecting</em> the necessary data.</p>
 <p><em>Note that the package lets you do much more than simply downloading tweets, however, this is its main function within the twinetverse.</em></p>
+</div>
 </div>
 <div id="graphtweets" class="section level2">
 <h2><span class="header-section-number">3.2</span> graphTweets</h2>
 <p><a href="http://graphTweets.john-coene.com/" target="_blank">
 <img src="http://graphtweets.john-coene.com/logo.png" align="left" style="max-height:150px;margin-right:2%;"/>
 </a></p>
-<p>The graphTweets <span class="citation">(Coene <a href="#ref-R-graphTweets">2018</a><a href="#ref-R-graphTweets">a</a>)</span> package lets you build lists of nodes and edges from tweets collected with rtweet. The package is faily straighforward and inludes but a few functions. However, it still enables you to extract construct dynamic graphs.</p>
+<div id="rationale" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Rationale</h3>
+<p>The graphTweets <span class="citation">(Coene <a href="#ref-R-graphTweets">2018</a><a href="#ref-R-graphTweets">a</a>)</span> package lets you build lists of nodes and edges from tweets collected with rtweet. The package is faily straighforward and inludes but a few functions. However, it still enables you to build relatively complex graphs.</p>
+<p>The package revolves around two core functions which respectively allow you to build data.frames of edges and nodes. These edges and nodes (also referred to as vertices) together map Twitter conversations by linking the sender of a tweet to the user(s) he or she <span class="citation">(<span class="citeproc-not-found" data-reference-id="tags"><strong>???</strong></span>)</span>.</p>
+</div>
+<div id="usage-1" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Usage</h3>
 <p>All functions of the package start with <code>gt_</code>.</p>
 <p>graphTweets fills the seecond step in visualising Twitter interactions, <strong>building</strong> the graphs from the collected data.</p>
+</div>
 </div>
 <div id="sigmajs" class="section level2">
 <h2><span class="header-section-number">3.3</span> sigmajs</h2>
@@ -256,9 +277,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>Buttons to trigger interactions.</li>
 <li>and more.</li>
 </ul>
+<div id="usage-2" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Usage</h3>
 <p>All functions of the package start with <code>sg_</code>.</p>
 <p>sigmajs is the final piece of the puzzle, <strong>visualising</strong> the graphs we have built.</p>
 
+</div>
 </div>
 </div>
 <h3>References</h3>
@@ -314,7 +338,11 @@ gitbook.start({
 },
 "download": null,
 "toc": {
-"collapse": "subsection"
+"collapse": "subsection",
+"scroll_highlight": true,
+"fontsettings": {
+"theme": "Night"
+}
 }
 });
 });

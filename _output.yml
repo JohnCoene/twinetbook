@@ -3,10 +3,14 @@ bookdown::gitbook:
   css: style.css
   config:
     toc:
+      collapse: subsection 
+      scroll_highlight: yes
       before: |
         <li><a href="./">The twinetverse Book</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+      fontsettings:
+        theme: Night
   includes:
     in_header: _includes/analytics.html
 bookdown::pdf_book:

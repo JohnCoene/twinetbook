@@ -10,6 +10,8 @@ Below are the packages thatmake up in the _twinetverse_ as well as some explanat
 
 If we are going to visualise Twitter interactions we are going to need data, namely tweets. The rtweet [@R-rtweet] package wraps the [Twitter API](https://developer.twitter.com/en/docs.html), thereby giving R users easy access to tweets. 
 
+### Setup
+
 The rtweet package requires some set up. This is not only extremely easy but also very well explained on rtweet's [official website](http://rtweet.info/articles/auth.html), so head over there if the short description below does not satisfy.
 
 In essence, you will need a Twitter "app" to access its API (via rtweet), to create one:
@@ -28,6 +30,8 @@ You're now setup, take note of the following under "Keys abd Access Tokens", as 
 * Access Token
 * Access Token Secret
 
+### Usage
+
 rtweet fills the very first step in visualising Twitter interactions, *collecting* the necessary data.
 
 _Note that the package lets you do much more than simply downloading tweets, however, this is its main function within the twinetverse._
@@ -38,7 +42,13 @@ _Note that the package lets you do much more than simply downloading tweets, how
 <img src="http://graphtweets.john-coene.com/logo.png" align="left" style="max-height:150px;margin-right:2%;"/>
 </a>
 
-The graphTweets [@R-graphTweets] package lets you build lists of nodes and edges from tweets collected with rtweet. The package is faily straighforward and inludes but a few functions. However, it still enables you to extract construct dynamic graphs.
+### Rationale
+
+The graphTweets [@R-graphTweets] package lets you build lists of nodes and edges from tweets collected with rtweet. The package is faily straighforward and inludes but a few functions. However, it still enables you to build relatively complex graphs.
+
+The package revolves around two core functions which respectively allow you to build data.frames of edges and nodes. These edges and nodes (also referred to as vertices) together map Twitter conversations by linking the sender of a tweet to the user(s) he or she @tags.
+
+### Usage
 
 All functions of the package start with `gt_`.
 
@@ -60,6 +70,8 @@ Features:
 * Events in Shiny
 * Buttons to trigger interactions.
 * and more.
+
+### Usage
 
 All functions of the package start with `sg_`.
 
