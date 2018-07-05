@@ -17,7 +17,7 @@ cover-image: images/cover.png
 description: "A guide to download Twitter data and visualise them as graphs in R."
 ---
 
-# Prerequisites
+# Preface
 
 The goal of the _twinetverse_ is to provide everything one might need efficiently and elegantly visualise Twitter interactions.
 

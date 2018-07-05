@@ -1,0 +1,51 @@
+# Prerequisites {#prerequisites}
+
+In this chapter we get you set up and running with the _twinetverse_.
+
+First install the package:
+
+```{r, eval = FALSE}
+devtools::install_github("JohnCoene/twinetverse")
+```
+
+## Setup rtweet
+
+The rtweet package requires some set up. This is not only extremely easy but also very well explained on rtweet's [official website](http://rtweet.info/articles/auth.html), so head over there if the short description below does not satisfy.
+
+In essence, you will need a Twitter "app" to access its API, to create one:
+
+1. Head over to [apps.twitter.com](https://apps.twitter.com/) and login or signup if you do not have a Twitter account.
+2. Click create an app.
+3. In the following form, enter an app name, whatever you want, this does not matter.
+4. Enter a description, then again, it doesn't matter.
+5. Website, simply put a valid website, you can link to your Twitter profile if you do not have one, i.e.: [https://twitter.com/jdatap](https://twitter.com/jdatap)
+6. Callback URL, this is **important**, in there put the following: `http://127.0.0.1:1410`.
+
+You're now setup with an app, take note of the following under "Keys and Access Tokens", as you will need it to create your token and fetch tweets:
+
+* Consumer Key (API Key)
+* Consumer Secret (API Secret)
+* Access Token
+* Access Token Secret
+
+Create your token with like so.
+
+```{r, eval=FALSE}
+library(twinetverse)
+
+TK <- create_token(
+  "My Application Name",
+  consumer_key = "XxxxXxXXxXx",
+  consumer_secret = "XxxxXxXXxXx",
+  access_token = "XxxxXxXXxXx",
+  access_secret = "XxxxXxXXxXx"
+)
+```
+
+Ideally, also save it. There is no need to re-create a token everytime you want to download data. Once saved you can easily load it `readRDS`.
+
+```{r, eval = FALSE}
+saveRDS(TK, file = "token.rds")
+```
+
+You're all set to use the _twinetverse_!

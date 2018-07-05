@@ -11,27 +11,7 @@ In this chapter we briefly explore the twinetverse: we _collect_ tweets, _build_
 
 ## Collect
 
-Let's create a token, see the [packages](#pkgs) section to get setup.
-
-```{r, eval=FALSE}
-library(twinetverse)
-
-TK <- create_token(
-  "My Application Name",
-  consumer_key = "XxxxXxXXxXx",
-  consumer_secret = "XxxxXxXXxXx",
-  access_token = "XxxxXxXXxXx",
-  access_secret = "XxxxXxXXxXx"
-)
-```
-
-Now that you have a token you are ready to download get Twitter data. Before we do so let's save our token; we're going to use it quite a lot and there is no need to create a new one every time you want to get Twitter data, the token is automatically refreshed by the underlying httr [@R-httr].
-
-```{r, eval=FALSE}
-saveRDS(TK, file = "token.rds")
-```
-
-You can always load your token with:
+See the [prerequisites](#prerequisites) section if the line below confuses you.
 
 ```{r, eval=FALSE}
 TK <- readRDS("token.rds")
@@ -56,7 +36,7 @@ net <- tweets %>%
 
 We called `gt_edges` on our tweets, specifying a few column names from our data.frame of tweets. The source of the tweets will also be the source of our edges so we pass `screen_name`, then the target of these edges will be users tagged in the tweets, `text` in rtweet. 
 
-For instance, we now know that @`r net$edges[1,1]` tags @`r net$edges[1,2]` in a tweet.
+For instance, we now know that "`r net$edges[1,1]`" tags "`r net$edges[1,2]`" in a tweet.
 
 Well, not really because the object returned is of an unfamiliar class.
 

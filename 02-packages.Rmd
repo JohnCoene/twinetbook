@@ -1,6 +1,6 @@
 # Packages {#pkgs}
 
-Below are the packages thatmake up in the _twinetverse_ as well as some explanation of what they bring to visualising Twitter interactions.
+Below are the packages that make up in the _twinetverse_ as well as some explanation of what they bring to visualising Twitter interactions.
 
 ## rtweet
 
@@ -8,27 +8,7 @@ Below are the packages thatmake up in the _twinetverse_ as well as some explanat
 <img src="http://rtweet.info/reference/figures/logo.png" align="left" style="max-height:150px;margin-right:2%;"/>
 </a>
 
-If we are going to visualise Twitter interactions we are going to need data, namely tweets. The rtweet [@R-rtweet] package wraps the [Twitter API](https://developer.twitter.com/en/docs.html), thereby giving R users easy access to tweets. 
-
-### Setup
-
-The rtweet package requires some set up. This is not only extremely easy but also very well explained on rtweet's [official website](http://rtweet.info/articles/auth.html), so head over there if the short description below does not satisfy.
-
-In essence, you will need a Twitter "app" to access its API (via rtweet), to create one:
-
-1. Head over to [apps.twitter.com](https://apps.twitter.com/) and login or signup if you do not have a Twitter account.
-2. Click create an app.
-3. In the following form, enter an app name, whatever you want, this does not matter.
-4. Enter a description, then again, it doesn't matter.
-5. Website, simply put a valid website, you can link to your Twitter profile if you do not have one, i.e.: [https://twitter.com/jdatap](https://twitter.com/jdatap)
-6. Callback URL, this is **important**, in there put the following: `http://127.0.0.1:1410`.
-
-You're now setup, take note of the following under "Keys abd Access Tokens", as you will need it to create your token and fetch tweets:
-
-* Consumer Key (API Key)
-* Consumer Secret (API Secret)
-* Access Token
-* Access Token Secret
+If we are going to visualise Twitter interactions we are going to need data, namely tweets. The rtweet package [@R-rtweet] wraps the [Twitter API](https://developer.twitter.com/en/docs.html), thereby giving R users easy access to tweets. 
 
 ### Usage
 
@@ -44,7 +24,7 @@ _Note that the package lets you do much more than simply downloading tweets, how
 
 ### Rationale
 
-The graphTweets [@R-graphTweets] package lets you build lists of nodes and edges from tweets collected with rtweet. The package is faily straighforward and inludes but a few functions. However, it still enables you to build relatively complex graphs.
+The graphTweets package [@R-graphTweets] lets you build lists of nodes and edges from tweets collected with rtweet. The package is faily straighforward and inludes but a few functions. However, it still enables you to build relatively complex graphs.
 
 The package revolves around two core functions which respectively allow you to build data.frames of edges and nodes. These edges and nodes (also referred to as vertices) together map Twitter conversations by linking the sender of a tweet to the user(s) he or she @tags.
 
@@ -60,7 +40,7 @@ graphTweets fills the seecond step in visualising Twitter interactions, **buildi
 <img src="http://sigmajs.john-coene.com/reference/figures/logo.png" align="left" style="max-height:150px;margin-right:2%;"/>
 </a>
 
-sigmajs [@R-sigmajs] is a powerful library to visualise the networks we have built using graphTweets. The package, like graphTweets, is pipe-friendly (`%>%`), therefore making it easy to go from building a graph to visualising it. It can also easily represent dynamic networks, something otherwise not evident in R.
+The sigmajs package [@R-sigmajs] is a powerful library to visualise the networks we have built using graphTweets. The package, like graphTweets, is pipe-friendly (`%>%`), therefore making it easy to go from building a graph to visualising it. It can also easily represent dynamic networks, something otherwise not evident in R.
 
 Features:
 

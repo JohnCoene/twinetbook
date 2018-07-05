@@ -10,7 +10,7 @@ So far we have been drawing static graphs, in this chapter we look at dynamic on
 
 ## Rationale
 
-We've been visualising Twitter interactions in a static manner, but they are dynamic when you think of it, we've been drawing all encompassing snapshots. So let's take into account the time factor; tweets are posted at specific time and should technically have specific life span (tweets do not "live" eternally").
+We've been visualising Twitter interactions in a static manner, but they are dynamic when you think of it. Twitter conversations happen over time, thus far, we've been drawing all encompassing snapshots. So let's take into account the time factor to make a tempral graphs.
 
 ## Collect
 
@@ -38,18 +38,19 @@ Quite a few things differ from previous graphs we have built.
 1. We pass `created_at` in `gt_edges`. This in effect adds the `created_at` column to our edges, so that we know the created time of post in which the edge appears.
 2. We use `gt_dyn` which stands for `dynamic`, which essentially computes the time at which edges and nodes should appear and disappear.
 
-```{r, eval=TRUE}
-lapply(net, head)
+```{r, eval=FALSE}
+head(net$edges)
 ```
 
-```{r, eval=FALSE, echo = FALSE}
+```{r, eval=TRUE, echo = FALSE}
 knitr::kable(head(net$edges))
-knitr::kable(head(net$nodes))
 ```
 
-Now for the visualisation, let's build it step by step; first we prep the data as we did before, essentially renaming a few columns. However, we also run a few computations. 
+## Visualise
 
-To explain what we do we need to tackle how edges will be dinamically added to the graph. The this works in sigmajs is by specifying the delay in milliseconds before each respective edge should be added. Therefore, we need to transform the date to milliseconds and rescale them to be within a reasonable range (we don't want the edges to actually take 15 days to appear on the graph).
+Now for the visualisation, let's build it step by step; first we prep the data as we did before: renaming a few columns but also running a few unfamiliar computations. 
+
+To explain we need to tackle how edges will dinamically appear on the graph. The way this works in sigmajs is by specifying the delay in milliseconds before each respective edge should be added. Therefore, we need to transform the date to milliseconds and rescale them to be within a reasonable range: we don't want the edges to actually take 15 days to appear on the graph.
 
 1. We change the date (`POSIXct` actually) to a numeric which gives the number of milliseconds since 1970.
 2. We rescale between 0 and 1 then multiply by 10,000 (milliseconds) so that the edges are added over 10 seconds.
@@ -78,9 +79,7 @@ edges <- edges %>%
   select(id, source, target, created_at)
 ```
 
-We do the above because simgajs does not take date time as input but milliseconds. Now, the actual visualisation, as mentioned at the begining to the chapter, we'll plot the nodes then add edges dynamically. Let's break it down step by step. 
-
-## Visualise
+Now, the actual visualisation, as mentioned at the begining to the chapter, we'll plot the nodes then add edges dynamically. Let's break it down step by step. 
 
 First, we plot the nodes.
 
@@ -89,9 +88,9 @@ sigmajs() %>%
   sg_nodes(nodes, id, size, label) 
 ```
 
-We'll add the layout as it looks a bit messy as it is. We'll have to compute the layout differently this time, we cannot simply use `g_layout` as it requries both nodes and edges and we only have nodes on the graph; instead we use `sg_get_layout`.
+We'll add the layout as it looks a bit messy with nodes randomly scattered across the canvas. We'll have to compute the layout differently this time, we cannot simply use `sg_layout` as it requires both nodes and edges and we only have nodes on the graph; instead we use `sg_get_layout`.
 
-This is something that we had not shared with you earlier on, `sg_nodes` ideally takes the `x` and `y` coordinates, if missing they are generated randomly. We simply compute those coordinates then bind them to our nodes.
+This is something that we had not shared with you earlier on, `sg_nodes` must have `x` and `y` coordinates of each node, however, if missing they are generated randomly by the package. We simply compute those coordinates then bind them to our nodes.
 
 ```{r, warning = FALSE, eval = FALSE}
 layout <- sg_get_layout(nodes, edges)

@@ -19,1016 +19,6 @@
 [0K
 [0K
 [0K
-[0K
-[0K
-[0K[24A[13G[?25h[?25l
-[?25hwarning: LF will be replaced by CRLF in .Rproj.user/B7385CEA/sources/prop/EE540FC6.[0K[?25l
-The file will have its original line endings in your working directory.[0K
-warning: LF will be replaced by CRLF in .Rproj.user/B7385CEA/sources/prop/F145D93F.[0K
-The file will have its original line endings in your working directory.[0K
-warning: LF will be replaced by CRLF in .Rproj.user/B7385CEA/sources/prop/INDEX.[0K
-The file will have its original line endings in your working directory.[0K
-warning: LF will be replaced by CRLF in .Rproj.user/shared/notebooks/paths.[0K
-The file will have its original line endings in your working directory.[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[15A[?25h[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$ git[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[6G[?25h[7G[?25l$ git c[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[8G[?25h[?25l$ git co[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[9G[?25h[?25l$ git com[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[10G[?25h[?25l$ git comm[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[11G[?25h[?25l$ git commi[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[11G[?25h[12G[?25l$ git commit[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[13G[?25h[14G[?25l$ git commit -[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[15G[?25h[?25l$ git commit -m[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[16G[?25h[17G[?25l$ git commit -m "[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[18G[?25h[?25l$ git commit -m ""[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[19G[?25h[18G[?25l$ git commit -m "f"[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[19G[?25h[?25l$ git commit -m "fi"[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[20G[?25h[?25l$ git commit -m "fix"[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[21G[?25h[?25l$ git commit -m "fixe"[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[22G[?25h[?25l$ git commit -m "fixed"[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[23G[?25h[?25l$ git commit -m "fixed "[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[24G[?25h[?25l$ git commit -m "fixed v"[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[25G[?25h[?25l$ git commit -m "fixed vi"[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[25G[?25h[26G[?25l$ git commit -m "fixed viz"[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[13A[27G[?25h[?25l
-[?25h[master 24fdeaf] fixed viz[0K[?25l
- 26 files changed, 687 insertions(+), 2236 deletions(-)[0K
- rewrite .Rproj.user/B7385CEA/console06/INDEX001 (100%)[0K
- delete mode 100644 _book/2-intro.html[0K
- delete mode 100644 _book/3-pkgs.html[0K
- delete mode 100644 _book/4-methods.html[0K
- delete mode 100644 _book/5-1-example-one.html[0K
- delete mode 100644 _book/5-2-example-two.html[0K
- delete mode 100644 _book/5-applications.html[0K
- delete mode 100644 _book/6-final-words.html[0K
- rewrite _book/advanced.html (90%)[0K
- delete mode 100644 _book/applications.html[0K
- delete mode 100644 _book/final-words.html[0K
- delete mode 100644 _book/libs/tufte-css-2015.12.29/et-book/bold-line-figures.ttf[0K
- delete mode 100644 _book/libs/tufte-css-2015.12.29/et-book/display-italic-old-style-figures.ttf[0K
- delete mode 100644 _book/libs/tufte-css-2015.12.29/et-book/roman-line-figures.ttf[0K
- delete mode 100644 _book/libs/tufte-css-2015.12.29/et-book/roman-old-style-figures.ttf[0K
- delete mode 100644 _book/libs/tufte-css-2015.12.29/tufte-background.css[0K
- delete mode 100644 _book/libs/tufte-css-2015.12.29/tufte-fonts.css[0K
- delete mode 100644 _book/libs/tufte-css-2015.12.29/tufte-italics.css[0K
- delete mode 100644 _book/libs/tufte-css-2015.12.29/tufte.css[0K
- delete mode 100644 _book/literature.html[0K
- delete mode 100644 _book/twinetbook_files/figure-html/nice-fig-1.png[0K
-[0K[?25h[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hit[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[?25l
-[0K[?25hCounting objects: 18, done.[0K[?25l
-[0K[?25hDelta compression using up to 4 threads.[0K[?25l
-Compressing objects: 100% (16/16), done.[0K
-[0K[?25hWriting objects: 100% (18/18), 38.48 KiB | 1.67 MiB/s, done.[0K[?25l
-Total 18 (delta 10), reused 0 (delta 0)[0K
-[0K[?25hTo https://bitbucket.org/JohnCoene/twinetbook.git[0K[?25l
-   02c7253..24fdeaf  master -> master[0K
-[0K[?25h[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0K[?25l$ g[0K[?25h[?25l$[0K[3G[?25h[0m[0K]0;[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$ c[0K[?25hl[0Ke[0Kar[0K[?25l
-[0K[?25h[?25l
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[26A[?25h[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[?25l$ g[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[24A[4G[?25h[?25l$ gi[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[24A[5G[?25h[?25l$ git[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[24A[6G[?25h[7G[?25l$ git s[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[24A[8G[?25h[?25l$ git st[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[24A[9G[?25h[?25l$ git sta[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[24A[10G[?25h[?25l$ git stat[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[24A[11G[?25h[?25l$ git statu[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[24A[12G[?25h[?25l$ git status[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[24A[13G[?25h[?25l
-[?25hOn branch master[0K[?25l
-Your branch is up-to-date with 'origin/master'.[0K
-[0K
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committed)[0K
-  (use "git checkout -- <file>..." to discard changes in working directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/B7385CEA/console06/455836BE[0m[0K
-        [0;31mmodified:   .Rproj.user/B7385CEA/console06/INDEX001[0m[0K
-[0K
-no changes added to commit (use "git add" and/or "git commit -a")[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[12A[?25h[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[10A[3G[?25h[?25l$ g[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[10A[4G[?25h[?25l$ gi[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[10A[5G[?25h[?25l$ git[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[10A[6G[?25h[7G[?25l$ git r[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[10A[8G[?25h[?25l$ git re[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[10A[9G[?25h[?25l$ git rem[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[10A[10G[?25h[?25l$ git remo[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[10A[11G[?25h[?25l$ git remot[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[10A[12G[?25h[?25l$ git remote[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[10A[13G[?25h[14G[?25l$ git remote -[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[10A[14G[?25h[15G[?25l$ git remote -v[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[10A[16G[?25h[?25l
-[?25hgithub  https://github.com/JohnCoene/twinetbook.git (fetch)[0K[?25l
-github  https://github.com/JohnCoene/twinetbook.git (push)[0K
-origin  https://JohnCoene@bitbucket.org/JohnCoene/twinetbook.git (fetch)[0K
-origin  https://JohnCoene@bitbucket.org/JohnCoene/twinetbook.git (push)[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[5A[?25h[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$[0K
-[0K
-[0K
-[0K[3A[3G[?25h[?25l$ g[0K
-[0K
-[0K
-[0K[3A[4G[?25h[?25l$ gi[0K
-[0K
-[0K
-[0K[3A[5G[?25h[?25l$ git[0K
-[0K
-[0K
-[0K[3A[6G[?25h[7G[?25l$ git p[0K
-[0K
-[0K
-[0K[3A[8G[?25h[?25l$ git pu[0K
-[0K
-[0K
-[0K[3A[9G[?25h[?25l$ git pus[0K
-[0K
-[0K
-[0K[3A[10G[?25h[?25l$ git push[0K
-[0K
-[0K
-[0K[3A[11G[?25h[12G[?25l$ git push b[0K
-[0K
-[0K
-[0K[3A[13G[?25h[?25l$ git push[0K
-[0K
-[0K
-[0K[3A[12G[?25h[?25l$ git push g[0K
-[0K
-[0K
-[0K[3A[12G[?25h[13G[?25l$ git push gi[0K
-[0K
-[0K
-[0K[3A[14G[?25h[?25l$ git push git[0K
-[0K
-[0K
-[0K[3A[15G[?25h[?25l$ git push gith[0K
-[0K
-[0K
-[0K[3A[15G[?25h[16G[?25l$ git push githu[0K
-[0K
-[0K
-[0K[3A[17G[?25h[?25l$ git push github[0K
-[0K
-[0K
-[0K[3A[18G[?25h[19G[?25l$ git push github m[0K
-[0K
-[0K
-[0K[3A[20G[?25h[?25l$ git push github ma[0K
-[0K
-[0K
-[0K[3A[21G[?25h[?25l$ git push github mas[0K
-[0K
-[0K
-[0K[3A[22G[?25h[?25l$ git push github mast[0K
-[0K
-[0K
-[0K[3A[23G[?25h[?25l$ git push github maste[0K
-[0K
-[0K
-[0K[3A[24G[?25h[?25l$ git push github master[0K
-[0K
-[0K
-[0K[3A[25G[?25h[?25l
-[?25hCounting objects: 46, done.[0K[?25l
-Delta compression using up to 4 threads.[0K
-Compressing objects: 100% (41/41)[0K[1G[?25hCompressing objects: 100% (41/41), done.[0K[?25l
-Writing objects:  45% (21/46)[0K[1G[?25hWriting objects: 100% (46/46), 114.07 KiB | 2.43 MiB/s, done.[0K[?25l
-Total 46 (delta 28), reused 0 (delta 0)[0K
-[0K[?25hremote: Resolving deltas: 100% (28/28), completed with 15 local objects.[0K[?25l
-[0K[?25hTo https://github.com/JohnCoene/twinetbook.git[0K[?25l
-   f9ef084..24fdeaf  master -> master[0K
-[0K[?25h[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$[0K[3G[?25h[0m[0K]0;[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$ git[0K[?25h[?25l[1A[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0K
-[0m$ git[0K[?25h add -A[0K[?25l
-[0K[?25hwarning: LF will be replaced by CRLF in .Rproj.user/B7385CEA/sources/prop/42B[0KC[?25l
-98BB.[0K
-The file will have its original line endings in your working directory.[0K
-[0K[?25hwarning: LF will be replaced by CRLF in .Rproj.user/B7385CEA/sources/prop/F27[0K9[?25l
-C0E1.[0K
-The file will have its original line endings in your working directory.[0K
-warning: LF will be replaced by CRLF in .Rproj.user/B7385CEA/sources/prop/IND[0KE
-X.[0K
-The file will have its original line endings in your working directory.[0K
-warning: LF will be replaced by CRLF in .Rproj.user/shared/notebooks/paths.[0K
-The file will have its original line endings in your working directory.[0K
-[0K[?25h[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[?25hA[0K[?25l
-[0K[?25h[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25h[?25lm[0K[15G[?25h[16G[17G[?25l$ git commit -m "[0K[?25h"[0K[18G[?25l$ git commit -m "a"[0K[19G[?25h[?25l$ git commit -m "ad"[0K[20G[?25h[?25l$ git commit -m "add"[0K[21G[?25h[?25l$ git commit -m "adde"[0K[22G[?25h[?25l$ git commit -m "added"[0K[23G[?25h[?25l$ git commit -m "adde"[0K[22G[?25h[?25l$ git commit -m "add"[0K[?25h[21G[?25l$ git commit -m "ad"[0K[20G[?25h[?25l$ git commit -m "a"[0K[19G[?25h[?25l$ git commit -m ""[0K[18G[?25h[?25l$ git commit -m "c"[0K[19G[?25h[?25l$ git commit -m "co"[0K[20G[?25h[?25l$ git commit -m "cor"[0K[21G[?25h[?25l$ git commit -m "corr"[0K[22G[?25h[?25l$ git commit -m "corre"[0K[23G[?25h[?25l$ git commit -m "correc"[0K[23G[?25h[24G[?25l$ git commit -m "correct"[0K[25G[?25h[?25l$ git commit -m "correcti"[0K[26G[?25h[?25l$ git commit -m "correctio"[0K[26G[?25h[27G[?25l$ git commit -m "correction"[0K[28G[?25h[?25l$ git commit -m "corrections"[0K[29G[?25h[?25l$ git commit -m "corrections "[0K[30G[?25h[?25l$ git commit -m "corrections r"[0K[30G[?25h[31G[?25l$ git commit -m "corrections re"[0K[32G[?25h[?25l$ git commit -m "corrections rem"[0K[33G[?25h[?25l$ git commit -m "corrections remo"[0K[34G[?25h[?25l$ git commit -m "corrections remov"[0K[34G[?25h[35G[?25l$ git commit -m "corrections remove"[0K[36G[?25h[?25l$ git commit -m "corrections removed"[0K[37G[?25h[?25l$ git commit -m "corrections removed "[0K[38G[?25h[?25l$ git commit -m "corrections removed m"[0K[38G[?25h[39G[?25l$ git commit -m "corrections removed me"[0K[40G[?25h[?25l$ git commit -m "corrections removed met"[0K[41G[?25h[?25l$ git commit -m "corrections removed meth"[0K[42G[?25h[?25l$ git commit -m "corrections removed metho"[0K[43G[?25h[?25l$ git commit -m "corrections removed method"[0K[43G[?25h[44G[?25l$ git commit -m "corrections removed methods"[0K[45G[?25h[?25l
-[0K[?25h[master adba8a4] corrections removed methods[0K[?25l
- 22 files changed, 1645 insertions(+), 1268 deletions(-)[0K
- rewrite .Rproj.user/B7385CEA/console06/455836BE (80%)[0K
- rewrite .Rproj.user/B7385CEA/console06/INDEX001 (84%)[0K
- delete mode 100644 02-method.Rmd[0K
- rename 03-packages.Rmd => 02-packages.Rmd (71%)[0K
- rename 04-starting.Rmd => 03-starting.Rmd (69%)[0K
- rename 05-Advanced.Rmd => 04-advanced.Rmd (87%)[0K
- rename 06-references.Rmd => 05-references.Rmd (100%)[0K
- rewrite _book/advanced.html (91%)[0K
- delete mode 100644 _book/methods.html[0K
- rewrite _book/search_index.json (86%)[0K
-[0K[?25h[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$ git[0K[?25h[7G[?25l$ git p[0K[?25hu[0Ks[0K[?25lh[0K[10G[?25h[11G[?25l
-[0K[?25hCounting objects: 29, done.[0K[?25l
-Delta compression using up to 4 threads.[0K
-Compressing objects:  29% (8/27)[0K[1G[?25hCompressing objects: 100% (27/27), done.[0K[?25l
-Writing objects:  72% (21/29)[0K[1G[?25hWriting objects: 100% (29/29), 58.45 KiB | 2.16 MiB/s, done.[0K[?25l
-Total 29 (delta 17), reused 0 (delta 0)[0K
-[0K[?25hTo https://bitbucket.org/JohnCoene/twinetbook.git[0K[?25l
-   24fdeaf..adba8a4  master -> master[0K
-[0K[?25h[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$ git push github master[0K
-[0K[?25hCounting objects: 29, done.[0K[?25l
-Delta compression using up to 4 threads.[0K
-Compressing objects:  77% (21/27)[0K[1G[?25hCompressing objects: 100% (27/27), done.[0K[?25l
-Writing objects:  72% (21/29)[0K[1G[?25hWriting objects: 100% (29/29), 58.45 KiB | 2.09 MiB/s, done.[0K[?25l
-Total 29 (delta 17), reused 0 (delta 0)[0K
-[0K[?25hremote: Resolving deltas: 100% (17/17), completed with 15 local objects.[0K[?25l
-To https://github.com/JohnCoene/twinetbook.git[0K
-   24fdeaf..adba8a4  master -> master[0K
-[0K[?25h[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l[12A[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetboo[0Kk
-[0;36m (master)[0K
-[0m$ git push github master[0K
-Counting objects: 29, done.[0K
-Delta compression using up to 4 threads.[0K
-Compressing objects: 100% (27/27), done.[0K
-Writing objects: 100% (29/29), 58.45 KiB | [0K2
-.09 MiB/s, done.[0K
-Total 29 (delta 17), reused 0 (delta 0)[0K
-remote: Resolving deltas: 100% (17/17), com[0Kp
-leted with 15 local objects.[0K
-To https://github.com/JohnCoene/twinetbook.[0Kg
-it[0K
-   24fdeaf..adba8a4  master -> master[0K
-[0K
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetboo[0Kk
-[0;36m (master)[0K
-[0m$[0K[3G[?25h[?25l[8Aremote: Resolving deltas: 100% (17/17), completed with 15 local objects.[0K
-To https://github.com/JohnCoene/twinetbook.git[0K
-   24fdeaf..adba8a4  master -> master[0K
-[0K
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0K
-[0m$[0K
-[0K
-[0K
-[0K[3A[3G[?25h[0m[0K]0;[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[?25hA[0K[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[7G[?25h[8G[?25l$ git pu[0K[?25hl[0Kl[0K[12G[?25l$ git pull o[0K[?25hr[0Ki[0Kg[0Ki[0Kn[0K[19G[?25l$ git pull origin m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
-[0K[?25hFrom https://bitbucket.org/JohnCoene/twinetbook[0K[?25l
- * branch            master     -> FETCH_HEAD[0K
-[0K[?25hUpdating 7442752..7a46990[0K[?25l
-Fast-forward[0K
-[0K[?25h .Rproj.user/shared/notebooks/paths               |  22 [0;32m+[0;31m-[0m[0K[?25l
- 03-starting.Rmd                                  |   4 [0;32m+[0;31m-[0m[0K
- 05-dynamic.Rmd                                   | 119 [0;32m++++++[0;31m-[0m[0K
- _book/advanced.html                              | 202 [0;32m+++++[0;31m------[0m[0K
- _book/dynamic.html                               | 433 [0;32m+++++++++++++++++++++++[0m[0K
- _book/get-started.html                           | 296 [0;32m+++++++[0;31m---------[0m[0K
- _book/index.html                                 | 114 [0;32m+++[0;31m---[0m[0K
- _book/intro.html                                 | 112 [0;32m+++[0;31m---[0m[0K
- _book/libs/sigmajs-binding-0.1.1.9000/sigmajs.js |   7 [0;32m+[0;31m-[0m[0K
- _book/pkgs.html                                  | 126 [0;32m+++[0;31m----[0m[0K
- _book/references.html                            | 120 [0;32m+++[0;31m----[0m[0K
- _book/search_index.json                          |   5 [0;32m+[0;31m-[0m[0K
- packages.bib                                     |  22 [0;32m+[0;31m-[0m[0K
- 13 files changed, 997 insertions(+), 585 deletions(-)[0K
- create mode 100644 _book/dynamic.html[0K
-[0K[?25h[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[?25hA[0K[?25l
-[0K[?25hwarning: LF will be replaced by CRLF in .Rproj.user/B7385CEA/sources/prop/42BC98BB.[0K[?25l
-The file will have its original line endings in your working directory.[0K
-warning: LF will be replaced by CRLF in .Rproj.user/B7385CEA/sources/prop/CFF2C5B2.[0K
-The file will have its original line endings in your working directory.[0K
-[0K[?25hwarning: LF will be replaced by CRLF in .Rproj.user/B7385CEA/sources/prop/INDEX.[0K[?25l
-The file will have its original line endings in your working directory.[0K
-warning: LF will be replaced by CRLF in .Rproj.user/shared/notebooks/paths.[0K
-The file will have its original line endings in your working directory.[0K
-[0K[?25h[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$ g[0K[?25hg[0Ki[0Kt[0K[8G[?25l$ ggit c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[15G[14G[?25l$ ggit commi[0K[?25h[?25l$ ggit comm[0K[?25h[?25l$ ggit com[0K[?25h[?25l$ ggit co[0K[?25h[?25l$ ggit c[0K[?25h[?25l$ ggit[0K[8G[?25h[7G[?25l$ ggi[0K[?25h[?25l$ gg[0K[?25h[?25l$ g[0K[?25h[?25l$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0K[?25lm[0K[10G[?25h[11G[?25l$ git commi[0K[?25ht[0K[14G[?25l$ git commit -[0K[?25hm[0K[17G[?25l$ git commit -m "[0K[?25h"[0K[18G[?25l$ git commit -m "f"[0K[19G[?25h[?25l$ git commit -m "fi"[0K[20G[?25h[?25l$ git commit -m "f"[0K[19G[?25h[?25l$ git commit -m ""[0K[18G[?25h[?25l$ git commit -m "h"[0K[19G[?25h[?25l$ git commit -m "hi"[0K[20G[?25h[?25l$ git commit -m "hig"[0K[21G[?25h[?25l$ git commit -m "high"[0K[22G[?25h[?25l$ git commit -m "highl"[0K[23G[?25h[?25l$ git commit -m "highli"[0K[23G[?25h[24G[?25l$ git commit -m "highlig"[0K[25G[?25h[?25l$ git commit -m "highligh"[0K[26G[?25h[?25l$ git commit -m "highlight"[0K[27G[?25h[?25l$ git commit -m "highlight "[0K[28G[?25h[?25l$ git commit -m "highlight +"[0K[29G[?25h[?25l$ git commit -m "highlight + "[0K[30G[?25h[?25l$ git commit -m "highlight + o"[0K[31G[?25h[?25l$ git commit -m "highlight + ot"[0K[32G[?25h[?25l$ git commit -m "highlight + oth"[0K[33G[?25h[?25l$ git commit -m "highlight + othe"[0K[34G[?25h[?25l$ git commit -m "highlight + other"[0K[35G[?25h[?25l$ git commit -m "highlight + other "[0K[36G[?25h[?25l$ git commit -m "highlight + other Y"[0K[37G[?25h[?25l$ git commit -m "highlight + other YA"[0K[38G[?25h[?25l$ git commit -m "highlight + other YAM"[0K[39G[?25h[?25l$ git commit -m "highlight + other YAML"[0K[40G[?25h[?25l$ git commit -m "highlight + other YAML "[0K[41G[?25h[?25l$ git commit -m "highlight + other YAML o"[0K[42G[?25h[?25l$ git commit -m "highlight + other YAML op"[0K[43G[?25h[?25l$ git commit -m "highlight + other YAML opt"[0K[44G[?25h[?25l$ git commit -m "highlight + other YAML opts"[0K[45G[?25h[?25l
-[0K[?25h[master 22958a5] highlight + other YAML opts[0K[?25l
- 19 files changed, 1371 insertions(+), 1075 deletions(-)[0K
- rewrite .Rproj.user/shared/notebooks/paths (100%)[0K
- rewrite _book/advanced.html (92%)[0K
- rewrite _book/dynamic.html (92%)[0K
- create mode 100644 _includes/analytics.html[0K
- create mode 100644 images/cover.png[0K
-[0K[?25h[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$ git[0K[?25h[?25l$ gi[0K[?25h[?25l$ g[0K[?25h[?25l$[0K[3G[?25h[?25l$ g[0K[3G[?25h[4G[?25l$ gi[0K[?25ht[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[?25l
-[0K[?25hCounting objects: 33, done.[0K[?25l
-Delta compression using up to 4 threads.[0K
-Compressing objects:  85% (24/28)[0K[1G[?25h[?25lCompressing objects:  89% (25/28)[0K[1G[?25h[?25lCompressing objects:  96% (27/28)[0K[1G[?25hCompressing objects: 100% (28/28), done.[0K[?25l
-Writing objects:  18% (6/33)[0K[1G[?25h[?25lWriting objects:  48% (16/33)[0K[1G[?25hWriting objects: 100% (33/33), 521.93 KiB | 3.05 MiB/s, done.[0K[?25l
-Total 33 (delta 18), reused 0 (delta 0)[0K
-[0K[?25hTo https://bitbucket.org/JohnCoene/twinetbook.git[0K[?25l
-   7a46990..22958a5  master -> master[0K
-[0K[?25h[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$ git push g[0K[?25hi[0K[?25lt[0K[14G[?25h[15G[?25l$ git push gith[0K[15G[?25h[16G[?25l$ git push githu[0K[?25hb[0K[19G[?25l$ git push github m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
-[0K[?25hCounting objects: 33, done.[0K[?25l
-[0K[?25hDelta compression using up to 4 threads.[0K[?25l
-Compressing objects:  85% (24/28)[0K[1G[?25h[?25lCompressing objects:  89% (25/28)[0K[1G[?25h[?25lCompressing objects:  96% (27/28)[0K[1G[?25hCompressing objects: 100% (28/28), done.[0K[?25l
-Writing objects:  45% (15/33)[0K[1G[?25h[?25lWriting objects:  48% (16/33)[0K[1G[?25hWriting objects: 100% (33/33), 521.93 KiB | 2.30 MiB/s, done.[0K[?25l
-Total 33 (delta 18), reused 0 (delta 0)[0K
-[0K[?25hremote: Resolving deltas: 100% (18/18), completed with 15 local objects.[0K[?25l
-To https://github.com/JohnCoene/twinetbook.git[0K
-   7a46990..22958a5  master -> master[0K
-[0K[?25h[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$[0K[3G[?25h[0m[0K]0;[?25l
-[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-[?25l
-[0K[?25h[?25l
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
 [0K[26A[?25h[?25l
 [0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
 $ g[0K
@@ -1224,4 +214,796 @@ $ g[0K
 [0K
 [0K
 [0K[24A[13G[?25h[?25l
-[?25h
+[?25hwarning: LF will be replaced by CRLF in .Rproj.user/B7385CEA/sources/prop/42BC98BB.[0K[?25l
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in .Rproj.user/B7385CEA/sources/prop/CFF2C5B2.[0K
+The file will have its original line endings in your working directory.[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[19A[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$ git co[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[9G[?25h[?25l$ git com[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[10G[?25h[?25l$ git commi[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[12G[?25h[?25l$ git commit[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[14G[?25h[?25l$ git commit -[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[15G[?25h[?25l$ git commit -m[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[16G[?25h[17G[?25l$ git commit -m "[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[18G[?25h[?25l$ git commit -m ""[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[19G[?25h[18G[?25l$ git commit -m "g"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[19G[?25h[?25l$ git commit -m "ge"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[20G[?25h[?25l$ git commit -m "get"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[21G[?25h[?25l$ git commit -m "get "[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[22G[?25h[?25l$ git commit -m "get s"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[23G[?25h[?25l$ git commit -m "get st"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[24G[?25h[?25l$ git commit -m "get sta"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[25G[?25h[?25l$ git commit -m "get star"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[26G[?25h[?25l$ git commit -m "get start"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[27G[?25h[?25l$ git commit -m "get starte"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[28G[?25h[?25l$ git commit -m "get started"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[29G[?25h[?25l$ git commit -m "get started "[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[30G[?25h[?25l$ git commit -m "get started +"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[31G[?25h[?25l$ git commit -m "get started + "[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[32G[?25h[?25l$ git commit -m "get started + a"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[33G[?25h[?25l$ git commit -m "get started + ad"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[34G[?25h[?25l$ git commit -m "get started + adv"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[35G[?25h[?25l$ git commit -m "get started + adva"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[36G[?25h[?25l$ git commit -m "get started + advanc"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[38G[?25h[?25l$ git commit -m "get started + advance"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[39G[?25h[?25l$ git commit -m "get started + advanced"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[40G[?25h[?25l$ git commit -m "get started + advanced "[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[41G[?25h[?25l$ git commit -m "get started + advanced r"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[42G[?25h[?25l$ git commit -m "get started + advanced re"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[43G[?25h[?25l$ git commit -m "get started + advanced re "[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[44G[?25h[?25l$ git commit -m "get started + advanced re w"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[45G[?25h[?25l$ git commit -m "get started + advanced re wo"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[46G[?25h[?25l$ git commit -m "get started + advanced re wor"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[47G[?25h[?25l$ git commit -m "get started + advanced re work"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[48G[?25h[?25l$ git commit -m "get started + advanced re worke"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[49G[?25h[?25l$ git commit -m "get started + advanced re worked"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[17A[49G[?25h[50G[?25l
+[?25h[master 05012a9] get started + advanced re worked[0K[?25l
+ 18 files changed, 1386 insertions(+), 1020 deletions(-)[0K
+ rewrite .Rproj.user/B7385CEA/console06/INDEX001 (84%)[0K
+ rewrite _book/advanced.html (90%)[0K
+ rewrite _book/dynamic.html (91%)[0K
+ rewrite _book/search_index.json (82%)[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[10A[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$ git p[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[8A[8G[?25h[?25l$ git pu[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[8A[9G[?25h[?25l$ git pus[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[8A[9G[?25h[10G[?25l$ git push[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[8A[11G[?25h[?25l
+[?25hCounting objects: 26, done.[0K[?25l
+Delta compression using up to 4 threads.[0K
+Compressing objects:  72% (18/25)[0K
+[0K
+[0K
+[0K
+[0K
+[0K[5A[?25h[?25lCompressing objects:  80% (20/25)[0K
+[0K
+[0K
+[0K
+[0K
+[0K[5A[?25h[?25lCompressing objects:  84% (21/25)[0K
+[0K
+[0K
+[0K
+[0K
+[0K[5A[?25hCompressing objects: 100% (25/25), done.[0K[?25l
+Writing objects:  57% (15/26)[0K
+[0K
+[0K
+[0K
+[0K[4A[?25h[?25lWriting objects:  61% (16/26)[0K
+[0K
+[0K
+[0K
+[0K[4A[?25hWriting objects: 100% (26/26), 314.04 KiB | 1.97 MiB/s, done.[0K[?25l
+Total 26 (delta 18), reused 0 (delta 0)[0K
+[0K
+[0K
+[0K[2A[?25hTo https://bitbucket.org/JohnCoene/twinetbook.git[0K[?25l
+   22958a5..05012a9  master -> master[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$ git push github[0K[?25h[19G[?25l$ git push github m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
+[0K[?25hCounting objects: 26, done.[0K[?25l
+Delta compression using up to 4 threads.[0K
+Compressing objects:  56% (14/25)[0K[1G[?25h[?25lCompressing objects:  80% (20/25)[0K[1G[?25h[?25lCompressing objects:  84% (21/25)[0K[1G[?25hCompressing objects: 100% (25/25), done.[0K[?25l
+Writing objects:  57% (15/26)[0K[1G[?25h[?25lWriting objects:  61% (16/26)[0K[1G[?25hWriting objects: 100% (26/26), 314.04 KiB | 1.81 MiB/s, done.[0K[?25l
+Total 26 (delta 18), reused 0 (delta 0)[0K
+[0K[?25hremote: Resolving deltas:  16% (3/18)[0K[41G[?25lremote: Resolving deltas: 100% (18/18), completed with 18 local objects.[0K
+To https://github.com/JohnCoene/twinetbook.git[0K
+   22958a5..05012a9  master -> master[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+]0;[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0K[?25ll[0K[9G[?25h[10G[?25l$ git pull[0K[?25h[?25l
+[0K[?25hAlready up-to-date.[0K[?25l
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25h[?25ld[0K[8G[?25h[9G[?25l$ git add[0K[?25h[11G[?25l$ git add -[0K[?25hA[0K[?25l
+[0K[?25h
