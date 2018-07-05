@@ -19,7 +19,7 @@ description: "A guide to download Twitter data and visualise them as graphs in R
 
 # Preface
 
-The goal of the _twinetverse_ is to provide everything one might need efficiently and elegantly visualise Twitter interactions.
+The goal of the _twinetverse_ is to provide everything one might need to efficiently and elegantly visualise Twitter interactions.
 
 The _twinetverse_ package can be installed from Github:
 
