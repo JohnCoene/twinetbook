@@ -33,6 +33,6 @@ The package is unlikely to make it onto CRAN, it may be considered once all of i
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'twinetverse', 'rtweet', 'graphTweets', 'sigmajs',
-  'igraph', 'httr'
+  'igraph', 'httr', "zeallot"
 ), 'packages.bib')
 ```

@@ -78,68 +78,41 @@ ga('send', 'pageview');
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  { background-color: #f8f8f8; }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -186,11 +159,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2" data-path="advanced.html"><a href="advanced.html#build-1"><i class="fa fa-check"></i><b>6.2</b> Build</a></li>
 <li class="chapter" data-level="6.3" data-path="advanced.html"><a href="advanced.html#visualise-1"><i class="fa fa-check"></i><b>6.3</b> Visualise</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="dynamic.html"><a href="dynamic.html"><i class="fa fa-check"></i><b>7</b> Dynamic</a><ul>
-<li class="chapter" data-level="7.1" data-path="dynamic.html"><a href="dynamic.html#rationale-1"><i class="fa fa-check"></i><b>7.1</b> Rationale</a></li>
-<li class="chapter" data-level="7.2" data-path="dynamic.html"><a href="dynamic.html#collect-2"><i class="fa fa-check"></i><b>7.2</b> Collect</a></li>
-<li class="chapter" data-level="7.3" data-path="dynamic.html"><a href="dynamic.html#build-2"><i class="fa fa-check"></i><b>7.3</b> Build</a></li>
-<li class="chapter" data-level="7.4" data-path="dynamic.html"><a href="dynamic.html#visualise-2"><i class="fa fa-check"></i><b>7.4</b> Visualise</a></li>
+<li class="chapter" data-level="7" data-path="hashtags.html"><a href="hashtags.html"><i class="fa fa-check"></i><b>7</b> Hashtags</a></li>
+<li class="chapter" data-level="8" data-path="dynamic.html"><a href="dynamic.html"><i class="fa fa-check"></i><b>8</b> Dynamic</a><ul>
+<li class="chapter" data-level="8.1" data-path="dynamic.html"><a href="dynamic.html#rationale-1"><i class="fa fa-check"></i><b>8.1</b> Rationale</a></li>
+<li class="chapter" data-level="8.2" data-path="dynamic.html"><a href="dynamic.html#collect-2"><i class="fa fa-check"></i><b>8.2</b> Collect</a></li>
+<li class="chapter" data-level="8.3" data-path="dynamic.html"><a href="dynamic.html#build-2"><i class="fa fa-check"></i><b>8.3</b> Build</a></li>
+<li class="chapter" data-level="8.4" data-path="dynamic.html"><a href="dynamic.html#visualise-2"><i class="fa fa-check"></i><b>8.4</b> Visualise</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -218,9 +192,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Below are the packages that make up in the <em>twinetverse</em> as well as some explanation of what they bring to visualising Twitter interactions.</p>
 <div id="rtweet" class="section level2">
 <h2><span class="header-section-number">3.1</span> rtweet</h2>
-<p><a href="http://rtweet.info/" target="_blank">
-<img src="http://rtweet.info/reference/figures/logo.png" align="left" style="max-height:150px;margin-right:2%;"/>
-</a></p>
+<p><a href="http://rtweet.info/" target="_blank"> <img src="http://rtweet.info/reference/figures/logo.png" align="left" style="max-height:150px;margin-right:2%;"/> </a></p>
 <p>If we are going to visualise Twitter interactions we are going to need data, namely tweets. The rtweet package <span class="citation">(Kearney <a href="#ref-R-rtweet">2018</a>)</span> wraps the <a href="https://developer.twitter.com/en/docs.html">Twitter API</a>, thereby giving R users easy access to tweets.</p>
 <div id="usage" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Usage</h3>
@@ -230,9 +202,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="graphtweets" class="section level2">
 <h2><span class="header-section-number">3.2</span> graphTweets</h2>
-<p><a href="http://graphTweets.john-coene.com/" target="_blank">
-<img src="http://graphtweets.john-coene.com/logo.png" align="left" style="max-height:150px;margin-right:2%;"/>
-</a></p>
+<p><a href="http://graphTweets.john-coene.com/" target="_blank"> <img src="http://graphtweets.john-coene.com/logo.png" align="left" style="max-height:150px;margin-right:2%;"/> </a></p>
 <div id="rationale" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Rationale</h3>
 <p>The graphTweets package <span class="citation">(Coene <a href="#ref-R-graphTweets">2018</a><a href="#ref-R-graphTweets">a</a>)</span> lets you build lists of nodes and edges from tweets collected with rtweet. The package is faily straighforward and inludes but a few functions. However, it still enables you to build relatively complex graphs.</p>
@@ -246,9 +216,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="sigmajs" class="section level2">
 <h2><span class="header-section-number">3.3</span> sigmajs</h2>
-<p><a href="http://sigmajs.john-coene.com/" target="_blank">
-<img src="http://sigmajs.john-coene.com/reference/figures/logo.png" align="left" style="max-height:150px;margin-right:2%;"/>
-</a></p>
+<p><a href="http://sigmajs.john-coene.com/" target="_blank"> <img src="http://sigmajs.john-coene.com/reference/figures/logo.png" align="left" style="max-height:150px;margin-right:2%;"/> </a></p>
 <p>The sigmajs package <span class="citation">(Coene <a href="#ref-R-sigmajs">2018</a><a href="#ref-R-sigmajs">b</a>)</span> is a powerful library to visualise the networks we have built using graphTweets. The package, like graphTweets, is pipe-friendly (<code>%&gt;%</code>), therefore making it easy to go from building a graph to visualising it. It can also easily represent dynamic networks, something otherwise not evident in R.</p>
 <p>Features:</p>
 <ul>
@@ -270,7 +238,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-R-rtweet">
-<p>Kearney, Michael Wayne. 2018. <em>Rtweet: Collecting Twitter Data</em>. <a href="https://CRAN.R-project.org/package=rtweet" class="uri">https://CRAN.R-project.org/package=rtweet</a>.</p>
+<p>Kearney, Michael W. 2018. <em>Rtweet: Collecting Twitter Data</em>. <a href="https://CRAN.R-project.org/package=rtweet" class="uri">https://CRAN.R-project.org/package=rtweet</a>.</p>
 </div>
 <div id="ref-R-graphTweets">
 <p>Coene, John. 2018a. <em>GraphTweets: Visualise Twitter Interactions</em>. <a href="http://graphTweets.john-coene.com" class="uri">http://graphTweets.john-coene.com</a>.</p>

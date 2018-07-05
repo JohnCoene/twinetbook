@@ -1,0 +1,77 @@
+# Hashtags {#hashtags}
+
+```{r, echo=FALSE, include=FALSE}
+library(twinetverse)
+
+TK <- readRDS("twitter_token.rds")
+```
+
+The _twinetverse_, or graphTweets more specifically, not only enables visualising interactions between users, it also lets one build and visualise networks of users and the hashtag(s) they use.
+
+Let's collect some tweets, since we want to plot relationships between users and hashtags we'll specify two #hashtags #python and #rstats. This way we'll be able to see who uses both or either. Moreover it shows another Twitter API search operator.
+
+```{r, eval=TRUE}
+# TK <- readRDS(file = "token.rds")
+tweets <- search_tweets("#rstats OR #python", n = 1000, token = TK, include_rts = FALSE)
+```
+
+Now let's build a network of hashtags to visualise which user tweets which #hashtag.
+
+```{r}
+net <- tweets %>% 
+  gt_edges_hash(hashtags, screen_name) %>% 
+  gt_nodes() %>% 
+  gt_collect()
+```
+
+Let's inspect the edges first.
+
+```{r, eval = FALSE}
+head(net$edges)
+```
+
+```{r, eval = TRUE, echo = FALSE}
+knitr::kable(head(net$edges))
+```
+
+The edges include the `n_tweets` variable which is the number tweets the #hashtag is found in. Note that in order to ensure we can always distinguish between a user and a hashtag, hashtag are preceded by the the `#` signs. Let's take a look at the nodes.
+
+```{r, eval = FALSE}
+head(net$nodes)
+```
+
+```{r, eval = TRUE, echo = FALSE}
+knitr::kable(head(net$nodes))
+```
+
+Nodes also include the `type` which is either set to `user` or `hashtag`.
+
+Only one function changes, we use `gt_edges_hash` instead of `gt_edges`. While the latter builds networks of users, as we should be somewhat familiar with already, the former build networks that map users to the hashtags they use in their tweets, it thus make sense to pass `hashtags` instead of `text` as rtweet neatly extracts that for us.
+
+Now onto the visualisation. As we did before, we unpack our network, using the zeallot package [R-zeallot] for a change, then we rename some variables to fit sigmajs' expectation, and we color the nodes according to the `type`, whether it is a #hashtag or a \@user.
+
+```{r}
+library(zeallot)
+
+c(edges, nodes) %<-% net
+
+edges$id <- seq(1, nrow(edges))
+nodes$id <- nodes$nodes
+nodes$label <- nodes$nodes
+nodes$size <- nodes$n_edges
+nodes$color <- ifelse(nodes$type == "user", "#0084b4", "#1dcaff")
+```
+
+In the visualisation we add `sg_neighbours` to *highlight* nodes and its neighbours on click.
+
+```{r}
+sigmajs() %>% 
+  sg_nodes(nodes, id, size, color, label) %>% 
+  sg_edges(edges, id, source, target) %>% 
+  sg_layout(layout = igraph::layout_components) %>% 
+  sg_settings(
+    edgeColor = "default",
+    defaultEdgeColor = "#d3d3d3"
+  ) %>% 
+  sg_neighbours()
+```
