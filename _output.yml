@@ -3,7 +3,7 @@ bookdown::gitbook:
   css: style.css
   config:
     toc:
-      collapse: subsection 
+      collapse: section 
       scroll_highlight: yes
       before: |
         <li><a href="./">The twinetverse Book</a></li>
