@@ -1,0 +1,109 @@
+# Temporal graph {#temporal}
+
+```{r, echo=FALSE, include=FALSE}
+library(twinetverse)
+
+TK <- readRDS("twitter_token.rds")
+```
+
+In the previous chapter we built a graph with dynamic edges. Let's build a fully dynamic graph where both nodes and edges appear when they are first created. We will then, based on the latter graph have nodes and edges disapear. Why? Tweets are not eternal and probably have a certain lifespan.
+
+## Collect
+
+We again collect tweets but feel free to use data from a previous chapter.
+
+```{r, eval=TRUE}
+# TK <- readRDS(file = "token.rds")
+tweets <- search_tweets("#rstats filter:mentions", n = 2000, token = TK, include_rts = FALSE)
+```
+
+## Build
+
+We build the graph as we did in the previous chapter.
+
+```{r, eval=TRUE}
+net <- tweets %>% 
+  gt_edges(text, screen_name, status_id, created_at = "created_at") %>% 
+  gt_nodes() %>% 
+  gt_dyn() %>% 
+  gt_collect()
+```
+
+## Visualise
+
+Again, we unpack the network and prepare nodes and edges for our visualisation. Then we define a `rescale` functiion to ensure our treatment of the date time columns are consistent across nodes and edges.
+
+```{r}
+library(dplyr)
+
+c(edges, nodes) %<-% net
+
+#' @param x Date time column.
+#' @param t Number of milliseconds to rescale to.
+rescale <- function(x, t){
+  x <- as.numeric(x)
+  x <-  (x - min(x)) / (max(x) - min(x))
+  x <- x * t
+  return(x)
+}
+```
+
+Next we prepare the data, we define the `t` argument of our `rescale` function defined above as a constant so as to make sure we apply the same scale to both nodes and edges.
+
+```{r}
+T <- 10000
+lockBinding("T", globalenv())
+
+nodes <- nodes %>% 
+  mutate(
+    id = source,
+    label = source,
+    size = n_edges,
+    start = rescale(start, T)
+  ) %>% 
+  select(id, label, size, start)
+
+edges <- edges %>% 
+  mutate(
+    id = 1:n(),
+    created_at = as.numeric(created_at),
+    created_at = rescale(created_at, T)
+  ) %>% 
+  select(id, source, target, created_at)
+```
+
+As the graph is we might run into issues. sigmajs can only connect edges to nodes that exist, nodes that are already on the graph, currently the edge will appear at the same time as the node and it might cause clashes. We can simply remedy to that by having the edges appear a fraction of a second after the node.
+
+```{r}
+# add half a second
+edges$created_at <- edges$created_at + 500
+```
+
+Now the actual visualisation, then again, we set `cumsum = FALSE`, and add a button to let you trigger the visualisation. before then you should see a blank canvas.
+
+```{r}
+sigmajs() %>% 
+  sg_add_nodes(nodes, start, id, label, size, cumsum = FALSE) %>% 
+  sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE) 
+```
+
+We forgot the layout and we do not color the nodes, let's compute the layout and the clusters to color nodes.
+
+```{r}
+nodes <- sg_get_layout(nodes, edges)
+
+nodes <- sg_get_cluster(
+  nodes, 
+  edges,
+  colors = c(
+    "#0084b4",
+    "#00aced",
+    "#1dcaff",
+    "#c0deed"
+    )
+  )
+
+sigmajs() %>% 
+  sg_add_nodes(nodes, start, id, label, size, color, x, y, cumsum = FALSE) %>% 
+  sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE)
+```

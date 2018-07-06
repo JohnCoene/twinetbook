@@ -1,4 +1,4 @@
-# Dynamic {#dynamic}
+# Dynamic Edges {#dynamic}
 
 ```{r, echo=FALSE, include=FALSE}
 library(twinetverse)
@@ -57,7 +57,6 @@ To explain we need to tackle how edges will dinamically appear on the graph. The
 
 ```{r}
 library(dplyr)
-library(zeallot)
 
 c(edges, nodes) %<-% net # unpack
 
@@ -90,23 +89,15 @@ sigmajs() %>%
 
 We'll add the layout as it looks a bit messy with nodes randomly scattered across the canvas. We'll have to compute the layout differently this time, we cannot simply use `sg_layout` as it requires both nodes and edges and we only have nodes on the graph; instead we use `sg_get_layout`.
 
-This is something that we had not shared with you earlier on, `sg_nodes` must have `x` and `y` coordinates of each node, however, if missing they are generated randomly by the package. We simply compute those coordinates then bind them to our nodes.
+This is something that we had not shared with you earlier on, `sg_nodes` must have `x` and `y` coordinates of each node, however, if missing they are generated randomly by the package. `sg_get_layout` computes the coordinates of the nodes (`x` and `y`) andd adds them to our nodes data.frame.
 
 ```{r, warning = FALSE, eval = FALSE}
-layout <- sg_get_layout(nodes, edges)
-
-nodes <- nodes %>% 
-  bind_cols(layout)
-
+nodes <- sg_get_layout(nodes, edges)
 head(nodes)
 ```
 
 ```{r, warning = FALSE, eval = TRUE, echo=FALSE}
-layout <- sg_get_layout(nodes, edges, layout = igraph::layout_components)
-
-nodes <- nodes %>% 
-  bind_cols(layout)
-
+nodes <- sg_get_layout(nodes, edges, layout = igraph::layout_components)
 knitr::kable(head(nodes))
 ```
 
@@ -135,7 +126,7 @@ sigmajs() %>%
 
 Now we have something that looks like a graph, except it's missing edges. Let's add them.
 
-We add the edges almost exactly as we did before, we use `sg_add_edges` instead of `sg_edges`. Other than the function name, the only difference is that we pass `created_at` as `delay`.
+We add the edges almost exactly as we did before, we use `sg_add_edges` instead of `sg_edges`. Other than the function name, the only difference is that we pass `created_at` as `delay`. We also set `cumsum` to `FALSE` or the function computes the cumulative sum on the `delay`, which is, here, our `created_at` column.
 
 ```{r}
 sigmajs() %>% 
