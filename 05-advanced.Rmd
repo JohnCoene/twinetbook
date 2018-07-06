@@ -71,7 +71,7 @@ Now onto the visualisation.
 sigmajs("webgl") %>% 
   sg_nodes(nodes, id, label, size) %>% 
   sg_edges(edges, id, source, target) %>% 
-  sg_layout() %>% 
+  sg_layout(layout = igraph::layout_components) %>% 
   sg_cluster(
     colors = c(
       "#0084b4",

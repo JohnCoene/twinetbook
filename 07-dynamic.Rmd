@@ -1,4 +1,4 @@
-# Dynamic {#dynamic}
+# Dynamic 101 {#dynamic}
 
 ```{r, echo=FALSE, include=FALSE}
 library(twinetverse)

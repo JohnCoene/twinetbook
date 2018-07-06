@@ -8,7 +8,7 @@ TK <- readRDS("twitter_token.rds")
 
 The _twinetverse_, or graphTweets more specifically, not only enables visualising interactions between users, it also lets one build and visualise networks of users and the hashtag(s) they use.
 
-Let's collect some tweets, since we want to plot relationships between users and hashtags we'll specify two #hashtags #python and #rstats. This way we'll be able to see who uses both or either. Moreover it shows another Twitter API search operator.
+Let's collect some tweets, since we want to plot relationships between users and hashtags we'll specify two hashtags: #python and #rstats. This way we'll be able to see who uses both or either. Moreover it shows another Twitter API search operator.
 
 ```{r, eval=TRUE}
 # TK <- readRDS(file = "token.rds")
@@ -55,11 +55,21 @@ library(zeallot)
 
 c(edges, nodes) %<-% net
 
-edges$id <- seq(1, nrow(edges))
-nodes$id <- nodes$nodes
-nodes$label <- nodes$nodes
-nodes$size <- nodes$n_edges
-nodes$color <- ifelse(nodes$type == "user", "#0084b4", "#1dcaff")
+prep_edges <- function(x){
+  x$id <- seq(1, nrow(x))
+  return(x)
+}
+
+prep_nodes <- function(x){
+  x$id <- x$nodes
+  x$label <- x$nodes
+  x$size <- x$n_edges
+  x$color <- ifelse(x$type == "user", "#0084b4", "#1dcaff") 
+  return(x)
+}
+
+nodes <- prep_nodes(nodes)
+edges <- prep_edges(edges)
 ```
 
 In the visualisation we add `sg_neighbours` to *highlight* nodes and its neighbours on click.
@@ -75,3 +85,5 @@ sigmajs() %>%
   ) %>% 
   sg_neighbours()
 ```
+
+It is interesting to see that few users actually tweet both hashtags, this _wouldn't_ have to be in the same tweet so it is somewhat surprising.
