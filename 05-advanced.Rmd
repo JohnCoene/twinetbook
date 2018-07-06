@@ -43,20 +43,10 @@ net <- tweets %>%
 Let's make a slightly more interesting visualisation this time. First, we'll prepare the data for sigmajs like we did in the [get started](#get-started) chapter.
 
 ```{r, eval=TRUE}
-library(dplyr)
+c(edges, nodes) %<-% net
 
-nodes <- net$nodes
-edges <- net$edges
-
-nodes <- nodes %>% 
-  arrange(n_edges) %>% 
-  mutate(
-    id = nodes,
-    label = nodes,
-    size = n_edges
-  )
-
-edges$id <- seq(1, nrow(edges))
+nodes <- nodes2sg(nodes)
+edges <- edges2sg(edges)
 ```
 
 Now onto the visualisation.

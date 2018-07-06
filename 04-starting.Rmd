@@ -17,7 +17,7 @@ See the [prerequisites](#prerequisites) section if the line below confuses you.
 TK <- readRDS("token.rds")
 ```
 
-rtweet lets you do a lot of things, however within the context of the _twinetverse_ we mainly use `search_tweets` to get tweets.
+rtweet lets you do a lot of things, however within the context of the _twinetverse_ we mainly use its `search_tweets` to get tweets.
 
 ```{r collect, eval=TRUE}
 tweets <- search_tweets("rstats", token = TK)
@@ -27,18 +27,16 @@ The `search_tweets` function takes a few arguments which we'll eventually get in
 
 ## Build
 
-Now we can use the second package part of the _twinetverse_, graphTweets. Again, we'll function's arguments to default to get a simple graph. There's a lot more to the package which we'll get into later.
+Now we can use the second package part of the _twinetverse_, graphTweets. Again, we'll leave function's arguments to default to get a simple graph. There's a lot more to the package which we'll explore in later chapters.
 
 ```{r, eval=TRUE}
 net <- tweets %>% 
   gt_edges(text, screen_name, status_id)
 ```
 
-We called `gt_edges` on our tweets, specifying a few column names from our data.frame of tweets. The source of the tweets will also be the source of our edges so we pass `screen_name`, then the target of these edges will be users tagged in the tweets, `text` in rtweet. 
+We called `gt_edges` on our `tweets` data.frame, passing a few bare column names. The source of the tweets will also be the source of our edges so we pass `screen_name`, then the target of these edges will be users tagged in the tweets, `text` variable in rtweet. 
 
-For instance, we now know that "`r net$edges[1,1]`" tags "`r net$edges[1,2]`" in a tweet.
-
-Well, not really because the object returned is of an unfamiliar class.
+The object returned is of an unfamiliar class.
 
 ```{r, eval=TRUE}
 class(net)
@@ -82,11 +80,10 @@ Now we're good, we have downloaded tweets and have everything we need to visuali
 
 ## Visualise
 
-We can visualise the network with sigmajs. Then again, it's very easy and follows the same idea as graphTweets; we pipe our nodes and edges through. Before we do so, let's unpack our network for clarity's sake.
+We can visualise the network with sigmajs. Then again, it's very easy and follows the same idea as graphTweets; we pipe our nodes and edges through. Before we do so, for the sake of clarity, let's unpack our network using the `%<-%` from the Zeallot package [@R-zeallot], imported by the twinetverse.
 
 ```{r, eval=TRUE}
-nodes <- net$nodes
-edges <- net$edges
+c(edges, nodes) %<-% net
 ```
 
 Let's take a look at the edges.
@@ -119,17 +116,24 @@ Below we rename a few columns, to meet sigmajs' naming convention.
 2. We essentially rename `n_edges` to `size` as this is what sigmajs understands (more on this later).
 3. We add ids to our edges as sigmajs requires each edge to have a unique id.
 
-```{r}
-nodes$id <- as.factor(nodes$nodes) # sigmajs requires a unique id (named id)
-nodes$size <- nodes$n_edges # sigmajs requires node size named size
+```{r, eval = FALSE}
+nodes$id <- as.factor(nodes$nodes) 
+nodes$size <- nodes$n_edges 
 
-edges$id <- seq(1, nrow(edges)) # sigmajs requires a unique id (named id)
+edges$id <- seq(1, nrow(edges)) 
 ```
 
 sigmajs has a specific but sensible naming convention as well as basic _minimal requirements_. 
 
 * Nodes must at least include `id`, and `size`.
 * Edges must at least include `id`, `source`, and `target`.
+
+Actually, the twinetverse comes with helper functions to prepare the nodes and edges build from graphTweets for use in sigmajs.
+
+```{r}
+nodes <- nodes2sg(nodes)
+edges <- edges2sg(edges)
+```
 
 Let's visualise that, we must initialise every sigmajs graph with the `sigmajs` function, then we add our nodes with `sg_nodes`, passing the column names we mentioned previously, `id`, and `size` to meet sigmajs' minimum requirements. *At the exception of `sigmajs`, all functions of the sigmajs package start with `sg_`*  
 
@@ -168,14 +172,10 @@ net <- tweets %>%
   gt_nodes() %>% 
   gt_collect() 
 
-nodes <- net$nodes
+c(edges, nodes) %<-% net
 
-nodes$id <- as.factor(nodes$nodes) 
-nodes$size <- nodes$n_edges 
-
-edges <- net$edges
-
-edges$id <- seq(1, nrow(edges))
+nodes <- nodes2sg(nodes)
+edges <- edges2sg(edges)
 
 # Visualise
 sigmajs() %>% 

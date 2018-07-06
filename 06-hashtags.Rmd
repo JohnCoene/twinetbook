@@ -48,28 +48,15 @@ Nodes also include the `type` which is either set to `user` or `hashtag`.
 
 Only one function changes, we use `gt_edges_hash` instead of `gt_edges`. While the latter builds networks of users, as we should be somewhat familiar with already, the former build networks that map users to the hashtags they use in their tweets, it thus make sense to pass `hashtags` instead of `text` as rtweet neatly extracts that for us.
 
-Now onto the visualisation. As we did before, we unpack our network, using the zeallot package [R-zeallot] for a change, then we rename some variables to fit sigmajs' expectation, and we color the nodes according to the `type`, whether it is a #hashtag or a \@user.
+Now onto the visualisation. As we did before, we unpack our network, then we prepare the data to fit sigmajs' expectation, and we color the nodes according to the `type`, one colour for #hashtags and another for \@users.
 
 ```{r}
-library(zeallot)
-
 c(edges, nodes) %<-% net
 
-prep_edges <- function(x){
-  x$id <- seq(1, nrow(x))
-  return(x)
-}
+nodes <- nodes2sg(nodes)
+edges <- edges2sg(edges)
 
-prep_nodes <- function(x){
-  x$id <- x$nodes
-  x$label <- x$nodes
-  x$size <- x$n_edges
-  x$color <- ifelse(x$type == "user", "#0084b4", "#1dcaff") 
-  return(x)
-}
-
-nodes <- prep_nodes(nodes)
-edges <- prep_edges(edges)
+nodes$color <- ifelse(nodes$type == "user", "#0084b4", "#1dcaff")
 ```
 
 In the visualisation we add `sg_neighbours` to *highlight* nodes and its neighbours on click.

@@ -16,7 +16,7 @@ or from [Bitbucket](https://bitbucket.org/JohnCoene/twinetbook/src/master/):
 devtools::install_bitbucket("JohnCoene/twinetverse")
 ```
 
-In the book we don't explicitly load the package and assume you have loaded in your environment:
+In the book we don't explicitly load the package and assume you have it loaded in your environment:
 
 ```{r eval=FALSE}
 library(twinetverse)
