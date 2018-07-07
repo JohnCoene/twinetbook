@@ -10,11 +10,11 @@ In the previous chapter we built a graph with dynamic edges. Let's build a fully
 
 ## Collect
 
-We again collect tweets but feel free to use data from a previous chapter.
+We again collect tweets in a slightly different manner but feel free to use data from a previous chapter. We specify `type` as `mixed` in order to get a mix of popular and recent tweets.
 
 ```{r, eval=TRUE}
 # TK <- readRDS(file = "token.rds")
-tweets <- search_tweets("#rstats filter:mentions", n = 2000, token = TK, include_rts = FALSE)
+tweets <- search_tweets("#rstats filter:mentions", n = 1000, token = TK, include_rts = FALSE, type = "mixed")
 ```
 
 ## Build
@@ -79,12 +79,13 @@ As the graph is we might run into issues. sigmajs can only connect edges to node
 edges$created_at <- edges$created_at + 500
 ```
 
-Now the actual visualisation, then again, we set `cumsum = FALSE`, and add a button to let you trigger the visualisation. before then you should see a blank canvas.
+Now the actual visualisation, then again, we set `cumsum = FALSE`, and add a button (linked to `add_nodes_edges`) to let you trigger the visualisation. before then you should see a blank canvas.
 
 ```{r}
 sigmajs() %>% 
   sg_add_nodes(nodes, start, id, label, size, cumsum = FALSE) %>% 
-  sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE) 
+  sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE) %>% 
+  sg_button("Start", "add_nodes_edges")
 ```
 
 We forgot the layout and we do not color the nodes, let's compute the layout and the clusters to color nodes.
@@ -105,5 +106,44 @@ nodes <- sg_get_cluster(
 
 sigmajs() %>% 
   sg_add_nodes(nodes, start, id, label, size, color, x, y, cumsum = FALSE) %>% 
-  sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE)
+  sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE) %>% 
+  sg_button("Start", "add_nodes_edges")
 ```
+
+So we transformed our date time to milliseconds and rescaled to span 10 seconds. The problem with this is that we, in a way, lose track of time in the visualisation itself. It'd be great to add a ticker to display, say, the date.
+
+Let's explain how this is done in sigmajs; we simply create a table that maps dates to our milliseconds `delay`. To do so we extract the dates from our `net` object, we then rescale those dates just like we did for the nodes and edges.
+
+```{r, eval=FALSE}
+dates <- as.Date(net$nodes$start)
+
+ticker <- dplyr::tibble(
+  dates = dates,
+  delay = rescale(dates, T)
+)
+
+head(ticker)
+```
+
+```{r, echo=FALSE}
+datetime <- net$nodes$start
+
+ticker <- dplyr::tibble(
+  dates = as.Date(datetime),
+  delay = rescale(datetime, T)
+)
+
+knitr::kable(head(ticker))
+```
+
+Now, how do we use this mapping table in sigmajs?
+
+```{r}
+sigmajs() %>% 
+  sg_add_nodes(nodes, start, id, label, size, color, x, y, cumsum = FALSE) %>% 
+  sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE) %>% 
+  sg_progress(ticker, delay, dates) %>% 
+  sg_button("Start", "add_nodes_edges")
+```
+
+We use the `sg_progress` function to which we pass both the ticker columns' variables.
