@@ -2,10 +2,11 @@
 
 In this chapter we get you set up and running with the _twinetverse_.
 
-First install the package:
+The package can be install with devtools devtools [@R-devtools] or remotes [@R-remotes], it is available from Github or Bitbucket:
 
 ```{r, eval = FALSE}
 devtools::install_github("JohnCoene/twinetverse")
+remotes::install_bitbucket("JohnCoene/twinetverse")
 ```
 
 ## Setup rtweet

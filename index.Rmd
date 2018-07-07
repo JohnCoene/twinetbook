@@ -14,18 +14,18 @@ links-as-notes: true
 colorlinks: true
 github-repo: JohnCoene/twinetverse
 cover-image: images/cover.png
-description: "A guide to download Twitter data and visualise them as graphs in R."
+description: "A guide to visualise networks of Twitter interactions in R."
 ---
 
 # Preface
 
 The goal of the _twinetverse_ is to provide everything one might need to efficiently and elegantly visualise Twitter interactions.
 
-The _twinetverse_ package can be installed from Github:
+<a>
+<img src="http://twinetverse.john-coene.com/reference/figures/logo.png" align="left" style="max-height:150px;margin-right:2%;"/>
+</a>
 
-```{r eval=FALSE}
-devtools::install_github("JohnCoene/twinetverse")
-```
+The _twinetverse_ package is available on [Github](https://github.com/JohnCoene/twinetverse) and [Bitbucket](https://bitbucket.org/JohnCoene/twinetverse).
 
 The package is unlikely to make it onto CRAN, it may be considered once all of its children packages are on CRAN, but not until then.
 
@@ -33,6 +33,6 @@ The package is unlikely to make it onto CRAN, it may be considered once all of i
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'twinetverse', 'rtweet', 'graphTweets', 'sigmajs',
-  'igraph', 'httr', "zeallot"
+  'igraph', 'httr', "zeallot", "remotes", "devtools"
 ), 'packages.bib')
 ```

@@ -23,11 +23,17 @@ rtweet lets you do a lot of things, however within the context of the _twinetver
 tweets <- search_tweets("rstats", token = TK)
 ```
 
-The `search_tweets` function takes a few arguments which we'll eventually get into, above we run the simplest possible call; calling for tweets about "rstats", a reference to the R [@R-base] Twitter [#hashtag](https://twitter.com/search?q=rstats), by default the function returns 100 tweets. Note that we also pass our token to the function.
+The `search_tweets` function takes a few arguments which we'll eventually get into, above we run the simplest possible call; fetching tweets about "rstats", a reference to the R [@R-base] Twitter [#hashtag](https://twitter.com/search?q=rstats), by default the function returns 100 tweets. Note that we also pass our token to the function.
+
+Each row a is a tweet, rtweet returns quite a lot of variables `r ncol(tweets)`, we'll only look at a select few.
+
+```{r, eval=TRUE}
+names(tweets)
+```
 
 ## Build
 
-Now we can use the second package part of the _twinetverse_, graphTweets. Again, we'll function's arguments to default to get a simple graph. There's a lot more to the package which we'll get into later.
+Now we can use the second package part of the _twinetverse_, graphTweets. Again, we'll leave the function's arguments to default to get a simple graph. There's a lot more to the package which we'll get into later.
 
 ```{r, eval=TRUE}
 net <- tweets %>% 
