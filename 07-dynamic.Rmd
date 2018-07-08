@@ -60,13 +60,7 @@ library(dplyr)
 
 c(edges, nodes) %<-% net # unpack
 
-nodes <- nodes %>% 
-  mutate(
-    id = source,
-    label = source,
-    size = n_edges
-  ) %>% 
-  select(id, label, size)
+nodes <- nodes2sg(nodes)
 
 edges <- edges %>% 
   mutate(
@@ -97,7 +91,15 @@ head(nodes)
 ```
 
 ```{r, warning = FALSE, eval = TRUE, echo=FALSE}
+<<<<<<< HEAD
 nodes <- sg_get_layout(nodes, edges, layout = igraph::layout_components)
+=======
+layout <- sg_get_layout(nodes, edges)
+
+nodes <- nodes %>% 
+  bind_cols(layout)
+
+>>>>>>> d154c84facf89ffd80fb5eaf3e73ce82fa2f79cc
 knitr::kable(head(nodes))
 ```
 

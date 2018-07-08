@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The twinetverse</title>
+  <meta name="description" content="A guide to download Twitter data and visualise them as graphs in R.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="The twinetverse" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.png" />
+  <meta property="og:description" content="A guide to download Twitter data and visualise them as graphs in R." />
+  <meta name="github-repo" content="JohnCoene/twinetverse" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The twinetverse" />
+  
+  <meta name="twitter:description" content="A guide to download Twitter data and visualise them as graphs in R." />
+  <meta name="twitter:image" content="images/cover.png" />
+
+<meta name="author" content="John Coene">
+
+
+<meta name="date" content="2018-07-06">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="prerequisites.html">
+<link rel="next" href="advanced.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
+<script src="libs/sigma-1.2.1/sigma.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.layout.forceAtlas2.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.layout.noverlap.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.parallelEdges.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.plugins.animate.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.customShapes.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.plugins.dragNodes.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.customEdgeShapes.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.plugins.relativeSize.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.edgeDots.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.edgeLabels.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.parsers.gexf.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.exporters.svg.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.plugins.neighborhoods.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.plugins.filter.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.snapshot.js"></script>
+<script src="libs/sigmajs-binding-0.1.1.9000/sigmajs.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-74544116-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The twinetverse Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="pkgs.html"><a href="pkgs.html"><i class="fa fa-check"></i><b>3</b> Packages</a><ul>
+<li class="chapter" data-level="3.1" data-path="pkgs.html"><a href="pkgs.html#rtweet"><i class="fa fa-check"></i><b>3.1</b> rtweet</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="pkgs.html"><a href="pkgs.html#usage"><i class="fa fa-check"></i><b>3.1.1</b> Usage</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="pkgs.html"><a href="pkgs.html#graphtweets"><i class="fa fa-check"></i><b>3.2</b> graphTweets</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="pkgs.html"><a href="pkgs.html#rationale"><i class="fa fa-check"></i><b>3.2.1</b> Rationale</a></li>
+<li class="chapter" data-level="3.2.2" data-path="pkgs.html"><a href="pkgs.html#usage-1"><i class="fa fa-check"></i><b>3.2.2</b> Usage</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="pkgs.html"><a href="pkgs.html#sigmajs"><i class="fa fa-check"></i><b>3.3</b> sigmajs</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="pkgs.html"><a href="pkgs.html#usage-2"><i class="fa fa-check"></i><b>3.3.1</b> Usage</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i><b>4</b> Prerequisites</a><ul>
+<li class="chapter" data-level="4.1" data-path="prerequisites.html"><a href="prerequisites.html#install"><i class="fa fa-check"></i><b>4.1</b> Install</a></li>
+<li class="chapter" data-level="4.2" data-path="prerequisites.html"><a href="prerequisites.html#setup-rtweet"><i class="fa fa-check"></i><b>4.2</b> Setup rtweet</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>5</b> Get Started</a><ul>
+<li class="chapter" data-level="5.1" data-path="get-started.html"><a href="get-started.html#collect"><i class="fa fa-check"></i><b>5.1</b> Collect</a></li>
+<li class="chapter" data-level="5.2" data-path="get-started.html"><a href="get-started.html#build"><i class="fa fa-check"></i><b>5.2</b> Build</a></li>
+<li class="chapter" data-level="5.3" data-path="get-started.html"><a href="get-started.html#visualise"><i class="fa fa-check"></i><b>5.3</b> Visualise</a></li>
+<li class="chapter" data-level="5.4" data-path="get-started.html"><a href="get-started.html#recap"><i class="fa fa-check"></i><b>5.4</b> Recap</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="advanced.html"><a href="advanced.html"><i class="fa fa-check"></i><b>6</b> Advanced</a><ul>
+<li class="chapter" data-level="6.1" data-path="advanced.html"><a href="advanced.html#collect-1"><i class="fa fa-check"></i><b>6.1</b> Collect</a></li>
+<li class="chapter" data-level="6.2" data-path="advanced.html"><a href="advanced.html#build-1"><i class="fa fa-check"></i><b>6.2</b> Build</a></li>
+<li class="chapter" data-level="6.3" data-path="advanced.html"><a href="advanced.html#visualise-1"><i class="fa fa-check"></i><b>6.3</b> Visualise</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="hashtags.html"><a href="hashtags.html"><i class="fa fa-check"></i><b>7</b> Hashtags</a></li>
+<li class="chapter" data-level="8" data-path="dynamic.html"><a href="dynamic.html"><i class="fa fa-check"></i><b>8</b> Dynamic</a><ul>
+<li class="chapter" data-level="8.1" data-path="dynamic.html"><a href="dynamic.html#rationale-1"><i class="fa fa-check"></i><b>8.1</b> Rationale</a></li>
+<li class="chapter" data-level="8.2" data-path="dynamic.html"><a href="dynamic.html#collect-2"><i class="fa fa-check"></i><b>8.2</b> Collect</a></li>
+<li class="chapter" data-level="8.3" data-path="dynamic.html"><a href="dynamic.html#build-2"><i class="fa fa-check"></i><b>8.3</b> Build</a></li>
+<li class="chapter" data-level="8.4" data-path="dynamic.html"><a href="dynamic.html#visualise-2"><i class="fa fa-check"></i><b>8.4</b> Visualise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The twinetverse</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="get-started" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Get Started</h1>
+<p>In this chapter we briefly explore the twinetverse: we <em>collect</em> tweets, <em>build</em> and <em>visualise</em> our first graph.</p>
+<div id="collect" class="section level2">
+<h2><span class="header-section-number">5.1</span> Collect</h2>
+<p>See the <a href="prerequisites.html#prerequisites">prerequisites</a> section if the line below confuses you.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">TK &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;token.rds&quot;</span>)</a></code></pre></div>
+<p>rtweet lets you do a lot of things, however within the context of the <em>twinetverse</em> we mainly use its <code>search_tweets</code> to get tweets.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">tweets &lt;-<span class="st"> </span><span class="kw">search_tweets</span>(<span class="st">&quot;rstats&quot;</span>, <span class="dt">token =</span> TK)</a></code></pre></div>
+<pre><code>## Searching for tweets...</code></pre>
+<pre><code>## Finished collecting tweets!</code></pre>
+<p>The <code>search_tweets</code> function takes a few arguments which we’ll eventually get into, above we run the simplest possible call; calling for tweets about “rstats”, a reference to the R <span class="citation">(R Core Team <a href="#ref-R-base">2017</a>)</span> Twitter <a href="https://twitter.com/search?q=rstats">#hashtag</a>, by default the function returns 100 tweets. Note that we also pass our token to the function.</p>
+</div>
+<div id="build" class="section level2">
+<h2><span class="header-section-number">5.2</span> Build</h2>
+<p>Now we can use the second package part of the <em>twinetverse</em>, graphTweets. Again, we’ll leave function’s arguments to default to get a simple graph. There’s a lot more to the package which we’ll explore in later chapters.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">net &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span><span class="kw">gt_edges</span>(text, screen_name, status_id)</a></code></pre></div>
+<p>We called <code>gt_edges</code> on our <code>tweets</code> data.frame, passing a few bare column names. The source of the tweets will also be the source of our edges so we pass <code>screen_name</code>, then the target of these edges will be users tagged in the tweets, <code>text</code> variable in rtweet.</p>
+<p>The object returned is of an unfamiliar class.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">class</span>(net)</a></code></pre></div>
+<pre><code>## [1] &quot;graphTweets&quot;</code></pre>
+<p>To extracts the results from graphTweets run <code>gt_collect</code>, this will work at any point in the chain of pipes (<code>%&gt;%</code>).</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">net &lt;-<span class="st"> </span>net <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="st">  </span><span class="kw">gt_collect</span>()</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="kw">class</span>(net)</a></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<p>Great but this returns a lists and R users much prefer data.frames. graphTweets actualy returns two data.frames that encapsulated in a list. Indeed networks cannot be compressed into a single data.frame, we have 1) nodes and 2) edges.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">names</span>(net)</a></code></pre></div>
+<pre><code>## [1] &quot;edges&quot; &quot;nodes&quot;</code></pre>
+<p>Great, so it looks like we have both nodes and edges, not really. We only have edges, <code>net$nodes</code> is actually <code>NULL</code>.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">lapply</span>(net, class)</a></code></pre></div>
+<pre><code>## $edges
+## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;
+## 
+## $nodes
+## [1] &quot;NULL&quot;</code></pre>
+<p>Well, we only ran <code>gt_edges</code> so it make sense that we only have edges. Let’s scrap that and get both nodes and edges.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">net &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="st">  </span><span class="kw">gt_edges</span>(text, screen_name, status_id) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># get edges</span></a>
+<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="st">  </span><span class="kw">gt_nodes</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># get nodes</span></a>
+<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="st">  </span><span class="kw">gt_collect</span>() <span class="co"># collect</span></a>
+<a class="sourceLine" id="cb21-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="kw">lapply</span>(net, class)</a></code></pre></div>
+<pre><code>## $edges
+## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;
+## 
+## $nodes
+## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<p>Before we move on, something to note. graphTweets <em>requires</em> that you run the functions in the correct order, first <code>gt_edges</code> and second <code>gt_nodes</code>. This is because one can only know the nodes of a graph based on the edges and not vice versa.</p>
+<p>Now we’re good, we have downloaded tweets and have everything we need to visualise it; nodes and edges.</p>
+</div>
+<div id="visualise" class="section level2">
+<h2><span class="header-section-number">5.3</span> Visualise</h2>
+<p>We can visualise the network with sigmajs. Then again, it’s very easy and follows the same idea as graphTweets; we pipe our nodes and edges through. Before we do so, for the sake of clarity, let’s unpack our network using the <code>%&lt;-%</code> from the Zeallot package <span class="citation">(Teetor <a href="#ref-R-zeallot">2018</a>)</span>, imported by the twinetverse.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">c</span>(edges, nodes) <span class="op">%&lt;-%</span><span class="st"> </span>net</a></code></pre></div>
+<p>Let’s take a look at the edges.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">head</span>(edges)</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">source</th>
+<th align="left">target</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">wcfinlay</td>
+<td align="left">KirkDBorne</td>
+</tr>
+<tr class="even">
+<td align="left">ArkangelScrap</td>
+<td align="left">gp_pulipaka</td>
+</tr>
+<tr class="odd">
+<td align="left">ArkangelScrap</td>
+<td align="left">gp_pulipaka</td>
+</tr>
+<tr class="even">
+<td align="left">ArkangelScrap</td>
+<td align="left">gp_pulipaka</td>
+</tr>
+<tr class="odd">
+<td align="left">ArkangelScrap</td>
+<td align="left">gp_pulipaka</td>
+</tr>
+<tr class="even">
+<td align="left">ArkangelScrap</td>
+<td align="left">gp_pulipaka</td>
+</tr>
+</tbody>
+</table>
+<p>Edges simply consist of <code>source</code> and <code>target</code>, as explained earlier on, <code>source</code> essentially corresponds to <code>screen_name</code> passed in <code>gt_edges</code>, it is the user who posted the tweet. In contrast, <code>target</code> includes the users that were tagged in the <code>text</code> of the tweet.</p>
+<p>Now let’s take a look at the nodes:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">head</span>(nodes)</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">nodes</th>
+<th align="left">type</th>
+<th align="right">n_edges</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">_abichat</td>
+<td align="left">user</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">_arnaudr</td>
+<td align="left">user</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left"><em>bruno_b</em></td>
+<td align="left">user</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">_reactdev</td>
+<td align="left">user</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">AdaptiveToolbox</td>
+<td align="left">user</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">AgroParisTech</td>
+<td align="left">user</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<p>In the nodes data frame the column <code>n_edges</code> is the number edges the node appears in, while the <code>nodes</code> column are the Twitter handles of <em>both</em> the authors of the tweets (<code>screen_name</code>) and those who were tagged in the tweets (<code>text</code>).</p>
+<p>Below we rename a few columns, to meet sigmajs’ naming convention.</p>
+<ol style="list-style-type: decimal">
+<li>We add ids to our nodes, this can be a string and thus simply corresponds to our <code>nodes</code> column.</li>
+<li>We essentially rename <code>n_edges</code> to <code>size</code> as this is what sigmajs understands (more on this later).</li>
+<li>We add ids to our edges as sigmajs requires each edge to have a unique id.</li>
+</ol>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">nodes<span class="op">$</span>id &lt;-<span class="st"> </span><span class="kw">as.factor</span>(nodes<span class="op">$</span>nodes) </a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">nodes<span class="op">$</span>size &lt;-<span class="st"> </span>nodes<span class="op">$</span>n_edges </a>
+<a class="sourceLine" id="cb26-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb26-4" data-line-number="4">edges<span class="op">$</span>id &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">nrow</span>(edges)) </a></code></pre></div>
+<p>sigmajs has a specific but sensible naming convention as well as basic <em>minimal requirements</em>.</p>
+<ul>
+<li>Nodes must at least include <code>id</code>, and <code>size</code>.</li>
+<li>Edges must at least include <code>id</code>, <code>source</code>, and <code>target</code>.</li>
+</ul>
+<p>Actually, the twinetverse comes with helper functions to prepare the nodes and edges build from graphTweets for use in sigmajs.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1">nodes &lt;-<span class="st"> </span><span class="kw">nodes2sg</span>(nodes)</a>
+<a class="sourceLine" id="cb27-2" data-line-number="2">edges &lt;-<span class="st"> </span><span class="kw">edges2sg</span>(edges)</a></code></pre></div>
+<p>Let’s visualise that, we must initialise every sigmajs graph with the <code>sigmajs</code> function, then we add our nodes with <code>sg_nodes</code>, passing the column names we mentioned previously, <code>id</code>, and <code>size</code> to meet sigmajs’ minimum requirements. <em>At the exception of <code>sigmajs</code>, all functions of the sigmajs package start with <code>sg_</code></em></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">sigmajs</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb28-2" data-line-number="2"><span class="st">  </span><span class="kw">sg_nodes</span>(nodes, id, size) </a></code></pre></div>
+<div id="htmlwidget-d8474ad0193bc3a6ee9d" class="sigmajs html-widget" style="width:100%;height:480px;">
+<button type="button" style="display:block;"></button>
+</div>
+<script type="application/json" data-for="htmlwidget-d8474ad0193bc3a6ee9d">{"x":{"data":{"nodes":[{"id":"_abichat","size":" 1","x":"12.271926","y":" 7.552895"},{"id":"_arnaudr","size":" 1","x":" 5.347804","y":" 5.928465"},{"id":"_bruno_b_","size":" 3","x":"17.506568","y":"17.791514"},{"id":"_reactdev","size":" 5","x":" 7.068879","y":" 2.062132"},{"id":"AdaptiveToolbox","size":" 1","x":"15.088500","y":" 1.076898"},{"id":"AgroParisTech","size":" 1","x":"10.970593","y":" 9.452166"},{"id":"AI_Nick_P","size":" 1","x":"15.698865","y":"12.072170"},{"id":"alinedeschamps","size":" 4","x":"10.186697","y":"18.677410"},{"id":"aneldavdw","size":" 3","x":" 7.361094","y":"15.148873"},{"id":"ArkangelScrap","size":"14","x":"18.414510","y":"17.237836"},{"id":"beckfrydenborg","size":" 3","x":" 8.640558","y":" 9.947112"},{"id":"Beezel_Bug","size":" 1","x":"18.956787","y":"10.984482"},{"id":"biconnections","size":" 1","x":"12.890340","y":"17.396791"},{"id":"BinxiePeterson","size":" 1","x":"11.757351","y":"10.535050"},{"id":"bluestat","size":" 1","x":" 5.312567","y":"16.433260"},{"id":"CharlesJolyB","size":" 1","x":" 4.843515","y":"11.313869"},{"id":"cichuck","size":" 4","x":"11.459838","y":"19.095172"},{"id":"Clostos","size":" 1","x":"10.557086","y":" 6.129743"},{"id":"cmdline_tips","size":" 1","x":"16.791941","y":" 5.733359"},{"id":"dainemawer","size":" 1","x":" 5.077406","y":"15.017997"},{"id":"dataandme","size":" 4","x":"10.543377","y":" 2.998625"},{"id":"DavidGohel","size":" 1","x":"19.114834","y":" 9.857147"},{"id":"dechontaduro","size":" 2","x":"16.738336","y":" 4.640558"},{"id":"DeepSingularity","size":" 5","x":"12.373317","y":" 6.025566"},{"id":"dirk_sch","size":" 1","x":" 6.752141","y":" 6.859484"},{"id":"dirk_sch's","size":" 1","x":"17.850362","y":" 2.290955"},{"id":"djnavarro","size":" 1","x":" 6.929397","y":"10.450747"},{"id":"Dusty_Grooms","size":" 7","x":"10.685845","y":"13.605995"},{"id":"E_PaulZehr","size":" 2","x":" 4.466119","y":" 9.293258"},{"id":"ENISe…","size":" 2","x":"14.509852","y":"11.718295"},{"id":"ENIService","size":" 1","x":"10.118239","y":" 1.422052"},{"id":"FabMaurel","size":" 1","x":"14.260571","y":"13.703010"},{"id":"facetimeJS","size":" 1","x":" 5.072001","y":"17.319950"},{"id":"fly_upside_down","size":" 1","x":"19.161404","y":" 3.193122"},{"id":"fubits","size":" 1","x":"18.961016","y":" 3.969638"},{"id":"GIS_Sharer","size":" 1","x":"17.264325","y":"16.644402"},{"id":"github","size":" 1","x":" 2.023060","y":"14.591250"},{"id":"gp_pulipaka","size":"52","x":"13.805084","y":"15.125526"},{"id":"HubCreatic","size":" 3","x":"17.908738","y":"18.366242"},{"id":"IndoorEcology","size":" 1","x":"16.267270","y":" 5.170887"},{"id":"itknowingness","size":" 1","x":" 9.635768","y":" 8.912636"},{"id":"JennyBryan","size":" 5","x":"14.187938","y":"14.286636"},{"id":"jesskeimmalpass","size":" 1","x":"10.150549","y":"12.756906"},{"id":"jlugarrancho","size":" 2","x":" 8.834135","y":" 8.580562"},{"id":"joelle_emerson","size":" 1","x":"15.222453","y":"12.736482"},{"id":"JSTweetsBot","size":" 1","x":" 3.022826","y":" 3.999676"},{"id":"KirkDBorne","size":" 5","x":"16.837922","y":"14.674988"},{"id":"Laurent_Camus","size":" 1","x":" 9.660219","y":"18.771014"},{"id":"LindaBreidbach","size":" 1","x":"11.809024","y":"13.808044"},{"id":"lwjohnst","size":" 2","x":"17.785973","y":" 3.193225"},{"id":"ma_salmon","size":" 2","x":"16.437216","y":"18.344390"},{"id":"MadeleineOtway","size":" 2","x":"13.835033","y":"16.227334"},{"id":"meetup_r_nantes","size":"11","x":"13.471802","y":"18.103995"},{"id":"Mork_66","size":" 1","x":"18.761127","y":"10.852577"},{"id":"nacnudus","size":" 1","x":"14.963738","y":" 6.667594"},{"id":"Nujcharee","size":" 1","x":" 1.172066","y":"18.710249"},{"id":"PacktPub","size":" 1","x":" 2.847309","y":"15.891708"},{"id":"PhilGrosjean","size":" 1","x":"11.625143","y":"17.952291"},{"id":"PhoenixGyaan","size":" 2","x":"13.199066","y":"15.964399"},{"id":"phscoop","size":" 1","x":" 3.147207","y":"13.718405"},{"id":"prdgm","size":" 1","x":"18.193521","y":"19.733909"},{"id":"ProjMattersIN","size":" 1","x":"12.163878","y":" 3.055997"},{"id":"RaymondWSA460","size":" 5","x":"16.966949","y":" 1.823832"},{"id":"rencontres_R","size":" 1","x":" 8.291112","y":" 6.028632"},{"id":"rgfitzjohn","size":" 1","x":" 1.398948","y":" 7.453998"},{"id":"rickytwrites","size":" 1","x":" 5.075739","y":" 8.665029"},{"id":"RosanaFerrero","size":" 1","x":" 2.292219","y":"12.001436"},{"id":"rzembo","size":" 1","x":"11.899153","y":" 3.211243"},{"id":"sarah_romanes","size":" 2","x":"10.332869","y":"12.735336"},{"id":"SASsoftware","size":" 2","x":" 7.860429","y":" 2.535342"},{"id":"schinchon攼㹤愼㸰戼㹤攼㹤戼㸱愼㸸‍攼㹤愼㸰戼㹣攼㹤戼㹥愼㸸\"T","size":" 1","x":" 1.554699","y":" 8.219787"},{"id":"ServerlessFan","size":" 5","x":" 3.678698","y":" 1.530369"},{"id":"shazanfar","size":" 1","x":"11.912534","y":" 6.023282"},{"id":"shnitskyh","size":" 1","x":" 7.556769","y":" 3.666217"},{"id":"sockeyes51_bot","size":" 1","x":"10.222065","y":" 6.646282"},{"id":"StatGarrett","size":" 1","x":"19.648307","y":"11.994714"},{"id":"StatnMap","size":" 1","x":"18.541577","y":" 4.427219"},{"id":"stephspiel","size":" 1","x":" 8.134820","y":" 1.080921"},{"id":"strnr","size":" 1","x":" 2.012713","y":"19.780093"},{"id":"TenanATC","size":" 5","x":"16.506242","y":"14.352134"},{"id":"TheChalkOutline","size":" 3","x":"14.155065","y":"14.706048"},{"id":"thinkR_fr","size":" 2","x":" 9.677618","y":"16.426858"},{"id":"TrumpWatchNews","size":" 1","x":"15.663586","y":"17.147240"},{"id":"Twitter","size":" 2","x":" 7.218442","y":" 8.435987"},{"id":"vitaincerta","size":" 1","x":" 2.810009","y":" 6.988463"},{"id":"VuePackage","size":" 1","x":"13.122979","y":"13.619180"},{"id":"wcfinlay","size":" 1","x":"11.295830","y":" 2.533753"}]},"type":"canvas","crosstalk":{"crosstalk_key":null,"crosstalk_group":null}},"evals":[],"jsHooks":[]}</script>
+<p>sigmajs actually allows you to build graphs using only nodes or edges, we’ll see why this is useful in a later chapter on <a href="dynamic.html#dynamic">temporal graphs</a>. Let’s add the edges. Then again, to meet sigmajs’ requirements, we pass <code>id</code>, <code>source</code> and <code>target</code>.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">sigmajs</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="st">  </span><span class="kw">sg_nodes</span>(nodes, id, size) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="st">  </span><span class="kw">sg_edges</span>(edges, id, source, target)</a></code></pre></div>
+<div id="htmlwidget-e3774b9d87741803db3b" class="sigmajs html-widget" style="width:100%;height:480px;">
+<button type="button" style="display:block;"></button>
+</div>
+<script type="application/json" data-for="htmlwidget-e3774b9d87741803db3b">{"x":{"data":{"nodes":[{"id":"_abichat","size":" 1","x":"18.374199","y":"12.728643"},{"id":"_arnaudr","size":" 1","x":"17.089148","y":" 6.377878"},{"id":"_bruno_b_","size":" 3","x":"15.662485","y":" 4.333879"},{"id":"_reactdev","size":" 5","x":" 3.299185","y":" 4.455961"},{"id":"AdaptiveToolbox","size":" 1","x":"11.429387","y":"17.977620"},{"id":"AgroParisTech","size":" 1","x":" 3.275824","y":" 5.305354"},{"id":"AI_Nick_P","size":" 1","x":" 9.933295","y":" 3.566610"},{"id":"alinedeschamps","size":" 4","x":"18.148335","y":"16.084964"},{"id":"aneldavdw","size":" 3","x":"11.795433","y":"12.182850"},{"id":"ArkangelScrap","size":"14","x":" 5.641032","y":" 3.642197"},{"id":"beckfrydenborg","size":" 3","x":"12.147708","y":" 4.908722"},{"id":"Beezel_Bug","size":" 1","x":"14.309097","y":"10.972778"},{"id":"biconnections","size":" 1","x":"18.403135","y":" 1.892975"},{"id":"BinxiePeterson","size":" 1","x":"18.617428","y":"18.336403"},{"id":"bluestat","size":" 1","x":"19.057850","y":" 7.468785"},{"id":"CharlesJolyB","size":" 1","x":" 8.923281","y":"13.554780"},{"id":"cichuck","size":" 4","x":" 2.458539","y":"12.738911"},{"id":"Clostos","size":" 1","x":"15.866988","y":"11.500934"},{"id":"cmdline_tips","size":" 1","x":"15.798826","y":"15.863964"},{"id":"dainemawer","size":" 1","x":" 1.304946","y":" 8.053282"},{"id":"dataandme","size":" 4","x":"10.131590","y":"11.704420"},{"id":"DavidGohel","size":" 1","x":" 4.644891","y":" 3.132419"},{"id":"dechontaduro","size":" 2","x":"19.191276","y":"10.994591"},{"id":"DeepSingularity","size":" 5","x":"14.237397","y":"13.912262"},{"id":"dirk_sch","size":" 1","x":"13.949405","y":" 8.790676"},{"id":"dirk_sch's","size":" 1","x":"10.739563","y":"10.798129"},{"id":"djnavarro","size":" 1","x":"13.122110","y":"11.500260"},{"id":"Dusty_Grooms","size":" 7","x":" 8.660202","y":"18.754748"},{"id":"E_PaulZehr","size":" 2","x":" 8.527994","y":"14.427821"},{"id":"ENISe…","size":" 2","x":" 8.948740","y":"15.358659"},{"id":"ENIService","size":" 1","x":" 9.107831","y":" 9.652223"},{"id":"FabMaurel","size":" 1","x":"13.551620","y":" 1.078223"},{"id":"facetimeJS","size":" 1","x":"10.941703","y":" 3.577466"},{"id":"fly_upside_down","size":" 1","x":" 4.213926","y":" 1.301102"},{"id":"fubits","size":" 1","x":" 1.070240","y":"15.641286"},{"id":"GIS_Sharer","size":" 1","x":"10.693728","y":" 6.977626"},{"id":"github","size":" 1","x":" 5.805355","y":" 8.116659"},{"id":"gp_pulipaka","size":"52","x":" 4.765621","y":" 9.549928"},{"id":"HubCreatic","size":" 3","x":" 1.711034","y":" 9.874981"},{"id":"IndoorEcology","size":" 1","x":" 2.670290","y":" 9.505926"},{"id":"itknowingness","size":" 1","x":" 5.230924","y":"11.375822"},{"id":"JennyBryan","size":" 5","x":" 6.677841","y":" 8.485451"},{"id":"jesskeimmalpass","size":" 1","x":"11.108055","y":"16.836603"},{"id":"jlugarrancho","size":" 2","x":" 3.631992","y":"13.033203"},{"id":"joelle_emerson","size":" 1","x":"10.706885","y":" 5.067980"},{"id":"JSTweetsBot","size":" 1","x":"15.933899","y":"12.814947"},{"id":"KirkDBorne","size":" 5","x":" 8.366781","y":" 1.113282"},{"id":"Laurent_Camus","size":" 1","x":"16.833746","y":" 9.576563"},{"id":"LindaBreidbach","size":" 1","x":" 4.521768","y":" 1.996984"},{"id":"lwjohnst","size":" 2","x":" 2.514959","y":" 3.613660"},{"id":"ma_salmon","size":" 2","x":" 8.369210","y":" 6.986301"},{"id":"MadeleineOtway","size":" 2","x":" 7.646056","y":" 5.718839"},{"id":"meetup_r_nantes","size":"11","x":" 3.780326","y":"10.539314"},{"id":"Mork_66","size":" 1","x":"12.908494","y":" 6.212154"},{"id":"nacnudus","size":" 1","x":" 1.661537","y":" 7.893121"},{"id":"Nujcharee","size":" 1","x":" 6.029603","y":"11.384805"},{"id":"PacktPub","size":" 1","x":" 5.082549","y":" 3.959415"},{"id":"PhilGrosjean","size":" 1","x":" 1.577983","y":"13.942275"},{"id":"PhoenixGyaan","size":" 2","x":"11.292415","y":" 9.045931"},{"id":"phscoop","size":" 1","x":" 4.249089","y":"15.107224"},{"id":"prdgm","size":" 1","x":"17.683182","y":"10.372742"},{"id":"ProjMattersIN","size":" 1","x":" 7.589682","y":"10.198225"},{"id":"RaymondWSA460","size":" 5","x":" 4.177971","y":" 6.644918"},{"id":"rencontres_R","size":" 1","x":"11.513703","y":"16.426218"},{"id":"rgfitzjohn","size":" 1","x":"13.463413","y":" 1.635789"},{"id":"rickytwrites","size":" 1","x":"18.238318","y":" 6.486336"},{"id":"RosanaFerrero","size":" 1","x":"12.223771","y":" 1.728548"},{"id":"rzembo","size":" 1","x":" 1.100303","y":" 7.497880"},{"id":"sarah_romanes","size":" 2","x":"16.814359","y":" 5.597714"},{"id":"SASsoftware","size":" 2","x":"13.165586","y":" 9.836086"},{"id":"schinchon攼㹤愼㸰戼㹤攼㹤戼㸱愼㸸‍攼㹤愼㸰戼㹣攼㹤戼㹥愼㸸\"T","size":" 1","x":" 5.969774","y":" 5.971526"},{"id":"ServerlessFan","size":" 5","x":"11.455973","y":" 3.509286"},{"id":"shazanfar","size":" 1","x":"15.248911","y":"14.238553"},{"id":"shnitskyh","size":" 1","x":" 2.448779","y":"14.005653"},{"id":"sockeyes51_bot","size":" 1","x":"15.011180","y":" 2.537777"},{"id":"StatGarrett","size":" 1","x":"19.411553","y":" 4.769247"},{"id":"StatnMap","size":" 1","x":" 1.501827","y":"15.917578"},{"id":"stephspiel","size":" 1","x":"12.197397","y":"18.409781"},{"id":"strnr","size":" 1","x":" 4.705213","y":"14.082312"},{"id":"TenanATC","size":" 5","x":" 6.351557","y":" 3.358012"},{"id":"TheChalkOutline","size":" 3","x":"10.795368","y":"14.035235"},{"id":"thinkR_fr","size":" 2","x":" 5.743849","y":"11.388170"},{"id":"TrumpWatchNews","size":" 1","x":"18.574754","y":"18.188008"},{"id":"Twitter","size":" 2","x":" 5.444478","y":"16.788331"},{"id":"vitaincerta","size":" 1","x":" 2.698108","y":"10.814907"},{"id":"VuePackage","size":" 1","x":"11.831230","y":"11.479234"},{"id":"wcfinlay","size":" 1","x":" 6.230301","y":" 4.644281"}],"edges":[{"id":"1","source":"wcfinlay","target":"KirkDBorne"},{"id":"2","source":"ArkangelScrap","target":"gp_pulipaka"},{"id":"3","source":"ArkangelScrap","target":"gp_pulipaka"},{"id":"4","source":"ArkangelScrap","target":"gp_pulipaka"},{"id":"5","source":"ArkangelScrap","target":"gp_pulipaka"},{"id":"6","source":"ArkangelScrap","target":"gp_pulipaka"},{"id":"7","source":"ArkangelScrap","target":"gp_pulipaka"},{"id":"8","source":"ArkangelScrap","target":"gp_pulipaka"},{"id":"9","source":"ArkangelScrap","target":"gp_pulipaka"},{"id":"10","source":"ArkangelScrap","target":"gp_pulipaka"},{"id":"11","source":"ArkangelScrap","target":"gp_pulipaka"},{"id":"12","source":"ArkangelScrap","target":"gp_pulipaka"},{"id":"13","source":"ArkangelScrap","target":"gp_pulipaka"},{"id":"14","source":"ArkangelScrap","target":"gp_pulipaka"},{"id":"15","source":"ArkangelScrap","target":"gp_pulipaka"},{"id":"16","source":"itknowingness","target":"gp_pulipaka"},{"id":"17","source":"biconnections","target":"gp_pulipaka"},{"id":"18","source":"prdgm","target":"joelle_emerson"},{"id":"19","source":"facetimeJS","target":"gp_pulipaka"},{"id":"20","source":"rzembo","target":"KirkDBorne"},{"id":"21","source":"Beezel_Bug","target":"gp_pulipaka"},{"id":"22","source":"RaymondWSA460","target":"gp_pulipaka"},{"id":"23","source":"RaymondWSA460","target":"gp_pulipaka"},{"id":"24","source":"RaymondWSA460","target":"gp_pulipaka"},{"id":"25","source":"RaymondWSA460","target":"gp_pulipaka"},{"id":"26","source":"RaymondWSA460","target":"gp_pulipaka"},{"id":"27","source":"DeepSingularity","target":"gp_pulipaka"},{"id":"28","source":"DeepSingularity","target":"gp_pulipaka"},{"id":"29","source":"DeepSingularity","target":"gp_pulipaka"},{"id":"30","source":"DeepSingularity","target":"gp_pulipaka"},{"id":"31","source":"DeepSingularity","target":"gp_pulipaka"},{"id":"32","source":"ServerlessFan","target":"gp_pulipaka"},{"id":"33","source":"ServerlessFan","target":"gp_pulipaka"},{"id":"34","source":"ServerlessFan","target":"gp_pulipaka"},{"id":"35","source":"ServerlessFan","target":"gp_pulipaka"},{"id":"36","source":"ServerlessFan","target":"gp_pulipaka"},{"id":"37","source":"gp_pulipaka","target":"PacktPub"},{"id":"38","source":"fubits","target":"JennyBryan"},{"id":"39","source":"FabMaurel","target":"_arnaudr"},{"id":"40","source":"JSTweetsBot","target":"gp_pulipaka"},{"id":"41","source":"dainemawer","target":"gp_pulipaka"},{"id":"42","source":"cichuck","target":"gp_pulipaka"},{"id":"43","source":"cichuck","target":"gp_pulipaka"},{"id":"44","source":"cichuck","target":"gp_pulipaka"},{"id":"45","source":"cichuck","target":"gp_pulipaka"},{"id":"46","source":"Mork_66","target":"gp_pulipaka"},{"id":"47","source":"VuePackage","target":"gp_pulipaka"},{"id":"48","source":"_reactdev","target":"gp_pulipaka"},{"id":"49","source":"_reactdev","target":"gp_pulipaka"},{"id":"50","source":"_reactdev","target":"gp_pulipaka"},{"id":"51","source":"_reactdev","target":"gp_pulipaka"},{"id":"52","source":"_reactdev","target":"gp_pulipaka"},{"id":"53","source":"Laurent_Camus","target":"dataandme"},{"id":"54","source":"GIS_Sharer","target":"gp_pulipaka"},{"id":"55","source":"PhoenixGyaan","target":"gp_pulipaka"},{"id":"56","source":"PhoenixGyaan","target":"gp_pulipaka"},{"id":"57","source":"CharlesJolyB","target":"strnr"},{"id":"58","source":"shazanfar","target":"sarah_romanes"},{"id":"59","source":"bluestat","target":"thinkR_fr"},{"id":"60","source":"nacnudus","target":"JennyBryan"},{"id":"61","source":"dataandme","target":"JennyBryan"},{"id":"62","source":"lwjohnst","target":"dataandme"},{"id":"63","source":"lwjohnst","target":"schinchon攼㹤愼㸰戼㹤攼㹤戼㸱愼㸸‍攼㹤愼㸰戼㹣攼㹤戼㹥愼㸸\"T"},{"id":"64","source":"Dusty_Grooms","target":"TenanATC"},{"id":"65","source":"Dusty_Grooms","target":"E_PaulZehr"},{"id":"66","source":"Dusty_Grooms","target":"Dusty_Grooms"},{"id":"67","source":"Dusty_Grooms","target":"SASsoftware"},{"id":"68","source":"Dusty_Grooms","target":"Twitter"},{"id":"69","source":"rgfitzjohn","target":"JennyBryan"},{"id":"70","source":"sockeyes51_bot","target":"gp_pulipaka"},{"id":"71","source":"TheChalkOutline","target":"phscoop"},{"id":"72","source":"TheChalkOutline","target":"TrumpWatchNews"},{"id":"73","source":"TheChalkOutline","target":"rickytwrites"},{"id":"74","source":"_bruno_b_","target":"alinedeschamps"},{"id":"75","source":"_bruno_b_","target":"HubCreatic"},{"id":"76","source":"_bruno_b_","target":"ENISe…"},{"id":"77","source":"IndoorEcology","target":"stephspiel"},{"id":"78","source":"ProjMattersIN","target":"Nujcharee"},{"id":"79","source":"beckfrydenborg","target":"RosanaFerrero"},{"id":"80","source":"beckfrydenborg","target":"dataandme"},{"id":"81","source":"beckfrydenborg","target":"shnitskyh"},{"id":"82","source":"MadeleineOtway","target":"sarah_romanes"},{"id":"83","source":"MadeleineOtway","target":"djnavarro"},{"id":"84","source":"PhilGrosjean","target":"DavidGohel"},{"id":"85","source":"meetup_r_nantes","target":"alinedeschamps"},{"id":"86","source":"meetup_r_nantes","target":"HubCreatic"},{"id":"87","source":"meetup_r_nantes","target":"ENISe…"},{"id":"88","source":"meetup_r_nantes","target":"_abichat"},{"id":"89","source":"meetup_r_nantes","target":"rencontres_R"},{"id":"90","source":"meetup_r_nantes","target":"AgroParisTech"},{"id":"91","source":"meetup_r_nantes","target":"ma_salmon"},{"id":"92","source":"meetup_r_nantes","target":"dirk_sch's"},{"id":"93","source":"meetup_r_nantes","target":"ma_salmon"},{"id":"94","source":"meetup_r_nantes","target":"dirk_sch"},{"id":"95","source":"meetup_r_nantes","target":"fly_upside_down"},{"id":"96","source":"aneldavdw","target":"github"},{"id":"97","source":"aneldavdw","target":"JennyBryan"},{"id":"98","source":"aneldavdw","target":"BinxiePeterson"},{"id":"99","source":"Clostos","target":"KirkDBorne"},{"id":"100","source":"AdaptiveToolbox","target":"gp_pulipaka"},{"id":"101","source":"AI_Nick_P","target":"KirkDBorne"},{"id":"102","source":"dechontaduro","target":"thinkR_fr"},{"id":"103","source":"dechontaduro","target":"StatnMap"},{"id":"104","source":"alinedeschamps","target":"HubCreatic"},{"id":"105","source":"alinedeschamps","target":"ENIService"},{"id":"106","source":"jlugarrancho","target":"cmdline_tips"},{"id":"107","source":"jlugarrancho","target":"StatGarrett"},{"id":"108","source":"LindaBreidbach","target":"KirkDBorne"},{"id":"109","source":"TenanATC","target":"E_PaulZehr"},{"id":"110","source":"TenanATC","target":"Dusty_Grooms"},{"id":"111","source":"TenanATC","target":"SASsoftware"},{"id":"112","source":"TenanATC","target":"Twitter"},{"id":"113","source":"jesskeimmalpass","target":"vitaincerta"}]},"type":"canvas","crosstalk":{"crosstalk_key":null,"crosstalk_group":null}},"evals":[],"jsHooks":[]}</script>
+<p>This graph does not look great. We’ll beautify that bit by bit as we move through the book: sigmajs is highly customisable.</p>
+<p>Nevermind beauty, what’s on the graph exactly? Each disk/point on the graph is a twitter user, they are connected when one has tagged the other in the a tweet.</p>
+<p>You may also notice that the graph contains surprisingly few nodes, given that we queried 100 tweets you would expect over 100 nodes on the graph. This is because our visualisation only includes tweets that mention other users and most tweets are not targeted (tagged) at other users. There is an easy remedy to this which we’ll look at in the <a href="advanced" class="uri">advanced</a> chapter.</p>
+</div>
+<div id="recap" class="section level2">
+<h2><span class="header-section-number">5.4</span> Recap</h2>
+<p>This chapter aimed at demonstrating the basic principles behind the packages and the order in which to use the packages that form the <em>twinetverse</em>. The chapter may look long~ish but the code is not, here it is put together.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="co"># COLLECT</span></a>
+<a class="sourceLine" id="cb30-4" data-line-number="4">tweets &lt;-<span class="st"> </span><span class="kw">search_tweets</span>(<span class="st">&quot;rstats&quot;</span>, <span class="dt">token =</span> TK)</a>
+<a class="sourceLine" id="cb30-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb30-6" data-line-number="6"><span class="co"># BUILD</span></a>
+<a class="sourceLine" id="cb30-7" data-line-number="7">net &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb30-8" data-line-number="8"><span class="st">  </span><span class="kw">gt_edges</span>(text, screen_name, status_id) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb30-9" data-line-number="9"><span class="st">  </span><span class="kw">gt_nodes</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb30-10" data-line-number="10"><span class="st">  </span><span class="kw">gt_collect</span>() </a>
+<a class="sourceLine" id="cb30-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb30-12" data-line-number="12"><span class="kw">c</span>(edges, nodes) <span class="op">%&lt;-%</span><span class="st"> </span>net</a>
+<a class="sourceLine" id="cb30-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb30-14" data-line-number="14">nodes &lt;-<span class="st"> </span><span class="kw">nodes2sg</span>(nodes)</a>
+<a class="sourceLine" id="cb30-15" data-line-number="15">edges &lt;-<span class="st"> </span><span class="kw">edges2sg</span>(edges)</a>
+<a class="sourceLine" id="cb30-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb30-17" data-line-number="17"><span class="co"># Visualise</span></a>
+<a class="sourceLine" id="cb30-18" data-line-number="18"><span class="kw">sigmajs</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb30-19" data-line-number="19"><span class="st">  </span><span class="kw">sg_nodes</span>(nodes, id, size) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb30-20" data-line-number="20"><span class="st">  </span><span class="kw">sg_edges</span>(edges, id, source, target)</a></code></pre></div>
+<p>Remember the workflow of the <em>twinetverse</em>:</p>
+<ol style="list-style-type: decimal">
+<li>We <strong>collect</strong> the data</li>
+<li>We <strong>build</strong> the graph</li>
+<li>We <strong>visualise</strong> the network</li>
+</ol>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-base">
+<p>R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+</div>
+<div id="ref-R-zeallot">
+<p>Teetor, Nathan. 2018. <em>Zeallot: Multiple, Unpacking, and Destructuring Assignment</em>. <a href="https://CRAN.R-project.org/package=zeallot" class="uri">https://CRAN.R-project.org/package=zeallot</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="prerequisites.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="advanced.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true,
+"fontsettings": {
+"theme": "Night"
+}
+}
+});
+});
+</script>
+
+</body>
+
+</html>

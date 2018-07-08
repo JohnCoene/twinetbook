@@ -8,7 +8,7 @@ TK <- readRDS("twitter_token.rds")
 
 The _twinetverse_, or graphTweets more specifically, not only enables visualising interactions between users, it also lets one build and visualise networks of users and the hashtag(s) they use.
 
-Let's collect some tweets, since we want to plot relationships between users and hashtags we'll specify two #hashtags #python and #rstats. This way we'll be able to see who uses both or either. Moreover it shows another Twitter API search operator.
+Let's collect some tweets, since we want to plot relationships between users and hashtags we'll specify two hashtags: #python and #rstats. This way we'll be able to see who uses both or either. Moreover it shows another Twitter API search operator.
 
 ```{r, eval=TRUE}
 # TK <- readRDS(file = "token.rds")
@@ -48,17 +48,14 @@ Nodes also include the `type` which is either set to `user` or `hashtag`.
 
 Only one function changes, we use `gt_edges_hash` instead of `gt_edges`. While the latter builds networks of users, as we should be somewhat familiar with already, the former build networks that map users to the hashtags they use in their tweets, it thus make sense to pass `hashtags` instead of `text` as rtweet neatly extracts that for us.
 
-Now onto the visualisation. As we did before, we unpack our network, using the zeallot package [R-zeallot] for a change, then we rename some variables to fit sigmajs' expectation, and we color the nodes according to the `type`, whether it is a #hashtag or a \@user.
+Now onto the visualisation. As we did before, we unpack our network, then we prepare the data to fit sigmajs' expectation, and we color the nodes according to the `type`, one colour for #hashtags and another for \@users.
 
 ```{r}
-library(zeallot)
-
 c(edges, nodes) %<-% net
 
-edges$id <- seq(1, nrow(edges))
-nodes$id <- nodes$nodes
-nodes$label <- nodes$nodes
-nodes$size <- nodes$n_edges
+nodes <- nodes2sg(nodes)
+edges <- edges2sg(edges)
+
 nodes$color <- ifelse(nodes$type == "user", "#0084b4", "#1dcaff")
 ```
 
@@ -75,3 +72,5 @@ sigmajs() %>%
   ) %>% 
   sg_neighbours()
 ```
+
+It is interesting to see that few users actually tweet both hashtags, this _wouldn't_ have to be in the same tweet so it is somewhat surprising.

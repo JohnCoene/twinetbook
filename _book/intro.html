@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The twinetverse</title>
+  <meta name="description" content="A guide to download Twitter data and visualise them as graphs in R.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="The twinetverse" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.png" />
+  <meta property="og:description" content="A guide to download Twitter data and visualise them as graphs in R." />
+  <meta name="github-repo" content="JohnCoene/twinetverse" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The twinetverse" />
+  
+  <meta name="twitter:description" content="A guide to download Twitter data and visualise them as graphs in R." />
+  <meta name="twitter:image" content="images/cover.png" />
+
+<meta name="author" content="John Coene">
+
+
+<meta name="date" content="2018-07-06">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="pkgs.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
+<script src="libs/sigma-1.2.1/sigma.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.layout.forceAtlas2.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.layout.noverlap.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.parallelEdges.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.plugins.animate.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.customShapes.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.plugins.dragNodes.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.customEdgeShapes.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.plugins.relativeSize.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.edgeDots.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.edgeLabels.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.parsers.gexf.min.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.exporters.svg.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.plugins.neighborhoods.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.plugins.filter.js"></script>
+<script src="libs/sigma-1.2.1/plugins/sigma.renderers.snapshot.js"></script>
+<script src="libs/sigmajs-binding-0.1.1.9000/sigmajs.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-74544116-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The twinetverse Book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="pkgs.html"><a href="pkgs.html"><i class="fa fa-check"></i><b>3</b> Packages</a><ul>
+<li class="chapter" data-level="3.1" data-path="pkgs.html"><a href="pkgs.html#rtweet"><i class="fa fa-check"></i><b>3.1</b> rtweet</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="pkgs.html"><a href="pkgs.html#usage"><i class="fa fa-check"></i><b>3.1.1</b> Usage</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="pkgs.html"><a href="pkgs.html#graphtweets"><i class="fa fa-check"></i><b>3.2</b> graphTweets</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="pkgs.html"><a href="pkgs.html#rationale"><i class="fa fa-check"></i><b>3.2.1</b> Rationale</a></li>
+<li class="chapter" data-level="3.2.2" data-path="pkgs.html"><a href="pkgs.html#usage-1"><i class="fa fa-check"></i><b>3.2.2</b> Usage</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="pkgs.html"><a href="pkgs.html#sigmajs"><i class="fa fa-check"></i><b>3.3</b> sigmajs</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="pkgs.html"><a href="pkgs.html#usage-2"><i class="fa fa-check"></i><b>3.3.1</b> Usage</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i><b>4</b> Prerequisites</a><ul>
+<li class="chapter" data-level="4.1" data-path="prerequisites.html"><a href="prerequisites.html#install"><i class="fa fa-check"></i><b>4.1</b> Install</a></li>
+<li class="chapter" data-level="4.2" data-path="prerequisites.html"><a href="prerequisites.html#setup-rtweet"><i class="fa fa-check"></i><b>4.2</b> Setup rtweet</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>5</b> Get Started</a><ul>
+<li class="chapter" data-level="5.1" data-path="get-started.html"><a href="get-started.html#collect"><i class="fa fa-check"></i><b>5.1</b> Collect</a></li>
+<li class="chapter" data-level="5.2" data-path="get-started.html"><a href="get-started.html#build"><i class="fa fa-check"></i><b>5.2</b> Build</a></li>
+<li class="chapter" data-level="5.3" data-path="get-started.html"><a href="get-started.html#visualise"><i class="fa fa-check"></i><b>5.3</b> Visualise</a></li>
+<li class="chapter" data-level="5.4" data-path="get-started.html"><a href="get-started.html#recap"><i class="fa fa-check"></i><b>5.4</b> Recap</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="advanced.html"><a href="advanced.html"><i class="fa fa-check"></i><b>6</b> Advanced</a><ul>
+<li class="chapter" data-level="6.1" data-path="advanced.html"><a href="advanced.html#collect-1"><i class="fa fa-check"></i><b>6.1</b> Collect</a></li>
+<li class="chapter" data-level="6.2" data-path="advanced.html"><a href="advanced.html#build-1"><i class="fa fa-check"></i><b>6.2</b> Build</a></li>
+<li class="chapter" data-level="6.3" data-path="advanced.html"><a href="advanced.html#visualise-1"><i class="fa fa-check"></i><b>6.3</b> Visualise</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="hashtags.html"><a href="hashtags.html"><i class="fa fa-check"></i><b>7</b> Hashtags</a></li>
+<li class="chapter" data-level="8" data-path="dynamic.html"><a href="dynamic.html"><i class="fa fa-check"></i><b>8</b> Dynamic</a><ul>
+<li class="chapter" data-level="8.1" data-path="dynamic.html"><a href="dynamic.html#rationale-1"><i class="fa fa-check"></i><b>8.1</b> Rationale</a></li>
+<li class="chapter" data-level="8.2" data-path="dynamic.html"><a href="dynamic.html#collect-2"><i class="fa fa-check"></i><b>8.2</b> Collect</a></li>
+<li class="chapter" data-level="8.3" data-path="dynamic.html"><a href="dynamic.html#build-2"><i class="fa fa-check"></i><b>8.3</b> Build</a></li>
+<li class="chapter" data-level="8.4" data-path="dynamic.html"><a href="dynamic.html#visualise-2"><i class="fa fa-check"></i><b>8.4</b> Visualise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The twinetverse</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Introduction</h1>
+<p>The <em>twinetverse</em> includes three packages:</p>
+<ul>
+<li><a href="@R-rtweet"><em>rtweet</em></a></li>
+<li><a href="@R-graphTweets"><em>graphTweets</em></a></li>
+<li><a href="@R-sigmajs"><em>sigmajs</em></a></li>
+</ul>
+<p>Within the context of visualising Twitter interactions, each of the packages listed above fill in a specific need and a distinct step of the process, 1) <em>collecting</em> the data, 2) <em>building</em> the graphs and finally 3) <em>visualising</em> the graphs of said interactions.</p>
+<p>We eventually look at the <a href="pkgs">packages</a> that make up the <em>twinetverse</em>.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pkgs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true,
+"fontsettings": {
+"theme": "Night"
+}
+}
+});
+});
+</script>
+
+</body>
+
+</html>
