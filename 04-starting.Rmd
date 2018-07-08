@@ -33,11 +33,7 @@ names(tweets)
 
 ## Build
 
-<<<<<<< HEAD
-Now we can use the second package part of the _twinetverse_, graphTweets. Again, we'll leave the function's arguments to default to get a simple graph. There's a lot more to the package which we'll get into later.
-=======
 Now we can use the second package part of the _twinetverse_, graphTweets. Again, we'll leave function's arguments to default to get a simple graph. There's a lot more to the package which we'll explore in later chapters.
->>>>>>> d154c84facf89ffd80fb5eaf3e73ce82fa2f79cc
 
 ```{r, eval=TRUE}
 net <- tweets %>% 

@@ -120,7 +120,8 @@ dates <- as.Date(net$nodes$start)
 ticker <- dplyr::tibble(
   dates = dates,
   delay = rescale(dates, T)
-)
+) %>% 
+  arrange(delay)
 
 head(ticker)
 ```
@@ -131,7 +132,11 @@ datetime <- net$nodes$start
 ticker <- dplyr::tibble(
   dates = as.Date(datetime),
   delay = rescale(datetime, T)
-)
+) %>% 
+  group_by(dates) %>% 
+  summarise(delay = min(delay)) %>% 
+  ungroup() %>% 
+  arrange(delay)
 
 knitr::kable(head(ticker))
 ```
@@ -142,7 +147,7 @@ Now, how do we use this mapping table in sigmajs?
 sigmajs() %>% 
   sg_add_nodes(nodes, start, id, label, size, color, x, y, cumsum = FALSE) %>% 
   sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE) %>% 
-  sg_progress(ticker, delay, dates) %>% 
+  sg_progress(ticker, delay, dates, cumsum = FALSE) %>% 
   sg_button("Start", "add_nodes_edges")
 ```
 

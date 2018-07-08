@@ -2,11 +2,7 @@
 
 In this chapter we get you set up and running with the _twinetverse_.
 
-<<<<<<< HEAD
 The package can be install with devtools devtools [@R-devtools] or remotes [@R-remotes], it is available from Github or Bitbucket:
-=======
-## Install
->>>>>>> d154c84facf89ffd80fb5eaf3e73ce82fa2f79cc
 
 The _twinetverse_ package can be installed from [Github](https://github.com/JohnCoene/twinetverse):
 

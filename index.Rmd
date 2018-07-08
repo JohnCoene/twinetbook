@@ -21,13 +21,9 @@ description: "A guide to visualise networks of Twitter interactions in R."
 
 The goal of the _twinetverse_ is to provide everything one might need to view Twitter interactions, from data collection to visualisation.
 
-<<<<<<< HEAD
 <a>
 <img src="http://twinetverse.john-coene.com/reference/figures/logo.png" align="left" style="max-height:150px;margin-right:2%;"/>
 </a>
-=======
-The _twinetverse_ package can be installed from [Github](https://github.com/JohnCoene/twinetverse):
->>>>>>> d154c84facf89ffd80fb5eaf3e73ce82fa2f79cc
 
 The _twinetverse_ package is available on [Github](https://github.com/JohnCoene/twinetverse) and [Bitbucket](https://bitbucket.org/JohnCoene/twinetverse).
 
