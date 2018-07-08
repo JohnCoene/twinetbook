@@ -27,10 +27,9 @@ The goal of the _twinetverse_ is to provide everything one might need to view Tw
 
 The _twinetverse_ package is available on [Github](https://github.com/JohnCoene/twinetverse) and [Bitbucket](https://bitbucket.org/JohnCoene/twinetverse).
 
-or from [Bitbucket](https://bitbucket.org/JohnCoene/twinetbook/src/master/):
-
 ```{r eval=FALSE}
 devtools::install_bitbucket("JohnCoene/twinetverse")
+remotes::install_github("JohnCoene/twinetverse")
 ```
 
 The package is unlikely to make it onto CRAN, it may be considered once all of its children packages are on CRAN, but not until then.
