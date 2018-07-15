@@ -1,0 +1,43 @@
+# R markdown {#rmd}
+
+This chapter covers R markdown-specific functions of the _twinetverse_.
+
+We've actually covered a few of those already, rtweet and graphTweets do not have functions specifically meant to be used in R markdown, all work just as well in a interactive and non-interactive environments. The dynamic nature of sigmajs, however, suggests the intriduction of additional functions.
+
+## Buttons
+
+One of the functions of the sigmajs package that we have already covered enables adding buttons to make trigger events in sigmajs: `sg_button`. Below are the events that can be tied to buttons.
+
+* `force_start`
+* `force_stop`
+* `noverlap`
+* `drag_nodes`
+* `relative_size`
+* `add_nodes`
+* `add_edges`
+* `add_nodes_edges`
+* `drop_nodes`
+* `drop_edges`
+* `animate`
+* `export_svg`
+* `export_img`
+
+These events need to be tied to the visualisation, the button (`sg_button`) is only the trigger. Most events can be used without triggers, events that cannot just be used on their own are exports: `export_svg` and `export_img`. The events are simply the name of the function (event) they trigger without the starting `sg_`, i.e.: `export_svg` event triggers `sg_export_svg`.
+
+Let's illustrate the above example. We first draw a graph.
+
+```{r}
+sigmajs() %>% 
+  sg_nodes(nodes, id, size, color) %>% 
+  sg_edges(edges, id, source, target)
+```
+
+Then add the event and the corresponding button.
+
+```{r}
+sigmajs() %>% 
+  sg_nodes(nodes, id, size, color) %>% 
+  sg_edges(edges, id, source, target) %>% 
+  sg_force_start() %>% 
+  sg_button("start", "force_start")
+```
