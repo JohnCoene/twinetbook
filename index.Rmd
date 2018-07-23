@@ -17,6 +17,10 @@ cover-image: images/cover.png
 description: "A guide to visualise networks of Twitter interactions in R."
 ---
 
+```{r no warning, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE)
+```
+
 # Preface
 
 The goal of the _twinetverse_ is to provide everything one might need to view Twitter interactions, from data collection to visualisation.
