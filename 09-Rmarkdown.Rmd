@@ -1,0 +1,59 @@
+# R markdown {#rmd}
+
+This chapter covers R markdown-specific functions of the _twinetverse_.
+
+We've actually covered a few of those already, rtweet and graphTweets do not have functions specifically meant to be used in R markdown, all work just as well in a interactive and non-interactive environments. The dynamic nature of sigmajs, however, suggests the intriduction of additional functions.
+
+## Buttons
+
+One of the functions of the sigmajs package that we have already covered enables adding buttons to make trigger events in sigmajs: `sg_button`.
+
+These events need to be tied to the visualisation, the button (`sg_button`) is only the trigger. Most events can be used without triggers, events that cannot just be used on their own are exports: `export_svg` and `export_img`. The events are simply the name of the function (event) they trigger without the starting `sg_`, i.e.: `export_svg` event triggers `sg_export_svg`.
+
+Let's illustrate the above example. We first draw a graph.
+
+```{r}
+sigmajs() %>% 
+  sg_nodes(nodes, id, size, color) %>% 
+  sg_edges(edges, id, source, target)
+```
+
+Then add the event and the corresponding button.
+
+```{r}
+sigmajs() %>% 
+  sg_nodes(nodes, id, size, color) %>% 
+  sg_edges(edges, id, source, target) %>% 
+  sg_force_start() %>% 
+  sg_button("start", "force_start")
+```
+
+Below are the events that can be tied to buttons.
+
+* `force_start`
+* `force_stop`
+* `noverlap`
+* `drag_nodes`
+* `relative_size`
+* `add_nodes`
+* `add_edges`
+* `add_nodes_edges`
+* `drop_nodes`
+* `drop_edges`
+* `animate`
+* `export_svg`
+* `export_img`
+
+## Delays
+
+some functions of the sigmajs package take a `delay` argument, which, though can be used in any way or framework (shiny, R markdown, etc.), it is specifically designed with R markdown in mind. Take for instance the layout algorithm and button we used above; as you read this it is still running, which is draining for the browser and useless as the layout has stabilised. We could do the inverse of what we do above, of course, trigger the layout on page load and instead provide a button for the user to stop the layout. However, what would be ideal is for the layout to simply stop after a few seconds. Let's implement the latter.
+
+```{r}
+sigmajs() %>% 
+  sg_nodes(nodes, id, size, color) %>% 
+  sg_edges(edges, id, source, target) %>% 
+  sg_force_start() %>% 
+  sg_force_stop(10000)
+```
+
+We remove the button as we just trigger the layout algorithm when the page loads then we pass `sg_force_stop` specifying that we want the force layout to stop after 10,000 milliseconds (10 seconds).
