@@ -56,4 +56,4 @@ sigmajs() %>%
   sg_force_stop(10000)
 ```
 
-We remove the button as we just trigger the layout algorithm when the page loads then we pass `sg_force_stop` specifying that we want the force layout to stop after 10,000 milliseconds (10 seconds).
+We removed the button as we just trigger the layout algorithm when the page loads then we pass `sg_force_stop` specifying that we want the force layout to stop after 10,000 milliseconds (10 seconds).
