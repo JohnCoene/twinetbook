@@ -7,7 +7,9 @@ library(twinetverse)
 TK <- readRDS("twitter_token.rds")
 ```
 
-In this chapter we briefly explore the twinetverse: we _collect_ tweets, _build_ and _visualise_ our first graph. 
+In this chapter we briefly explore the twinetverse: we _collect_ tweets, _build_ and _visualise_ our first graph.
+
+_A note if you follow this along in RStudio; the visualisations do not open in the viewer and instead open in your default browser._
 
 ## Collect
 
