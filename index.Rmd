@@ -12,9 +12,9 @@ biblio-style: apalike
 link-citations: true
 links-as-notes: true
 colorlinks: true
-github-repo: JohnCoene/twinetverse
-cover-image: images/cover.png
-description: "A guide to visualise networks of Twitter interactions in R."
+github-repo: "JohnCoene/twinetverse"
+cover-image: "images/cover.png"
+description: "A guide to visualise networks of Twitter interactions in R using the twinetverse."
 ---
 
 ```{r no warning, include=FALSE}

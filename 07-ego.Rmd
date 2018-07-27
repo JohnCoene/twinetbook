@@ -1,0 +1,34 @@
+# Friends {#friends}
+
+```{r, echo=FALSE, include=FALSE}
+library(twinetverse)
+
+TK <- readRDS("twitter_token.rds")
+```
+
+In this chapter we briefly go over ego networks with twinetverse. Ego networks are graphs of a focal node.
+
+```{r}
+users <- c(
+  "dataandme", # Mara Averick
+  "hadleywickham", # Hadley Wickham
+  "xieyihui", # Yihui Xie
+  "thomasp85", #Thomas Lin pedersen
+  "timelyportfolio", # Kent Russel
+  "GaborCsardi" # Gábor Csárdi
+)
+
+users <- combinat::combn(users, 2, simplify = FALSE) %>% 
+    purrr::map(., function(x){
+        names(x) <- c("source", "target")
+        return(x)
+    }) %>% 
+    purrr::map_df(dplyr::bind_rows)
+
+friends <- data.frame()
+for(i in 1:nrow(users)){
+  rel <- lookup_friendships(users$source[i], users$target[i], token = TK)
+  friends <- rbind.data.frame(friends, rel)
+  Sys.sleep(0.5)
+}
+```
