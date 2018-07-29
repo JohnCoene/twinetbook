@@ -17,7 +17,7 @@ We set `include_rts = FALSE` as we don't need the same tweet multiple times, it 
 We query 1,000 tweets that:
 
 - Include `#rstats`
-- Include a [mention](https://help.twitter.com/en/using-twitter/mentions-and-replies) i.e.: `@jdatap`
+- Include a [mention](https://help.twitter.com/en/using-twitter/mentions-and-replies) i.e.: `\@jdatap`
 - Are original (not re-tweets)
 
 Remember to load your token if you're in a new environment.

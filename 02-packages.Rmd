@@ -32,7 +32,7 @@ The package revolves around two core functions which respectively allow you to b
 
 All functions of the package start with `gt_`.
 
-graphTweets fills the seecond step in visualising Twitter interactions, **building** the graphs from the collected data.
+graphTweets fills the second step in visualising Twitter interactions, **building** the graphs from the collected data.
 
 ## sigmajs
 

@@ -1,6 +1,8 @@
 # Prerequisites {#prerequisites}
 
-In this chapter we get you set up and running with the _twinetverse_.
+In this chapter we get you set up and running with the _twinetverse_, namely the package installation and setting up rtweet to fetch tweets.
+
+## Install
 
 The package can be install with devtools devtools [@R-devtools] or remotes [@R-remotes], it is available from Github or Bitbucket:
 
@@ -8,7 +10,6 @@ The _twinetverse_ package can be installed from [Github](https://github.com/John
 
 ```{r eval=FALSE}
 devtools::install_github("JohnCoene/twinetverse")
-remotes::install_bitbucket("JohnCoene/twinetverse")
 ```
 
 or from [Bitbucket](https://bitbucket.org/JohnCoene/twinetbook/src/master/):
@@ -57,7 +58,7 @@ TK <- create_token(
 )
 ```
 
-Ideally, also save it. There is no need to re-create a token everytime you want to download data. Once saved you can easily load it `readRDS`.
+Ideally, also save it. There is no need to re-create a token everytime you want to download data. Once saved you can easily load it `readRDS` (we'll demonstrate that in the next chapter).
 
 ```{r, eval = FALSE}
 saveRDS(TK, file = "token.rds")

@@ -27,7 +27,7 @@ tweets <- search_tweets("rstats", token = TK)
 
 The `search_tweets` function takes a few arguments which we'll eventually get into, above we run the simplest possible call; fetching tweets about "rstats", a reference to the R [@R-base] Twitter [#hashtag](https://twitter.com/search?q=rstats), by default the function returns 100 tweets. Note that we also pass our token to the function.
 
-Each row a is a tweet, rtweet returns quite a lot of variables `r ncol(tweets)`, we'll only look at a select few.
+Each row a is a tweet, rtweet returns quite a lot of variables (`r ncol(tweets)`), we'll only look at a select few.
 
 ```{r, eval=TRUE}
 names(tweets)
@@ -35,7 +35,7 @@ names(tweets)
 
 ## Build
 
-Now we can use the second package part of the _twinetverse_, graphTweets. Again, we'll leave function's arguments to default to get a simple graph. There's a lot more to the package which we'll explore in later chapters.
+Now we can use the second package part of the _twinetverse_, graphTweets. Again, we'll leave all function's arguments to default to get a simple graph. There's a lot more to the package which we'll explore in later chapters.
 
 ```{r, eval=TRUE}
 net <- tweets %>% 
@@ -136,7 +136,7 @@ sigmajs has a specific but sensible naming convention as well as basic _minimal 
 * Nodes must at least include `id`, and `size`.
 * Edges must at least include `id`, `source`, and `target`.
 
-Actually, the twinetverse comes with helper functions to prepare the nodes and edges build from graphTweets for use in sigmajs.
+Well actually, the _twinetverse_ comes with helper functions to prepare the nodes and edges build from graphTweets for use in sigmajs (these are the only functions the 'verse provides).
 
 ```{r}
 nodes <- nodes2sg(nodes)

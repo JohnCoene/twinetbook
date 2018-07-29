@@ -146,7 +146,8 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i><b>4</b> Prerequisites</a><ul>
-<li class="chapter" data-level="4.1" data-path="prerequisites.html"><a href="prerequisites.html#setup-rtweet"><i class="fa fa-check"></i><b>4.1</b> Setup rtweet</a></li>
+<li class="chapter" data-level="4.1" data-path="prerequisites.html"><a href="prerequisites.html#install"><i class="fa fa-check"></i><b>4.1</b> Install</a></li>
+<li class="chapter" data-level="4.2" data-path="prerequisites.html"><a href="prerequisites.html#setup-rtweet"><i class="fa fa-check"></i><b>4.2</b> Setup rtweet</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>5</b> Get Started</a><ul>
 <li class="chapter" data-level="5.1" data-path="get-started.html"><a href="get-started.html#collect"><i class="fa fa-check"></i><b>5.1</b> Collect</a></li>
@@ -199,17 +200,19 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="prerequisites" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Prerequisites</h1>
-<p>In this chapter we get you set up and running with the <em>twinetverse</em>.</p>
+<p>In this chapter we get you set up and running with the <em>twinetverse</em>, namely the package installation and setting up rtweet to fetch tweets.</p>
+<div id="install" class="section level2">
+<h2><span class="header-section-number">4.1</span> Install</h2>
 <p>The package can be install with devtools devtools <span class="citation">(Wickham, Hester, and Chang <a href="#ref-R-devtools">2018</a>)</span> or remotes <span class="citation">(Csárdi et al. <a href="#ref-R-remotes">2017</a>)</span>, it is available from Github or Bitbucket:</p>
 <p>The <em>twinetverse</em> package can be installed from <a href="https://github.com/JohnCoene/twinetverse">Github</a>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;JohnCoene/twinetverse&quot;</span>)
-remotes<span class="op">::</span><span class="kw">install_bitbucket</span>(<span class="st">&quot;JohnCoene/twinetverse&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;JohnCoene/twinetverse&quot;</span>)</code></pre></div>
 <p>or from <a href="https://bitbucket.org/JohnCoene/twinetbook/src/master/">Bitbucket</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_bitbucket</span>(<span class="st">&quot;JohnCoene/twinetverse&quot;</span>)</code></pre></div>
 <p>In the book we don’t explicitly load the package and assume you have it loaded in your environment:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(twinetverse)</code></pre></div>
+</div>
 <div id="setup-rtweet" class="section level2">
-<h2><span class="header-section-number">4.1</span> Setup rtweet</h2>
+<h2><span class="header-section-number">4.2</span> Setup rtweet</h2>
 <p>The rtweet package requires some set up. This is not only extremely easy but also very well explained on rtweet’s <a href="http://rtweet.info/articles/auth.html">official website</a>, so head over there if the short description below does not satisfy.</p>
 <p>In essence, you will need a Twitter “app” to access its API, to create one:</p>
 <ol style="list-style-type: decimal">
@@ -237,7 +240,7 @@ TK &lt;-<span class="st"> </span><span class="kw">create_token</span>(
   <span class="dt">access_token =</span> <span class="st">&quot;XxxxXxXXxXx&quot;</span>,
   <span class="dt">access_secret =</span> <span class="st">&quot;XxxxXxXXxXx&quot;</span>
 )</code></pre></div>
-<p>Ideally, also save it. There is no need to re-create a token everytime you want to download data. Once saved you can easily load it <code>readRDS</code>.</p>
+<p>Ideally, also save it. There is no need to re-create a token everytime you want to download data. Once saved you can easily load it <code>readRDS</code> (we’ll demonstrate that in the next chapter).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveRDS</span>(TK, <span class="dt">file =</span> <span class="st">&quot;token.rds&quot;</span>)</code></pre></div>
 <p>You’re all set to use the <em>twinetverse</em>!</p>
 
