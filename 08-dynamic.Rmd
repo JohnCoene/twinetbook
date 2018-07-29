@@ -6,7 +6,7 @@ library(twinetverse)
 TK <- readRDS("twitter_token.rds")
 ```
 
-So far we have been drawing static graphs, in this chapter we look at dynamic ones, namely temporal. 
+So far we have been drawing static graphs, in this chapter we look at dynamic ones, namely temporal. However, being an introduction we'll first only have dynamic edges: we'll tackle the fully temporal network further down the book. 
 
 ## Rationale
 
