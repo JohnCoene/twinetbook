@@ -8,27 +8,33 @@ TK <- readRDS("twitter_token.rds")
 
 In this chapter we briefly go over ego networks with twinetverse. Ego networks are graphs of a focal node.
 
-```{r}
-users <- c(
-  "dataandme", # Mara Averick
-  "hadleywickham", # Hadley Wickham
-  "xieyihui", # Yihui Xie
-  "thomasp85", #Thomas Lin pedersen
-  "timelyportfolio", # Kent Russel
-  "GaborCsardi" # Gábor Csárdi
-)
+```{r, warning=FALSE}
+tl <- rtweet::get_timeline("jdatap", n = 25)
 
-users <- combinat::combn(users, 2, simplify = FALSE) %>% 
-    purrr::map(., function(x){
-        names(x) <- c("source", "target")
-        return(x)
-    }) %>% 
-    purrr::map_df(dplyr::bind_rows)
+net <- tl %>% 
+  dplyr::mutate(src = "jdatap") %>% 
+  gt_edges(text, src, status_id) %>% 
+  gt_nodes() %>% 
+  gt_collect()
 
-friends <- data.frame()
-for(i in 1:nrow(users)){
-  rel <- lookup_friendships(users$source[i], users$target[i], token = TK)
-  friends <- rbind.data.frame(friends, rel)
-  Sys.sleep(0.5)
-}
+library(zeallot)
+
+c(edges, nodes) %<-% net
+
+edges <- edges %>% 
+  dplyr::count(source, target) %>%
+  edges2sg()
+
+nodes <- nodes2sg(nodes)
+
+sigmajs() %>% 
+  sg_nodes(nodes, id, label, size) %>% 
+  sg_edges(edges, source, target, id) %>% 
+  sg_layout() %>% 
+  sg_settings(
+    defaultNodeColor = "#1dcaff",
+    edgeColor = "default",
+    defaultEdgeColor = "#d3d3d3",
+    labelThreshold = 1
+  )
 ```
