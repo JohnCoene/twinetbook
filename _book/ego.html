@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="pkgs.html">
+<link rel="prev" href="hashtags.html">
+<link rel="next" href="dynamic.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -197,37 +197,51 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Introduction</h1>
-<p>The <em>twinetverse</em> includes three packages:</p>
-<ul>
-<li><em>rtweet</em> <span class="citation">(Kearney <a href="#ref-R-rtweet">2018</a>)</span></li>
-<li><em>graphTweets</em> <span class="citation">(Coene <a href="#ref-R-graphTweets">2018</a><a href="#ref-R-graphTweets">a</a>)</span></li>
-<li><em>sigmajs</em> <span class="citation">(Coene <a href="#ref-R-sigmajs">2018</a><a href="#ref-R-sigmajs">b</a>)</span></li>
-</ul>
-<p>Within the context of visualising Twitter interactions, each of the packages listed above fill in a specific need and a distinct step of the process, 1) <em>collecting</em> the data, 2) <em>building</em> the graphs and finally 3) <em>visualising</em> the graphs of said interactions.</p>
-<p>We eventually look at the <a href="pkgs">packages</a> that make up the <em>twinetverse</em>.</p>
+<div id="ego" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Ego</h1>
+<p>In this chapter we briefly go over ego networks with twinetverse. Ego networks are graphs of a focal node. To do so we collect tweets not by keyword but instead posted by a user, essentially downloading the user’s timeline.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tl &lt;-<span class="st"> </span>rtweet<span class="op">::</span><span class="kw">get_timeline</span>(<span class="st">&quot;jdatap&quot;</span>, <span class="dt">n =</span> <span class="dv">50</span>)</code></pre></div>
+<p>Then we build the network, like we did before, but we add the missing <code>source</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">net &lt;-<span class="st"> </span>tl <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">src =</span> <span class="st">&quot;jdatap&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gt_edges</span>(text, src, status_id) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gt_nodes</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gt_collect</span>()</code></pre></div>
+<p>Then we unpack the network and count the edges.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(zeallot)
 
+<span class="kw">c</span>(edges, nodes) <span class="op">%&lt;-%</span><span class="st"> </span>net
+
+edges &lt;-<span class="st"> </span>edges <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">count</span>(source, target) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">edges2sg</span>()
+
+nodes &lt;-<span class="st"> </span><span class="kw">nodes2sg</span>(nodes)</code></pre></div>
+<p>Then we plot the network.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sigmajs</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">sg_nodes</span>(nodes, id, label, size) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">sg_edges</span>(edges, source, target, id) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">sg_layout</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">sg_settings</span>(
+    <span class="dt">defaultNodeColor =</span> <span class="st">&quot;#1dcaff&quot;</span>,
+    <span class="dt">edgeColor =</span> <span class="st">&quot;default&quot;</span>,
+    <span class="dt">defaultEdgeColor =</span> <span class="st">&quot;#d3d3d3&quot;</span>,
+    <span class="dt">labelThreshold =</span> <span class="dv">1</span>
+  )</code></pre></div>
+<div id="htmlwidget-01d68097fb0219244714" class="sigmajs html-widget" style="width:100%;height:480px;">
+<button type="button" style="display:block;"></button>
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-R-rtweet">
-<p>Kearney, Michael W. 2018. <em>Rtweet: Collecting Twitter Data</em>. <a href="https://CRAN.R-project.org/package=rtweet" class="uri">https://CRAN.R-project.org/package=rtweet</a>.</p>
-</div>
-<div id="ref-R-graphTweets">
-<p>Coene, John. 2018a. <em>GraphTweets: Visualise Twitter Interactions</em>. <a href="https://CRAN.R-project.org/package=graphTweets" class="uri">https://CRAN.R-project.org/package=graphTweets</a>.</p>
-</div>
-<div id="ref-R-sigmajs">
-<p>Coene, John. 2018b. <em>Sigmajs: Interface to ’Sigma.js’ Graph Visualization Library</em>. <a href="http://sigmajs.john-coene.com/" class="uri">http://sigmajs.john-coene.com/</a>.</p>
-</div>
+<script type="application/json" data-for="htmlwidget-01d68097fb0219244714">{"x":{"data":{"nodes":[{"id":"AuroreVincenti","label":"AuroreVincenti","size":" 1","x":"-3.4372675","y":"35.91512"},{"id":"Bitbucket","label":"Bitbucket","size":" 1","x":"-2.0811757","y":"34.72001"},{"id":"carolinegillet","label":"carolinegillet","size":" 1","x":" 0.7018647","y":"32.93711"},{"id":"carroll","label":"carroll","size":" 1","x":" 0.2210143","y":"34.67749"},{"id":"ChristEd930427","label":"ChristEd930427","size":" 1","x":"-1.8548587","y":"35.79231"},{"id":"ColinFay","label":"ColinFay","size":" 4","x":" 0.5650229","y":"33.79671"},{"id":"Cosi1125","label":"Cosi1125","size":" 1","x":"-2.7573810","y":"30.40493"},{"id":"dataandme","label":"dataandme","size":" 8","x":" 0.1936304","y":"31.33685"},{"id":"divadnojnarg","label":"divadnojnarg","size":" 1","x":"-4.9172577","y":"34.87356"},{"id":"dreamRs","label":"dreamRs","size":" 2","x":"-4.2027638","y":"30.34857"},{"id":"DynamicWebPaige","label":"DynamicWebPaige","size":" 1","x":"-1.1526380","y":"30.10431"},{"id":"easyJet","label":"easyJet","size":" 1","x":"-3.2848442","y":"34.27830"},{"id":"forestryio","label":"forestryio","size":" 1","x":"-1.8211905","y":"30.66601"},{"id":"fr","label":"fr","size":" 2","x":"-2.5339192","y":"36.12342"},{"id":"franceinter","label":"franceinter","size":" 1","x":"-1.0821747","y":"35.82715"},{"id":"francois","label":"francois","size":" 1","x":"-5.5438922","y":"32.58291"},{"id":"GoHugoIO","label":"GoHugoIO","size":" 1","x":"-4.7323485","y":"31.02054"},{"id":"ICIJorg","label":"ICIJorg","size":" 1","x":"-3.6289355","y":"30.92422"},{"id":"jdatap","label":"jdatap","size":"59","x":"-2.4237671","y":"32.97560"},{"id":"jdataphttps","label":"jdataphttps","size":" 1","x":"-0.1507227","y":"33.03757"},{"id":"JeanPierreCoene","label":"JeanPierreCoene","size":" 1","x":"-3.9335993","y":"31.81384"},{"id":"jono","label":"jono","size":" 1","x":"-1.1208094","y":"34.90976"},{"id":"kearneymw","label":"kearneymw","size":" 1","x":"-5.3836772","y":"34.08067"},{"id":"LittleMissData","label":"LittleMissData","size":" 2","x":"-4.2092177","y":"35.57478"},{"id":"LVaudor","label":"LVaudor","size":" 1","x":"-0.2749575","y":"30.63541"},{"id":"movingtogitlab","label":"movingtogitlab","size":" 1","x":"-1.3207172","y":"31.94008"},{"id":"Netlify","label":"Netlify","size":" 1","x":"-4.7541897","y":"32.23935"},{"id":"OmaymaS","label":"OmaymaS","size":" 1","x":"-0.9340620","y":"31.03763"},{"id":"PieRatio","label":"PieRatio","size":" 1","x":"-0.3518702","y":"32.09136"},{"id":"pvictorr","label":"pvictorr","size":" 1","x":" 0.5529368","y":"32.11195"},{"id":"R","label":"R","size":" 2","x":"-4.1060306","y":"33.02924"},{"id":"rencontres","label":"rencontres","size":" 2","x":"-4.5162629","y":"33.93237"},{"id":"romain","label":"romain","size":" 1","x":"-2.1319492","y":"29.83491"},{"id":"rOpenSci","label":"rOpenSci","size":" 1","x":"-3.3274064","y":"29.90609"},{"id":"SCN0Ycy7Z7","label":"SCN0Ycy7Z7","size":" 1","x":"-0.3009779","y":"34.09758"},{"id":"sigmajs","label":"sigmajs","size":" 1","x":"-2.8908419","y":"35.30710"},{"id":"SimoneGiertz","label":"SimoneGiertz","size":" 1","x":"-1.1038407","y":"33.71239"},{"id":"StatnMap","label":"StatnMap","size":" 1","x":"-5.2881518","y":"31.62892"},{"id":"tco","label":"tco","size":" 1","x":"-4.0515482","y":"34.80412"},{"id":"users","label":"users","size":" 1","x":"-5.2958051","y":"33.29618"},{"id":"WishShopping","label":"WishShopping","size":" 1","x":"-2.6439245","y":"31.44440"},{"id":"xieyihui","label":"xieyihui","size":" 2","x":"-0.3683816","y":"35.28426"}],"edges":[{"source":"jdatap","target":"AuroreVincenti","id":"1"},{"source":"jdatap","target":"Bitbucket","id":"2"},{"source":"jdatap","target":"carolinegillet","id":"3"},{"source":"jdatap","target":"carroll","id":"4"},{"source":"jdatap","target":"ChristEd930427","id":"5"},{"source":"jdatap","target":"ColinFay","id":"6"},{"source":"jdatap","target":"Cosi1125","id":"7"},{"source":"jdatap","target":"dataandme","id":"8"},{"source":"jdatap","target":"divadnojnarg","id":"9"},{"source":"jdatap","target":"dreamRs","id":"10"},{"source":"jdatap","target":"DynamicWebPaige","id":"11"},{"source":"jdatap","target":"easyJet","id":"12"},{"source":"jdatap","target":"forestryio","id":"13"},{"source":"jdatap","target":"fr","id":"14"},{"source":"jdatap","target":"franceinter","id":"15"},{"source":"jdatap","target":"francois","id":"16"},{"source":"jdatap","target":"GoHugoIO","id":"17"},{"source":"jdatap","target":"ICIJorg","id":"18"},{"source":"jdatap","target":"jdatap","id":"19"},{"source":"jdatap","target":"jdataphttps","id":"20"},{"source":"jdatap","target":"JeanPierreCoene","id":"21"},{"source":"jdatap","target":"jono","id":"22"},{"source":"jdatap","target":"kearneymw","id":"23"},{"source":"jdatap","target":"LittleMissData","id":"24"},{"source":"jdatap","target":"LVaudor","id":"25"},{"source":"jdatap","target":"movingtogitlab","id":"26"},{"source":"jdatap","target":"Netlify","id":"27"},{"source":"jdatap","target":"OmaymaS","id":"28"},{"source":"jdatap","target":"PieRatio","id":"29"},{"source":"jdatap","target":"pvictorr","id":"30"},{"source":"jdatap","target":"R","id":"31"},{"source":"jdatap","target":"rencontres","id":"32"},{"source":"jdatap","target":"romain","id":"33"},{"source":"jdatap","target":"rOpenSci","id":"34"},{"source":"jdatap","target":"SCN0Ycy7Z7","id":"35"},{"source":"jdatap","target":"sigmajs","id":"36"},{"source":"jdatap","target":"SimoneGiertz","id":"37"},{"source":"jdatap","target":"StatnMap","id":"38"},{"source":"jdatap","target":"tco","id":"39"},{"source":"jdatap","target":"users","id":"40"},{"source":"jdatap","target":"WishShopping","id":"41"},{"source":"jdatap","target":"xieyihui","id":"42"}]},"type":"canvas","crosstalk":{"crosstalk_key":null,"crosstalk_group":null},"settings":{"defaultNodeColor":"#1dcaff","edgeColor":"default","defaultEdgeColor":"#d3d3d3","labelThreshold":1}},"evals":[],"jsHooks":[]}</script>
+<p>As you can see all the nodes (users) are linked to a single node, which is the user whose timeline we downloaded.</p>
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="pkgs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="hashtags.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dynamic.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

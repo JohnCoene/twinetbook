@@ -1,4 +1,4 @@
-# Friends {#friends}
+# Ego {#ego}
 
 ```{r, echo=FALSE, include=FALSE}
 library(twinetverse)
@@ -6,17 +6,25 @@ library(twinetverse)
 TK <- readRDS("twitter_token.rds")
 ```
 
-In this chapter we briefly go over ego networks with twinetverse. Ego networks are graphs of a focal node.
+In this chapter we briefly go over ego networks with twinetverse. Ego networks are graphs of a focal node. To do so we collect tweets not by keyword but instead posted by a user, essentially downloading the user's timeline.
 
 ```{r, warning=FALSE}
-tl <- rtweet::get_timeline("jdatap", n = 25)
+tl <- rtweet::get_timeline("jdatap", n = 50)
+```
 
+Then we build the network, like we did before, but we add the missing `source`.
+
+```{r}
 net <- tl %>% 
   dplyr::mutate(src = "jdatap") %>% 
   gt_edges(text, src, status_id) %>% 
   gt_nodes() %>% 
   gt_collect()
+```
 
+Then we unpack the network and count the edges.
+
+```{r}
 library(zeallot)
 
 c(edges, nodes) %<-% net
@@ -26,7 +34,11 @@ edges <- edges %>%
   edges2sg()
 
 nodes <- nodes2sg(nodes)
+```
 
+Then we plot the network.
+
+```{r}
 sigmajs() %>% 
   sg_nodes(nodes, id, label, size) %>% 
   sg_edges(edges, source, target, id) %>% 
@@ -38,3 +50,5 @@ sigmajs() %>%
     labelThreshold = 1
   )
 ```
+
+As you can see all the nodes (users) are linked to a single node, which is the user whose timeline we downloaded.
