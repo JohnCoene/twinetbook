@@ -9,137 +9,6 @@
 [0K
 [0K
 [0K
-[0K[24A[22G[?25h[?25l$ git push github mast[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[24A[23G[?25h[?25l$ git push github maste[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[24A[24G[?25h[?25l$ git push github master[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[24A[25G[?25h[?25l
-[?25hCounting objects: 18, done.[0K[?25l
-Delta compression using up to 4 threads.[0K
-Compressing objects: 100% (16/16), done.[0K
-Writing objects:  77% (14/18)[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[20A[?25hWriting objects: 100% (18/18), 6.79 KiB | 1.13 MiB/s, done.[0K[?25l
-Total 18 (delta 6), reused 0 (delta 0)[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[18A[?25hremote: Resolving deltas: 100% (6/6), completed with 6 local objects.[0K[?25l
-To https://github.com/JohnCoene/twinetbook.git[0K
-   896928d..a2b3b50  master -> master[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
 [0K
 [0K
 [0K
@@ -1001,4 +870,382 @@ Fast-forward[0K
 [0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
 $[0K[3G[?25h[0m[0K]0;[?25l
 [0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[11G[?25h[12G[?25l$ git add -A[0K[?25h
+[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[11G[?25h[12G[?25l$ git add -A[0K[?25h[?25l
+[0K[?25hwarning: LF will be replaced by CRLF in .Rproj.user/B7385CEA/sources/prop/D32DA98C.[0K[?25l
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in .Rproj.user/B7385CEA/sources/prop/INDEX.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in .Rproj.user/shared/notebooks/paths.[0K
+The file will have its original line endings in your working directory.[0K
+[0K[?25hwarning: LF will be replaced by CRLF in _book/libs/crosstalk-1.0.0/css/crosstalk.css.[0K[?25l
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/crosstalk-1.0.0/js/crosstalk.min.js.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/gitbook-2.6.7/css/plugin-bookdown.css.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/gitbook-2.6.7/css/plugin-fontsettings.css.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/gitbook-2.6.7/css/plugin-highlight.css.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/gitbook-2.6.7/css/plugin-search.css.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/gitbook-2.6.7/css/style.css.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/gitbook-2.6.7/js/app.min.js.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/gitbook-2.6.7/js/jquery.highlight.js.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/gitbook-2.6.7/js/lunr.js.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/gitbook-2.6.7/js/plugin-bookdown.js.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/gitbook-2.6.7/js/plugin-fontsettings.js.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/gitbook-2.6.7/js/plugin-search.js.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/gitbook-2.6.7/js/plugin-sharing.js.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/htmlwidgets-1.2/htmlwidgets.js.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/jquery-2.2.3/jquery.min.js.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/sigma-1.2.1/plugins/sigma.exporters.svg.js.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/sigma-1.2.1/plugins/sigma.plugins.neighborhoods.js.[0K
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in _book/libs/sigma-1.2.1/plugins/sigma.renderers.snapshot.js.[0K
+The file will have its original line endings in your working directory.[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$ git  co[0K[?25h[?25l$ git  c[0K[?25h[?25l$ git[0K[?25h[?25l$ gi[0K[?25hc[0Ko[0K[?25l$ gic[0K[?25h[?25l$ gi[0K[?25h[?25lt[0K[5G[?25h[6G[7G[?25l$ git c[0K[?25h[?25lo[0K[8G[?25h[9G[?25l$ git com[0K[?25hm[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25hm[0K[17G[?25l$ git commit -m "[0K[?25h"[0K[18G[?25l$ git commit -m "e"[0K[19G[?25h[?25l$ git commit -m "ep"[0K[19G[?25h[20G[?25l$ git commit -m "eph"[0K[21G[?25h[?25l$ git commit -m "ephe"[0K[22G[?25h[?25l$ git commit -m "ephem"[0K[23G[?25h[?25l$ git commit -m "epheme"[0K[24G[?25h[?25l$ git commit -m "ephemer"[0K[25G[?25h[?25l$ git commit -m "ephemera"[0K[26G[?25h[?25l$ git commit -m "ephemeral"[0K[27G[?25h[?25l$ git commit -m "ephemeral "[0K[28G[?25h[?25l$ git commit -m "ephemeral a"[0K[29G[?25h[?25l$ git commit -m "ephemeral ad"[0K[30G[?25h[?25l$ git commit -m "ephemeral add"[0K[31G[?25h[?25l$ git commit -m "ephemeral adde"[0K[32G[?25h[?25l$ git commit -m "ephemeral added"[0K[33G[?25h[?25l
+[0K[?25h[master 5a04f6f] ephemeral added[0K[?25l
+ 64 files changed, 10697 insertions(+), 1269 deletions(-)[0K
+ rewrite .Rproj.user/B7385CEA/console06/455836BE (88%)[0K
+ rewrite .Rproj.user/B7385CEA/console06/INDEX001 (71%)[0K
+ rewrite .Rproj.user/shared/notebooks/paths (100%)[0K
+ create mode 100644 _book/advanced.html[0K
+ create mode 100644 _book/dynamic.html[0K
+ create mode 100644 _book/ego.html[0K
+ create mode 100644 _book/ephemeral.html[0K
+ create mode 100644 _book/get-started.html[0K
+ create mode 100644 _book/hashtags.html[0K
+ create mode 100644 _book/images/cover.png[0K
+ create mode 100644 _book/index.html[0K
+ create mode 100644 _book/intro.html[0K
+ create mode 100644 _book/libs/crosstalk-1.0.0/css/crosstalk.css[0K
+ create mode 100644 _book/libs/crosstalk-1.0.0/js/crosstalk.min.js[0K
+ create mode 100644 _book/libs/gitbook-2.6.7/css/fontawesome/fontawesome-webfont.ttf[0K
+ create mode 100644 _book/libs/gitbook-2.6.7/css/plugin-bookdown.css[0K
+ create mode 100644 _book/libs/gitbook-2.6.7/css/plugin-fontsettings.css[0K
+ create mode 100644 _book/libs/gitbook-2.6.7/css/plugin-highlight.css[0K
+ create mode 100644 _book/libs/gitbook-2.6.7/css/plugin-search.css[0K
+ create mode 100644 _book/libs/gitbook-2.6.7/css/style.css[0K
+ create mode 100644 _book/libs/gitbook-2.6.7/js/app.min.js[0K
+ create mode 100644 _book/libs/gitbook-2.6.7/js/jquery.highlight.js[0K
+ create mode 100644 _book/libs/gitbook-2.6.7/js/lunr.js[0K
+ create mode 100644 _book/libs/gitbook-2.6.7/js/plugin-bookdown.js[0K
+ create mode 100644 _book/libs/gitbook-2.6.7/js/plugin-fontsettings.js[0K
+ create mode 100644 _book/libs/gitbook-2.6.7/js/plugin-search.js[0K
+ create mode 100644 _book/libs/gitbook-2.6.7/js/plugin-sharing.js[0K
+ create mode 100644 _book/libs/htmlwidgets-1.2/htmlwidgets.js[0K
+ create mode 100644 _book/libs/jquery-2.2.3/jquery.min.js[0K
+ create mode 100644 _book/libs/sigma-1.2.1/plugins/sigma.exporters.svg.js[0K
+ create mode 100644 _book/libs/sigma-1.2.1/plugins/sigma.layout.forceAtlas2.min.js[0K
+ create mode 100644 _book/libs/sigma-1.2.1/plugins/sigma.layout.noverlap.min.js[0K
+ create mode 100644 _book/libs/sigma-1.2.1/plugins/sigma.parsers.gexf.min.js[0K
+ create mode 100644 _book/libs/sigma-1.2.1/plugins/sigma.plugins.animate.min.js[0K
+ create mode 100644 _book/libs/sigma-1.2.1/plugins/sigma.plugins.dragNodes.min.js[0K
+ create mode 100644 _book/libs/sigma-1.2.1/plugins/sigma.plugins.filter.js[0K
+ create mode 100644 _book/libs/sigma-1.2.1/plugins/sigma.plugins.neighborhoods.js[0K
+ create mode 100644 _book/libs/sigma-1.2.1/plugins/sigma.plugins.relativeSize.min.js[0K
+ create mode 100644 _book/libs/sigma-1.2.1/plugins/sigma.renderers.customEdgeShapes.min.js[0K
+ create mode 100644 _book/libs/sigma-1.2.1/plugins/sigma.renderers.customShapes.min.js[0K
+ create mode 100644 _book/libs/sigma-1.2.1/plugins/sigma.renderers.edgeDots.min.js[0K
+ create mode 100644 _book/libs/sigma-1.2.1/plugins/sigma.renderers.edgeLabels.min.js[0K
+ create mode 100644 _book/libs/sigma-1.2.1/plugins/sigma.renderers.parallelEdges.min.js[0K
+ create mode 100644 _book/libs/sigma-1.2.1/plugins/sigma.renderers.snapshot.js[0K
+ create mode 100644 _book/libs/sigma-1.2.1/sigma.min.js[0K
+ create mode 100644 _book/libs/sigmajs-binding-0.1.1.9000/sigmajs.js[0K
+ create mode 100644 _book/pkgs.html[0K
+ create mode 100644 _book/prerequisites.html[0K
+ create mode 100644 _book/references.html[0K
+ create mode 100644 _book/rmd.html[0K
+ create mode 100644 _book/search_index.json[0K
+ create mode 100644 _book/style.css[0K
+ create mode 100644 _book/temporal.html[0K
+ create mode 100644 _book/twinetbook_files/figure-html/unnamed-chunk-74-1.png[0K
+ create mode 100644 _bookdown_files/twinetbook_files/figure-html/unnamed-chunk-74-1.png[0K
+ delete mode 100644 twinetbook.Rmd[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$ git push[0K[?25h[?25l
+[0K[?25hCounting objects: 88, done.[0K[?25l
+Delta compression using up to 4 threads.[0K
+Compressing objects:  70% (55/78)[0K[1G[?25h[?25lCompressing objects:  84% (66/78)[0K[1G[?25h[?25lCompressing objects:  98% (77/78)[0K[1G[?25hCompressing objects: 100% (78/78), done.[0K[?25l
+[0K[?25h[?25lWriting objects:  23% (21/88)[0K[1G[?25h[?25lWriting objects:  25% (22/88)[0K[1G[?25h[?25lWriting objects:  27% (24/88)[0K[1G[?25h[?25lWriting objects:  35% (31/88)[0K[1G[?25h[?25lWriting objects:  88% (78/88)[0K[1G[?25h[?25lWriting objects:  90% (80/88), 984.00 KiB | 788.00 KiB/s[0K[1G[?25hWriting objects: 100% (88/88), 1.31 MiB | 988.00 KiB/s, done.[0K[?25l
+Total 88 (delta 15), reused 44 (delta 0)[0K
+[0K[?25hTo https://bitbucket.org/JohnCoene/twinetbook.git[0K[?25l
+   29d6a4d..5a04f6f  master -> master[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l$ git push g[0K[?25hi[0Kt[0K[16G[15G[?25l$ git push gith[0K[?25hu[0Kb[0K[19G[?25l$ git push github m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
+[0K[?25hCounting objects: 88, done.[0K[?25l
+Delta compression using up to 4 threads.[0K
+Compressing objects:  33% (26/78)[0K[1G[?25h[?25lCompressing objects:  74% (58/78)[0K[1G[?25h[?25lCompressing objects:  97% (76/78)[0K[1G[?25h[?25lCompressing objects:  98% (77/78)[0K[1G[?25hCompressing objects: 100% (78/78), done.[0K[?25l
+Writing objects:  23% (21/88)[0K[2G[?25h[1G[?25lWriting objects:  25% (22/88)[0K[1G[?25h[?25lWriting objects:  27% (24/88)[0K[1G[?25h[?25lWriting objects:  28% (25/88)[0K[1G[?25h[?25lWriting objects:  88% (78/88)[0K[1G[?25h[?25lWriting objects:  90% (80/88), 984.00 KiB | 1.58 MiB/s[0K[1G[?25hWriting objects: 100% (88/88), 1.31 MiB | 1.81 MiB/s, done.[0K[?25l
+Total 88 (delta 15), reused 44 (delta 0)[0K
+[0K[?25hremote: Resolving deltas: 100% (15/15), completed with 9 local objects.[0K[?25l
+[0K[?25hTo https://github.com/JohnCoene/twinetbook.git[0K[?25l
+   29d6a4d..5a04f6f  master -> master[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[0m[0K]0;[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ cl[0K[?25he[0Kar[0K[?25l
+[0K[?25h[?25l
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[26A[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[?25l$ g[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[4G[?25h[?25l$ gi[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[4G[?25h[5G[?25l$ git[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[6G[?25h[?25l$ git a[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[7G[?25h[8G[?25l$ git ad[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[9G[?25h[?25l$ git add[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[10G[?25h[11G[?25l$ git add -[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[12G[?25h[?25l$ git add -A[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[13G[?25h[?25l
+[?25h

@@ -14,7 +14,7 @@ Let's collect some tweets, just as we did previously.
 
 ```{r, eval=TRUE}
 # TK <- readRDS(file = "token.rds")
-tweets <- search_tweets("#rstats filter:mentions", n = 1000, token = TK, include_rts = FALSE)
+tweets <- search_tweets("#rstats filter:mentions", n = 200, token = TK, include_rts = FALSE)
 ```
 
 ## Build
@@ -58,7 +58,7 @@ We see that, _unlike edges_ nodes are not all present on the graph for the same 
 
 ## Visualise
 
-To tackle the visualisation let's bring back our rescaling function. As a reminder this is so that the nodes do not take `r max(tweets$created_at) - min(tweets$created_at)` to come and go but rather 30 seconds (30,000 milliseconds) as specified by the `t` argument.
+To tackle the visualisation let's bring back our rescaling function. As a reminder this is so that the nodes do not take `r max(tweets$created_at) - min(tweets$created_at)` to come and go but rather 60 seconds (60,000 milliseconds) as specified by the `t` argument.
 
 ```{r rescale ephemeral}
 #' @param x Date time column.
@@ -73,16 +73,15 @@ rescale <- function(x, t){
 
 Then onto preparing the data. We do something similar as we did previously expect we also rescale `end`. There was no need to do that before as there was no need to do that since nodes and edges were only appearing on the graph and not disappearing.
 
-We add `500` milliseconds (half a second) to the edge created time to ensure that it is created after the node as we need the edges to be created based on nodes already drawn on the graph: an additional `500` milliseconds ensures the nodes each respective edge connects are present on the graph.
+We add `500` milliseconds (half a second) to the edge created time to ensure that it is created after the node as we need the edges to be created based on nodes already drawn on the graph: an additional `200` milliseconds ensures the nodes each respective edge connects are present on the graph.
 
 ```{r, prepare ephemeral}
 library(dplyr)
 
-SCALE <- 30000 # 30 seconds
-
-nodes <- nodes2sg(nodes)
+SCALE <- 60000 # 60 seconds
 
 nodes <- nodes %>%
+  nodes2sg() %>% 
   ungroup() %>% 
   mutate(
     start = rescale(start, SCALE),
@@ -126,4 +125,55 @@ sigmajs() %>%
   sg_drop_edges(edges, id, end, cumsum = FALSE)
 ```
 
-The animation is triggered on page launch, reload the page if you missed it.
+The animation is triggered on page launch, *reload the page if you missed it*. There is quite a bit going on in this visualisation; perhaps we should round the time at which nodes and edges are created to the hour.
+
+Let's go ahead and do this.
+
+```{r}
+net <- tweets %>% 
+  mutate(
+    created_at = as.POSIXct(round(created_at, units = "hours"))
+  ) %>% 
+  gt_edges(text, screen_name, status_id, created_at = "created_at") %>% 
+  gt_nodes() %>% 
+  gt_dyn(60 * 60 * 6) %>% 
+  gt_collect()
+
+c(edges, nodes) %<-% net
+
+nodes <- nodes %>%
+  nodes2sg() %>% 
+  ungroup() %>% 
+  mutate(
+    start = rescale(start, SCALE),
+    end = rescale(end, SCALE)
+  ) %>%
+  select(id, label, size, start, end)
+
+edges <- edges %>%
+  mutate(
+    id = 1:n(),
+    created_at = rescale(created_at, SCALE) + 200,
+    end = rescale(end, SCALE) + (60 * 60 * 6)
+  ) %>%
+  select(id, source, target, start = created_at, end)
+
+nodes <- sg_get_layout(nodes, edges)
+
+nodes <- sg_get_cluster(
+  nodes, 
+  edges,
+  colors = c(
+    "#0084b4",
+    "#00aced",
+    "#1dcaff",
+    "#c0deed"
+    )
+  )
+
+sigmajs() %>% 
+  sg_add_nodes(nodes, start, id, label, size, color, x, y, cumsum = FALSE) %>% 
+  sg_add_edges(edges, start, id, source, target, cumsum = FALSE) %>% 
+  sg_drop_nodes(nodes, id, end, cumsum = FALSE) %>% 
+  sg_drop_edges(edges, id, end, cumsum = FALSE)
+```
