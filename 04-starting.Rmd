@@ -15,13 +15,13 @@ _A note if you follow this along in RStudio; the visualisations do not open in t
 
 See the [prerequisites](#prerequisites) section if the line below confuses you.
 
-```{r, eval=FALSE}
+```{r intro read, eval=FALSE}
 TK <- readRDS("token.rds")
 ```
 
 rtweet lets you do a lot of things, however within the context of the _twinetverse_ we mainly use its `search_tweets` to get tweets.
 
-```{r collect, eval=TRUE}
+```{r intro collect, eval=TRUE}
 tweets <- search_tweets("rstats", token = TK)
 ```
 
@@ -29,7 +29,7 @@ The `search_tweets` function takes a few arguments which we'll eventually get in
 
 Each row a is a tweet, rtweet returns quite a lot of variables (`r ncol(tweets)`), we'll only look at a select few.
 
-```{r, eval=TRUE}
+```{r intro names tweets, eval=TRUE}
 names(tweets)
 ```
 
@@ -37,7 +37,7 @@ names(tweets)
 
 Now we can use the second package part of the _twinetverse_, graphTweets. Again, we'll leave all function's arguments to default to get a simple graph. There's a lot more to the package which we'll explore in later chapters.
 
-```{r, eval=TRUE}
+```{r intro edges net, eval=TRUE}
 net <- tweets %>% 
   gt_edges(text, screen_name, status_id)
 ```
@@ -46,13 +46,13 @@ We called `gt_edges` on our `tweets` data.frame, passing a few bare column names
 
 The object returned is of an unfamiliar class.
 
-```{r, eval=TRUE}
+```{r intro class of net, eval=TRUE}
 class(net)
 ```
 
 To extracts the results from graphTweets run `gt_collect`, this will work at any point in the chain of pipes (`%>%`).
 
-```{r, eval=TRUE}
+```{r intro collect net, eval=TRUE}
 net <- net %>% 
   gt_collect()
 
@@ -67,13 +67,13 @@ names(net)
 
 Great, so it looks like we have both nodes and edges, not really. We only have edges, `net$nodes` is actually `NULL`. 
 
-```{r, eval=TRUE}
+```{r intro class of nodes and edges, eval=TRUE}
 lapply(net, class)
 ```
 
 Well, we only ran `gt_edges` so it make sense that we only have edges. Let's scrap that and get both nodes and edges.
 
-```{r, eval=TRUE}
+```{r intro redone graph with nodes, eval=TRUE}
 net <- tweets %>% 
   gt_edges(text, screen_name, status_id) %>% # get edges
   gt_nodes() %>% # get nodes
@@ -90,13 +90,13 @@ Now we're good, we have downloaded tweets and have everything we need to visuali
 
 We can visualise the network with sigmajs. Then again, it's very easy and follows the same idea as graphTweets; we pipe our nodes and edges through. Before we do so, for the sake of clarity, let's unpack our network using the `%<-%` from the Zeallot package [@R-zeallot], imported by the twinetverse.
 
-```{r, eval=TRUE}
+```{r intro unpack, eval=TRUE}
 c(edges, nodes) %<-% net
 ```
 
 Let's take a look at the edges.
 
-```{r, eval=FALSE}
+```{r intro head of edges, eval=FALSE}
 head(edges)
 ```
 
@@ -108,7 +108,7 @@ Edges simply consist of `source` and `target`, as explained earlier on, `source`
 
 Now let's take a look at the nodes:
 
-```{r, eval=FALSE}
+```{r intro head of nodes, eval=FALSE}
 head(nodes)
 ```
 
@@ -124,7 +124,7 @@ Below we rename a few columns, to meet sigmajs' naming convention.
 2. We essentially rename `n_edges` to `size` as this is what sigmajs understands (more on this later).
 3. We add ids to our edges as sigmajs requires each edge to have a unique id.
 
-```{r, eval = FALSE}
+```{r intro prep, eval = FALSE}
 nodes$id <- as.factor(nodes$nodes) 
 nodes$size <- nodes$n_edges 
 
@@ -138,21 +138,21 @@ sigmajs has a specific but sensible naming convention as well as basic _minimal 
 
 Well actually, the _twinetverse_ comes with helper functions to prepare the nodes and edges build from graphTweets for use in sigmajs (these are the only functions the 'verse provides).
 
-```{r}
+```{r intro prep twinetverse}
 nodes <- nodes2sg(nodes)
 edges <- edges2sg(edges)
 ```
 
 Let's visualise that, we must initialise every sigmajs graph with the `sigmajs` function, then we add our nodes with `sg_nodes`, passing the column names we mentioned previously, `id`, and `size` to meet sigmajs' minimum requirements. *At the exception of `sigmajs`, all functions of the sigmajs package start with `sg_`*  
 
-```{r, eval=TRUE}
+```{r intro sg nodes, eval=TRUE}
 sigmajs() %>% 
   sg_nodes(nodes, id, size) 
 ```
 
 sigmajs actually allows you to build graphs using only nodes or edges, we'll see why this is useful in a later chapter on [temporal graphs](#dynamic). Let's add the edges. Then again, to meet sigmajs' requirements, we pass `id`, `source` and `target`.
 
-```{r, eval=TRUE}
+```{r intro sg nodes and edges, eval=TRUE}
 sigmajs() %>% 
   sg_nodes(nodes, id, size) %>% 
   sg_edges(edges, id, source, target)
@@ -168,7 +168,7 @@ You may also notice that the graph contains surprisingly few nodes, given that w
 
 This chapter aimed at demonstrating the basic principles behind the packages and the order in which to use the packages that form the _twinetverse_. The chapter may look long~ish but the code is not, here it is put together.
 
-```{r, eval=FALSE}
+```{r intro all code, eval=FALSE}
 library(dplyr)
 
 # COLLECT

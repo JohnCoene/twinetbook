@@ -22,7 +22,7 @@ We query 1,000 tweets that:
 
 Remember to load your token if you're in a new environment.
 
-```{r, eval=TRUE}
+```{r adv search, eval=TRUE}
 # TK <- readRDS(file = "token.rds")
 tweets <- search_tweets("#rstats filter:mentions", n = 1000, token = TK, include_rts = FALSE)
 ```
@@ -31,7 +31,7 @@ tweets <- search_tweets("#rstats filter:mentions", n = 1000, token = TK, include
 
 Let's build the graph, just like we did before. There is more to graphTweets but we won't look into that just yet.
 
-```{r, eval=TRUE}
+```{r adv net, eval=TRUE}
 net <- tweets %>% 
   gt_edges(text, screen_name, status_id) %>% 
   gt_nodes() %>% 
@@ -42,7 +42,7 @@ net <- tweets %>%
 
 Let's make a slightly more interesting visualisation this time. First, we'll prepare the data for sigmajs like we did in the [get started](#get-started) chapter.
 
-```{r, eval=TRUE}
+```{r adv unpack, eval=TRUE}
 c(edges, nodes) %<-% net
 
 nodes <- nodes2sg(nodes)
@@ -56,7 +56,7 @@ Now onto the visualisation.
 * We layout the graph appropriately using one of igraph's [@R-igraph] many layout algorithms.
 * We use sigmajs' settings to change the edges color.
 
-```{r, eval=TRUE}
+```{r adv graph, eval=TRUE}
 # Visualise
 sigmajs("webgl") %>% 
   sg_nodes(nodes, id, label, size) %>% 
