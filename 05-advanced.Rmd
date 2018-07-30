@@ -10,7 +10,7 @@ In this chapter we essentially replicate what we did in the Get Started [chapter
 
 ## Collect
 
-Let's collect more tweets this time, we'll also optimise our Twitter query. This is very useful as the Twitter API (like the vast majority of APIs) limits the amount of data you can access by imposing a [rate limit](https://developer.twitter.com/en/docs/basics/rate-limiting.html). You can always check where you stand with the various Twitter rate limits with `r rate_limit()`.
+Let's collect more tweets this time, we'll also optimise our Twitter query. This is very useful as the Twitter API (like the vast majority of APIs) limits the amount of data you can access by imposing a [rate limit](https://developer.twitter.com/en/docs/basics/rate-limiting.html). You can always check where you stand with the various Twitter rate limits with `rate_limit()`.
 
 We set `include_rts = FALSE` as we don't need the same tweet multiple times, it does not add information to our graph (currently but it could). We also pass a slightly more sophisticated query to the search tweet endpoint. This is too often overlooked, the Twitter API provides [advanced operators](https://developer.twitter.com/en/docs/tweets/search/guides/standard-operators.html): you are not limited to searching a single keyword every time.
 

@@ -33,7 +33,7 @@ The `lifetime` argument takes milliseconds, above, we set it `60 * 60 * 6` which
 
 So logically, if we take the difference between the appearance and the disappearance of an edge we should obtain 6 hours.
 
-```{r, warning = FALSE, eval = FALSE}
+```{r, warning = FALSE, eval = TRUE}
 c(edges, nodes) %<-% net
 
 edges$difference <- edges$end - edges$created_at
@@ -46,7 +46,7 @@ knitr::kable(head(edges))
 
 But how would this apply to nodes? Let's plot the distribution of the lifespans of nodes (in milliseconds): the difference between their appearance and disappearance.
 
-```{r, warning = FALSE, eval = FALSE}
+```{r, warning = FALSE, eval = TRUE}
 nodes$difference <- as.numeric(nodes$end - nodes$start)
 hist(
   main = "Distribution of nodes lifespan",
@@ -60,7 +60,7 @@ We see that, _unlike edges_ nodes are not all present on the graph for the same 
 
 To tackle the visualisation let's bring back our rescaling function. As a reminder this is so that the nodes do not take `r max(tweets$created_at) - min(tweets$created_at)` to come and go but rather 30 seconds (30,000 milliseconds) as specified by the `t` argument.
 
-```{r}
+```{r rescale ephemeral}
 #' @param x Date time column.
 #' @param t Number of milliseconds to rescale to.
 rescale <- function(x, t){
@@ -75,28 +75,27 @@ Then onto preparing the data. We do something similar as we did previously expec
 
 We add `500` milliseconds (half a second) to the edge created time to ensure that it is created after the node as we need the edges to be created based on nodes already drawn on the graph: an additional `500` milliseconds ensures the nodes each respective edge connects are present on the graph.
 
-```{r, prepare}
+```{r, prepare ephemeral}
 library(dplyr)
 
-SCALE <- 30000
-lockBinding("SCALE", globalenv())
+SCALE <- 30000 # 30 seconds
 
-nodes <- nodes %>% 
+nodes <- nodes2sg(nodes)
+
+nodes <- nodes %>%
+  ungroup() %>% 
   mutate(
-    id = source,
-    label = source,
-    size = n_edges,
     start = rescale(start, SCALE),
     end = rescale(end, SCALE)
-  ) %>% 
+  ) %>%
   select(id, label, size, start, end)
 
-edges <- edges %>% 
+edges <- edges %>%
   mutate(
     id = 1:n(),
-    created_at = rescale(created_at, SCALE) + 500,
+    created_at = rescale(created_at, SCALE) + 200,
     end = rescale(end, SCALE) + (60 * 60 * 6)
-  ) %>% 
+  ) %>%
   select(id, source, target, start = created_at, end)
 ```
 
@@ -104,7 +103,7 @@ Finally onto the visualisation, we again use `sg_drop_nodes` and `sg_drop_edges`
 
 Then again, we can specify the `x` and `y` coordinates as well as the color of the nodes whcih we'll base on clusters in order to make the graph look better.
 
-```{r, beautify}
+```{r, beautify ephemeral}
 nodes <- sg_get_layout(nodes, edges)
 
 nodes <- sg_get_cluster(
@@ -119,7 +118,7 @@ nodes <- sg_get_cluster(
   )
 ```
 
-```{r, graph}
+```{r, graph ephemeral}
 sigmajs() %>% 
   sg_add_nodes(nodes, start, id, label, size, color, x, y, cumsum = FALSE) %>% 
   sg_add_edges(edges, start, id, source, target, cumsum = FALSE) %>% 

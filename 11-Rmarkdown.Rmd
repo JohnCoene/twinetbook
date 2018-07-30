@@ -1,8 +1,19 @@
 # R markdown {#rmd}
 
+```{r, echo=FALSE, include=FALSE}
+library(twinetverse)
+
+TK <- readRDS("twitter_token.rds")
+```
+
 This chapter covers R markdown-specific functions of the _twinetverse_.
 
 We've actually covered a few of those already, rtweet and graphTweets do not have functions specifically meant to be used in R markdown, all work just as well in a interactive and non-interactive environments. The dynamic nature of sigmajs, however, suggests the intriduction of additional functions.
+
+```{r, eval=TRUE}
+# TK <- readRDS(file = "token.rds")
+tweets <- search_tweets("#rstats filter:mentions", n = 1000, token = TK, include_rts = FALSE)
+```
 
 ## Buttons
 

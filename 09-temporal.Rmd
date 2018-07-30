@@ -56,8 +56,8 @@ lockBinding("T", globalenv())
 
 nodes <- nodes %>% 
   mutate(
-    id = source,
-    label = source,
+    id = nodes,
+    label = nodes,
     size = n_edges,
     start = rescale(start, T)
   ) %>% 
