@@ -10,14 +10,14 @@ The _twinetverse_, or graphTweets more specifically, not only enables visualisin
 
 Let's collect some tweets, since we want to plot relationships between users and hashtags we'll specify two hashtags: #python and #rstats. This way we'll be able to see who uses both or either. Moreover it shows another Twitter API search operator.
 
-```{r, eval=TRUE}
+```{r hash search, eval=TRUE}
 # TK <- readRDS(file = "token.rds")
 tweets <- search_tweets("#rstats OR #python", n = 1000, token = TK, include_rts = FALSE)
 ```
 
 Now let's build a network of hashtags to visualise which user tweets which #hashtag.
 
-```{r}
+```{r hash net}
 net <- tweets %>% 
   gt_edges_hash(hashtags, screen_name) %>% 
   gt_nodes() %>% 
@@ -26,7 +26,7 @@ net <- tweets %>%
 
 Let's inspect the edges first.
 
-```{r, eval = FALSE}
+```{r hash inpsect edges, eval = FALSE}
 head(net$edges)
 ```
 
@@ -36,7 +36,7 @@ knitr::kable(head(net$edges))
 
 The edges include the `n_tweets` variable which is the number tweets the #hashtag is found in. Note that in order to ensure we can always distinguish between a user and a hashtag, hashtag are preceded by the the `#` signs. Let's take a look at the nodes.
 
-```{r, eval = FALSE}
+```{r hash inspect nodes, eval = FALSE}
 head(net$nodes)
 ```
 
@@ -50,7 +50,7 @@ Only one function changes, we use `gt_edges_hash` instead of `gt_edges`. While t
 
 Now onto the visualisation. As we did before, we unpack our network, then we prepare the data to fit sigmajs' expectation, and we color the nodes according to the `type`, one colour for #hashtags and another for \@users.
 
-```{r}
+```{r hash unpack}
 c(edges, nodes) %<-% net
 
 nodes <- nodes2sg(nodes)
@@ -61,7 +61,7 @@ nodes$color <- ifelse(nodes$type == "user", "#0084b4", "#1dcaff")
 
 In the visualisation we add `sg_neighbours` to *highlight* nodes and its neighbours on click.
 
-```{r}
+```{r hash viz}
 sigmajs() %>% 
   sg_nodes(nodes, id, size, color, label) %>% 
   sg_edges(edges, id, source, target) %>% 

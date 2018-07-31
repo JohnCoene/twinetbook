@@ -12,7 +12,7 @@ In the previous chapter we built a graph with dynamic edges. Let's build a fully
 
 We again collect tweets in a slightly different manner but feel free to use data from a previous chapter. We specify `type` as `mixed` in order to get a mix of popular and recent tweets.
 
-```{r, eval=TRUE}
+```{r temp search, eval=TRUE}
 # TK <- readRDS(file = "token.rds")
 tweets <- search_tweets("#rstats filter:mentions", n = 1000, token = TK, include_rts = FALSE, type = "mixed")
 ```
@@ -21,7 +21,7 @@ tweets <- search_tweets("#rstats filter:mentions", n = 1000, token = TK, include
 
 We build the graph as we did in the previous chapter.
 
-```{r, eval=TRUE}
+```{r temp net, eval=TRUE}
 net <- tweets %>% 
   gt_edges(text, screen_name, status_id, created_at = "created_at") %>% 
   gt_nodes() %>% 
@@ -33,7 +33,7 @@ net <- tweets %>%
 
 Again, we unpack the network and prepare nodes and edges for our visualisation. Then we define a `rescale` functiion to ensure our treatment of the date time columns are consistent across nodes and edges.
 
-```{r}
+```{r temp unpack}
 library(dplyr)
 
 c(edges, nodes) %<-% net
@@ -50,7 +50,7 @@ rescale <- function(x, t){
 
 Next we prepare the data, we define the `t` argument of our `rescale` function defined above as a constant so as to make sure we apply the same scale to both nodes and edges.
 
-```{r}
+```{r temp prep}
 T <- 10000
 lockBinding("T", globalenv())
 
@@ -72,16 +72,9 @@ edges <- edges %>%
   select(id, source, target, created_at)
 ```
 
-As the graph is we might run into issues. sigmajs can only connect edges to nodes that exist, nodes that are already on the graph, currently the edge will appear at the same time as the node and it might cause clashes. We can simply remedy to that by having the edges appear a fraction of a second after the node.
-
-```{r}
-# add half a second
-edges$created_at <- edges$created_at + 500
-```
-
 Now the actual visualisation, then again, we set `cumsum = FALSE`, and add a button (linked to two events `add_nodes` and `add_edges`) to let you trigger the visualisation. before then you should see a blank canvas.
 
-```{r}
+```{r temp button}
 sigmajs() %>% 
   sg_add_nodes(nodes, start, id, label, size, cumsum = FALSE) %>% 
   sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE) %>% 
@@ -90,7 +83,7 @@ sigmajs() %>%
 
 We forgot the layout and we do not color the nodes, let's compute the layout and the clusters to color nodes.
 
-```{r}
+```{r temp layout}
 nodes <- sg_get_layout(nodes, edges)
 
 nodes <- sg_get_cluster(
@@ -114,7 +107,7 @@ So we transformed our date time to milliseconds and rescaled to span 10 seconds.
 
 Let's explain how this is done in sigmajs; we simply create a table that maps dates to our milliseconds `delay`. To do so we extract the dates from our `net` object, we then rescale those dates just like we did for the nodes and edges.
 
-```{r, eval=FALSE}
+```{r temp dates, eval=FALSE}
 dates <- as.Date(net$nodes$start)
 
 ticker <- dplyr::tibble(
@@ -126,7 +119,7 @@ ticker <- dplyr::tibble(
 head(ticker)
 ```
 
-```{r, echo=FALSE}
+```{r temp dates 2, echo=FALSE}
 datetime <- net$nodes$start
 
 ticker <- dplyr::tibble(
@@ -143,7 +136,7 @@ knitr::kable(head(ticker))
 
 Now, how do we use this mapping table in sigmajs?
 
-```{r}
+```{r temp final graph}
 sigmajs() %>% 
   sg_add_nodes(nodes, start, id, label, size, color, x, y, cumsum = FALSE) %>% 
   sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE) %>% 
