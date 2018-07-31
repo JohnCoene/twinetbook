@@ -79,13 +79,13 @@ As the graph is we might run into issues. sigmajs can only connect edges to node
 edges$created_at <- edges$created_at + 500
 ```
 
-Now the actual visualisation, then again, we set `cumsum = FALSE`, and add a button (linked to `add_nodes_edges`) to let you trigger the visualisation. before then you should see a blank canvas.
+Now the actual visualisation, then again, we set `cumsum = FALSE`, and add a button (linked to two events `add_nodes` and `add_edges`) to let you trigger the visualisation. before then you should see a blank canvas.
 
 ```{r}
 sigmajs() %>% 
   sg_add_nodes(nodes, start, id, label, size, cumsum = FALSE) %>% 
   sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE) %>% 
-  sg_button("Start", "add_nodes_edges")
+  sg_button("Start", c("add_nodes", "add_edges"))
 ```
 
 We forgot the layout and we do not color the nodes, let's compute the layout and the clusters to color nodes.

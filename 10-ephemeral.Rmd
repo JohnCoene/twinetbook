@@ -172,8 +172,17 @@ nodes <- sg_get_cluster(
   )
 
 sigmajs() %>% 
-  sg_add_nodes(nodes, start, id, label, size, color, x, y, cumsum = FALSE) %>% 
+  sg_add_nodes(nodes, start, id, label, size, color, x, y, cumsum = FALSE, refresh = FALSE) %>% 
   sg_add_edges(edges, start, id, source, target, cumsum = FALSE) %>% 
   sg_drop_nodes(nodes, id, end, cumsum = FALSE) %>% 
-  sg_drop_edges(edges, id, end, cumsum = FALSE)
+  sg_drop_edges(edges, id, end, cumsum = FALSE, refresh = FALSE) %>% 
+  sg_button(
+    "Launch",
+    c(
+      "add_nodes",
+      "add_edges",
+      "drop_nodes",
+      "drop_edges"
+    )
+  )
 ```
