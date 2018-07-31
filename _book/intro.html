@@ -159,7 +159,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.1</b> Packages</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="pkgs.html"><a href="pkgs.html"><i class="fa fa-check"></i><b>3</b> Packages</a><ul>
 <li class="chapter" data-level="3.1" data-path="pkgs.html"><a href="pkgs.html#rtweet"><i class="fa fa-check"></i><b>3.1</b> rtweet</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="pkgs.html"><a href="pkgs.html#usage"><i class="fa fa-check"></i><b>3.1.1</b> Usage</a></li>
@@ -233,6 +235,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="intro" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> Introduction</h1>
+<div id="packages" class="section level2">
+<h2><span class="header-section-number">2.1</span> Packages</h2>
 <p>The <em>twinetverse</em> includes three packages:</p>
 <ul>
 <li><em>rtweet</em> <span class="citation">(Kearney <a href="#ref-R-rtweet">2018</a>)</span></li>
@@ -242,6 +246,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Within the context of visualising Twitter interactions, each of the packages listed above fill in a specific need and a distinct step of the process, 1) <em>collecting</em> the data, 2) <em>building</em> the graphs and finally 3) <em>visualising</em> the graphs of said interactions.</p>
 <p>We eventually look at the <a href="pkgs">packages</a> that make up the <em>twinetverse</em>.</p>
 
+</div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
@@ -306,6 +311,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

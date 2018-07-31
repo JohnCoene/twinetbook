@@ -8,14 +8,18 @@ TK <- readRDS("twitter_token.rds")
 
 The _twinetverse_, or graphTweets more specifically, not only enables visualising interactions between users, it also lets one build and visualise networks of users and the hashtag(s) they use.
 
-Let's collect some tweets, since we want to plot relationships between users and hashtags we'll specify two hashtags: #python and #rstats. This way we'll be able to see who uses both or either. Moreover it shows another Twitter API search operator.
+Let's collect some tweets, since we want to plot relationships between users and hashtags we'll specify two hashtags: #python and #rstats. This way we'll be able to see who uses both or either. Moreover it shows another Twitter API search operator. We'll also narrow it down to tweets in English.
 
 ```{r hash search, eval=TRUE}
 # TK <- readRDS(file = "token.rds")
-tweets <- search_tweets("#rstats OR #python", n = 1000, token = TK, include_rts = FALSE)
+tweets <- search_tweets("#rstats OR #python", n = 1000, token = TK, include_rts = FALSE, lang = "en")
 ```
 
 Now let's build a network of hashtags to visualise which user tweets which #hashtag.
+
+```{block, type = "tip"}
+Use `gt_edges_hash` to build networks of users and hastags.
+```
 
 ```{r hash net}
 net <- tweets %>% 

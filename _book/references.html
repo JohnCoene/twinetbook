@@ -159,7 +159,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.1</b> Packages</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="pkgs.html"><a href="pkgs.html"><i class="fa fa-check"></i><b>3</b> Packages</a><ul>
 <li class="chapter" data-level="3.1" data-path="pkgs.html"><a href="pkgs.html#rtweet"><i class="fa fa-check"></i><b>3.1</b> rtweet</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="pkgs.html"><a href="pkgs.html#usage"><i class="fa fa-check"></i><b>3.1.1</b> Usage</a></li>
@@ -312,6 +314,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

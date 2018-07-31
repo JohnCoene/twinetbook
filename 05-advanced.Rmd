@@ -51,9 +51,9 @@ edges <- edges2sg(edges)
 
 Now onto the visualisation.
 
-* We add labels that will display on hover.
-* We color the nodes by cluster.
-* We layout the graph appropriately using one of igraph's [@R-igraph] many layout algorithms.
+* We add labels that will display on hover by simply passing the `label` column to `sg_nodes`.
+* We color the nodes by cluster with `sg_cluster`.
+* We layout the graph appropriately using one of igraph's [@R-igraph] many layout algorithms with `sg_layout`.
 * We use sigmajs' settings to change the edges color.
 
 ```{r adv graph, eval=TRUE}

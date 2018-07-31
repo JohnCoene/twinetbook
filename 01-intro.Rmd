@@ -1,5 +1,7 @@
 # Introduction {#intro}
 
+## Packages
+
 The _twinetverse_ includes three packages:
 
 * _rtweet_ [@R-rtweet]

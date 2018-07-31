@@ -44,6 +44,10 @@ You're now setup with an app, take note of the following under "Keys and Access 
 * Access Token
 * Access Token Secret
 
+```{block, type = "warn"}
+Do **not** share the your credentials with anyone.
+```
+
 Create your token with like so.
 
 ```{r, eval=FALSE}
