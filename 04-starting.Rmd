@@ -27,7 +27,7 @@ rtweet lets you do a lot of things, however within the context of the _twinetver
 tweets <- search_tweets("rstats", token = TK)
 ```
 
-The `search_tweets` function takes a few arguments which we'll eventually get into, above we run the simplest possible call; fetching tweets about "rstats", a reference to the R [@R-base] Twitter [#hashtag](https://twitter.com/search?q=rstats), by default the function returns 100 tweets. Note that we also pass our token to the function.
+The `search_tweets` function takes a few arguments some of which we'll eventually get into, above we run the simplest possible call; fetching tweets about "rstats", a reference to the R [@R-base] Twitter [#hashtag](https://twitter.com/search?q=rstats), by default the function returns 100 tweets. Note that we also pass our token to the function.
 
 Each row a is a tweet, rtweet returns quite a lot of variables (`r ncol(tweets)`), we'll only look at a select few.
 
@@ -37,14 +37,14 @@ names(tweets)
 
 ## Build
 
-Now we can use the second package part of the _twinetverse_, graphTweets. Again, we'll leave all function's arguments to default to get a simple graph. There's a lot more to the package which we'll explore in later chapters.
+Now we can use the second package part of the _twinetverse_, graphTweets. Again, we'll leave all function's arguments to default to get a simple graph. There's a lot more to the package which we'll uncover progressively as we move through the book.
 
 ```{r intro edges net, eval=TRUE}
 net <- tweets %>% 
-  gt_edges(text, screen_name, status_id)
+  gt_edges(tweets = text, source = screen_name, id = status_id)
 ```
 
-We called `gt_edges` on our `tweets` data.frame, passing a few bare column names. The source of the tweets will also be the source of our edges so we pass `screen_name`, then the target of these edges will be users tagged in the tweets, `text` variable in rtweet. 
+We called `gt_edges` on our `tweets` data.frame, passing a few bare column names. The source of the tweets (the user posting the tweets) will also be the source of our edges so we pass `screen_name`, then the target of these edges will be users tagged in the tweets, `text` variable in rtweet. Finally we pass a unique `id` for each tweet, you could add one yourself but the one provided by Twitter (`status_id`) does the job.
 
 The object returned is of an unfamiliar class.
 
@@ -61,7 +61,7 @@ net <- net %>%
 class(net)
 ```
 
-Great but this returns a lists and R users much prefer data.frames. graphTweets actualy returns two data.frames that encapsulated in a list. Indeed networks cannot be compressed into a single data.frame, we have 1) nodes and 2) edges.
+Great but this returns a lists and R users much prefer data.frames. graphTweets actualy returns two data.frames that are encapsulated in a list. Indeed networks cannot be compressed into a single data.frame, we need 1) nodes and 2) edges.
 
 ```{r, eval=TRUE}
 names(net)
@@ -77,7 +77,7 @@ Great, so it looks like we have both nodes and edges, not really. We only have e
 lapply(net, class)
 ```
 
-Well, we only ran `gt_edges` so it make sense that we only have edges. Let's scrap that and get both nodes and edges.
+Well, we only ran `gt_edges` so it make sense to only have edges. Let's scrap that and get both nodes and edges.
 
 ```{r intro redone graph with nodes, eval=TRUE}
 net <- tweets %>% 
@@ -90,7 +90,11 @@ lapply(net, class)
 
 Before we move on, something to note. graphTweets _requires_ that you run the functions in the correct order, first `gt_edges` and second `gt_nodes`. This is because one can only know the nodes of a graph based on the edges and not vice versa.
 
-Now we're good, we have downloaded tweets and have everything we need to visualise it; nodes and edges.
+```{block, type = "note"}
+Run graphTweets functions in the correct order, first get the edges _then_ the nodes.
+```
+
+Now we're ready to visualise the data, we have downloaded tweets used them to build a of nodes and another of edges.
 
 ## Visualise
 
@@ -101,7 +105,7 @@ c(edges, nodes) %<-% net
 ```
 
 ```{block, type = "tip"}
-You can always unpack the network with _edges <- net$edges_ and _nodes <- net$nodes_ if you are not comfortable with the above.
+You can always unpack the network with `edges <- net\$edges` and `nodes <- net\$nodes` if you are not comfortable with the above.
 ```
 
 Let's take a look at the edges.
@@ -126,7 +130,7 @@ head(nodes)
 knitr::kable(head(nodes))
 ```
 
-In the nodes data frame the column `n_edges` is the number edges the node appears in, while the `nodes` column are the Twitter handles of _both_ the authors of the tweets (`screen_name`) and those who were tagged in the tweets (`text`). All nodes are users of course, but see another graph later in the book where they may not be.
+In the nodes data frame the column `n_edges` is the number edges the node appears in, while the `nodes` column are the Twitter handles of _both_ the authors of the tweets (`screen_name`) and those who were tagged in the tweets (`text`). All nodes are users of course, but we will see another graph later in the book where they may not be.
 
 Below we rename a few columns, to meet sigmajs' naming convention.
 
@@ -152,7 +156,7 @@ nodes <- nodes2sg(nodes)
 edges <- edges2sg(edges)
 ```
 
-```{rblock, type = "note"}
+```{block, type = "note"}
 You need to respect sigmajs naming convention or the graph will not display.
 ```
 
@@ -187,7 +191,7 @@ Remember the workflow of the _twinetverse_:
 
 ## Recap
 
-This chapter aimed at demonstrating the basic principles behind the packages and the order in which to use the packages that form the _twinetverse_. The chapter may look long~ish but the code is not, here it is put together.
+This chapter aimed at demonstrating the basic principles behind the packages and the order in which use them. The chapter may look long~ish but the code is not, here it is put together.
 
 ```{r intro all code, eval=FALSE}
 library(dplyr)
@@ -201,12 +205,13 @@ net <- tweets %>%
   gt_nodes() %>% 
   gt_collect() 
 
-c(edges, nodes) %<-% net
+c(edges, nodes) %<-% net # unpack
 
+# prepare for sigmajs
 nodes <- nodes2sg(nodes)
 edges <- edges2sg(edges)
 
-# Visualise
+# VISUALISE
 sigmajs() %>% 
   sg_nodes(nodes, id, size) %>% 
   sg_edges(edges, id, source, target)

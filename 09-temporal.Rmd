@@ -6,7 +6,7 @@ library(twinetverse)
 TK <- readRDS("twitter_token.rds")
 ```
 
-In the previous chapter we built a graph with dynamic edges. Let's build a fully dynamic graph where both nodes and edges appear when they are first created. We will then, based on the latter graph have nodes and edges disapear. Why? Tweets are not eternal and probably have a certain lifespan.
+In the previous chapter we built a graph with dynamic edges. Let's build a fully dynamic graph where both nodes and edges appear when they are first created. 
 
 ## Collect
 
@@ -34,8 +34,6 @@ net <- tweets %>%
 Again, we unpack the network and prepare nodes and edges for our visualisation. Then we define a `rescale` functiion to ensure our treatment of the date time columns are consistent across nodes and edges.
 
 ```{r temp unpack}
-library(dplyr)
-
 c(edges, nodes) %<-% net
 
 #' @param x Date time column.
@@ -48,9 +46,15 @@ rescale <- function(x, t){
 }
 ```
 
+```{block, type="note"}
+rtweet returns date time but sigmajs expects milliseconds; it needs to be converted.
+```
+
 Next we prepare the data, we define the `t` argument of our `rescale` function defined above as a constant so as to make sure we apply the same scale to both nodes and edges.
 
 ```{r temp prep}
+library(dplyr)
+
 T <- 10000
 
 lockBinding("T", globalenv())

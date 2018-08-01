@@ -1,6 +1,6 @@
 # Packages {#pkgs}
 
-Below are the packages that make up in the _twinetverse_ as well as some explanation of what they bring to visualising Twitter interactions.
+Below are the packages that make up in the _twinetverse_ as well as some explanation of what they bring to visualising Twitter interactions. Though considered a package the 'verse itself only comes with two functions, all the other functions we'll use in this book are part of the packages detailed below.
 
 ## rtweet
 
@@ -10,11 +10,15 @@ Below are the packages that make up in the _twinetverse_ as well as some explana
 
 If we are going to visualise Twitter interactions we are going to need data, namely tweets. The rtweet package [@R-rtweet] wraps the [Twitter API](https://developer.twitter.com/en/docs.html), thereby giving R users easy access to tweets. 
 
+From the [official website](http://rtweet.info):
+
+> [rtweet is an] R client for accessing Twitter's REST and stream APIs
+
 ### Usage
 
 rtweet fills the very first step in visualising Twitter interactions, *collecting* the necessary data.
 
-_Note that the package lets you do much more than simply downloading tweets, however, this is its main function within the twinetverse._
+_Note that the package lets you do much more than simply downloading tweets, however, within the twinetverse, this is its main function._
 
 ## graphTweets
 
@@ -24,15 +28,15 @@ _Note that the package lets you do much more than simply downloading tweets, how
 
 ### Rationale
 
-The graphTweets package [@R-graphTweets] lets you build lists of nodes and edges from tweets collected with rtweet. The package is faily straighforward and inludes but a few functions. However, it still enables you to build relatively complex graphs.
+The graphTweets package [@R-graphTweets] lets you extract nodes and edges from tweets collected with rtweet. The package is fairly straighforward as it inludes just a few functions. However, it still enables you to build relatively complex graphs.
 
-The package revolves around two core functions which respectively allow you to build data.frames of edges and nodes. These edges and nodes (also referred to as vertices) together map Twitter conversations by linking the sender of a tweet to the user(s) he or she @tags.
+The package revolves around two core functions which respectively allow you to build data.frames of edges and nodes. These edges and nodes (also referred to as vertices) together map Twitter conversations by linking the sender of a tweet to the user(s) he or she \@tags.
+
+Though the package also allows returning igraph objects (@R-igraph) this is not necessary in the _twinetverse_, and therefore not demonstrated in this book. More information is available on the package's [official website](http://graphTweets.john-coene.com/).
 
 ### Usage
 
-All functions of the package start with `gt_`.
-
-graphTweets fills the second step in visualising Twitter interactions, **building** the graphs from the collected data.
+All functions of the package start with `gt_`. graphTweets fills the second step in visualising Twitter interactions, **building** the graphs from the collected data.
 
 ## sigmajs
 
@@ -42,7 +46,7 @@ graphTweets fills the second step in visualising Twitter interactions, **buildin
 
 The sigmajs package [@R-sigmajs] is a powerful library to visualise the networks we have built using graphTweets. The package, like graphTweets, is pipe-friendly (`%>%`), therefore making it easy to go from building a graph to visualising it. It can also easily represent dynamic networks, something otherwise not evident in R.
 
-Features:
+**Features**:
 
 * Highly interactive
 * Crosstalk integrated
@@ -53,6 +57,4 @@ Features:
 
 ### Usage
 
-All functions of the package start with `sg_`.
-
-sigmajs is the final piece of the puzzle, **visualising** the graphs we have built.
+All functions of the package start with `sg_`. sigmajs is the final piece of the puzzle, **visualising** the graphs we have built.

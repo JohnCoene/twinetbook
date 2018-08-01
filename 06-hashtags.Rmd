@@ -8,7 +8,7 @@ TK <- readRDS("twitter_token.rds")
 
 The _twinetverse_, or graphTweets more specifically, not only enables visualising interactions between users, it also lets one build and visualise networks of users and the hashtag(s) they use.
 
-Let's collect some tweets, since we want to plot relationships between users and hashtags we'll specify two hashtags: #python and #rstats. This way we'll be able to see who uses both or either. Moreover it shows another Twitter API search operator. We'll also narrow it down to tweets in English.
+Let's collect some tweets, since we want to plot relationships between users and hashtags we'll specify two hashtags: #python and #rstats. This way we'll be able to see who uses both or either. We'll also narrow it down to tweets in English to avoid #hashtags we cannot understand.
 
 ```{r hash search, eval=TRUE}
 # TK <- readRDS(file = "token.rds")
@@ -38,7 +38,7 @@ head(net$edges)
 knitr::kable(head(net$edges))
 ```
 
-The edges include the `n_tweets` variable which is the number tweets the #hashtag is found in. Note that in order to ensure we can always distinguish between a user and a hashtag, hashtag are preceded by the the `#` signs. Let's take a look at the nodes.
+The edges include the `n_tweets` variable which is the number tweets the #hashtag is found in. Note that in order to ensure we can always distinguish between a user and a hashtag, hashtag are preceded by the the `#` sign. Let's take a look at the nodes.
 
 ```{r hash inspect nodes, eval = FALSE}
 head(net$nodes)
@@ -63,7 +63,7 @@ edges <- edges2sg(edges)
 nodes$color <- ifelse(nodes$type == "user", "#0084b4", "#1dcaff")
 ```
 
-In the visualisation we add `sg_neighbours` to *highlight* nodes and its neighbours on click.
+In the visualisation we add `sg_neighbours` to *highlight* neighbours of the node clicked, try it.
 
 ```{r hash viz}
 sigmajs() %>% 

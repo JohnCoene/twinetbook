@@ -14,10 +14,14 @@ Let's collect more tweets this time, we'll also optimise our Twitter query. This
 
 We set `include_rts = FALSE` as we don't need the same tweet multiple times, it does not add information to our graph (currently but it could). We also pass a slightly more sophisticated query to the search tweet endpoint. This is too often overlooked, the Twitter API provides [advanced operators](https://developer.twitter.com/en/docs/tweets/search/guides/standard-operators.html): you are not limited to searching a single keyword every time.
 
+```{block, type="warn"}
+Optimise your queries or you'll be hit by frustrating waiting times.
+```
+
 We query 1,000 tweets that:
 
 - Include `#rstats`
-- Include a [mention](https://help.twitter.com/en/using-twitter/mentions-and-replies) i.e.: `\@jdatap`
+- Include a [mention](https://help.twitter.com/en/using-twitter/mentions-and-replies) i.e.: `@jdatap`
 - Are original (not re-tweets)
 
 Remember to load your token if you're in a new environment.
@@ -57,7 +61,6 @@ Now onto the visualisation.
 * We use sigmajs' settings to change the edges color.
 
 ```{r adv graph, eval=TRUE}
-# Visualise
 sigmajs("webgl") %>% 
   sg_nodes(nodes, id, label, size) %>% 
   sg_edges(edges, id, source, target) %>% 

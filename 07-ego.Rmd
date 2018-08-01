@@ -9,6 +9,7 @@ TK <- readRDS("twitter_token.rds")
 In this chapter we briefly go over ego networks with the _twinetverse_. Ego networks are graphs of a focal node. To do so we collect tweets not by keyword but instead posted by a user, essentially downloading the user's timeline.
 
 ```{r ego timeline, warning=FALSE}
+# TK <- readRDS(file = "token.rds")
 tl <- rtweet::get_timeline("jdatap", n = 50)
 ```
 
@@ -22,7 +23,7 @@ net <- tl %>%
   gt_collect()
 ```
 
-Then we unpack the network and count the edges.
+Then we unpack the network, count the edges and prepare the data for sigmajs.
 
 ```{r ego unpack}
 c(edges, nodes) %<-% net
@@ -49,4 +50,4 @@ sigmajs() %>%
   )
 ```
 
-As you can see all the nodes (users) are linked to a single node, which is the user whose timeline we downloaded.
+As you can see all the nodes (users) are linked to a single node, which is the user (\@jdatap) whose timeline we downloaded.

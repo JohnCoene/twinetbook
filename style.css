@@ -29,3 +29,7 @@ pre code {
 .tip {
   background-image: url("images/bulb.png");
 }
+
+.btn-default {
+  border-style: solid;
+}

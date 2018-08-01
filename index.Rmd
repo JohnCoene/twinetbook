@@ -36,7 +36,9 @@ devtools::install_bitbucket("JohnCoene/twinetverse")
 remotes::install_github("JohnCoene/twinetverse")
 ```
 
-The package is unlikely to make it onto CRAN, it may be considered once all of its children packages are on CRAN, but not until then.
+The package is unlikely to make it onto CRAN, it may be considered once all of its children packages are on the archive network, but not until then.
+
+The source code for this book can be found on [Github](http://github.com/JohnCoene/twinetbook).
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

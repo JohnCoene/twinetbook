@@ -4,7 +4,7 @@ In this chapter we get you set up and running with the _twinetverse_, namely the
 
 ## Install
 
-The package can be install with devtools devtools [@R-devtools] or remotes [@R-remotes], it is available from Github or Bitbucket:
+The package can be installed with devtools [@R-devtools] or remotes [@R-remotes], it is available from Github or Bitbucket:
 
 The _twinetverse_ package can be installed from [Github](https://github.com/JohnCoene/twinetverse):
 
@@ -15,10 +15,12 @@ devtools::install_github("JohnCoene/twinetverse")
 or from [Bitbucket](https://bitbucket.org/JohnCoene/twinetbook/src/master/):
 
 ```{r eval=FALSE}
-devtools::install_bitbucket("JohnCoene/twinetverse")
+remotes::install_bitbucket("JohnCoene/twinetverse")
 ```
 
-In the book we don't explicitly load the package and assume you have it loaded in your environment:
+```{block, type="note"}
+In the book we don't explicitly load the package and assume you have it loaded in your environment.
+```
 
 ```{r eval=FALSE}
 library(twinetverse)
@@ -35,23 +37,23 @@ In essence, you will need a Twitter "app" to access its API, to create one:
 3. In the following form, enter an app name, whatever you want, this does not matter.
 4. Enter a description, then again, it doesn't matter.
 5. Website, simply put a valid website, you can link to your Twitter profile if you do not have one, i.e.: [https://twitter.com/jdatap](https://twitter.com/jdatap)
-6. Callback URL, this is **important**, in there put the following: `http://127.0.0.1:1410`.
+6. Callback URL, this is **important**, in there put the following: `http://127.0.0.1:1410`, **exactly as is**.
 
-You're now setup with an app, take note of the following under "Keys and Access Tokens", as you will need it to create your token and fetch tweets:
+You're now setup with an app, take note of the crendentials of your app under "Keys and Access Tokens", as you will need it to create your token and fetch tweets:
 
-* Consumer Key (API Key)
-* Consumer Secret (API Secret)
-* Access Token
-* Access Token Secret
+* Consumer Key (`consumer_key`)
+* Consumer Secret (`consumer_secret`)
+* Access Token (`access_token`)
+* Access Token Secret (`access_secret`)
 
 ```{block, type = "warn"}
-Do **not** share the your credentials with anyone.
+Do **NOT** share those credentials with anyone.
 ```
 
 Create your token with like so.
 
 ```{r, eval=FALSE}
-library(twinetverse)
+# library(twinetverse)
 
 TK <- create_token(
   "My Application Name",
