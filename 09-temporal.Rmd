@@ -1,4 +1,4 @@
-# Temporal graph {#temporal}
+# Temporal {#temporal}
 
 ```{r, echo=FALSE, include=FALSE}
 library(twinetverse)

@@ -47,7 +47,7 @@ You're now setup with an app, take note of the crendentials of your app under "K
 * Access Token Secret (`access_secret`)
 
 ```{block, type = "warn"}
-Do **NOT** share those credentials with anyone.
+Do **NOT** share those credentials or your token with anyone.
 ```
 
 Create your token with like so.
