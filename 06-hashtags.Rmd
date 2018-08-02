@@ -92,7 +92,7 @@ tweets <- search_tweets("#rstats", n = 500, token = TK, include_rts = FALSE, lan
 
 It's failry similar to what we did in the previous section.
 
-```{block, type = "tip"}
+```{block, type = "note"}
 Use `gt_edges_hashes` to build networks of hastags co-mentions.
 ```
 
@@ -108,6 +108,8 @@ net <- tweets %>%
 Now we can work on the visualisation. Since we got tweets on #rstats we know that all hashtags in the graph will be connected to it. Not being an important piece of information (we already know), we can just remove the #rstats node and all edges connecting to it.
 
 ```{r hash filter}
+c(edges, nodes) %<-% net
+
 edges <- edges %>% 
   edges2sg() %>% 
   dplyr::filter(
@@ -138,7 +140,7 @@ sigmajs() %>%
       "#c0deed"
       )
   ) %>% 
-  sg_layout() %>% 
+  sg_layout(layout = igraph::layout_components) %>% 
   sg_neighbours() %>% 
   sg_settings(
     defaultEdgeColor = "#a3a3a3",
