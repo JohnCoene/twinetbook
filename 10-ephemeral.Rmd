@@ -25,7 +25,7 @@ Just as we did in the [temporal](#temporal) chapter, we'll pass `created_at` so 
 net <- tweets %>% 
   gt_edges(text, screen_name, status_id, created_at = "created_at") %>% 
   gt_nodes() %>% 
-  gt_dyn(60 * 60 * 6) %>% 
+  gt_dyn(lifetime = (60 * 60 * 6)) %>% 
   gt_collect()
 ```
 
@@ -63,10 +63,11 @@ To tackle the visualisation let's bring back our rescaling function. As a remind
 ```{r rescale ephemeral}
 #' @param x Date time column.
 #' @param t Number of milliseconds to rescale to.
-rescale <- function(x, t){
+rescale <- function(x, min, max, t){
   x <- as.numeric(x)
-  x <-  (x - min(x)) / (max(x) - min(x))
+  x <-  (x - as.numeric(min)) / (as.numeric(max) - as.numeric(min))
   x <- x * t
+  x <- x + 1000
   return(x)
 }
 ```
@@ -78,20 +79,23 @@ library(dplyr)
 
 SCALE <- 60000 # 60 seconds
 
+MIN <- min(edges$created_at, nodes$start)
+MAX <- max(nodes$end, edges$end)
+
 nodes <- nodes %>%
   nodes2sg() %>% 
   ungroup() %>% 
   mutate(
-    start = rescale(start, SCALE),
-    end = rescale(end, SCALE)
+    start = rescale(start, MIN, MAX, SCALE),
+    end = rescale(end, MIN, MAX, SCALE)
   ) %>%
   select(id, label, size, start, end)
 
 edges <- edges %>%
   mutate(
     id = 1:n(),
-    created_at = rescale(created_at, SCALE),
-    end = rescale(end, SCALE) + (60 * 60 * 6)
+    created_at = rescale(created_at, MIN, MAX, SCALE),
+    end = rescale(end, MIN, MAX, SCALE)
   ) %>%
   select(id, source, target, start = created_at, end)
 ```
@@ -139,29 +143,28 @@ Let's go ahead and do this.
 ```{r}
 net <- tweets %>% 
   mutate(
-    created_at = as.POSIXct(round(created_at, units = "hours"))
+    created_at = as.Date(created_at)
   ) %>% 
   gt_edges(text, screen_name, status_id, created_at = "created_at") %>% 
   gt_nodes() %>% 
-  gt_dyn(60 * 60 * 6) %>% 
+  gt_dyn(1) %>% 
   gt_collect()
 
 c(edges, nodes) %<-% net
 
 nodes <- nodes %>%
   nodes2sg() %>% 
-  ungroup() %>% 
   mutate(
-    start = rescale(start, SCALE),
-    end = rescale(end, SCALE)
+    start = rescale(start, MIN, MAX, SCALE),
+    end = rescale(end, MIN, MAX, SCALE)
   ) %>%
   select(id, label, size, start, end)
 
 edges <- edges %>%
   mutate(
     id = 1:n(),
-    created_at = rescale(created_at, SCALE),
-    end = rescale(end, SCALE) + (60 * 60 * 6)
+    created_at = rescale(created_at, MIN, MAX, SCALE),
+    end = rescale(end, MIN, MAX, SCALE)
   ) %>%
   select(id, source, target, start = created_at, end)
 
@@ -206,7 +209,31 @@ sigmajs() %>%
   sg_add_edges(edges, start, id, source, target, cumsum = FALSE) %>% 
   sg_drop_nodes(nodes, id, end, cumsum = FALSE) %>% 
   sg_drop_edges(edges, id, end, cumsum = FALSE) %>% 
-  sg_force_start() %>% 
+  sg_force_start(worker = TRUE) %>% 
+  sg_button(
+    "Launch",
+    c(
+      "add_nodes",
+      "add_edges",
+      "drop_nodes",
+      "drop_edges"
+    )
+  )
+```
+
+Better but still imperfect.
+
+```{r}
+refresh <- data.frame(
+  delay = seq(1, 60000, by = 1000)
+)
+
+sigmajs() %>% 
+  sg_add_nodes(nodes, start, id, label, size, color, x, y, cumsum = FALSE) %>% 
+  sg_add_edges(edges, start, id, source, target, cumsum = FALSE, refresh = FALSE) %>% 
+  sg_drop_nodes(nodes, id, end, cumsum = FALSE) %>% 
+  sg_drop_edges(edges, id, end, cumsum = FALSE, refresh = FALSE) %>% 
+  sg_force_restart(refresh, delay) %>% 
   sg_button(
     "Launch",
     c(

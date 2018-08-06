@@ -1,0 +1,60 @@
+# Performances {#performances}
+
+The graphTweets has already [seen great performance improvements](http://graphtweets.john-coene.com/news/index.html) and can now build large graphs.
+
+The sigmajs library needs some explanation, namely on layout, and renderers.
+
+## Renderers
+
+The sigmajs package actually comes with three renderers out-of-the-box; `canvas`, the default, `svg` and `webgl`. `svg` makes for slightly nicer looking graphs but at performance costs so only use it for the smaller graphs. In contrast, `webgl` is extremely performant.
+
+Let's plot huge graph using `webgl` to demonstrate, below we graph 25,000 nodes.
+
+```{r}
+data <- sg_make_nodes_edges(25000) # make 25,000 nodes
+
+sigmajs("webgl") %>% # set to webgl
+  sg_nodes(data$nodes, id, size) %>% 
+  sg_edges(data$edges, id, source ,target) %>% 
+  sg_layout() %>% 
+  sg_settings(
+    nodeColor = "default",
+    defaultNodeColor = "#328983",
+    edgeColor = "default",
+    defaultEdgeColor = "#b9b9b9"
+  )
+```
+
+## Layout
+
+As you might have observed in the [previous chapter on ephemeral graphs](#ephemeral) our last graphs is not layed out quite as nicely as we would like to.
+
+**How does forceAtlas2 work in sigmajs**
+
+When you pass `sg_force` or `sg_force_start` to your graph, on load (or on the button click, if linked), forceAtlas2 kicks in and starts to layout the graph. We saw that since this is draining the browser we can then pass `sg_force_stop` specifying a `delay` in milliseconds when we want the layout to stop.
+
+What happens when we actually run the above as we _add_ or _drop_ nodes or edges? In actual fact the layout does not run constantly, as it would not take into account added or dropped nodes or edges and would continue running as if new edges or nodes were not added. Therefore a worker is created and the forceAtlas2 layout is killed then started after every node and or edge is added or dropped. This can be quite difficult for the browser to handle.
+
+Let's make a dummy example below to show how it works smoothly for the smaller graphs.
+
+```{r}
+nodes <- sg_make_nodes(colors = c("#0084b4", "#00aced", "#1dcaff", "#c0deed"))
+edges <- sg_make_edges(nodes)
+
+# add random delay between .5 and 2 seconds
+edges$delay <- runif(nrow(edges), 500, 1000) 
+
+sigmajs(height = 150) %>%
+  sg_force_start() %>%
+  sg_nodes(nodes, id, size, color) %>%
+  sg_add_edges(edges, delay, id, source, target) %>% # read delay documentation
+  sg_button("Add edges", c("add_edges")) %>% 
+  sg_settings(
+    mouseEnabled = FALSE,
+	  touchEnabled = FALSE,
+    minNodeSize = 1,
+    maxNodeSize = 4
+  )
+```
+
+The above runs smoothly.
