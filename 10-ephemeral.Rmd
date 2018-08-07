@@ -58,42 +58,75 @@ We see that, _unlike edges_ nodes are not all present on the graph for the same 
 
 ## Visualise
 
-To tackle the visualisation let's bring back our rescaling function. As a reminder this is so that the nodes do not take `r max(tweets$created_at) - min(tweets$created_at)` to come and go but rather 60 seconds (60,000 milliseconds) as specified by the `t` argument.
+To tackle the visualisation let's bring back our rescaling functio though we will tweak it this time around because we need more precision as we add and drop nodes and edges which sit in different data frames. If we were to rescaling using the local miinimum and maximum the two tables no longer be in sync. _Therefore we use the same minimum and maximum to rescale both the nodes and edges._
+
+As a reminder this is so that the nodes do not take `r round(max(tweets$created_at) - min(tweets$created_at), 2)` to come and go but rather 60 seconds (60,000 milliseconds) as specified by the `t` argument.
 
 ```{r rescale ephemeral}
 #' @param x Date time column.
 #' @param t Number of milliseconds to rescale to.
 rescale <- function(x, min, max, t){
-  x <- as.numeric(x)
   x <-  (x - as.numeric(min)) / (as.numeric(max) - as.numeric(min))
   x <- x * t
-  x <- x + 1000
+  x + 500
   return(x)
 }
 ```
 
-Then onto preparing the data. We do something similar as we did previously expect we also rescale `end`. There was no need to do that before as there was no need to do that since nodes and edges were only appearing on the graph and not disappearing.
+Then onto preparing the data. We do something somewhat similar to what we did previously expect we also rescale `end`. There was no need to do that before as there was no need to do that since nodes and edges were only appearing on the graph and not disappearing.
+
+Here is the logic we apply to rescaling both nodes and edges:
+
+1. Convert the date time (`POSIXct`) to numeric.
+2. We can then compute the minimum (see point 3 for explanation).
+3. Since the converted numeric return the number of milliseconds since the January 1<sup>st</sup>, 1970, we can remove the minimum number of milliseconds from the start time, i.e.: `start - min`.
+4. Then we can compute our minimum and maximum milliseconds for the rescaling function. 
+5. Finally we use our rescale function passing the minimum and maximum computed at point 4.
+
+```{block, type = "warn"}
+You will notice that we remove 100 milliseconds from the nodes appearance and add 100 to the node disappearance. This is to ensure that the node is present at the time any edge connected to is created, similarly, we want to make sure nodes still exist when we drop edges, so we add 100 ms to the end time.
+```
 
 ```{r, prepare ephemeral}
 library(dplyr)
 
 SCALE <- 60000 # 60 seconds
 
-MIN <- min(edges$created_at, nodes$start)
-MAX <- max(nodes$end, edges$end)
-
 nodes <- nodes %>%
   nodes2sg() %>% 
   ungroup() %>% 
   mutate(
-    start = rescale(start, MIN, MAX, SCALE),
-    end = rescale(end, MIN, MAX, SCALE)
-  ) %>%
-  select(id, label, size, start, end)
+    start = as.numeric(start), # 1
+    end = as.numeric(end), # 1
+    min = min(start), # 2
+    start = start - min, # 3
+    end = end - min # 3
+  )
 
 edges <- edges %>%
   mutate(
     id = 1:n(),
+    created_at = as.numeric(created_at), # 1
+    end = as.numeric(end), # 1
+    min = min(created_at), # 2
+    created_at = created_at - min, # 3
+    end = end - min # 3
+  )
+
+# 4
+MIN <- min(edges$created_at, nodes$start)
+MAX <- max(nodes$end, edges$end)
+
+# 5
+nodes <- nodes %>%
+  mutate(
+    start = rescale(start, MIN, MAX, SCALE) - 100,
+    end = rescale(end, MIN, MAX, SCALE) + 100
+  ) %>%
+  select(id, label, size, start, end)
+
+edges <- edges %>% 
+  mutate(
     created_at = rescale(created_at, MIN, MAX, SCALE),
     end = rescale(end, MIN, MAX, SCALE)
   ) %>%
@@ -136,33 +169,55 @@ sigmajs() %>%
   )
 ```
 
-The animation is triggered on page launch, *reload the page if you missed it*. There is quite a bit going on in this visualisation; perhaps we should round the time at which nodes and edges are created to the hour.
+The animation is triggered on page launch, so again, we add the button. There is quite a bit going on in this visualisation; perhaps we should round the time at which nodes and edges are created to the hour.
 
 Let's go ahead and do this.
 
 ```{r}
 net <- tweets %>% 
   mutate(
-    created_at = as.Date(created_at)
+    created_at = as.POSIXct(round(created_at, units = "hours"))
   ) %>% 
   gt_edges(text, screen_name, status_id, created_at = "created_at") %>% 
   gt_nodes() %>% 
-  gt_dyn(1) %>% 
+  gt_dyn(60 * 60 * 6) %>% 
   gt_collect()
 
 c(edges, nodes) %<-% net
 
 nodes <- nodes %>%
   nodes2sg() %>% 
+  ungroup() %>% 
   mutate(
-    start = rescale(start, MIN, MAX, SCALE),
-    end = rescale(end, MIN, MAX, SCALE)
-  ) %>%
-  select(id, label, size, start, end)
+    start = as.numeric(start),
+    end = as.numeric(end),
+    min = min(start),
+    start = start - min,
+    end = end - min
+  )
 
 edges <- edges %>%
   mutate(
     id = 1:n(),
+    created_at = as.numeric(created_at),
+    end = as.numeric(end),
+    min = min(created_at),
+    created_at = created_at - min,
+    end = end - min
+  )
+
+MIN <- min(edges$created_at, nodes$start)
+MAX <- max(nodes$end, edges$end)
+
+nodes <- nodes %>%
+  mutate(
+    start = rescale(start, MIN, MAX, SCALE) - 100,
+    end = rescale(end, MIN, MAX, SCALE) + 100
+  ) %>%
+  select(id, label, size, start, end)
+
+edges <- edges %>% 
+  mutate(
     created_at = rescale(created_at, MIN, MAX, SCALE),
     end = rescale(end, MIN, MAX, SCALE)
   ) %>%
@@ -209,14 +264,15 @@ sigmajs() %>%
   sg_add_edges(edges, start, id, source, target, cumsum = FALSE) %>% 
   sg_drop_nodes(nodes, id, end, cumsum = FALSE) %>% 
   sg_drop_edges(edges, id, end, cumsum = FALSE) %>% 
-  sg_force_start(worker = TRUE) %>% 
+  sg_force_start() %>% 
   sg_button(
     "Launch",
     c(
       "add_nodes",
       "add_edges",
       "drop_nodes",
-      "drop_edges"
+      "drop_edges",
+      "force_start"
     )
   )
 ```
@@ -229,10 +285,10 @@ refresh <- data.frame(
 )
 
 sigmajs() %>% 
-  sg_add_nodes(nodes, start, id, label, size, color, x, y, cumsum = FALSE) %>% 
-  sg_add_edges(edges, start, id, source, target, cumsum = FALSE, refresh = FALSE) %>% 
+  sg_add_nodes(nodes, start, id, label, size, color, cumsum = FALSE) %>% 
+  sg_add_edges(edges, start, id, source, target, cumsum = FALSE) %>% 
   sg_drop_nodes(nodes, id, end, cumsum = FALSE) %>% 
-  sg_drop_edges(edges, id, end, cumsum = FALSE, refresh = FALSE) %>% 
+  sg_drop_edges(edges, id, end, cumsum = FALSE) %>%  
   sg_force_restart(refresh, delay) %>% 
   sg_button(
     "Launch",
@@ -240,7 +296,8 @@ sigmajs() %>%
       "add_nodes",
       "add_edges",
       "drop_nodes",
-      "drop_edges"
+      "drop_edges",
+      "force_start"
     )
   )
 ```
