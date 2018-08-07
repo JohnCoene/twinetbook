@@ -21,8 +21,15 @@ tweets <- search_tweets("#rstats filter:mentions", n = 200, token = TK, include_
 
 Just as we did in the [temporal](#temporal) chapter, we'll pass `created_at` so that we know when tweets are created (when edges and nodes should appear), with one difference: we specify `lifetime` in our `gt_dyn` function.
 
+We'll also ease the work on our browser, constantly having to add and remove nodes and edges can be draining; we'll round the time to the nearest hour.
+
 ```{r, eval=TRUE}
+library(dplyr)
+
 net <- tweets %>% 
+  mutate(
+    created_at = as.POSIXct(round(created_at, units = "hours"))
+  ) %>% 
   gt_edges(text, screen_name, status_id, created_at = "created_at") %>% 
   gt_nodes() %>% 
   gt_dyn(lifetime = (60 * 60 * 6)) %>% 
@@ -68,7 +75,7 @@ As a reminder this is so that the nodes do not take `r round(max(tweets$created_
 rescale <- function(x, min, max, t){
   x <-  (x - as.numeric(min)) / (as.numeric(max) - as.numeric(min))
   x <- x * t
-  x + 500
+  x <- x + 600
   return(x)
 }
 ```
@@ -84,13 +91,11 @@ Here is the logic we apply to rescaling both nodes and edges:
 5. Finally we use our rescale function passing the minimum and maximum computed at point 4.
 
 ```{block, type = "warn"}
-You will notice that we remove 100 milliseconds from the nodes appearance and add 100 to the node disappearance. This is to ensure that the node is present at the time any edge connected to is created, similarly, we want to make sure nodes still exist when we drop edges, so we add 100 ms to the end time.
+You will notice that we remove 100 milliseconds from the nodes appearance and add 400 to the node disappearance. This is to ensure that the node is present at the time any edge connected to is created, similarly, we want to make sure nodes still exist when we drop edges, so we add 400 ms to the end time.
 ```
 
 ```{r, prepare ephemeral}
-library(dplyr)
-
-SCALE <- 60000 # 60 seconds
+SCALE <- 30000 # 60 seconds
 
 nodes <- nodes %>%
   nodes2sg() %>% 
@@ -120,8 +125,8 @@ MAX <- max(nodes$end, edges$end)
 # 5
 nodes <- nodes %>%
   mutate(
-    start = rescale(start, MIN, MAX, SCALE) - 100,
-    end = rescale(end, MIN, MAX, SCALE) + 100
+    start = rescale(start, MIN, MAX, SCALE) - 400,
+    end = rescale(end, MIN, MAX, SCALE) + 400
   ) %>%
   select(id, label, size, start, end)
 
@@ -169,119 +174,19 @@ sigmajs() %>%
   )
 ```
 
-The animation is triggered on page launch, so again, we add the button. There is quite a bit going on in this visualisation; perhaps we should round the time at which nodes and edges are created to the hour.
-
-Let's go ahead and do this.
-
-```{r}
-net <- tweets %>% 
-  mutate(
-    created_at = as.POSIXct(round(created_at, units = "hours"))
-  ) %>% 
-  gt_edges(text, screen_name, status_id, created_at = "created_at") %>% 
-  gt_nodes() %>% 
-  gt_dyn(60 * 60 * 6) %>% 
-  gt_collect()
-
-c(edges, nodes) %<-% net
-
-nodes <- nodes %>%
-  nodes2sg() %>% 
-  ungroup() %>% 
-  mutate(
-    start = as.numeric(start),
-    end = as.numeric(end),
-    min = min(start),
-    start = start - min,
-    end = end - min
-  )
-
-edges <- edges %>%
-  mutate(
-    id = 1:n(),
-    created_at = as.numeric(created_at),
-    end = as.numeric(end),
-    min = min(created_at),
-    created_at = created_at - min,
-    end = end - min
-  )
-
-MIN <- min(edges$created_at, nodes$start)
-MAX <- max(nodes$end, edges$end)
-
-nodes <- nodes %>%
-  mutate(
-    start = rescale(start, MIN, MAX, SCALE) - 100,
-    end = rescale(end, MIN, MAX, SCALE) + 100
-  ) %>%
-  select(id, label, size, start, end)
-
-edges <- edges %>% 
-  mutate(
-    created_at = rescale(created_at, MIN, MAX, SCALE),
-    end = rescale(end, MIN, MAX, SCALE)
-  ) %>%
-  select(id, source, target, start = created_at, end)
-
-nodes <- sg_get_layout(nodes, edges)
-
-nodes <- sg_get_cluster(
-  nodes, 
-  edges,
-  colors = c(
-    "#0084b4",
-    "#00aced",
-    "#1dcaff",
-    "#c0deed"
-    )
-  )
-
-sigmajs() %>% 
-  sg_add_nodes(nodes, start, id, label, size, color, x, y, cumsum = FALSE) %>% 
-  sg_add_edges(edges, start, id, source, target, cumsum = FALSE) %>% 
-  sg_drop_nodes(nodes, id, end, cumsum = FALSE) %>% 
-  sg_drop_edges(edges, id, end, cumsum = FALSE) %>% 
-  sg_button(
-    "Launch",
-    c(
-      "add_nodes",
-      "add_edges",
-      "drop_nodes",
-      "drop_edges"
-    )
-  )
-```
-
 ## Dynamic layout
 
 An issue you may observe has to do with the layout. The layout is calculated based on the full graph, but we never have the full graph on screen only a subgraph at every time step. A better way to layout the graph is to use a dynamic layout that adjusts to the visualisation as nodes and edges appear and disappear. 
 
-The [forceAtlas2](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0098679) layout algorithm does just that.
+The [forceAtlas2](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0098679) layout algorithm does just that. However we cannot just launch the forceAtlas2 network as we would on a static graphs. We have to update it at regular intervals.
 
-```{r eph final graph}
-sigmajs() %>% 
-  sg_add_nodes(nodes, start, id, label, size, color, x, y, cumsum = FALSE) %>% 
-  sg_add_edges(edges, start, id, source, target, cumsum = FALSE) %>% 
-  sg_drop_nodes(nodes, id, end, cumsum = FALSE) %>% 
-  sg_drop_edges(edges, id, end, cumsum = FALSE) %>% 
-  sg_force_start() %>% 
-  sg_button(
-    "Launch",
-    c(
-      "add_nodes",
-      "add_edges",
-      "drop_nodes",
-      "drop_edges",
-      "force_start"
-    )
-  )
+```{block, type = "tip"}
+We will cover why we need to do so in the next chapter.
 ```
-
-Better but still imperfect.
 
 ```{r}
 refresh <- data.frame(
-  delay = seq(1, 60000, by = 1000)
+  delay = seq(1, 35000, by = 1000)
 )
 
 sigmajs() %>% 
@@ -289,6 +194,7 @@ sigmajs() %>%
   sg_add_edges(edges, start, id, source, target, cumsum = FALSE) %>% 
   sg_drop_nodes(nodes, id, end, cumsum = FALSE) %>% 
   sg_drop_edges(edges, id, end, cumsum = FALSE) %>%  
+  sg_force_start() %>% 
   sg_force_restart(refresh, delay) %>% 
   sg_button(
     "Launch",

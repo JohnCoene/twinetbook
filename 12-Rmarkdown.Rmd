@@ -60,6 +60,8 @@ Below are the events that can be tied to buttons.
 some functions of the sigmajs package take a `delay` argument, which, though can be used in any way or framework (shiny, R markdown, etc.), it is specifically designed with R markdown in mind. Take for instance the layout algorithm and button we used above; as you read this it is still running, which is draining for the browser and useless as the layout has stabilised. We could do the inverse of what we do above, of course, trigger the layout on page load and instead provide a button for the user to stop the layout. However, what would be ideal is for the layout to simply stop after a few seconds. Let's implement the latter.
 
 ```{r}
+nodes <- sg_get_layout(nodes, edges)
+
 sigmajs() %>% 
   sg_nodes(nodes, id, size, color, x, y) %>% 
   sg_edges(edges, id, source, target) %>% 
