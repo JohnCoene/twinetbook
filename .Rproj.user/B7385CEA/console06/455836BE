@@ -5,11 +5,11 @@
 [0K
 [0K
 [0K
-[0K[15A[33G[?25h[?25l$ git commit -m "tips, notes and "[0K
 [0K
 [0K
 [0K
 [0K
+[0K[11A[6G[?25h[7G[?25l$ git a[0K
 [0K
 [0K
 [0K
@@ -20,7 +20,7 @@
 [0K
 [0K
 [0K
-[0K[15A[34G[?25h[?25l$ git commit -m "tips, notes and w"[0K
+[0K[11A[8G[?25h[?25l$ git ad[0K
 [0K
 [0K
 [0K
@@ -31,17 +31,18 @@
 [0K
 [0K
 [0K
+[0K[11A[9G[?25h[?25l$ git add[0K
 [0K
 [0K
 [0K
 [0K
-[0K[15A[35G[?25h[?25l$ git commit -m "tips, notes and wa"[0K
 [0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[11A[10G[?25h[11G[?25l$ git add -[0K
 [0K
 [0K
 [0K
@@ -50,9 +51,9 @@
 [0K
 [0K
 [0K
-[0K[15A[36G[?25h[?25l$ git commit -m "tips, notes and war"[0K
 [0K
 [0K
+[0K[11A[12G[?25h[?25l$ git add -A[0K
 [0K
 [0K
 [0K
@@ -63,224 +64,360 @@
 [0K
 [0K
 [0K
+[0K[11A[13G[?25h[?25l
+[?25hwarning: LF will be replaced by CRLF in .Rproj.user/shared/notebooks/paths.[0K[?25l
+The file will have its original line endings in your working directory.[0K
 [0K
 [0K
-[0K[15A[37G[?25h[?25l$ git commit -m "tips, notes and warn"[0K
 [0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[8A[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$ g[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[4G[?25h[?25l$ gi[0K
 [0K
 [0K
 [0K
-[0K[15A[38G[?25h[?25l$ git commit -m "tips, notes and warni"[0K
 [0K
 [0K
+[0K[6A[5G[?25h[?25l$ git[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[6G[?25h[7G[?25l$ git c[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[8G[?25h[?25l$ git co[0K
 [0K
 [0K
-[0K[15A[39G[?25h[?25l$ git commit -m "tips, notes and warnin"[0K
 [0K
 [0K
 [0K
+[0K[6A[9G[?25h[?25l$ git com[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[10G[?25h[?25l$ git comm[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[11G[?25h[?25l$ git commi[0K
 [0K
-[0K[15A[40G[?25h[?25l$ git commit -m "tips, notes and warning"[0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[12G[?25h[?25l$ git commit[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[13G[?25h[14G[?25l$ git commit -[0K
 [0K
 [0K
 [0K
 [0K
 [0K
-[0K[15A[41G[?25h[?25l$ git commit -m "tips, notes and warnings"[0K
+[0K[6A[15G[?25h[?25l$ git commit -m[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[16G[?25h[17G[?25l$ git commit -m "[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[18G[?25h[?25l$ git commit -m ""[0K
 [0K
 [0K
 [0K
 [0K
-[0K[15A[42G[?25h[?25l$ git commit -m "tips, notes and warnings "[0K
 [0K
+[0K[6A[19G[?25h[18G[?25l$ git commit -m "I"[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[19G[?25h[?25l$ git commit -m "I "[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[20G[?25h[?25l$ git commit -m "I th"[0K
 [0K
 [0K
 [0K
-[0K[15A[43G[?25h[?25l$ git commit -m "tips, notes and warnings a"[0K
 [0K
 [0K
+[0K[6A[22G[?25h[?25l$ git commit -m "I thi"[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[24G[?25h[23G[?25l$ git commit -m "I thin"[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[24G[?25h[?25l$ git commit -m "I think"[0K
 [0K
 [0K
-[0K[15A[44G[?25h[?25l$ git commit -m "tips, notes and warnings ad"[0K
 [0K
 [0K
 [0K
+[0K[6A[25G[?25h[?25l$ git commit -m "I think "[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[26G[?25h[?25l$ git commit -m "I think i"[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[27G[?25h[?25l$ git commit -m "I think it"[0K
 [0K
-[0K[15A[45G[?25h[?25l$ git commit -m "tips, notes and warnings add"[0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[28G[?25h[?25l$ git commit -m "I think it'"[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[29G[?25h[?25l$ git commit -m "I think it's"[0K
 [0K
 [0K
 [0K
 [0K
 [0K
-[0K[15A[46G[?25h[?25l$ git commit -m "tips, notes and warnings adde"[0K
+[0K[6A[30G[?25h[?25l$ git commit -m "I think it's "[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[31G[?25h[?25l$ git commit -m "I think it's f"[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[32G[?25h[?25l$ git commit -m "I think it's fi"[0K
 [0K
 [0K
 [0K
 [0K
-[0K[15A[47G[?25h[?25l$ git commit -m "tips, notes and warnings added"[0K
 [0K
+[0K[6A[34G[?25h[33G[?25l$ git commit -m "I think it's fix"[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[33G[?25h[34G[?25l$ git commit -m "I think it's fixe"[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[6A[35G[?25h[?25l$ git commit -m "I think it's fixed"[0K
 [0K
 [0K
 [0K
-[0K[15A[48G[?25h[?25l
-[?25h[master d334fdd] tips, notes and warnings added[0K[?25l
- 42 files changed, 3397 insertions(+), 2836 deletions(-)[0K
- rewrite .Rproj.user/B7385CEA/console06/INDEX001 (73%)[0K
- rewrite _book/advanced.html (89%)[0K
- rewrite _book/dynamic.html (90%)[0K
- rewrite _book/ephemeral.html (89%)[0K
- rewrite _book/hashtags.html (89%)[0K
- create mode 100644 _book/images/bulb.png[0K
- create mode 100644 _book/images/pin.png[0K
- create mode 100644 _book/images/warn.png[0K
- rewrite _book/rmd.html (89%)[0K
- rewrite _book/search_index.json (65%)[0K
- rewrite _book/temporal.html (95%)[0K
- delete mode 100644 _book/twinetbook_files/figure-html/unnamed-chunk-25-1.png[0K
- create mode 100644 _book/twinetbook_files/figure-html/unnamed-chunk-34-1.png[0K
- delete mode 100644 _bookdown_files/twinetbook_files/figure-html/nice-fig-1.png[0K
- delete mode 100644 _bookdown_files/twinetbook_files/figure-html/unnamed-chunk-25-1.png[0K
- create mode 100644 _bookdown_files/twinetbook_files/figure-html/unnamed-chunk-33-1.png[0K
- create mode 100644 _bookdown_files/twinetbook_files/figure-html/unnamed-chunk-34-1.png[0K
- delete mode 100644 _bookdown_files/twinetbook_files/figure-html/unnamed-chunk-74-1.png[0K
- create mode 100644 images/bulb.png[0K
- create mode 100644 images/pin.png[0K
- create mode 100644 images/warn.png[0K
+[0K
+[0K
+[0K[6A[36G[?25h[?25l$ git commit -m "I think it's fixed "[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[37G[?25h[?25l$ git commit -m "I think it's fixed w"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[38G[?25h[?25l$ git commit -m "I think it's fixed wi"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[39G[?25h[?25l$ git commit -m "I think it's fixed wit"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[40G[?25h[?25l$ git commit -m "I think it's fixed with"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[41G[?25h[?25l$ git commit -m "I think it's fixed with "[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[42G[?25h[?25l$ git commit -m "I think it's fixed with d"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[43G[?25h[?25l$ git commit -m "I think it's fixed with de"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[44G[?25h[?25l$ git commit -m "I think it's fixed with dev"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[45G[?25h[?25l$ git commit -m "I think it's fixed with dev "[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[46G[?25h[?25l$ git commit -m "I think it's fixed with dev v"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[46G[?25h[47G[?25l$ git commit -m "I think it's fixed with dev ve"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[48G[?25h[?25l$ git commit -m "I think it's fixed with dev ver"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[49G[?25h[?25l$ git commit -m "I think it's fixed with dev vers"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[50G[?25h[?25l$ git commit -m "I think it's fixed with dev versi"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[51G[?25h[?25l$ git commit -m "I think it's fixed with dev versio"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[52G[?25h[?25l$ git commit -m "I think it's fixed with dev version"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[53G[?25h[?25l$ git commit -m "I think it's fixed with dev versions"[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[6A[54G[?25h[?25l
+[?25h[master c607f03] I think it's fixed with dev versions[0K[?25l
+ 4 files changed, 1222 insertions(+), 1243 deletions(-)[0K
+ rewrite .Rproj.user/B7385CEA/console06/455836BE (76%)[0K
+ rewrite .Rproj.user/B7385CEA/console06/INDEX001 (100%)[0K
+ rewrite .Rproj.user/shared/notebooks/paths (100%)[0K
 [0K[?25h[?25l
 [0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$ git[0K[7G[?25h[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[?25l
-[0K[?25hCounting objects: 49, done.[0K[?25l
+$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25h[?25lu[0K[8G[?25h[9G[?25l$ git pus[0K[?25hh[0K[?25l
+[0K[?25hCounting objects: 11, done.[0K[?25l
 Delta compression using up to 4 threads.[0K
-Compressing objects:  34% (15/44)[0K[1G[?25h[?25lCompressing objects:  75% (33/44)[0K[1G[?25h[?25lCompressing objects:  95% (42/44)[0K[1G[?25h[?25lCompressing objects:  97% (43/44)[0K[1G[?25h[?25lCompressing objects: 100% (44/44)[0K[1G[?25hCompressing objects: 100% (44/44), done.[0K[?25l
-Writing objects:  46% (23/49)[0K[1G[?25h[?25lWriting objects:  48% (24/49)[0K[1G[?25h[?25lWriting objects:  53% (26/49)[0K[1G[?25h[?25lWriting objects:  57% (28/49)[0K[1G[?25h[?25lWriting objects:  83% (41/49)[0K[1G[?25hWriting objects: 100% (49/49), 575.50 KiB | 2.08 MiB/s, done.[0K[?25l
-Total 49 (delta 29), reused 0 (delta 0)[0K
+Compressing objects: 100% (10/10), done.[0K
+Writing objects: 100% (11/11), 4.30 KiB | 1.08 MiB/s, done.[0K
+Total 11 (delta 4), reused 0 (delta 0)[0K
 [0K[?25hTo https://bitbucket.org/JohnCoene/twinetbook.git[0K[?25l
-   3719b80..d334fdd  master -> master[0K
+   66c2dc6..c607f03  master -> master[0K
 [0K[?25h[?25l
 [0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l$ git push g[0K[12G[?25h[13G[?25l$ git push gi[0K[?25ht[0Kh[0Ku[0Kb[0K[19G[?25l$ git push github m[0K[19G[?25h[20G[?25l$ git push github ma[0K[?25h[?25ls[0K[21G[?25h[22G[?25l$ git push github mast[0K[22G[?25h[23G[?25l$ git push github maste[0K[?25hr[0K[?25l
-[0K[?25hCounting objects: 49, done.[0K[?25l
-[0K[?25hDelta compression using up to 4 threads.[0K[?25l
-Compressing objects:  75% (33/44)[0K[1G[?25h[?25lCompressing objects:  97% (43/44)[0K[1G[?25h[?25lCompressing objects: 100% (44/44)[0K[1G[?25hCompressing objects: 100% (44/44), done.[0K[?25l
-Writing objects:  46% (23/49)[0K[1G[?25h[?25lWriting objects:  48% (24/49)[0K[1G[?25h[?25lWriting objects:  53% (26/49)[0K[1G[?25h[?25lWriting objects:  57% (28/49)[0K[1G[?25h[?25lWriting objects:  77% (38/49)[0K[1G[?25h[?25lWriting objects:  83% (41/49)[0K[1G[?25hWriting objects: 100% (49/49), 575.50 KiB | 1.42 MiB/s, done.[0K[?25l
-Total 49 (delta 29), reused 0 (delta 0)[0K
-[0K[?25hremote: Resolving deltas:  68% (20/29)[0K[42G[?25lremote: Resolving deltas: 100% (29/29), completed with 27 local objects.[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[7G[?25h[8G[?25l$ git pu[0K[?25hs[0Kh[0K[12G[?25l$ git push b[0K[?25hi[0Kt[0Kb[0Ku[0Kc[0Kk[0K[?25le[0K[19G[?25h[20G[?25l$ git push bitbucket[0K[?25h[22G[?25l$ git push bitbucket m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
+[0K[?25h[?25lfatal: 'bitbucket' does not appear to be a git repository[0K[1G[?25h[?25l
+fatal: Could not read from remote repository.[0K
+[0K
+Please make sure you have the correct access rights[0K
+and the repository exists.[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git r[0K[7G[?25h[8G[?25l$ git re[0K[?25hm[0Ko[0Kt[0Ke[0K[14G[?25l$ git remote -[0K[?25hv[0K[?25l
+[0K[?25hgithub  https://github.com/JohnCoene/twinetbook.git (fetch)[0K[?25l
+github  https://github.com/JohnCoene/twinetbook.git (push)[0K
+origin  https://JohnCoene@bitbucket.org/JohnCoene/twinetbook.git (fetch)[0K
+origin  https://JohnCoene@bitbucket.org/JohnCoene/twinetbook.git (push)[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0K[?25ls[0K[9G[?25h[10G[?25l$ git push[0K[?25h[12G[?25l$ git push p[0K[?25h[?25lu[0K[13G[?25h[14G[?25l$ git push pus[0K[?25hh[0K[17G[?25l$ git push push g[0K[17G[?25h[18G[?25l$ git push push gi[0K[?25ht[0Kh[0Ku[0Kb[0K[24G[?25l$ git push push github m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
+[0K[?25herror: src refspec github does not match any.[0K[?25l
+error: failed to push some refs to 'push'[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git push push github master[0K[?25h[29G[28G[27G[26G[25G[24G[23G[22G[21G[20G[19G[18G[17G[16G[?25l$ git push pus github master[0K[15G[?25h[?25l$ git push pu github master[0K[14G[?25h[?25l$ git push p github master[0K[13G[?25h[?25l$ git push  github master[0K[12G[?25h[?25l
+[0K[?25hCounting objects: 11, done.[0K[?25l
+Delta compression using up to 4 threads.[0K
+Compressing objects: 100% (10/10), done.[0K
+Writing objects: 100% (11/11), 4.30 KiB | 1.08 MiB/s, done.[0K
+Total 11 (delta 4), reused 0 (delta 0)[0K
+[0K[?25hremote: Resolving deltas: 100% (4/4), completed with 4 local objects.[0K[?25l
 To https://github.com/JohnCoene/twinetbook.git[0K
-   3719b80..d334fdd  master -> master[0K
+   66c2dc6..c607f03  master -> master[0K
 [0K[?25h[?25l
 [0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
 $[0K[3G[?25h[0m[0K]0;[?25l
 [0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$[0K[1A[54G[?25h[?25l
-[3G[?25h[?25l$ c[0K[?25hlear[0K[?25l
+$[0K[3G[?25h[?25l[1A[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0K
+ar[0K[?25l
 [0K[?25h[?25l
 [0K
 [0K
@@ -334,9 +471,7 @@ $[0K
 [0K
 [0K
 [0K
-[0K[26A[?25h[?25l
-
-[?25l$ g[0K
+[0K[24A[3G[?25h[?25l$ g[0K
 [0K
 [0K
 [0K
@@ -408,7 +543,7 @@ $[0K
 [0K
 [0K
 [0K
-[0K[24A[6G[?25h[7G[?25l$ git p[0K
+[0K[24A[5G[?25h[6G[7G[?25l$ git p[0K
 [0K
 [0K
 [0K
@@ -432,7 +567,7 @@ $[0K
 [0K
 [0K
 [0K
-[0K[24A[7G[?25h[8G[?25l$ git pu[0K
+[0K[24A[8G[?25h[?25l$ git pu[0K
 [0K
 [0K
 [0K
@@ -505,8 +640,8 @@ $[0K
 [0K
 [0K
 [0K[24A[11G[?25h[?25l
-[?25hremote: Counting objects: 119, done.[0K[?25l
-remote: Compressing objects: 100% (103/103), done.[0K
+[?25hremote: Counting objects: 35, done.[0K[?25l
+remote: Compressing objects: 100% (30/30), done.[0K
 [0K
 [0K
 [0K
@@ -528,7 +663,7 @@ remote: Compressing objects: 100% (103/103), done.[0K
 [0K
 [0K
 [0K
-[0K[21A[?25h[?25lReceiving objects:  22% (27/119)[0K
+[0K[21A[?25h[?25lUnpacking objects:  11% (4/35)[0K
 [0K
 [0K
 [0K
@@ -549,7 +684,7 @@ remote: Compressing objects: 100% (103/103), done.[0K
 [0K
 [0K
 [0K
-[0K[21A[?25h[?25lReceiving objects:  24% (29/119)[0K
+[0K[21A[?25h[?25lUnpacking objects:  25% (9/35)[0K
 [0K
 [0K
 [0K
@@ -570,7 +705,7 @@ remote: Compressing objects: 100% (103/103), done.[0K
 [0K
 [0K
 [0K
-[0K[21A[?25h[?25lReceiving objects:  67% (80/119)[0K
+[0K[21A[?25h[?25lUnpacking objects:  31% (11/35)[0K
 [0K
 [0K
 [0K
@@ -591,9 +726,8 @@ remote: Compressing objects: 100% (103/103), done.[0K
 [0K
 [0K
 [0K
-[0K[21A[2G[?25h[?25lReceiving objects: 100% (119/119), 3.21 MiB | 10.[0K
+[0K[21A[?25h[?25lUnpacking objects:  34% (12/35)[0K
 [0K
-Resolving deltas:  19% (14/73)[0K
 [0K
 [0K
 [0K
@@ -612,8 +746,8 @@ Resolving deltas:  19% (14/73)[0K
 [0K
 [0K
 [0K
-[0K[19A[?25h[?25lResolving deltas:  23% (17/73)[0K
 [0K
+[0K[21A[?25h[?25lUnpacking objects:  40% (14/35)[0K
 [0K
 [0K
 [0K
@@ -631,10 +765,10 @@ Resolving deltas:  19% (14/73)[0K
 [0K
 [0K
 [0K
-[0K[19A[?25h[?25lResolving deltas:  31% (23/73)[0K
 [0K
 [0K
 [0K
+[0K[21A[?25h[?25lUnpacking objects:  42% (15/35)[0K
 [0K
 [0K
 [0K
@@ -650,12 +784,12 @@ Resolving deltas:  19% (14/73)[0K
 [0K
 [0K
 [0K
-[0K[19A[?25h[?25lResolving deltas:  36% (27/73)[0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[21A[?25h[?25lUnpacking objects:  45% (16/35)[0K
 [0K
 [0K
 [0K
@@ -669,7 +803,6 @@ Resolving deltas:  19% (14/73)[0K
 [0K
 [0K
 [0K
-[0K[19A[?25h[?25lResolving deltas:  43% (32/73)[0K
 [0K
 [0K
 [0K
@@ -677,6 +810,7 @@ Resolving deltas:  19% (14/73)[0K
 [0K
 [0K
 [0K
+[0K[21A[?25h[?25lUnpacking objects:  48% (17/35)[0K
 [0K
 [0K
 [0K
@@ -688,7 +822,6 @@ Resolving deltas:  19% (14/73)[0K
 [0K
 [0K
 [0K
-[0K[19A[?25h[?25lResolving deltas:  49% (36/73)[0K
 [0K
 [0K
 [0K
@@ -698,6 +831,7 @@ Resolving deltas:  19% (14/73)[0K
 [0K
 [0K
 [0K
+[0K[21A[?25h[?25lUnpacking objects:  65% (23/35)[0K
 [0K
 [0K
 [0K
@@ -707,7 +841,6 @@ Resolving deltas:  19% (14/73)[0K
 [0K
 [0K
 [0K
-[0K[19A[?25h[?25lResolving deltas:  52% (38/73)[0K
 [0K
 [0K
 [0K
@@ -719,6 +852,7 @@ Resolving deltas:  19% (14/73)[0K
 [0K
 [0K
 [0K
+[0K[21A[?25h[?25lUnpacking objects:  71% (25/35)[0K
 [0K
 [0K
 [0K
@@ -726,7 +860,6 @@ Resolving deltas:  19% (14/73)[0K
 [0K
 [0K
 [0K
-[0K[19A[?25h[?25lResolving deltas:  57% (42/73)[0K
 [0K
 [0K
 [0K
@@ -740,12 +873,13 @@ Resolving deltas:  19% (14/73)[0K
 [0K
 [0K
 [0K
+[0K[21A[?25h[0K[?25l
+Unpacking objects:  82% (29/35)[0K
 [0K
 [0K
 [0K
 [0K
 [0K
-[0K[19A[?25h[?25lResolving deltas:  63% (46/73)[0K
 [0K
 [0K
 [0K
@@ -760,11 +894,11 @@ Resolving deltas:  19% (14/73)[0K
 [0K
 [0K
 [0K
+[0K[20A[?25h[?25lUnpacking objects:  94% (33/35)[0K
 [0K
 [0K
 [0K
 [0K
-[0K[19A[?25h[?25lResolving deltas:  68% (50/73)[0K
 [0K
 [0K
 [0K
@@ -780,10 +914,10 @@ Resolving deltas:  19% (14/73)[0K
 [0K
 [0K
 [0K
+[0K[20A[?25hUnpacking objects: 100% (35/35), done.[0K[?25l
 [0K
 [0K
 [0K
-[0K[19A[?25h[?25lResolving deltas:  73% (54/73)[0K
 [0K
 [0K
 [0K
@@ -800,9 +934,10 @@ Resolving deltas:  19% (14/73)[0K
 [0K
 [0K
 [0K
+[0K[19A[?25hFrom https://bitbucket.org/JohnCoene/twinetbook[0K[?25l
+   c607f03..c9a7b19  master     -> origin/master[0K
 [0K
 [0K
-[0K[19A[?25h[?25lResolving deltas:  79% (58/73)[0K
 [0K
 [0K
 [0K
@@ -818,123 +953,7 @@ Resolving deltas:  19% (14/73)[0K
 [0K
 [0K
 [0K
-[0K
-[0K
-[0K
-[0K[19A[?25h[?25lResolving deltas:  84% (62/73)[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[19A[?25h[?25lResolving deltas:  87% (64/73)[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[19A[?25h[?25lResolving deltas:  95% (70/73)[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[19A[?25h[?25lResolving deltas:  98% (72/73)[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[19A[?25hResolving deltas: 100% (73/73), completed with 26 local objects.[0K[?25l
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[18A[?25hFrom https://bitbucket.org/JohnCoene/twinetbook[0K[?25l
-   d334fdd..66c2dc6  master     -> origin/master[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K
-[0K[16A[?25hUpdating d334fdd..66c2dc6[0K[?25l
+[0K[17A[?25hUpdating c607f03..c9a7b19[0K[?25l
 Fast-forward[0K
 [0K
 [0K
@@ -950,60 +969,39 @@ Fast-forward[0K
 [0K
 [0K
 [0K
-[0K[14A[?25h .Rproj.user/shared/notebooks/paths                 |  36 [0;32m+[0;31m-[0m[0K[?25l
- 01-intro.Rmd                                       |   2 [0;32m+[0;31m-[0m[0K
- 02-packages.Rmd                                    |  24 [0;32m+[0;31m-[0m[0K
- 03-requirements.Rmd                                |  24 [0;32m+[0;31m-[0m[0K
- 04-starting.Rmd                                    |  31 [0;32m+[0;31m-[0m[0K
- 05-advanced.Rmd                                    |   7 [0;32m+[0;31m-[0m[0K
- 06-hashtags.Rmd                                    |  78 [0;32m+++[0;31m-[0m[0K
- 07-ego.Rmd                                         |   5 [0;32m+[0;31m-[0m[0K
- 08-dynamic.Rmd                                     |  30 [0;32m+[0;31m-[0m[0K
- 09-temporal.Rmd                                    |  12 [0;32m+[0;31m-[0m[0K
- 10-ephemeral.Rmd                                   |  57 [0;32m++[0;31m-[0m[0K
- 11-Performances.Rmd                                |  60 [0;32m+++[0m[0K
- 11-Rmarkdown.Rmd => 12-Rmarkdown.Rmd               |   0[0K
- 12-references.Rmd => 13-references.Rmd             |   0[0K
- README.md                                          |   2 [0;32m+[0;31m-[0m[0K
- _book/advanced.html                                | 189 [0;32m++++[0;31m-----[0m[0K
- _book/dynamic.html                                 | 397 [0;32m+++++++++[0;31m---------[0m[0K
- _book/ego.html                                     | 174 [0;32m+++[0;31m-----[0m[0K
- _book/ephemeral.html                               | 465 [0;32m++++++++++[0;31m-----------[0m[0K
- _book/get-started.html                             | 331 [0;32m+++++++[0;31m--------[0m[0K
- _book/hashtags.html                                | 298 [0;32m+++++++[0;31m------[0m[0K
- _book/index.html                                   | 132 [0;32m+++[0;31m---[0m[0K
- _book/intro.html                                   | 123 [0;32m++[0;31m----[0m[0K
- _book/pkgs.html                                    | 157 [0;32m+++[0;31m----[0m[0K
- _book/prerequisites.html                           | 167 [0;32m+++[0;31m-----[0m[0K
- _book/references.html                              | 123 [0;32m++[0;31m----[0m[0K
- _book/rmd.html                                     | 161 [0;32m+++[0;31m----[0m[0K
- _book/search_index.json                            |  22 [0;32m+[0;31m-[0m[0K
- _book/style.css                                    |   4 [0;32m+[0m[0K
- _book/temporal.html                                | 308 [0;32m+++++++[0;31m-------[0m[0K
- .../figure-html/unnamed-chunk-34-1.png             | Bin [0;31m12241[0m -> [0;32m0[0m bytes[0K
- .../figure-html/unnamed-chunk-42-1.png             | Bin [0;31m0[0m -> [0;32m16920[0m bytes[0K
- .../figure-html/unnamed-chunk-40-1.png             | Bin [0;31m0[0m -> [0;32m16697[0m bytes[0K
- .../figure-html/unnamed-chunk-42-1.png             | Bin [0;31m0[0m -> [0;32m16920[0m bytes[0K
- index.Rmd                                          |   4 [0;32m+[0;31m-[0m[0K
- packages.bib                                       |  10 [0;32m+[0;31m-[0m[0K
- style.css                                          |   4 [0;32m+[0m[0K
- tweets.rds                                         | Bin [0;31m0[0m -> [0;32m362445[0m bytes[0K
- 38 files changed, 1628 insertions(+), 1809 deletions(-)[0K
- create mode 100644 11-Performances.Rmd[0K
- rename 11-Rmarkdown.Rmd => 12-Rmarkdown.Rmd (100%)[0K
- rename 12-references.Rmd => 13-references.Rmd (100%)[0K
- delete mode 100644 _book/twinetbook_files/figure-html/unnamed-chunk-34-1.png[0K
- create mode 100644 _book/twinetbook_files/figure-html/unnamed-chunk-42-1.png[0K
- create mode 100644 _bookdown_files/twinetbook_files/figure-html/unnamed-chunk-40-1.png[0K
- create mode 100644 _bookdown_files/twinetbook_files/figure-html/unnamed-chunk-42-1.png[0K
- create mode 100644 tweets.rds[0K
+[0K
+[0K[15A[?25h .Rproj.user/shared/notebooks/paths                 |  36 [0;32m+[0;31m--[0m[0K[?25l
+ 09-temporal.Rmd                                    |   4 [0;32m+[0m[0K
+ 10-ephemeral.Rmd                                   | 128 [0;32m++[0;31m------[0m[0K
+ 11-Performances.Rmd                                |   8 [0;32m+[0;31m-[0m[0K
+ 12-Rmarkdown.Rmd                                   |   2 [0;32m+[0m[0K
+ _book/advanced.html                                |  18 [0;32m+[0;31m-[0m[0K
+ _book/dynamic.html                                 | 195 [0;32m++++++[0;31m------[0m[0K
+ _book/ego.html                                     |  16 [0;32m+[0;31m-[0m[0K
+ _book/ephemeral.html                               | 262 [0;32m++++++++[0;31m---------[0m[0K
+ _book/get-started.html                             |  68 [0;32m+++[0;31m--[0m[0K
+ _book/hashtags.html                                |  66 [0;32m+++[0;31m--[0m[0K
+ _book/index.html                                   |  14 [0;32m+[0;31m-[0m[0K
+ _book/intro.html                                   |  12 [0;32m+[0;31m-[0m[0K
+ _book/libs/sigmajs-binding-0.1.1.9000/sigmajs.js   |  65 [0;32m++[0;31m--[0m[0K
+ _book/performances.html                            | 326 [0;32m+++++++++++++++++++++[0m[0K
+ _book/pkgs.html                                    |  12 [0;32m+[0;31m-[0m[0K
+ _book/prerequisites.html                           |  12 [0;32m+[0;31m-[0m[0K
+ _book/references.html                              |  12 [0;32m+[0;31m-[0m[0K
+ _book/rmd.html                                     |  38 [0;32m++[0;31m-[0m[0K
+ _book/search_index.json                            |  17 [0;32m+[0;31m-[0m[0K
+ _book/temporal.html                                |  52 [0;32m++[0;31m--[0m[0K
+ .../figure-html/unnamed-chunk-42-1.png             | Bin [0;31m16920[0m -> [0;32m16868[0m bytes[0K
+ .../figure-html/unnamed-chunk-42-1.png             | Bin [0;31m16920[0m -> [0;32m16868[0m bytes[0K
+ 23 files changed, 818 insertions(+), 545 deletions(-)[0K
+ create mode 100644 _book/performances.html[0K
 [0K[?25h[?25l
 [0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$[0K[3G[?25h[0m[0K[?25l
+$[0K[3G[?25h[0m[0K]0;[?25l
 [0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$ clear[0K[2A[?25h]0;[?25l
-
-[8G[?25h[?25l
+[0m[0K]0;[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ cl[0K[?25he[0Kar[0K[?25l
 [0K[?25h[?25l
 [0K
 [0K
@@ -1018,7 +1016,20 @@ $ clear[0K[2A[?25h]0;[?25l
 [0K
 [0K
 [0K
-[0K[13A[?25h[?25l
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[?25l
 [0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
 $[0K
 [0K
@@ -1031,7 +1042,6 @@ $[0K
 [0K
 [0K
 [0K
-[?25l$ g[0K
 [0K
 [0K
 [0K
@@ -1042,10 +1052,10 @@ $[0K
 [0K
 [0K
 [0K
-[0K[11A[4G[?25h[?25l$ gi[0K
 [0K
 [0K
 [0K
+[0K[24A[3G[?25h[?25l$ g[0K
 [0K
 [0K
 [0K
@@ -1053,7 +1063,6 @@ $[0K
 [0K
 [0K
 [0K
-[0K[11A[5G[?25h[?25l$ git[0K
 [0K
 [0K
 [0K
@@ -1064,18 +1073,17 @@ $[0K
 [0K
 [0K
 [0K
-[0K[11A[6G[?25h[7G[?25l$ git a[0K
 [0K
 [0K
 [0K
 [0K
 [0K
 [0K
+[0K[24A[4G[?25h[?25l$ gi[0K
 [0K
 [0K
 [0K
 [0K
-[0K[11A[8G[?25h[?25l$ git ad[0K
 [0K
 [0K
 [0K
@@ -1086,7 +1094,6 @@ $[0K
 [0K
 [0K
 [0K
-[0K[11A[9G[?25h[?25l$ git add[0K
 [0K
 [0K
 [0K
@@ -1096,8 +1103,8 @@ $[0K
 [0K
 [0K
 [0K
+[0K[24A[4G[?25h[5G[?25l$ git[0K
 [0K
-[0K[11A[10G[?25h[11G[?25l$ git add -[0K
 [0K
 [0K
 [0K
@@ -1108,7 +1115,6 @@ $[0K
 [0K
 [0K
 [0K
-[0K[11A[12G[?25h[?25l$ git add -A[0K
 [0K
 [0K
 [0K
@@ -1119,5 +1125,127 @@ $[0K
 [0K
 [0K
 [0K
-[0K[11A[13G[?25h[?25l
+[0K
+[0K
+[0K[24A[6G[?25h[7G[?25l$ git a[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[8G[?25h[?25l$ git ad[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[9G[?25h[?25l$ git add[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[10G[?25h[11G[?25l$ git add -[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[12G[?25h[?25l$ git add -A[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[13G[?25h[?25l
 [?25h

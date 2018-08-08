@@ -25,7 +25,7 @@
 <meta name="author" content="John Coene">
 
 
-<meta name="date" content="2018-08-07">
+<meta name="date" content="2018-08-08">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -78,41 +78,68 @@ ga('send', 'pageview');
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-pre, code { background-color: #f8f8f8; }
-code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code > span.dt { color: #204a87; } /* DataType */
-code > span.dv { color: #0000cf; } /* DecVal */
-code > span.bn { color: #0000cf; } /* BaseN */
-code > span.fl { color: #0000cf; } /* Float */
-code > span.ch { color: #4e9a06; } /* Char */
-code > span.st { color: #4e9a06; } /* String */
-code > span.co { color: #8f5902; font-style: italic; } /* Comment */
-code > span.ot { color: #8f5902; } /* Other */
-code > span.al { color: #ef2929; } /* Alert */
-code > span.fu { color: #000000; } /* Function */
-code > span.er { color: #a40000; font-weight: bold; } /* Error */
-code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #000000; } /* SpecialChar */
-code > span.vs { color: #4e9a06; } /* VerbatimString */
-code > span.ss { color: #4e9a06; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #000000; } /* Variable */
-code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code > span.ex { } /* Extension */
-code > span.at { color: #c4a000; } /* Attribute */
-code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -224,14 +251,14 @@ If you follow this along in RStudio; the visualisations do not open in the viewe
 <div id="collect" class="section level2">
 <h2><span class="header-section-number">5.1</span> Collect</h2>
 <p>See the <a href="prerequisites.html#prerequisites">prerequisites</a> section if the line below confuses you.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TK &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;token.rds&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">TK &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;token.rds&quot;</span>)</a></code></pre></div>
 <p>rtweet lets you do a lot of things, however within the context of the <em>twinetverse</em> we mainly use its <code>search_tweets</code> to get tweets.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tweets &lt;-<span class="st"> </span><span class="kw">search_tweets</span>(<span class="st">&quot;rstats&quot;</span>, <span class="dt">token =</span> TK)</code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">tweets &lt;-<span class="st"> </span><span class="kw">search_tweets</span>(<span class="st">&quot;rstats&quot;</span>, <span class="dt">token =</span> TK)</a></code></pre></div>
 <pre><code>## Searching for tweets...</code></pre>
 <pre><code>## Finished collecting tweets!</code></pre>
-<p>The <code>search_tweets</code> function takes a few arguments some of which we’ll eventually get into, above we run the simplest possible call; fetching tweets about “rstats”, a reference to the R <span class="citation">(R Core Team <a href="#ref-R-base">2018</a>)</span> Twitter <a href="https://twitter.com/search?q=rstats">#hashtag</a>, by default the function returns 100 tweets. Note that we also pass our token to the function.</p>
+<p>The <code>search_tweets</code> function takes a few arguments some of which we’ll eventually get into, above we run the simplest possible call; fetching tweets about “rstats”, a reference to the R <span class="citation">(R Core Team <a href="#ref-R-base">2017</a>)</span> Twitter <a href="https://twitter.com/search?q=rstats">#hashtag</a>, by default the function returns 100 tweets. Note that we also pass our token to the function.</p>
 <p>Each row a is a tweet, rtweet returns quite a lot of variables (88), we’ll only look at a select few.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(tweets)</code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">names</span>(tweets)</a></code></pre></div>
 <pre><code>##  [1] &quot;user_id&quot;                 &quot;status_id&quot;              
 ##  [3] &quot;created_at&quot;              &quot;screen_name&quot;            
 ##  [5] &quot;text&quot;                    &quot;source&quot;                 
@@ -280,20 +307,20 @@ If you follow this along in RStudio; the visualisations do not open in the viewe
 <div id="build" class="section level2">
 <h2><span class="header-section-number">5.2</span> Build</h2>
 <p>Now we can use the second package part of the <em>twinetverse</em>, graphTweets. Again, we’ll leave all function’s arguments to default to get a simple graph. There’s a lot more to the package which we’ll uncover progressively as we move through the book.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">net &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">gt_edges</span>(<span class="dt">tweets =</span> text, <span class="dt">source =</span> screen_name, <span class="dt">id =</span> status_id)</code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">net &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="st">  </span><span class="kw">gt_edges</span>(<span class="dt">tweets =</span> text, <span class="dt">source =</span> screen_name, <span class="dt">id =</span> status_id)</a></code></pre></div>
 <p>We called <code>gt_edges</code> on our <code>tweets</code> data.frame, passing a few bare column names. The source of the tweets (the user posting the tweets) will also be the source of our edges so we pass <code>screen_name</code>, then the target of these edges will be users tagged in the tweets, <code>text</code> variable in rtweet. Finally we pass a unique <code>id</code> for each tweet, you could add one yourself but the one provided by Twitter (<code>status_id</code>) does the job.</p>
 <p>The object returned is of an unfamiliar class.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(net)</code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">class</span>(net)</a></code></pre></div>
 <pre><code>## [1] &quot;graphTweets&quot;</code></pre>
 <p>To extracts the results from graphTweets run <code>gt_collect</code>, this will work at any point in the chain of pipes (<code>%&gt;%</code>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">net &lt;-<span class="st"> </span>net <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">gt_collect</span>()
-
-<span class="kw">class</span>(net)</code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">net &lt;-<span class="st"> </span>net <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="st">  </span><span class="kw">gt_collect</span>()</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="kw">class</span>(net)</a></code></pre></div>
 <pre><code>## [1] &quot;list&quot;</code></pre>
 <p>Great but this returns a lists and R users much prefer data.frames. graphTweets actualy returns two data.frames that are encapsulated in a list. Indeed networks cannot be compressed into a single data.frame, we need 1) nodes and 2) edges.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(net)</code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">names</span>(net)</a></code></pre></div>
 <pre><code>## [1] &quot;edges&quot; &quot;nodes&quot;</code></pre>
 <div class="note">
 <p>
@@ -301,19 +328,19 @@ A network consists of <em>nodes</em> and <em>edges</em>: this is just what graph
 </p>
 </div>
 <p>Great, so it looks like we have both nodes and edges, not really. We only have edges, <code>net$nodes</code> is actually <code>NULL</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(net, class)</code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">lapply</span>(net, class)</a></code></pre></div>
 <pre><code>## $edges
 ## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;
 ## 
 ## $nodes
 ## [1] &quot;NULL&quot;</code></pre>
 <p>Well, we only ran <code>gt_edges</code> so it make sense to only have edges. Let’s scrap that and get both nodes and edges.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">net &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">gt_edges</span>(text, screen_name, status_id) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># get edges</span>
-<span class="st">  </span><span class="kw">gt_nodes</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># get nodes</span>
-<span class="st">  </span><span class="kw">gt_collect</span>() <span class="co"># collect</span>
-
-<span class="kw">lapply</span>(net, class)</code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">net &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="st">  </span><span class="kw">gt_edges</span>(text, screen_name, status_id) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># get edges</span></a>
+<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="st">  </span><span class="kw">gt_nodes</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># get nodes</span></a>
+<a class="sourceLine" id="cb22-4" data-line-number="4"><span class="st">  </span><span class="kw">gt_collect</span>() <span class="co"># collect</span></a>
+<a class="sourceLine" id="cb22-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb22-6" data-line-number="6"><span class="kw">lapply</span>(net, class)</a></code></pre></div>
 <pre><code>## $edges
 ## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;
 ## 
@@ -330,14 +357,14 @@ Run graphTweets functions in the correct order, first get the edges <em>then</em
 <div id="visualise" class="section level2">
 <h2><span class="header-section-number">5.3</span> Visualise</h2>
 <p>We can visualise the network with sigmajs. Then again, it’s very easy and follows the same idea as graphTweets; we pipe our nodes and edges through. Before we do so, for the sake of clarity, let’s unpack our network using the <code>%&lt;-%</code> from the Zeallot package <span class="citation">(Teetor <a href="#ref-R-zeallot">2018</a>)</span>, imported by the twinetverse.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(edges, nodes) <span class="op">%&lt;-%</span><span class="st"> </span>net</code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">c</span>(edges, nodes) <span class="op">%&lt;-%</span><span class="st"> </span>net</a></code></pre></div>
 <div class="tip">
 <p>
 You can always unpack the network with <code>edges &lt;- net$edges</code> and <code>nodes &lt;- net$nodes</code> if you are not comfortable with the above.
 </p>
 </div>
 <p>Let’s take a look at the edges.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(edges)</code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">head</span>(edges)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -347,34 +374,34 @@ You can always unpack the network with <code>edges &lt;- net$edges</code> and <c
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">carole_lunny</td>
-<td align="left">FrederikAust</td>
+<td align="left">Nellie_SP</td>
+<td align="left">icrosoft</td>
 </tr>
 <tr class="even">
-<td align="left">victotara</td>
-<td align="left">Fisher85M</td>
+<td align="left">Mai_Moton_g_</td>
+<td align="left">gp</td>
 </tr>
 <tr class="odd">
-<td align="left">victotara</td>
-<td align="left">KirkDBorne</td>
+<td align="left">Mai_Moton_g_</td>
+<td align="left">pulipaka</td>
 </tr>
 <tr class="even">
-<td align="left">Lucky62058333</td>
-<td align="left">Fisher85M</td>
+<td align="left">Mai_Moton_g_</td>
+<td align="left">gp</td>
 </tr>
 <tr class="odd">
-<td align="left">Lucky62058333</td>
-<td align="left">KirkDBorne</td>
+<td align="left">Mai_Moton_g_</td>
+<td align="left">pulipaka</td>
 </tr>
 <tr class="even">
-<td align="left">PhoenixGyaan</td>
-<td align="left">BPerrionni</td>
+<td align="left">rstatstweet</td>
+<td align="left">coolbutuseless</td>
 </tr>
 </tbody>
 </table>
 <p>Edges simply consist of <code>source</code> and <code>target</code>, as explained earlier on, <code>source</code> essentially corresponds to <code>screen_name</code> passed in <code>gt_edges</code>, it is the user who posted the tweet. In contrast, <code>target</code> includes the users that were tagged in the <code>text</code> of the tweet.</p>
 <p>Now let’s take a look at the nodes:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(nodes)</code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">head</span>(nodes)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -385,34 +412,34 @@ You can always unpack the network with <code>edges &lt;- net$edges</code> and <c
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">3</td>
+<td align="left">_lionelhenry</td>
 <td align="left">user</td>
-<td align="right">4</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
-<td align="left">7alsxZ0l0I</td>
+<td align="left">AndesRozak</td>
 <td align="left">user</td>
-<td align="right">5</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
-<td align="left">a_hun1972</td>
+<td align="left">BolinCentre</td>
+<td align="left">user</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">C_Bachmaier</td>
+<td align="left">user</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">chrissyatmango</td>
 <td align="left">user</td>
 <td align="right">3</td>
 </tr>
 <tr class="even">
-<td align="left">agustin</td>
+<td align="left">coolbutuseless</td>
 <td align="left">user</td>
-<td align="right">4</td>
-</tr>
-<tr class="odd">
-<td align="left">albertopetro2</td>
-<td align="left">user</td>
-<td align="right">4</td>
-</tr>
-<tr class="even">
-<td align="left">amp</td>
-<td align="left">user</td>
-<td align="right">4</td>
+<td align="right">2</td>
 </tr>
 </tbody>
 </table>
@@ -423,37 +450,37 @@ You can always unpack the network with <code>edges &lt;- net$edges</code> and <c
 <li>We essentially rename <code>n_edges</code> to <code>size</code> as this is what sigmajs understands (more on this later).</li>
 <li>We add ids to our edges as sigmajs requires each edge to have a unique id.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nodes<span class="op">$</span>id &lt;-<span class="st"> </span><span class="kw">as.factor</span>(nodes<span class="op">$</span>nodes) 
-nodes<span class="op">$</span>size &lt;-<span class="st"> </span>nodes<span class="op">$</span>n_edges 
-edges<span class="op">$</span>id &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">nrow</span>(edges)) </code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1">nodes<span class="op">$</span>id &lt;-<span class="st"> </span><span class="kw">as.factor</span>(nodes<span class="op">$</span>nodes) </a>
+<a class="sourceLine" id="cb27-2" data-line-number="2">nodes<span class="op">$</span>size &lt;-<span class="st"> </span>nodes<span class="op">$</span>n_edges </a>
+<a class="sourceLine" id="cb27-3" data-line-number="3">edges<span class="op">$</span>id &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">nrow</span>(edges)) </a></code></pre></div>
 <p>sigmajs has a specific but sensible naming convention as well as basic <em>minimal requirements</em>.</p>
 <ul>
 <li>Nodes must at least include <code>id</code>, and <code>size</code>.</li>
 <li>Edges must at least include <code>id</code>, <code>source</code>, and <code>target</code>.</li>
 </ul>
 <p>Well actually, the <em>twinetverse</em> comes with helper functions to prepare the nodes and edges build from graphTweets for use in sigmajs (these are the only functions the ’verse provides).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nodes &lt;-<span class="st"> </span><span class="kw">nodes2sg</span>(nodes)
-edges &lt;-<span class="st"> </span><span class="kw">edges2sg</span>(edges)</code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">nodes &lt;-<span class="st"> </span><span class="kw">nodes2sg</span>(nodes)</a>
+<a class="sourceLine" id="cb28-2" data-line-number="2">edges &lt;-<span class="st"> </span><span class="kw">edges2sg</span>(edges)</a></code></pre></div>
 <div class="note">
 <p>
 You need to respect sigmajs naming convention or the graph will not display.
 </p>
 </div>
 <p>Let’s visualise that, we must initialise every sigmajs graph with the <code>sigmajs</code> function, then we add our nodes with <code>sg_nodes</code>, passing the column names we mentioned previously, <code>id</code>, and <code>size</code> to meet sigmajs’ minimum requirements. <em>At the exception of <code>sigmajs</code>, all functions of the sigmajs package start with <code>sg_</code></em></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sigmajs</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">sg_nodes</span>(nodes, id, size) </code></pre></div>
-<div id="htmlwidget-9009a652fb1c65ae9d6d" class="sigmajs html-widget" style="width:100%;height:480px;">
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">sigmajs</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="st">  </span><span class="kw">sg_nodes</span>(nodes, id, size) </a></code></pre></div>
+<div id="htmlwidget-00ff258598938ff66664" class="sigmajs html-widget" style="width:100%;height:480px;">
 <button type="button" style="display:block;"></button>
 </div>
-<script type="application/json" data-for="htmlwidget-9009a652fb1c65ae9d6d">{"x":{"data":{"nodes":[{"id":"3","size":" 4","x":" 9.365857","y":" 7.988934"},{"id":"7alsxZ0l0I","size":" 5","x":" 6.912601","y":" 3.804463"},{"id":"a_hun1972","size":" 3","x":"17.321646","y":"11.325976"},{"id":"agustin","size":" 4","x":"10.851295","y":" 4.501293"},{"id":"albertopetro2","size":" 4","x":"11.108872","y":"11.569878"},{"id":"amp","size":" 4","x":" 9.866743","y":" 8.103339"},{"id":"amparofashion","size":" 4","x":" 8.432910","y":"16.344723"},{"id":"AndrewYNg","size":" 1","x":"14.107470","y":" 8.262470"},{"id":"AnnualReviews","size":" 1","x":" 6.256409","y":" 6.505902"},{"id":"antifreezeprot","size":" 1","x":" 9.885652","y":"16.834958"},{"id":"arnabch01","size":"54","x":" 9.362845","y":"14.710996"},{"id":"BecomingDataSci","size":" 1","x":" 4.481433","y":" 8.217892"},{"id":"Biagio960","size":" 4","x":"14.736704","y":"12.406370"},{"id":"Bioconductor","size":" 1","x":"16.529712","y":"16.225738"},{"id":"BPerrionni","size":" 4","x":"10.660381","y":" 1.915971"},{"id":"bradleyboehmke","size":" 3","x":" 8.365756","y":" 2.271358"},{"id":"BrindusaB1","size":" 4","x":"13.188000","y":" 8.398313"},{"id":"carole_lunny","size":" 1","x":"19.815082","y":" 2.640707"},{"id":"ceconomou56","size":" 4","x":"14.408763","y":" 4.916990"},{"id":"CedScherer","size":" 4","x":" 2.092696","y":"19.752084"},{"id":"ChristophMolnar","size":" 3","x":" 7.645817","y":" 4.558505"},{"id":"claudiaguirao","size":" 1","x":" 3.288447","y":" 4.373603"},{"id":"ConArtist32","size":" 1","x":"18.837598","y":" 2.301212"},{"id":"conjja","size":" 2","x":" 3.294809","y":" 1.082270"},{"id":"Datascience__","size":" 5","x":"16.090420","y":"11.812532"},{"id":"DaysofcodeNg","size":"54","x":"10.538679","y":"17.266640"},{"id":"dccc","size":" 1","x":" 7.442000","y":"12.836396"},{"id":"DeepMindAI","size":" 1","x":"14.828576","y":"12.924804"},{"id":"delley_fx","size":" 2","x":"17.617428","y":" 1.035573"},{"id":"dianadep1","size":" 4","x":"14.830566","y":"14.441830"},{"id":"dmi3k","size":" 4","x":" 4.505609","y":" 6.854924"},{"id":"DrBruceAshford","size":" 1","x":" 5.372007","y":" 7.911933"},{"id":"DuckLemon","size":" 4","x":" 5.515739","y":"13.504631"},{"id":"duckylemon","size":" 4","x":" 2.916798","y":" 9.600780"},{"id":"eBird","size":" 9","x":"14.277794","y":"12.463659"},{"id":"ejlazar","size":" 4","x":"15.958415","y":"17.411767"},{"id":"emhrt","size":" 7","x":" 2.555350","y":" 5.141597"},{"id":"eoff","size":" 4","x":"16.131140","y":" 8.792087"},{"id":"EricJSwensson","size":" 4","x":" 8.213283","y":" 4.445625"},{"id":"ERNESTZorro","size":" 4","x":" 7.875246","y":"10.687171"},{"id":"Fisher85M","size":" 2","x":" 7.811937","y":" 3.655571"},{"id":"francescofrong2","size":" 4","x":" 9.520551","y":" 3.502458"},{"id":"FrederikAust","size":" 1","x":"16.449908","y":" 5.714711"},{"id":"GaiaGaudenzi","size":" 4","x":"10.338290","y":"19.305791"},{"id":"Giosd","size":" 3","x":" 2.707120","y":"13.754517"},{"id":"gp","size":" 3","x":"15.525192","y":"14.653792"},{"id":"gut","size":" 4","x":"13.188107","y":" 2.522797"},{"id":"h2oai","size":" 3","x":" 3.955412","y":" 2.121612"},{"id":"hadleywickham","size":" 1","x":" 2.021614","y":" 8.365333"},{"id":"Hakflak","size":" 4","x":" 2.191643","y":" 8.383804"},{"id":"henrirouen","size":" 4","x":"10.516968","y":"13.206699"},{"id":"hlcoatesmusic","size":" 4","x":" 9.118463","y":"12.576923"},{"id":"hrbrmstr","size":" 3","x":"13.247569","y":"12.412825"},{"id":"huskorkut","size":" 4","x":" 4.284336","y":" 4.452994"},{"id":"IFB_Bioinfo","size":" 3","x":"17.179314","y":"18.753703"},{"id":"Jilliemary","size":" 4","x":" 1.805023","y":" 3.357836"},{"id":"jimhester","size":" 1","x":" 2.032148","y":"19.170382"},{"id":"josephrkasprzyk","size":" 1","x":"15.221232","y":" 7.378816"},{"id":"jtleek","size":" 1","x":" 7.374425","y":" 9.980146"},{"id":"julien","size":" 1","x":"10.112741","y":" 4.807734"},{"id":"JulienWollbrett","size":" 1","x":" 9.187641","y":"14.034549"},{"id":"KirkDBorne","size":" 2","x":"18.301605","y":"17.070748"},{"id":"KonSciencePod","size":" 5","x":"17.288129","y":"11.967230"},{"id":"Lindsay_Bloch","size":" 4","x":" 3.260608","y":"13.687806"},{"id":"longsight9a","size":" 4","x":" 7.844257","y":" 3.258340"},{"id":"luaburto","size":" 3","x":" 9.091394","y":" 8.646216"},{"id":"Lucky62058333","size":" 2","x":" 3.465211","y":" 3.213340"},{"id":"LuisaM56","size":" 4","x":"17.378264","y":"18.808999"},{"id":"ma","size":" 3","x":"12.743403","y":" 5.023365"},{"id":"ma_salmon","size":" 8","x":" 6.572801","y":"19.802809"},{"id":"machinelearnflx","size":" 5","x":"18.614124","y":"19.608191"},{"id":"maluisa","size":" 4","x":"10.245603","y":"10.315979"},{"id":"MangoTheCat","size":" 1","x":"10.840551","y":" 2.963277"},{"id":"marc","size":" 1","x":" 2.658937","y":"10.914579"},{"id":"MariangelaSant8","size":" 4","x":"10.235465","y":" 9.802845"},{"id":"marienassar","size":" 4","x":" 1.529519","y":"12.818495"},{"id":"MarionSpekker","size":" 4","x":" 9.827803","y":" 7.624903"},{"id":"marmelyr","size":" 4","x":" 4.130651","y":" 7.011111"},{"id":"mattatmango","size":" 3","x":"14.362625","y":"10.551086"},{"id":"maxlarsenjr","size":"54","x":" 9.053952","y":"16.573128"},{"id":"mcmc","size":" 1","x":" 1.633856","y":"18.634587"},{"id":"Medium","size":" 1","x":" 5.288511","y":"11.023277"},{"id":"mhall55nine","size":" 4","x":"15.986582","y":"18.098286"},{"id":"MojoBag4U","size":" 4","x":"13.685482","y":" 2.316223"},{"id":"MomiraMonika","size":" 4","x":"19.325882","y":"15.610548"},{"id":"monicasloves","size":" 4","x":"18.598927","y":" 3.520796"},{"id":"MontyNishimura","size":" 4","x":"19.913534","y":" 8.462263"},{"id":"NatsuSh","size":" 2","x":"13.126149","y":"17.989484"},{"id":"news4anthros","size":" 1","x":" 5.745602","y":"12.655202"},{"id":"nieuwemarlean","size":" 4","x":"11.006965","y":" 7.347781"},{"id":"orchid00","size":" 3","x":" 5.457343","y":" 4.748327"},{"id":"Papryka5","size":" 4","x":"16.574432","y":" 1.319072"},{"id":"PasqualeTotaro","size":" 4","x":" 2.869676","y":"14.722983"},{"id":"peac4love","size":" 4","x":" 4.693260","y":" 7.099931"},{"id":"pep","size":" 4","x":" 8.399885","y":"14.239581"},{"id":"phd","size":" 1","x":"16.360327","y":"16.711651"},{"id":"PhoenixGyaan","size":"56","x":"13.387861","y":" 5.114690"},{"id":"piotr408","size":" 4","x":"19.724337","y":" 9.211915"},{"id":"pofigster","size":" 1","x":"19.228342","y":"12.969007"},{"id":"pulipaka","size":" 3","x":" 6.307400","y":" 4.123000"},{"id":"RallidaeRule","size":"20","x":"13.200767","y":" 1.916476"},{"id":"Rbloggers","size":" 3","x":"18.740884","y":"11.365202"},{"id":"renato_umeton","size":" 3","x":" 7.825911","y":" 9.371583"},{"id":"RhotacT","size":" 3","x":" 6.239690","y":"12.816940"},{"id":"rightwingleo2","size":" 4","x":" 6.811009","y":"14.356380"},{"id":"RitaCobix","size":" 4","x":" 2.874161","y":" 1.028388"},{"id":"RLadiesGlobal","size":" 5","x":" 8.496073","y":"11.789428"},{"id":"RLadiesSantaFe","size":" 2","x":" 1.311716","y":"11.376512"},{"id":"RLesur","size":" 1","x":"17.124374","y":"12.183458"},{"id":"rOpenSci","size":"22","x":" 1.945251","y":"11.523551"},{"id":"rosmarie1291","size":" 4","x":" 4.813239","y":"19.176828"},{"id":"roux","size":" 1","x":"13.181270","y":"10.080784"},{"id":"rr","size":" 1","x":"16.513398","y":" 9.522391"},{"id":"rstatstweet","size":"38","x":"11.508820","y":"10.740812"},{"id":"Rstudio","size":" 1","x":"16.393010","y":" 8.200540"},{"id":"RStudio","size":" 1","x":"11.436425","y":" 9.377685"},{"id":"rweekly_live","size":" 1","x":" 7.036526","y":" 4.077291"},{"id":"s","size":" 1","x":" 5.993333","y":" 9.223847"},{"id":"salmon","size":" 3","x":" 7.255455","y":" 7.767189"},{"id":"scastaldi9","size":" 4","x":"13.787178","y":" 3.794651"},{"id":"semicvet50","size":" 4","x":"17.226553","y":" 5.364118"},{"id":"sergey","size":" 4","x":" 4.288054","y":"12.751559"},{"id":"shinunao21","size":" 4","x":" 9.595736","y":"17.575676"},{"id":"silkin","size":" 4","x":" 5.642192","y":"13.033475"},{"id":"sminaev2015","size":" 4","x":"11.465682","y":"11.193863"},{"id":"SpacePlowboy","size":" 1","x":"12.757993","y":"18.026894"},{"id":"stan","size":" 1","x":"17.738646","y":"14.691873"},{"id":"StrimasMackey","size":"15","x":" 6.657662","y":"11.245834"},{"id":"SuzanBaert","size":" 3","x":" 3.656186","y":"12.424590"},{"id":"sylvia","size":" 4","x":" 3.734148","y":"10.632319"},{"id":"tco","size":" 5","x":" 2.719957","y":" 2.425235"},{"id":"Team","size":" 9","x":" 7.544329","y":" 4.558733"},{"id":"thecarpentries","size":" 3","x":"13.269328","y":"10.717273"},{"id":"TiempoCol","size":" 3","x":"16.469334","y":"13.657724"},{"id":"topepos","size":" 1","x":" 7.714437","y":"16.004665"},{"id":"torillo59","size":" 4","x":" 4.186820","y":"15.601780"},{"id":"tylermorganwallhttps","size":" 5","x":" 8.749179","y":"19.712422"},{"id":"Vic_Bioinfo","size":"10","x":" 4.428716","y":" 8.490842"},{"id":"victotara","size":" 2","x":" 7.266995","y":" 9.014018"},{"id":"vilamala","size":" 4","x":" 2.236288","y":" 4.677923"},{"id":"VuePackage","size":" 2","x":"16.354488","y":"11.838634"},{"id":"WinVectorLLC","size":" 1","x":" 9.529232","y":"17.071137"},{"id":"yebosfaye","size":" 4","x":" 8.587796","y":" 8.574780"},{"id":"ylecun","size":" 1","x":"12.666942","y":"10.751883"},{"id":"You","size":" 4","x":"11.256556","y":"10.408289"}]},"type":"canvas","button":{"event":"none","label":""},"crosstalk":{"crosstalk_key":null,"crosstalk_group":null}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-00ff258598938ff66664">{"x":{"data":{"nodes":[{"id":"_lionelhenry","size":"1","x":"16.302799","y":"17.669099"},{"id":"AndesRozak","size":"1","x":"13.194708","y":"11.695895"},{"id":"BolinCentre","size":"1","x":"15.514367","y":" 3.334049"},{"id":"C_Bachmaier","size":"1","x":" 4.519920","y":"17.782764"},{"id":"chrissyatmango","size":"3","x":"19.196442","y":" 8.220877"},{"id":"coolbutuseless","size":"2","x":"15.583184","y":" 7.211539"},{"id":"dataandme","size":"2","x":"12.003096","y":" 8.500645"},{"id":"dj_price10","size":"3","x":"16.720029","y":" 4.055364"},{"id":"eBird","size":"1","x":"19.765760","y":" 7.489914"},{"id":"epirecipes","size":"2","x":"19.190956","y":" 3.836840"},{"id":"FishBaseProject","size":"1","x":"11.900962","y":" 7.693246"},{"id":"gp","size":"6","x":"19.287358","y":" 8.765468"},{"id":"gregpetrossian","size":"1","x":"15.548784","y":"17.876317"},{"id":"hadleywickham","size":"2","x":" 3.418388","y":" 8.715167"},{"id":"hafenstats","size":"1","x":" 1.920134","y":" 1.188061"},{"id":"icrosoft","size":"3","x":"14.516237","y":"11.921106"},{"id":"ipnosimmia","size":"3","x":" 9.935179","y":"15.838377"},{"id":"jacquietran","size":"1","x":"15.215882","y":" 1.279407"},{"id":"Jeet_csharp","size":"2","x":" 2.610291","y":"16.938102"},{"id":"JEFworks","size":"1","x":"17.337471","y":" 6.644005"},{"id":"JennyBryan","size":"2","x":" 2.538350","y":"16.164163"},{"id":"jimhester","size":"5","x":" 5.650832","y":"12.257280"},{"id":"lexnederbragt","size":"1","x":" 9.892675","y":" 4.485258"},{"id":"Mai_Moton_g_","size":"4","x":" 7.119109","y":" 2.318207"},{"id":"MangoTheCat","size":"1","x":" 9.085645","y":"16.782638"},{"id":"marioandretti78","size":"2","x":"14.584002","y":"15.079667"},{"id":"matheusiarom","size":"1","x":"19.541744","y":"15.511958"},{"id":"Nellie_SP","size":"1","x":" 4.171970","y":"19.380624"},{"id":"NoorDinTech","size":"3","x":" 9.676190","y":" 5.714596"},{"id":"opepos","size":"1","x":" 1.470329","y":" 2.432858"},{"id":"ozefhajnala","size":"1","x":" 2.246291","y":"16.234030"},{"id":"PgpMartin","size":"1","x":"12.532776","y":"17.177157"},{"id":"pulipaka","size":"6","x":"10.810161","y":"18.897736"},{"id":"randev_sharma","size":"2","x":" 2.037387","y":" 8.328919"},{"id":"rOpenSci","size":"3","x":"16.491516","y":"13.953348"},{"id":"royesal","size":"2","x":" 7.163397","y":" 8.062244"},{"id":"rstatstweet","size":"5","x":" 1.211132","y":"18.010252"},{"id":"rstudio","size":"1","x":"12.189129","y":" 2.760733"},{"id":"RStudio","size":"1","x":"18.234712","y":"14.317301"},{"id":"rweekly_live","size":"1","x":" 8.122676","y":" 3.087246"},{"id":"s","size":"1","x":"19.589674","y":" 6.898718"},{"id":"Sci","size":"2","x":" 4.539006","y":"17.421562"},{"id":"Sparanzza","size":"2","x":" 3.011234","y":" 1.501710"},{"id":"srenders","size":"1","x":"13.821855","y":"10.364069"},{"id":"StrimasMackey","size":"1","x":"14.152154","y":"15.852742"},{"id":"TAH","size":"2","x":"18.829087","y":"15.763155"},{"id":"tangming2005","size":"1","x":" 5.634172","y":"15.119375"},{"id":"Team","size":"1","x":"18.936927","y":"12.962119"},{"id":"TedPavlic","size":"3","x":" 4.104893","y":"18.567755"},{"id":"thinkR_fr","size":"1","x":" 7.509422","y":" 6.163548"},{"id":"thomasp85","size":"1","x":" 7.035433","y":"19.587883"},{"id":"Triamus1","size":"1","x":"17.380232","y":" 9.708902"},{"id":"ZLabe","size":"1","x":" 7.582843","y":" 6.852129"}]},"type":"canvas","button":{"event":"none","label":""},"crosstalk":{"crosstalk_key":null,"crosstalk_group":null}},"evals":[],"jsHooks":[]}</script>
 <p>sigmajs actually allows you to build graphs using only nodes or edges, we’ll see why this is useful in a later chapter on <a href="dynamic.html#dynamic">temporal graphs</a>. Let’s add the edges. Then again, to meet sigmajs’ requirements, we pass <code>id</code>, <code>source</code> and <code>target</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sigmajs</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">sg_nodes</span>(nodes, id, size) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">sg_edges</span>(edges, id, source, target)</code></pre></div>
-<div id="htmlwidget-938e5c02f9989be76ca3" class="sigmajs html-widget" style="width:100%;height:480px;">
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">sigmajs</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="st">  </span><span class="kw">sg_nodes</span>(nodes, id, size) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="st">  </span><span class="kw">sg_edges</span>(edges, id, source, target)</a></code></pre></div>
+<div id="htmlwidget-7f4bafdb44feadc59cdc" class="sigmajs html-widget" style="width:100%;height:480px;">
 <button type="button" style="display:block;"></button>
 </div>
-<script type="application/json" data-for="htmlwidget-938e5c02f9989be76ca3">{"x":{"data":{"nodes":[{"id":"3","size":" 4","x":"11.731233","y":"11.370238"},{"id":"7alsxZ0l0I","size":" 5","x":" 1.693804","y":" 9.882763"},{"id":"a_hun1972","size":" 3","x":"13.341641","y":"11.752718"},{"id":"agustin","size":" 4","x":" 7.110567","y":" 2.998262"},{"id":"albertopetro2","size":" 4","x":"19.648729","y":" 8.327912"},{"id":"amp","size":" 4","x":" 3.078979","y":" 6.257457"},{"id":"amparofashion","size":" 4","x":" 8.504614","y":" 7.100286"},{"id":"AndrewYNg","size":" 1","x":"13.972244","y":" 1.137110"},{"id":"AnnualReviews","size":" 1","x":"12.659955","y":" 5.247324"},{"id":"antifreezeprot","size":" 1","x":" 9.090435","y":" 4.716874"},{"id":"arnabch01","size":"54","x":"11.921515","y":" 8.143522"},{"id":"BecomingDataSci","size":" 1","x":"11.575444","y":"17.716944"},{"id":"Biagio960","size":" 4","x":" 7.870476","y":" 6.154239"},{"id":"Bioconductor","size":" 1","x":" 1.166346","y":"12.493776"},{"id":"BPerrionni","size":" 4","x":"19.517878","y":" 2.922815"},{"id":"bradleyboehmke","size":" 3","x":"12.317530","y":"13.957215"},{"id":"BrindusaB1","size":" 4","x":"12.507446","y":"19.773316"},{"id":"carole_lunny","size":" 1","x":"18.173606","y":" 4.744065"},{"id":"ceconomou56","size":" 4","x":" 9.089070","y":" 1.932748"},{"id":"CedScherer","size":" 4","x":"13.166606","y":"12.272267"},{"id":"ChristophMolnar","size":" 3","x":"12.364302","y":"18.748511"},{"id":"claudiaguirao","size":" 1","x":" 7.357050","y":" 2.832302"},{"id":"ConArtist32","size":" 1","x":"10.640215","y":"10.042014"},{"id":"conjja","size":" 2","x":" 1.576889","y":"13.734680"},{"id":"Datascience__","size":" 5","x":"14.288212","y":"16.524137"},{"id":"DaysofcodeNg","size":"54","x":"11.186700","y":"15.999411"},{"id":"dccc","size":" 1","x":"17.501578","y":"14.645389"},{"id":"DeepMindAI","size":" 1","x":"12.356715","y":"10.726876"},{"id":"delley_fx","size":" 2","x":"11.528162","y":"19.728016"},{"id":"dianadep1","size":" 4","x":" 2.105009","y":" 9.754047"},{"id":"dmi3k","size":" 4","x":" 4.162897","y":" 2.310815"},{"id":"DrBruceAshford","size":" 1","x":"12.811593","y":"18.068390"},{"id":"DuckLemon","size":" 4","x":" 9.392543","y":"18.509916"},{"id":"duckylemon","size":" 4","x":"10.167778","y":"15.535479"},{"id":"eBird","size":" 9","x":" 8.526255","y":"10.649515"},{"id":"ejlazar","size":" 4","x":"10.775697","y":" 4.741571"},{"id":"emhrt","size":" 7","x":"13.010539","y":"11.082097"},{"id":"eoff","size":" 4","x":" 5.410445","y":"14.897713"},{"id":"EricJSwensson","size":" 4","x":"12.812008","y":" 2.522966"},{"id":"ERNESTZorro","size":" 4","x":"18.323630","y":"18.624256"},{"id":"Fisher85M","size":" 2","x":" 9.884951","y":" 7.543386"},{"id":"francescofrong2","size":" 4","x":"15.975792","y":" 3.485990"},{"id":"FrederikAust","size":" 1","x":"15.416994","y":"18.612671"},{"id":"GaiaGaudenzi","size":" 4","x":"12.488517","y":"18.330933"},{"id":"Giosd","size":" 3","x":" 2.853835","y":" 3.134945"},{"id":"gp","size":" 3","x":"13.564367","y":" 8.606491"},{"id":"gut","size":" 4","x":" 6.427989","y":"12.990470"},{"id":"h2oai","size":" 3","x":" 2.850742","y":"11.540341"},{"id":"hadleywickham","size":" 1","x":"18.686386","y":"11.813057"},{"id":"Hakflak","size":" 4","x":" 1.866734","y":"12.595479"},{"id":"henrirouen","size":" 4","x":" 2.509248","y":"13.930025"},{"id":"hlcoatesmusic","size":" 4","x":" 8.087091","y":"11.956408"},{"id":"hrbrmstr","size":" 3","x":" 6.581509","y":" 3.284756"},{"id":"huskorkut","size":" 4","x":"10.329817","y":"15.776858"},{"id":"IFB_Bioinfo","size":" 3","x":" 6.041684","y":" 2.045429"},{"id":"Jilliemary","size":" 4","x":" 2.262774","y":"16.815703"},{"id":"jimhester","size":" 1","x":" 2.687928","y":" 4.008865"},{"id":"josephrkasprzyk","size":" 1","x":"10.729711","y":"19.544481"},{"id":"jtleek","size":" 1","x":"15.353753","y":" 8.700389"},{"id":"julien","size":" 1","x":"11.740915","y":" 9.428176"},{"id":"JulienWollbrett","size":" 1","x":" 9.498062","y":" 4.603687"},{"id":"KirkDBorne","size":" 2","x":" 8.288071","y":"16.967834"},{"id":"KonSciencePod","size":" 5","x":" 1.148015","y":" 9.657695"},{"id":"Lindsay_Bloch","size":" 4","x":"17.804139","y":" 9.936114"},{"id":"longsight9a","size":" 4","x":"10.500821","y":"17.644127"},{"id":"luaburto","size":" 3","x":" 7.342642","y":"16.838745"},{"id":"Lucky62058333","size":" 2","x":"19.636915","y":" 7.197814"},{"id":"LuisaM56","size":" 4","x":" 1.204510","y":"12.282487"},{"id":"ma","size":" 3","x":"11.544948","y":" 1.735270"},{"id":"ma_salmon","size":" 8","x":"18.324318","y":"16.225563"},{"id":"machinelearnflx","size":" 5","x":" 6.534938","y":" 9.522988"},{"id":"maluisa","size":" 4","x":" 1.276039","y":"18.454809"},{"id":"MangoTheCat","size":" 1","x":"10.585750","y":"15.419737"},{"id":"marc","size":" 1","x":" 2.684832","y":" 1.464963"},{"id":"MariangelaSant8","size":" 4","x":" 4.262889","y":" 9.768791"},{"id":"marienassar","size":" 4","x":"10.379816","y":"16.408998"},{"id":"MarionSpekker","size":" 4","x":" 1.772574","y":"15.246835"},{"id":"marmelyr","size":" 4","x":" 7.157510","y":"11.479366"},{"id":"mattatmango","size":" 3","x":"12.195444","y":"17.751129"},{"id":"maxlarsenjr","size":"54","x":" 5.428781","y":" 1.960206"},{"id":"mcmc","size":" 1","x":" 5.477611","y":" 3.922335"},{"id":"Medium","size":" 1","x":" 8.619843","y":"11.196543"},{"id":"mhall55nine","size":" 4","x":" 4.402051","y":" 4.631942"},{"id":"MojoBag4U","size":" 4","x":"16.143663","y":"19.047609"},{"id":"MomiraMonika","size":" 4","x":" 8.695228","y":" 6.852680"},{"id":"monicasloves","size":" 4","x":" 7.379025","y":"18.837077"},{"id":"MontyNishimura","size":" 4","x":"14.446716","y":"15.924894"},{"id":"NatsuSh","size":" 2","x":" 6.262363","y":"16.726147"},{"id":"news4anthros","size":" 1","x":" 6.269249","y":" 2.587860"},{"id":"nieuwemarlean","size":" 4","x":"18.026536","y":" 4.764256"},{"id":"orchid00","size":" 3","x":" 5.941401","y":"18.168490"},{"id":"Papryka5","size":" 4","x":" 3.630180","y":"19.692912"},{"id":"PasqualeTotaro","size":" 4","x":" 3.947355","y":" 1.036800"},{"id":"peac4love","size":" 4","x":" 7.186597","y":" 4.718818"},{"id":"pep","size":" 4","x":" 8.176312","y":" 9.883696"},{"id":"phd","size":" 1","x":"18.493007","y":"14.257653"},{"id":"PhoenixGyaan","size":"56","x":"18.327454","y":" 8.633452"},{"id":"piotr408","size":" 4","x":" 2.861750","y":"15.557175"},{"id":"pofigster","size":" 1","x":"11.510864","y":"16.079547"},{"id":"pulipaka","size":" 3","x":" 1.961858","y":" 4.803250"},{"id":"RallidaeRule","size":"20","x":"15.615949","y":" 4.274363"},{"id":"Rbloggers","size":" 3","x":" 3.690287","y":"16.213079"},{"id":"renato_umeton","size":" 3","x":"18.999790","y":"12.440408"},{"id":"RhotacT","size":" 3","x":" 1.898459","y":"18.586212"},{"id":"rightwingleo2","size":" 4","x":" 3.088815","y":" 9.653469"},{"id":"RitaCobix","size":" 4","x":" 1.898302","y":"14.818763"},{"id":"RLadiesGlobal","size":" 5","x":" 2.675378","y":"12.493684"},{"id":"RLadiesSantaFe","size":" 2","x":"10.205463","y":" 3.125604"},{"id":"RLesur","size":" 1","x":" 1.472973","y":" 7.235245"},{"id":"rOpenSci","size":"22","x":"17.867654","y":"19.878648"},{"id":"rosmarie1291","size":" 4","x":"17.684821","y":" 2.928737"},{"id":"roux","size":" 1","x":"17.604694","y":" 7.572538"},{"id":"rr","size":" 1","x":"11.713626","y":" 4.744842"},{"id":"rstatstweet","size":"38","x":"14.249730","y":"15.388500"},{"id":"Rstudio","size":" 1","x":"15.485532","y":" 3.433289"},{"id":"RStudio","size":" 1","x":"16.272103","y":"12.442883"},{"id":"rweekly_live","size":" 1","x":"11.257393","y":" 9.615261"},{"id":"s","size":" 1","x":" 7.376050","y":" 9.982246"},{"id":"salmon","size":" 3","x":" 1.568262","y":" 7.871340"},{"id":"scastaldi9","size":" 4","x":" 7.758574","y":"10.248052"},{"id":"semicvet50","size":" 4","x":"10.649708","y":" 4.024081"},{"id":"sergey","size":" 4","x":"19.355136","y":" 9.577939"},{"id":"shinunao21","size":" 4","x":"13.570897","y":" 2.031655"},{"id":"silkin","size":" 4","x":" 3.349435","y":"16.892588"},{"id":"sminaev2015","size":" 4","x":"10.859727","y":" 5.254416"},{"id":"SpacePlowboy","size":" 1","x":" 7.238405","y":"10.140313"},{"id":"stan","size":" 1","x":" 2.167413","y":" 2.786678"},{"id":"StrimasMackey","size":"15","x":"15.183870","y":" 8.930905"},{"id":"SuzanBaert","size":" 3","x":"19.648029","y":"11.907443"},{"id":"sylvia","size":" 4","x":" 9.256889","y":"10.755861"},{"id":"tco","size":" 5","x":" 7.074422","y":" 1.971534"},{"id":"Team","size":" 9","x":"16.994958","y":"18.380020"},{"id":"thecarpentries","size":" 3","x":" 2.388813","y":"14.471568"},{"id":"TiempoCol","size":" 3","x":" 8.220492","y":"11.973028"},{"id":"topepos","size":" 1","x":" 8.102725","y":"16.537035"},{"id":"torillo59","size":" 4","x":"16.842537","y":"15.611377"},{"id":"tylermorganwallhttps","size":" 5","x":"17.450159","y":"14.937901"},{"id":"Vic_Bioinfo","size":"10","x":"13.377112","y":"19.594902"},{"id":"victotara","size":" 2","x":"10.267905","y":" 1.181672"},{"id":"vilamala","size":" 4","x":"16.687160","y":" 6.295048"},{"id":"VuePackage","size":" 2","x":"14.609129","y":"15.214665"},{"id":"WinVectorLLC","size":" 1","x":" 5.518853","y":" 8.170572"},{"id":"yebosfaye","size":" 4","x":" 3.172706","y":"10.465131"},{"id":"ylecun","size":" 1","x":"10.134403","y":" 7.390371"},{"id":"You","size":" 4","x":" 7.375500","y":" 6.154920"}],"edges":[{"id":"1","source":"carole_lunny","target":"FrederikAust"},{"id":"2","source":"victotara","target":"Fisher85M"},{"id":"3","source":"victotara","target":"KirkDBorne"},{"id":"4","source":"Lucky62058333","target":"Fisher85M"},{"id":"5","source":"Lucky62058333","target":"KirkDBorne"},{"id":"6","source":"PhoenixGyaan","target":"BPerrionni"},{"id":"7","source":"PhoenixGyaan","target":"semicvet50"},{"id":"8","source":"PhoenixGyaan","target":"MontyNishimura"},{"id":"9","source":"PhoenixGyaan","target":"BrindusaB1"},{"id":"10","source":"PhoenixGyaan","target":"Hakflak"},{"id":"11","source":"PhoenixGyaan","target":"RitaCobix"},{"id":"12","source":"PhoenixGyaan","target":"amparofashion"},{"id":"13","source":"PhoenixGyaan","target":"Papryka5"},{"id":"14","source":"PhoenixGyaan","target":"PasqualeTotaro"},{"id":"15","source":"PhoenixGyaan","target":"dianadep1"},{"id":"16","source":"PhoenixGyaan","target":"GaiaGaudenzi"},{"id":"17","source":"PhoenixGyaan","target":"yebosfaye"},{"id":"18","source":"PhoenixGyaan","target":"Biagio960"},{"id":"19","source":"PhoenixGyaan","target":"sergey"},{"id":"20","source":"PhoenixGyaan","target":"silkin"},{"id":"21","source":"PhoenixGyaan","target":"agustin"},{"id":"22","source":"PhoenixGyaan","target":"gut"},{"id":"23","source":"PhoenixGyaan","target":"monicasloves"},{"id":"24","source":"PhoenixGyaan","target":"huskorkut"},{"id":"25","source":"PhoenixGyaan","target":"scastaldi9"},{"id":"26","source":"PhoenixGyaan","target":"torillo59"},{"id":"27","source":"PhoenixGyaan","target":"albertopetro2"},{"id":"28","source":"PhoenixGyaan","target":"piotr408"},{"id":"29","source":"PhoenixGyaan","target":"henrirouen"},{"id":"30","source":"PhoenixGyaan","target":"Jilliemary"},{"id":"31","source":"PhoenixGyaan","target":"DuckLemon"},{"id":"32","source":"PhoenixGyaan","target":"francescofrong2"},{"id":"33","source":"PhoenixGyaan","target":"ejlazar"},{"id":"34","source":"PhoenixGyaan","target":"nieuwemarlean"},{"id":"35","source":"PhoenixGyaan","target":"MomiraMonika"},{"id":"36","source":"PhoenixGyaan","target":"LuisaM56"},{"id":"37","source":"PhoenixGyaan","target":"duckylemon"},{"id":"38","source":"PhoenixGyaan","target":"pep"},{"id":"39","source":"PhoenixGyaan","target":"vilamala"},{"id":"40","source":"PhoenixGyaan","target":"longsight9a"},{"id":"41","source":"PhoenixGyaan","target":"EricJSwensson"},{"id":"42","source":"PhoenixGyaan","target":"MarionSpekker"},{"id":"43","source":"PhoenixGyaan","target":"marienassar"},{"id":"44","source":"PhoenixGyaan","target":"mhall55nine"},{"id":"45","source":"PhoenixGyaan","target":"ceconomou56"},{"id":"46","source":"PhoenixGyaan","target":"MariangelaSant8"},{"id":"47","source":"PhoenixGyaan","target":"marmelyr"},{"id":"48","source":"PhoenixGyaan","target":"maluisa"},{"id":"49","source":"PhoenixGyaan","target":"3"},{"id":"50","source":"PhoenixGyaan","target":"hlcoatesmusic"},{"id":"51","source":"PhoenixGyaan","target":"rightwingleo2"},{"id":"52","source":"PhoenixGyaan","target":"MojoBag4U"},{"id":"53","source":"PhoenixGyaan","target":"rosmarie1291"},{"id":"54","source":"PhoenixGyaan","target":"sminaev2015"},{"id":"55","source":"PhoenixGyaan","target":"peac4love"},{"id":"56","source":"PhoenixGyaan","target":"eoff"},{"id":"57","source":"PhoenixGyaan","target":"sylvia"},{"id":"58","source":"PhoenixGyaan","target":"shinunao21"},{"id":"59","source":"PhoenixGyaan","target":"ERNESTZorro"},{"id":"60","source":"PhoenixGyaan","target":"gp"},{"id":"61","source":"PhoenixGyaan","target":"pulipaka"},{"id":"62","source":"DaysofcodeNg","target":"BPerrionni"},{"id":"63","source":"DaysofcodeNg","target":"semicvet50"},{"id":"64","source":"DaysofcodeNg","target":"MontyNishimura"},{"id":"65","source":"DaysofcodeNg","target":"BrindusaB1"},{"id":"66","source":"DaysofcodeNg","target":"Hakflak"},{"id":"67","source":"DaysofcodeNg","target":"RitaCobix"},{"id":"68","source":"DaysofcodeNg","target":"amparofashion"},{"id":"69","source":"DaysofcodeNg","target":"Papryka5"},{"id":"70","source":"DaysofcodeNg","target":"PasqualeTotaro"},{"id":"71","source":"DaysofcodeNg","target":"dianadep1"},{"id":"72","source":"DaysofcodeNg","target":"GaiaGaudenzi"},{"id":"73","source":"DaysofcodeNg","target":"yebosfaye"},{"id":"74","source":"DaysofcodeNg","target":"Biagio960"},{"id":"75","source":"DaysofcodeNg","target":"sergey"},{"id":"76","source":"DaysofcodeNg","target":"silkin"},{"id":"77","source":"DaysofcodeNg","target":"agustin"},{"id":"78","source":"DaysofcodeNg","target":"gut"},{"id":"79","source":"DaysofcodeNg","target":"monicasloves"},{"id":"80","source":"DaysofcodeNg","target":"huskorkut"},{"id":"81","source":"DaysofcodeNg","target":"scastaldi9"},{"id":"82","source":"DaysofcodeNg","target":"torillo59"},{"id":"83","source":"DaysofcodeNg","target":"albertopetro2"},{"id":"84","source":"DaysofcodeNg","target":"piotr408"},{"id":"85","source":"DaysofcodeNg","target":"henrirouen"},{"id":"86","source":"DaysofcodeNg","target":"Jilliemary"},{"id":"87","source":"DaysofcodeNg","target":"DuckLemon"},{"id":"88","source":"DaysofcodeNg","target":"francescofrong2"},{"id":"89","source":"DaysofcodeNg","target":"ejlazar"},{"id":"90","source":"DaysofcodeNg","target":"nieuwemarlean"},{"id":"91","source":"DaysofcodeNg","target":"MomiraMonika"},{"id":"92","source":"DaysofcodeNg","target":"LuisaM56"},{"id":"93","source":"DaysofcodeNg","target":"duckylemon"},{"id":"94","source":"DaysofcodeNg","target":"pep"},{"id":"95","source":"DaysofcodeNg","target":"vilamala"},{"id":"96","source":"DaysofcodeNg","target":"longsight9a"},{"id":"97","source":"DaysofcodeNg","target":"EricJSwensson"},{"id":"98","source":"DaysofcodeNg","target":"MarionSpekker"},{"id":"99","source":"DaysofcodeNg","target":"marienassar"},{"id":"100","source":"DaysofcodeNg","target":"mhall55nine"},{"id":"101","source":"DaysofcodeNg","target":"ceconomou56"},{"id":"102","source":"DaysofcodeNg","target":"MariangelaSant8"},{"id":"103","source":"DaysofcodeNg","target":"marmelyr"},{"id":"104","source":"DaysofcodeNg","target":"maluisa"},{"id":"105","source":"DaysofcodeNg","target":"3"},{"id":"106","source":"DaysofcodeNg","target":"hlcoatesmusic"},{"id":"107","source":"DaysofcodeNg","target":"rightwingleo2"},{"id":"108","source":"DaysofcodeNg","target":"MojoBag4U"},{"id":"109","source":"DaysofcodeNg","target":"rosmarie1291"},{"id":"110","source":"DaysofcodeNg","target":"sminaev2015"},{"id":"111","source":"DaysofcodeNg","target":"peac4love"},{"id":"112","source":"DaysofcodeNg","target":"eoff"},{"id":"113","source":"DaysofcodeNg","target":"sylvia"},{"id":"114","source":"DaysofcodeNg","target":"shinunao21"},{"id":"115","source":"DaysofcodeNg","target":"ERNESTZorro"},{"id":"116","source":"maxlarsenjr","target":"BPerrionni"},{"id":"117","source":"maxlarsenjr","target":"semicvet50"},{"id":"118","source":"maxlarsenjr","target":"MontyNishimura"},{"id":"119","source":"maxlarsenjr","target":"BrindusaB1"},{"id":"120","source":"maxlarsenjr","target":"Hakflak"},{"id":"121","source":"maxlarsenjr","target":"RitaCobix"},{"id":"122","source":"maxlarsenjr","target":"amparofashion"},{"id":"123","source":"maxlarsenjr","target":"Papryka5"},{"id":"124","source":"maxlarsenjr","target":"PasqualeTotaro"},{"id":"125","source":"maxlarsenjr","target":"dianadep1"},{"id":"126","source":"maxlarsenjr","target":"GaiaGaudenzi"},{"id":"127","source":"maxlarsenjr","target":"yebosfaye"},{"id":"128","source":"maxlarsenjr","target":"Biagio960"},{"id":"129","source":"maxlarsenjr","target":"sergey"},{"id":"130","source":"maxlarsenjr","target":"silkin"},{"id":"131","source":"maxlarsenjr","target":"agustin"},{"id":"132","source":"maxlarsenjr","target":"gut"},{"id":"133","source":"maxlarsenjr","target":"monicasloves"},{"id":"134","source":"maxlarsenjr","target":"huskorkut"},{"id":"135","source":"maxlarsenjr","target":"scastaldi9"},{"id":"136","source":"maxlarsenjr","target":"torillo59"},{"id":"137","source":"maxlarsenjr","target":"albertopetro2"},{"id":"138","source":"maxlarsenjr","target":"piotr408"},{"id":"139","source":"maxlarsenjr","target":"henrirouen"},{"id":"140","source":"maxlarsenjr","target":"Jilliemary"},{"id":"141","source":"maxlarsenjr","target":"DuckLemon"},{"id":"142","source":"maxlarsenjr","target":"francescofrong2"},{"id":"143","source":"maxlarsenjr","target":"ejlazar"},{"id":"144","source":"maxlarsenjr","target":"nieuwemarlean"},{"id":"145","source":"maxlarsenjr","target":"MomiraMonika"},{"id":"146","source":"maxlarsenjr","target":"LuisaM56"},{"id":"147","source":"maxlarsenjr","target":"duckylemon"},{"id":"148","source":"maxlarsenjr","target":"pep"},{"id":"149","source":"maxlarsenjr","target":"vilamala"},{"id":"150","source":"maxlarsenjr","target":"longsight9a"},{"id":"151","source":"maxlarsenjr","target":"EricJSwensson"},{"id":"152","source":"maxlarsenjr","target":"MarionSpekker"},{"id":"153","source":"maxlarsenjr","target":"marienassar"},{"id":"154","source":"maxlarsenjr","target":"mhall55nine"},{"id":"155","source":"maxlarsenjr","target":"ceconomou56"},{"id":"156","source":"maxlarsenjr","target":"MariangelaSant8"},{"id":"157","source":"maxlarsenjr","target":"marmelyr"},{"id":"158","source":"maxlarsenjr","target":"maluisa"},{"id":"159","source":"maxlarsenjr","target":"3"},{"id":"160","source":"maxlarsenjr","target":"hlcoatesmusic"},{"id":"161","source":"maxlarsenjr","target":"rightwingleo2"},{"id":"162","source":"maxlarsenjr","target":"MojoBag4U"},{"id":"163","source":"maxlarsenjr","target":"rosmarie1291"},{"id":"164","source":"maxlarsenjr","target":"sminaev2015"},{"id":"165","source":"maxlarsenjr","target":"peac4love"},{"id":"166","source":"maxlarsenjr","target":"eoff"},{"id":"167","source":"maxlarsenjr","target":"sylvia"},{"id":"168","source":"maxlarsenjr","target":"shinunao21"},{"id":"169","source":"maxlarsenjr","target":"ERNESTZorro"},{"id":"170","source":"arnabch01","target":"BPerrionni"},{"id":"171","source":"arnabch01","target":"semicvet50"},{"id":"172","source":"arnabch01","target":"MontyNishimura"},{"id":"173","source":"arnabch01","target":"BrindusaB1"},{"id":"174","source":"arnabch01","target":"Hakflak"},{"id":"175","source":"arnabch01","target":"RitaCobix"},{"id":"176","source":"arnabch01","target":"amparofashion"},{"id":"177","source":"arnabch01","target":"Papryka5"},{"id":"178","source":"arnabch01","target":"PasqualeTotaro"},{"id":"179","source":"arnabch01","target":"dianadep1"},{"id":"180","source":"arnabch01","target":"GaiaGaudenzi"},{"id":"181","source":"arnabch01","target":"yebosfaye"},{"id":"182","source":"arnabch01","target":"Biagio960"},{"id":"183","source":"arnabch01","target":"sergey"},{"id":"184","source":"arnabch01","target":"silkin"},{"id":"185","source":"arnabch01","target":"agustin"},{"id":"186","source":"arnabch01","target":"gut"},{"id":"187","source":"arnabch01","target":"monicasloves"},{"id":"188","source":"arnabch01","target":"huskorkut"},{"id":"189","source":"arnabch01","target":"scastaldi9"},{"id":"190","source":"arnabch01","target":"torillo59"},{"id":"191","source":"arnabch01","target":"albertopetro2"},{"id":"192","source":"arnabch01","target":"piotr408"},{"id":"193","source":"arnabch01","target":"henrirouen"},{"id":"194","source":"arnabch01","target":"Jilliemary"},{"id":"195","source":"arnabch01","target":"DuckLemon"},{"id":"196","source":"arnabch01","target":"francescofrong2"},{"id":"197","source":"arnabch01","target":"ejlazar"},{"id":"198","source":"arnabch01","target":"nieuwemarlean"},{"id":"199","source":"arnabch01","target":"MomiraMonika"},{"id":"200","source":"arnabch01","target":"LuisaM56"},{"id":"201","source":"arnabch01","target":"duckylemon"},{"id":"202","source":"arnabch01","target":"pep"},{"id":"203","source":"arnabch01","target":"vilamala"},{"id":"204","source":"arnabch01","target":"longsight9a"},{"id":"205","source":"arnabch01","target":"EricJSwensson"},{"id":"206","source":"arnabch01","target":"MarionSpekker"},{"id":"207","source":"arnabch01","target":"marienassar"},{"id":"208","source":"arnabch01","target":"mhall55nine"},{"id":"209","source":"arnabch01","target":"ceconomou56"},{"id":"210","source":"arnabch01","target":"MariangelaSant8"},{"id":"211","source":"arnabch01","target":"marmelyr"},{"id":"212","source":"arnabch01","target":"maluisa"},{"id":"213","source":"arnabch01","target":"3"},{"id":"214","source":"arnabch01","target":"hlcoatesmusic"},{"id":"215","source":"arnabch01","target":"rightwingleo2"},{"id":"216","source":"arnabch01","target":"MojoBag4U"},{"id":"217","source":"arnabch01","target":"rosmarie1291"},{"id":"218","source":"arnabch01","target":"sminaev2015"},{"id":"219","source":"arnabch01","target":"peac4love"},{"id":"220","source":"arnabch01","target":"eoff"},{"id":"221","source":"arnabch01","target":"sylvia"},{"id":"222","source":"arnabch01","target":"shinunao21"},{"id":"223","source":"arnabch01","target":"ERNESTZorro"},{"id":"224","source":"RallidaeRule","target":"Team"},{"id":"225","source":"RallidaeRule","target":"eBird"},{"id":"226","source":"RallidaeRule","target":"StrimasMackey"},{"id":"227","source":"RallidaeRule","target":"RallidaeRule"},{"id":"228","source":"RallidaeRule","target":"amp"},{"id":"229","source":"RallidaeRule","target":"emhrt"},{"id":"230","source":"RallidaeRule","target":"You"},{"id":"231","source":"RallidaeRule","target":"Team"},{"id":"232","source":"RallidaeRule","target":"eBird"},{"id":"233","source":"RallidaeRule","target":"StrimasMackey"},{"id":"234","source":"RallidaeRule","target":"RallidaeRule"},{"id":"235","source":"RallidaeRule","target":"emhrt"},{"id":"236","source":"RallidaeRule","target":"StrimasMackey"},{"id":"237","source":"mattatmango","target":"MangoTheCat"},{"id":"238","source":"mattatmango","target":"RStudio"},{"id":"239","source":"mattatmango","target":"s"},{"id":"240","source":"josephrkasprzyk","target":"RLesur"},{"id":"241","source":"rstatstweet","target":"Rbloggers"},{"id":"242","source":"rstatstweet","target":"StrimasMackey"},{"id":"243","source":"rstatstweet","target":"orchid00"},{"id":"244","source":"rstatstweet","target":"RLadiesGlobal"},{"id":"245","source":"rstatstweet","target":"thecarpentries"},{"id":"246","source":"rstatstweet","target":"Team"},{"id":"247","source":"rstatstweet","target":"eBird"},{"id":"248","source":"rstatstweet","target":"StrimasMackey"},{"id":"249","source":"rstatstweet","target":"RallidaeRule"},{"id":"250","source":"rstatstweet","target":"amp"},{"id":"251","source":"rstatstweet","target":"emhrt"},{"id":"252","source":"rstatstweet","target":"You"},{"id":"253","source":"rstatstweet","target":"rOpenSci"},{"id":"254","source":"rstatstweet","target":"Team"},{"id":"255","source":"rstatstweet","target":"eBird"},{"id":"256","source":"rstatstweet","target":"StrimasMackey"},{"id":"257","source":"rstatstweet","target":"SpacePlowboy"},{"id":"258","source":"rstatstweet","target":"CedScherer"},{"id":"259","source":"rstatstweet","target":"DrBruceAshford"},{"id":"260","source":"rstatstweet","target":"dccc"},{"id":"261","source":"rstatstweet","target":"phd"},{"id":"262","source":"rstatstweet","target":"jtleek"},{"id":"263","source":"rstatstweet","target":"BecomingDataSci"},{"id":"264","source":"rstatstweet","target":"ylecun"},{"id":"265","source":"rstatstweet","target":"AndrewYNg"},{"id":"266","source":"rstatstweet","target":"DeepMindAI"},{"id":"267","source":"rstatstweet","target":"Medium"},{"id":"268","source":"rstatstweet","target":"WinVectorLLC"},{"id":"269","source":"rstatstweet","target":"Team"},{"id":"270","source":"rstatstweet","target":"eBird"},{"id":"271","source":"rstatstweet","target":"StrimasMackey"},{"id":"272","source":"rstatstweet","target":"RallidaeRule"},{"id":"273","source":"rstatstweet","target":"emhrt"},{"id":"274","source":"rstatstweet","target":"StrimasMackey"},{"id":"275","source":"rstatstweet","target":"ConArtist32"},{"id":"276","source":"rstatstweet","target":"tylermorganwallhttps"},{"id":"277","source":"rstatstweet","target":"tco"},{"id":"278","source":"rstatstweet","target":"7alsxZ0l0I"},{"id":"279","source":"dmi3k","target":"hadleywickham"},{"id":"280","source":"dmi3k","target":"jimhester"},{"id":"281","source":"dmi3k","target":"Rstudio"},{"id":"282","source":"dmi3k","target":"Rbloggers"},{"id":"283","source":"renato_umeton","target":"h2oai"},{"id":"284","source":"renato_umeton","target":"bradleyboehmke"},{"id":"285","source":"renato_umeton","target":"ChristophMolnar"},{"id":"286","source":"pofigster","target":"Rbloggers"},{"id":"287","source":"conjja","target":"NatsuSh"},{"id":"288","source":"conjja","target":"RLadiesSantaFe"},{"id":"289","source":"rOpenSci","target":"Team"},{"id":"290","source":"rOpenSci","target":"eBird"},{"id":"291","source":"rOpenSci","target":"StrimasMackey"},{"id":"292","source":"rOpenSci","target":"RallidaeRule"},{"id":"293","source":"rOpenSci","target":"emhrt"},{"id":"294","source":"rOpenSci","target":"StrimasMackey"},{"id":"295","source":"rOpenSci","target":"StrimasMackey"},{"id":"296","source":"rOpenSci","target":"Team"},{"id":"297","source":"rOpenSci","target":"eBird"},{"id":"298","source":"rOpenSci","target":"StrimasMackey"},{"id":"299","source":"rOpenSci","target":"RallidaeRule"},{"id":"300","source":"rOpenSci","target":"amp"},{"id":"301","source":"rOpenSci","target":"emhrt"},{"id":"302","source":"rOpenSci","target":"You"},{"id":"303","source":"rOpenSci","target":"Team"},{"id":"304","source":"rOpenSci","target":"eBird"},{"id":"305","source":"rOpenSci","target":"StrimasMackey"},{"id":"306","source":"RhotacT","target":"tylermorganwallhttps"},{"id":"307","source":"RhotacT","target":"tco"},{"id":"308","source":"RhotacT","target":"7alsxZ0l0I"},{"id":"309","source":"ma_salmon","target":"StrimasMackey"},{"id":"310","source":"ma_salmon","target":"Team"},{"id":"311","source":"ma_salmon","target":"eBird"},{"id":"312","source":"ma_salmon","target":"StrimasMackey"},{"id":"313","source":"ma_salmon","target":"RallidaeRule"},{"id":"314","source":"ma_salmon","target":"amp"},{"id":"315","source":"ma_salmon","target":"emhrt"},{"id":"316","source":"ma_salmon","target":"You"},{"id":"317","source":"Giosd","target":"h2oai"},{"id":"318","source":"Giosd","target":"bradleyboehmke"},{"id":"319","source":"Giosd","target":"ChristophMolnar"},{"id":"320","source":"Vic_Bioinfo","target":"Bioconductor"},{"id":"321","source":"Vic_Bioinfo","target":"antifreezeprot"},{"id":"322","source":"Vic_Bioinfo","target":"julien"},{"id":"323","source":"Vic_Bioinfo","target":"roux"},{"id":"324","source":"Vic_Bioinfo","target":"JulienWollbrett"},{"id":"325","source":"Vic_Bioinfo","target":"marc"},{"id":"326","source":"Vic_Bioinfo","target":"rr"},{"id":"327","source":"Vic_Bioinfo","target":"orchid00"},{"id":"328","source":"Vic_Bioinfo","target":"RLadiesGlobal"},{"id":"329","source":"Vic_Bioinfo","target":"thecarpentries"},{"id":"330","source":"VuePackage","target":"gp"},{"id":"331","source":"VuePackage","target":"pulipaka"},{"id":"332","source":"IFB_Bioinfo","target":"orchid00"},{"id":"333","source":"IFB_Bioinfo","target":"RLadiesGlobal"},{"id":"334","source":"IFB_Bioinfo","target":"thecarpentries"},{"id":"335","source":"Lindsay_Bloch","target":"AnnualReviews"},{"id":"336","source":"Lindsay_Bloch","target":"mcmc"},{"id":"337","source":"Lindsay_Bloch","target":"stan"},{"id":"338","source":"Lindsay_Bloch","target":"news4anthros"},{"id":"339","source":"TiempoCol","target":"tylermorganwallhttps"},{"id":"340","source":"TiempoCol","target":"tco"},{"id":"341","source":"TiempoCol","target":"7alsxZ0l0I"},{"id":"342","source":"rweekly_live","target":"rOpenSci"},{"id":"343","source":"delley_fx","target":"gp"},{"id":"344","source":"delley_fx","target":"pulipaka"},{"id":"345","source":"Datascience__","target":"ma"},{"id":"346","source":"Datascience__","target":"salmon"},{"id":"347","source":"Datascience__","target":"SuzanBaert"},{"id":"348","source":"Datascience__","target":"hrbrmstr"},{"id":"349","source":"Datascience__","target":"rOpenSci"},{"id":"350","source":"machinelearnflx","target":"ma"},{"id":"351","source":"machinelearnflx","target":"salmon"},{"id":"352","source":"machinelearnflx","target":"SuzanBaert"},{"id":"353","source":"machinelearnflx","target":"hrbrmstr"},{"id":"354","source":"machinelearnflx","target":"rOpenSci"},{"id":"355","source":"claudiaguirao","target":"topepos"},{"id":"356","source":"RLadiesGlobal","target":"NatsuSh"},{"id":"357","source":"RLadiesGlobal","target":"RLadiesSantaFe"},{"id":"358","source":"luaburto","target":"h2oai"},{"id":"359","source":"luaburto","target":"bradleyboehmke"},{"id":"360","source":"luaburto","target":"ChristophMolnar"},{"id":"361","source":"a_hun1972","target":"tylermorganwallhttps"},{"id":"362","source":"a_hun1972","target":"tco"},{"id":"363","source":"a_hun1972","target":"7alsxZ0l0I"},{"id":"364","source":"CedScherer","target":"tylermorganwallhttps"},{"id":"365","source":"CedScherer","target":"tco"},{"id":"366","source":"CedScherer","target":"7alsxZ0l0I"},{"id":"367","source":"KonSciencePod","target":"ma"},{"id":"368","source":"KonSciencePod","target":"salmon"},{"id":"369","source":"KonSciencePod","target":"SuzanBaert"},{"id":"370","source":"KonSciencePod","target":"hrbrmstr"},{"id":"371","source":"KonSciencePod","target":"rOpenSci"}]},"type":"canvas","button":{"event":"none","label":""},"crosstalk":{"crosstalk_key":null,"crosstalk_group":null}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-7f4bafdb44feadc59cdc">{"x":{"data":{"nodes":[{"id":"_lionelhenry","size":"1","x":" 1.033055","y":"13.419207"},{"id":"AndesRozak","size":"1","x":"19.975463","y":" 5.143970"},{"id":"BolinCentre","size":"1","x":" 3.808234","y":"11.528078"},{"id":"C_Bachmaier","size":"1","x":"10.942949","y":" 4.248586"},{"id":"chrissyatmango","size":"3","x":"12.299856","y":"10.255541"},{"id":"coolbutuseless","size":"2","x":"11.953670","y":"16.056177"},{"id":"dataandme","size":"2","x":"11.629233","y":"19.061338"},{"id":"dj_price10","size":"3","x":"19.270308","y":"14.697321"},{"id":"eBird","size":"1","x":" 8.593446","y":"10.571737"},{"id":"epirecipes","size":"2","x":" 8.441387","y":" 7.891908"},{"id":"FishBaseProject","size":"1","x":"10.484758","y":"13.563906"},{"id":"gp","size":"6","x":" 6.573609","y":" 7.720165"},{"id":"gregpetrossian","size":"1","x":"14.000107","y":"14.416880"},{"id":"hadleywickham","size":"2","x":"17.266450","y":"12.934602"},{"id":"hafenstats","size":"1","x":" 6.104126","y":" 3.861115"},{"id":"icrosoft","size":"3","x":"19.889018","y":"14.654922"},{"id":"ipnosimmia","size":"3","x":"13.866679","y":" 5.788851"},{"id":"jacquietran","size":"1","x":"15.621395","y":" 3.148997"},{"id":"Jeet_csharp","size":"2","x":"12.617167","y":"11.228829"},{"id":"JEFworks","size":"1","x":"17.329387","y":" 7.095049"},{"id":"JennyBryan","size":"2","x":"12.322021","y":" 8.480592"},{"id":"jimhester","size":"5","x":" 2.111482","y":"16.748112"},{"id":"lexnederbragt","size":"1","x":" 1.098098","y":"16.289559"},{"id":"Mai_Moton_g_","size":"4","x":" 1.775445","y":" 6.465016"},{"id":"MangoTheCat","size":"1","x":" 4.269703","y":"14.746889"},{"id":"marioandretti78","size":"2","x":" 2.788940","y":"12.737123"},{"id":"matheusiarom","size":"1","x":"12.829526","y":" 4.411006"},{"id":"Nellie_SP","size":"1","x":"14.033112","y":"18.010904"},{"id":"NoorDinTech","size":"3","x":"11.975417","y":"14.236752"},{"id":"opepos","size":"1","x":"17.188083","y":" 3.360039"},{"id":"ozefhajnala","size":"1","x":"15.285081","y":" 2.000950"},{"id":"PgpMartin","size":"1","x":"14.143770","y":"10.741152"},{"id":"pulipaka","size":"6","x":"15.422981","y":" 6.555976"},{"id":"randev_sharma","size":"2","x":"13.705038","y":" 5.444307"},{"id":"rOpenSci","size":"3","x":" 9.480208","y":" 4.960437"},{"id":"royesal","size":"2","x":" 4.031133","y":" 8.507352"},{"id":"rstatstweet","size":"5","x":"17.139239","y":"15.377871"},{"id":"rstudio","size":"1","x":"19.191817","y":"14.646301"},{"id":"RStudio","size":"1","x":" 6.329410","y":" 9.819742"},{"id":"rweekly_live","size":"1","x":"13.283653","y":" 2.771060"},{"id":"s","size":"1","x":"16.864316","y":"16.329538"},{"id":"Sci","size":"2","x":" 7.029359","y":"10.463164"},{"id":"Sparanzza","size":"2","x":" 6.777214","y":" 5.426131"},{"id":"srenders","size":"1","x":"15.552894","y":" 5.302376"},{"id":"StrimasMackey","size":"1","x":" 7.934628","y":"15.940644"},{"id":"TAH","size":"2","x":"14.306225","y":"19.834808"},{"id":"tangming2005","size":"1","x":" 4.820503","y":"16.571304"},{"id":"Team","size":"1","x":"17.410134","y":" 8.487361"},{"id":"TedPavlic","size":"3","x":"16.104682","y":" 5.928477"},{"id":"thinkR_fr","size":"1","x":"10.569207","y":" 4.495841"},{"id":"thomasp85","size":"1","x":" 5.527887","y":"16.118258"},{"id":"Triamus1","size":"1","x":"11.389528","y":" 6.172370"},{"id":"ZLabe","size":"1","x":"14.412659","y":" 7.470796"}],"edges":[{"id":"1","source":"Nellie_SP","target":"icrosoft"},{"id":"2","source":"Mai_Moton_g_","target":"gp"},{"id":"3","source":"Mai_Moton_g_","target":"pulipaka"},{"id":"4","source":"Mai_Moton_g_","target":"gp"},{"id":"5","source":"Mai_Moton_g_","target":"pulipaka"},{"id":"6","source":"rstatstweet","target":"coolbutuseless"},{"id":"7","source":"rstatstweet","target":"rOpenSci"},{"id":"8","source":"rstatstweet","target":"JennyBryan"},{"id":"9","source":"rstatstweet","target":"hadleywickham"},{"id":"10","source":"rstatstweet","target":"dataandme"},{"id":"11","source":"FishBaseProject","target":"rOpenSci"},{"id":"12","source":"TedPavlic","target":"TAH"},{"id":"13","source":"TedPavlic","target":"Sci"},{"id":"14","source":"TedPavlic","target":"epirecipes"},{"id":"15","source":"jacquietran","target":"jimhester"},{"id":"16","source":"randev_sharma","target":"gp"},{"id":"17","source":"randev_sharma","target":"pulipaka"},{"id":"18","source":"srenders","target":"icrosoft"},{"id":"19","source":"Sparanzza","target":"gp"},{"id":"20","source":"Sparanzza","target":"pulipaka"},{"id":"21","source":"thinkR_fr","target":"coolbutuseless"},{"id":"22","source":"C_Bachmaier","target":"ozefhajnala"},{"id":"23","source":"_lionelhenry","target":"jimhester"},{"id":"24","source":"tangming2005","target":"jimhester"},{"id":"25","source":"lexnederbragt","target":"jimhester"},{"id":"26","source":"PgpMartin","target":"opepos"},{"id":"27","source":"thomasp85","target":"jimhester"},{"id":"28","source":"Jeet_csharp","target":"gp"},{"id":"29","source":"Jeet_csharp","target":"pulipaka"},{"id":"30","source":"NoorDinTech","target":"Team"},{"id":"31","source":"NoorDinTech","target":"eBird"},{"id":"32","source":"NoorDinTech","target":"StrimasMackey"},{"id":"33","source":"rweekly_live","target":"rOpenSci"},{"id":"34","source":"AndesRozak","target":"rstudio"},{"id":"35","source":"chrissyatmango","target":"MangoTheCat"},{"id":"36","source":"chrissyatmango","target":"RStudio"},{"id":"37","source":"chrissyatmango","target":"s"},{"id":"38","source":"gregpetrossian","target":"icrosoft"},{"id":"39","source":"royesal","target":"ZLabe"},{"id":"40","source":"royesal","target":"BolinCentre"},{"id":"41","source":"ipnosimmia","target":"JennyBryan"},{"id":"42","source":"ipnosimmia","target":"hadleywickham"},{"id":"43","source":"ipnosimmia","target":"dataandme"},{"id":"44","source":"dj_price10","target":"TAH"},{"id":"45","source":"dj_price10","target":"Sci"},{"id":"46","source":"dj_price10","target":"epirecipes"},{"id":"47","source":"marioandretti78","target":"gp"},{"id":"48","source":"marioandretti78","target":"pulipaka"},{"id":"49","source":"Triamus1","target":"hafenstats"},{"id":"50","source":"matheusiarom","target":"JEFworks"}]},"type":"canvas","button":{"event":"none","label":""},"crosstalk":{"crosstalk_key":null,"crosstalk_group":null}},"evals":[],"jsHooks":[]}</script>
 <p>This graph does not look great. We’ll beautify that bit by bit as we move through the book: sigmajs is highly customisable.</p>
 <p>Nevermind beauty, what’s on the graph exactly? Each disk/point on the graph is a twitter user, they are connected when one has tagged the other in the a tweet.</p>
 <p>You may also notice that the graph contains surprisingly few nodes, given that we queried 100 tweets you would expect over 100 nodes on the graph. This is because our visualisation only includes tweets that mention other users and most tweets are not targeted (tagged) at other users. There is an easy remedy to this which we’ll look at in the <a href="advanced" class="uri">advanced</a> chapter.</p>
@@ -477,34 +504,34 @@ We <strong>visualise</strong> the network
 <div id="recap" class="section level2">
 <h2><span class="header-section-number">5.4</span> Recap</h2>
 <p>This chapter aimed at demonstrating the basic principles behind the packages and the order in which use them. The chapter may look long~ish but the code is not, here it is put together.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
-
-<span class="co"># COLLECT</span>
-tweets &lt;-<span class="st"> </span><span class="kw">search_tweets</span>(<span class="st">&quot;rstats&quot;</span>, <span class="dt">token =</span> TK)
-
-<span class="co"># BUILD</span>
-net &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">gt_edges</span>(text, screen_name, status_id) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">gt_nodes</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">gt_collect</span>() 
-
-<span class="kw">c</span>(edges, nodes) <span class="op">%&lt;-%</span><span class="st"> </span>net <span class="co"># unpack</span>
-
-<span class="co"># prepare for sigmajs</span>
-nodes &lt;-<span class="st"> </span><span class="kw">nodes2sg</span>(nodes)
-edges &lt;-<span class="st"> </span><span class="kw">edges2sg</span>(edges)
-
-<span class="co"># VISUALISE</span>
-<span class="kw">sigmajs</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">sg_nodes</span>(nodes, id, size) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">sg_edges</span>(edges, id, source, target)</code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb31-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb31-3" data-line-number="3"><span class="co"># COLLECT</span></a>
+<a class="sourceLine" id="cb31-4" data-line-number="4">tweets &lt;-<span class="st"> </span><span class="kw">search_tweets</span>(<span class="st">&quot;rstats&quot;</span>, <span class="dt">token =</span> TK)</a>
+<a class="sourceLine" id="cb31-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb31-6" data-line-number="6"><span class="co"># BUILD</span></a>
+<a class="sourceLine" id="cb31-7" data-line-number="7">net &lt;-<span class="st"> </span>tweets <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb31-8" data-line-number="8"><span class="st">  </span><span class="kw">gt_edges</span>(text, screen_name, status_id) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb31-9" data-line-number="9"><span class="st">  </span><span class="kw">gt_nodes</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb31-10" data-line-number="10"><span class="st">  </span><span class="kw">gt_collect</span>() </a>
+<a class="sourceLine" id="cb31-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb31-12" data-line-number="12"><span class="kw">c</span>(edges, nodes) <span class="op">%&lt;-%</span><span class="st"> </span>net <span class="co"># unpack</span></a>
+<a class="sourceLine" id="cb31-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb31-14" data-line-number="14"><span class="co"># prepare for sigmajs</span></a>
+<a class="sourceLine" id="cb31-15" data-line-number="15">nodes &lt;-<span class="st"> </span><span class="kw">nodes2sg</span>(nodes)</a>
+<a class="sourceLine" id="cb31-16" data-line-number="16">edges &lt;-<span class="st"> </span><span class="kw">edges2sg</span>(edges)</a>
+<a class="sourceLine" id="cb31-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb31-18" data-line-number="18"><span class="co"># VISUALISE</span></a>
+<a class="sourceLine" id="cb31-19" data-line-number="19"><span class="kw">sigmajs</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb31-20" data-line-number="20"><span class="st">  </span><span class="kw">sg_nodes</span>(nodes, id, size) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb31-21" data-line-number="21"><span class="st">  </span><span class="kw">sg_edges</span>(edges, id, source, target)</a></code></pre></div>
 
 </div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-R-base">
-<p>R Core Team. 2018. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+<p>R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
 </div>
 <div id="ref-R-zeallot">
 <p>Teetor, Nathan. 2018. <em>Zeallot: Multiple, Unpacking, and Destructuring Assignment</em>. <a href="https://CRAN.R-project.org/package=zeallot" class="uri">https://CRAN.R-project.org/package=zeallot</a>.</p>

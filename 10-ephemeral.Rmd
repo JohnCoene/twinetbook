@@ -186,7 +186,7 @@ We will cover why we need to do so in the next chapter.
 
 ```{r}
 refresh <- data.frame(
-  delay = seq(1, 35000, by = 1000)
+  delay = seq(1, 35000, by = 500)
 )
 
 sigmajs() %>% 
