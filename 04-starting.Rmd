@@ -7,7 +7,7 @@ library(twinetverse)
 TK <- readRDS("twitter_token.rds")
 ```
 
-In this chapter we briefly explore the twinetverse: we _collect_ tweets, _build_ and _visualise_ our first graph.
+In this chapter we briefly explore the twinetverse: we _collect_ tweets, _build_ and _visualise_ our first graph. graphTweets lets you build different types of graphs; here we get you started with the most popular kind (regarding Twitter data), networks of users where users are connected when they \@tag one another in tweets.
 
 ```{block, type = "note"}
 If you follow this along in RStudio; the visualisations do not open in the viewer and instead open in your default browser.
@@ -39,12 +39,17 @@ names(tweets)
 
 Now we can use the second package part of the _twinetverse_, graphTweets. Again, we'll leave all function's arguments to default to get a simple graph. There's a lot more to the package which we'll uncover progressively as we move through the book.
 
+There are two ways of building a network of Twitter users with graphTweets, the one we use in this book is preferable over the other as it is much more accurate.
+
+1. The more accurate `gt_edges` based on `mentions_screen_name` (names of users \@tagged in tweets) provided by the Twitter API.
+2. The less accurate `gt_edges_from_text` which extracts the \@tagged users from the tweets' `text`, essentially the same as `mentions_screen_name` but likely less accurate.
+
 ```{r intro edges net, eval=TRUE}
 net <- tweets %>% 
   gt_edges(source = screen_name, target = mentions_screen_name)
 ```
 
-We called `gt_edges` on our `tweets` data.frame, passing a few bare column names. The source of the tweets (the user posting the tweets) will also be the source of our edges so we pass `source = screen_name`, then the target of these edges will be users tagged in the tweets, which is given by the API as `mentions_screen_name`; this will be target of our edges.
+We called `gt_edges` on our `tweets` data.frame, passing a few bare column names. The source of the tweets (the user posting the tweets) will also be the source of our edges so we pass `source = screen_name`, then the target of these edges will be users \@tagged in the tweets, which is given by the API as `mentions_screen_name`; this will be target of our edges.
 
 The object returned is of an unfamiliar class.
 
@@ -160,14 +165,14 @@ edges <- edges2sg(edges)
 You need to respect sigmajs naming convention or the graph will not display.
 ```
 
-Let's visualise that, we must initialise every sigmajs graph with the `sigmajs` function, then we add our nodes with `sg_nodes`, passing the column names we mentioned previously, `id`, and `size` to meet sigmajs' minimum requirements. *At the exception of `sigmajs`, all functions of the sigmajs package start with `sg_`*  
+Let's visualise that, we must initialise every sigmajs graph with the `sigmajs` function, then we add our nodes with `sg_nodes`, passing the column names we mentioned previously, `id`, and `size` to meet sigmajs' minimum requirements. *In sigmajs, at the exception of the function called `sigmajs`, all start with `sg_`*  
 
 ```{r intro sg nodes, eval=TRUE}
 sigmajs() %>% 
   sg_nodes(nodes, id, size) 
 ```
 
-sigmajs actually allows you to build graphs using only nodes or edges, we'll see why this is useful in a later chapter on [temporal graphs](#dynamic). Let's add the edges. Then again, to meet sigmajs' requirements, we pass `id`, `source` and `target`.
+sigmajs actually allows you to build graphs using only nodes or edges, we'll see why this is useful in a later chapter on [temporal graphs](#temporal). Let's add the edges. Then again, to meet sigmajs' requirements, we pass `id`, `source` and `target`.
 
 ```{r intro sg nodes and edges, eval=TRUE}
 sigmajs() %>% 
@@ -179,7 +184,7 @@ This graph does not look great. We'll beautify that bit by bit as we move throug
 
 Nevermind beauty, what's on the graph exactly? Each disk/point on the graph is a twitter user, they are connected when one has tagged the other in the a tweet.
 
-You may also notice that the graph contains surprisingly few nodes, given that we queried 100 tweets you would expect over 100 nodes on the graph. This is because our visualisation only includes tweets that mention other users and most tweets are not targeted (tagged) at other users. There is an easy remedy to this which we'll look at in the [advanced](advanced) chapter.
+You may also notice that the graph contains surprisingly few nodes, given that we queried 100 tweets you would expect over 100 nodes on the graph (100 user posting plus the users \@tagged the tweets). This is because our visualisation only includes tweets that mention other users and many tweets are not targeted (\@tagged) at other users. There is an easy remedy to this which we'll look at in the [advanced](#advanced) chapter.
 
 ```{block, type = "note"}
 Remember the workflow of the _twinetverse_:
