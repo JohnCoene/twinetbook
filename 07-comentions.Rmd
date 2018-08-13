@@ -1,0 +1,80 @@
+# Co-mentions {#co-mentions}
+
+```{r, echo=FALSE, include=FALSE}
+library(twinetverse)
+
+TK <- readRDS("twitter_token.rds")
+```
+
+The _twinetverse_ also enables building networks of co-mentions.
+
+Let's collect some tweets for this chapter.
+
+```{r hash search, eval=TRUE}
+# TK <- readRDS(file = "token.rds")
+tweets <- search_tweets("rstats", n = 1000, token = TK, include_rts = FALSE, lang = "en")
+```
+
+## Hastags 
+
+It's failry similar to what we did in the previous section.
+
+```{block, type = "note"}
+Use `gt_co_edges` to build networks of co-mentions.
+```
+
+We use `gt_co_edges` to which we pass our bare `hashtags` column name, this is all the function needs as we are plotting a network of hashtags only.
+
+```{r hash net 2}
+net <- tweets %>% 
+  gt_co_edges(hashtags) %>% 
+  gt_nodes() %>% 
+  gt_collect()
+```
+
+Now we can work on the visualisation. Since we got tweets on #rstats we know that all hashtags in the graph will be connected to it. Not being an important piece of information (we already know), we can just remove the #rstats node and all edges connecting to it.
+
+```{r hash filter}
+c(edges, nodes) %<-% net
+
+edges <- edges %>% 
+  edges2sg() %>% 
+  dplyr::filter(
+    source != "rstats", 
+    target != "rstats"
+  )
+
+nodes <- nodes %>% 
+  nodes2sg() %>% 
+  dplyr::filter(id != "rstats") 
+```
+
+Now that the filtering is done we can plot the data.
+
+```{block, type = "warn"}
+Remember to filter both edges *and* nodes.
+```
+
+```{r hash plot 2}
+sigmajs() %>% 
+  sg_nodes(nodes, id, label, size) %>% 
+  sg_edges(edges, id, source, target) %>% 
+  sg_cluster(
+    colors = c(
+      "#0084b4",
+      "#00aced",
+      "#1dcaff",
+      "#c0deed"
+      )
+  ) %>% 
+  sg_layout(layout = igraph::layout_components) %>% 
+  sg_neighbours() %>% 
+  sg_settings(
+    defaultEdgeColor = "#a3a3a3",
+    edgeColor = "default"
+  )
+```
+
+## Users
+
+We can also build a network that shows the

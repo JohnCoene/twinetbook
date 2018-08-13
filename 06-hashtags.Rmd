@@ -8,7 +8,7 @@ TK <- readRDS("twitter_token.rds")
 
 The _twinetverse_, or graphTweets more specifically, not only enables visualising interactions between users, it also lets one build and visualise networks of users and the hashtag(s) they use as well as network of hashtags co-mentions. Let's first look at connecting users to the hashtags they use.
 
-## Hastags to Users
+## Collect
 
 Let's collect some tweets, since we want to plot relationships between users and hashtags we'll specify two hashtags: #python and #rstats. This way we'll be able to see who uses both or either. We'll also narrow it down to tweets in English to avoid #hashtags we cannot understand.
 
@@ -16,6 +16,8 @@ Let's collect some tweets, since we want to plot relationships between users and
 # TK <- readRDS(file = "token.rds")
 tweets <- search_tweets("#rstats OR #python", n = 1000, token = TK, include_rts = FALSE, lang = "en")
 ```
+
+## Build
 
 Now let's build a network of hashtags to visualise which user tweets which #hashtag.
 
@@ -48,6 +50,8 @@ knitr::kable(head(net$nodes))
 
 Nodes also include the `type` which is either set to `user` or `hashtag`.
 
+## Visualise
+
 Now onto the visualisation. As we did before, we unpack our network, then we prepare the data to fit sigmajs' expectation, and we color the nodes according to the `type`, one colour for #hashtags and another for \@users.
 
 ```{r hash unpack}
@@ -74,71 +78,4 @@ sigmajs() %>%
 ```
 
 It is interesting to see that few users actually tweet both hashtags, this _wouldn't_ have to be in the same tweet so it is somewhat surprising.
-
-## Hastags Co-mentions
-
-Let's collect tweets on #rstats so that we can then see which topics, surrounding R, are the most popular on Twitter.
-
-```{r hash search 2, eval=TRUE}
-# TK <- readRDS(file = "token.rds")
-tweets <- search_tweets("#rstats", n = 500, token = TK, include_rts = FALSE, lang = "en")
-```
-
-It's failry similar to what we did in the previous section.
-
-```{block, type = "note"}
-Use `gt_co_edges` to build networks of co-mentions.
-```
-
-We use `gt_co_edges` to which we pass our bare `hashtags` column name, this is all the function needs as we are plotting a network of hashtags only.
-
-```{r hash net 2}
-net <- tweets %>% 
-  gt_co_edges(hashtags) %>% 
-  gt_nodes() %>% 
-  gt_collect()
-```
-
-Now we can work on the visualisation. Since we got tweets on #rstats we know that all hashtags in the graph will be connected to it. Not being an important piece of information (we already know), we can just remove the #rstats node and all edges connecting to it.
-
-```{r hash filter}
-c(edges, nodes) %<-% net
-
-edges <- edges %>% 
-  edges2sg() %>% 
-  dplyr::filter(
-    source != "rstats", 
-    target != "rstats"
-  )
-
-nodes <- nodes %>% 
-  nodes2sg() %>% 
-  dplyr::filter(id != "rstats") 
-```
-
-Now that the filtering is done we can plot the data.
-
-```{block, type = "tip"}
-Remember to filter both edges *and* nodes.
-```
-
-```{r hash plot 2}
-sigmajs() %>% 
-  sg_nodes(nodes, id, label, size) %>% 
-  sg_edges(edges, id, source, target) %>% 
-  sg_cluster(
-    colors = c(
-      "#0084b4",
-      "#00aced",
-      "#1dcaff",
-      "#c0deed"
-      )
-  ) %>% 
-  sg_layout(layout = igraph::layout_components) %>% 
-  sg_neighbours() %>% 
-  sg_settings(
-    defaultEdgeColor = "#a3a3a3",
-    edgeColor = "default"
-  )
-```
 

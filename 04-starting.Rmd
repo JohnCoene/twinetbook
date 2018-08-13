@@ -44,7 +44,7 @@ net <- tweets %>%
   gt_edges(source = screen_name, target = mentions_screen_name)
 ```
 
-We called `gt_edges` on our `tweets` data.frame, passing a few bare column names. The source of the tweets (the user posting the tweets) will also be the source of our edges so we pass `screen_name`, then the target of these edges will be users tagged in the tweets, `text` variable in rtweet. Finally we pass a unique `id` for each tweet, you could add one yourself but the one provided by Twitter (`status_id`) does the job.
+We called `gt_edges` on our `tweets` data.frame, passing a few bare column names. The source of the tweets (the user posting the tweets) will also be the source of our edges so we pass `source = screen_name`, then the target of these edges will be users tagged in the tweets, which is given by the API as `mentions_screen_name`; this will be target of our edges.
 
 The object returned is of an unfamiliar class.
 
@@ -91,7 +91,7 @@ lapply(net, class)
 Before we move on, something to note. graphTweets _requires_ that you run the functions in the correct order, first `gt_edges` and second `gt_nodes`. This is because one can only know the nodes of a graph based on the edges and not vice versa.
 
 ```{block, type = "note"}
-Run graphTweets functions in the correct order, first get the edges _then_ the nodes.
+Run graphTweets' functions in the correct order, first get the edges _then_ the nodes.
 ```
 
 Now we're ready to visualise the data, we have downloaded tweets used them to build a of nodes and another of edges.
