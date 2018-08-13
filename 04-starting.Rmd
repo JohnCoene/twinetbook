@@ -41,7 +41,7 @@ Now we can use the second package part of the _twinetverse_, graphTweets. Again,
 
 ```{r intro edges net, eval=TRUE}
 net <- tweets %>% 
-  gt_edges(tweets = text, source = screen_name, id = status_id)
+  gt_edges(source = screen_name, target = mentions_screen_name)
 ```
 
 We called `gt_edges` on our `tweets` data.frame, passing a few bare column names. The source of the tweets (the user posting the tweets) will also be the source of our edges so we pass `screen_name`, then the target of these edges will be users tagged in the tweets, `text` variable in rtweet. Finally we pass a unique `id` for each tweet, you could add one yourself but the one provided by Twitter (`status_id`) does the job.
@@ -81,7 +81,7 @@ Well, we only ran `gt_edges` so it make sense to only have edges. Let's scrap th
 
 ```{r intro redone graph with nodes, eval=TRUE}
 net <- tweets %>% 
-  gt_edges(text, screen_name, status_id) %>% # get edges
+  gt_edges(screen_name, mentions_screen_name) %>% # get edges
   gt_nodes() %>% # get nodes
   gt_collect() # collect
 
@@ -201,7 +201,7 @@ tweets <- search_tweets("rstats", token = TK)
 
 # BUILD
 net <- tweets %>% 
-  gt_edges(text, screen_name, status_id) %>% 
+  gt_edges(screen_name, mentions_screen_name) %>% 
   gt_nodes() %>% 
   gt_collect() 
 

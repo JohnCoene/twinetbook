@@ -30,7 +30,7 @@ net <- tweets %>%
   mutate(
     created_at = as.POSIXct(round(created_at, units = "hours"))
   ) %>% 
-  gt_edges(text, screen_name, status_id, created_at = "created_at") %>% 
+  gt_edges(screen_name, mentions_screen_name, created_at) %>% 
   gt_nodes() %>% 
   gt_dyn(lifetime = (60 * 60 * 6)) %>% 
   gt_collect()
@@ -186,7 +186,7 @@ We will cover why we need to do so in the next chapter.
 
 ```{r}
 refresh <- data.frame(
-  delay = seq(1, 35000, by = 500)
+  delay = seq(1, 32000, by = 500)
 )
 
 sigmajs() %>% 

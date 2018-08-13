@@ -19,13 +19,9 @@ tweets <- search_tweets("#rstats OR #python", n = 1000, token = TK, include_rts 
 
 Now let's build a network of hashtags to visualise which user tweets which #hashtag.
 
-```{block, type = "tip"}
-Use `gt_edges_hash` to build networks of users and hastags.
-```
-
 ```{r hash net}
 net <- tweets %>% 
-  gt_edges_hash(hashtags, screen_name) %>% 
+  gt_edges(screen_name, hashtags) %>% 
   gt_nodes() %>% 
   gt_collect()
 ```
@@ -51,8 +47,6 @@ knitr::kable(head(net$nodes))
 ```
 
 Nodes also include the `type` which is either set to `user` or `hashtag`.
-
-Only one function changes, we use `gt_edges_hash` instead of `gt_edges`. While the latter builds networks of users, as we should be somewhat familiar with already, the former build networks that map users to the hashtags they use in their tweets, it thus make sense to pass `hashtags` instead of `text` as rtweet neatly extracts that for us.
 
 Now onto the visualisation. As we did before, we unpack our network, then we prepare the data to fit sigmajs' expectation, and we color the nodes according to the `type`, one colour for #hashtags and another for \@users.
 
@@ -93,14 +87,14 @@ tweets <- search_tweets("#rstats", n = 500, token = TK, include_rts = FALSE, lan
 It's failry similar to what we did in the previous section.
 
 ```{block, type = "note"}
-Use `gt_edges_hashes` to build networks of hastags co-mentions.
+Use `gt_co_edges` to build networks of co-mentions.
 ```
 
-We use `gt_edges_hashes` to which we pass our bare `hashtags` column name, this is all the function needs as we are plotting a network of hashtags only.
+We use `gt_co_edges` to which we pass our bare `hashtags` column name, this is all the function needs as we are plotting a network of hashtags only.
 
 ```{r hash net 2}
 net <- tweets %>% 
-  gt_edges_hashes(hashtags) %>% 
+  gt_co_edges(hashtags) %>% 
   gt_nodes() %>% 
   gt_collect()
 ```

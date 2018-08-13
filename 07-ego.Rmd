@@ -18,7 +18,7 @@ Then we build the network, like we did before, just adding the missing `source` 
 ```{r ego net}
 net <- tl %>% 
   dplyr::mutate(src = "jdatap") %>% 
-  gt_edges(text, src, status_id) %>% 
+  gt_edges(src, mentions_screen_name) %>% 
   gt_nodes() %>% 
   gt_collect()
 ```
