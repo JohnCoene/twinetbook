@@ -14,11 +14,11 @@ We've been visualising Twitter interactions in a static manner, but they are dyn
 
 ## Collect
 
-We'll collect some tweets again, but feel free to use previously collected tweets; nothing changes at this stage.
+We'll collect some tweets again, we'll use retweets this time, so we build the corresponding search.
 
 ```{r dyn search, eval=TRUE}
 # TK <- readRDS(file = "token.rds")
-tweets <- search_tweets("#rstats filter:mentions", n = 5000, token = TK, include_rts = FALSE)
+tweets <- search_tweets("#rstats filter:retweets", n = 3000, token = TK, include_rts = TRUE)
 ```
 
 ## Build
@@ -112,7 +112,7 @@ You cannot use `sg_cluster` and `sg_layout` in dynamic graphs as they require bo
 This is something that we had not shared with you earlier on, `sg_nodes` must have `x` and `y` coordinates of each node, however, if missing they are generated randomly by the package. `sg_get_layout` computes the coordinates of the nodes (`x` and `y`) and adds them to our nodes data.frame.
 
 ```{r dyn head, warning = FALSE, eval = FALSE}
-nodes <- sg_get_layout(nodes, edges)
+nodes <- sg_get_layout(nodes, edges, layout = igraph::layout_components)
 head(nodes)
 ```
 
@@ -131,7 +131,7 @@ sigmajs() %>%
 
 Let's beautify the graph a little, this deep black is somewhat unnerving.
 
-```{r dynnodes and settings}
+```{r dyn nodes and settings}
 sigmajs() %>% 
   sg_nodes(nodes, id, size, label, x, y) %>%
   sg_settings(
@@ -173,7 +173,7 @@ Click the button in the top right corner of the visualisation to add the edges, 
 ```{r dyn button}
 sigmajs() %>% 
   sg_nodes(nodes, id, size, label, x, y) %>%
-  sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE) %>% 
+  sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE, refresh = TRUE) %>% 
   sg_button("Add edges", "add_edges") %>% 
   sg_settings(
     defaultNodeColor = "#127ba3",
@@ -189,4 +189,6 @@ sigmajs() %>%
 ```{block, type="tip"}
 A sigmajs button can trigger multiple events.
 ```
+
+We can see that some nodes are better at diseminating the message (#rstats), as the message reaches them they trigger numerous re-tweets.
 

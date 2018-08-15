@@ -29,11 +29,11 @@ sigmajs("webgl") %>% # set to webgl
 
 As you might have observed in the [previous chapter on ephemeral graphs](#ephemeral) our last graphs is not layed out quite as nicely as we would like to.
 
-**How does forceAtlas2 work in sigmajs**
+**How forceAtlas2 works in sigmajs**
 
 When you pass `sg_force` or `sg_force_start` to your graph, on load (or on the button click, if linked), forceAtlas2 kicks in and starts to layout the graph. We saw that since this is draining the browser we can then pass `sg_force_stop` specifying a `delay` in milliseconds when we want the layout to stop.
 
-What happens when we actually run the above as we _add_ or _drop_ nodes or edges? In actual fact the layout does not run constantly, as it would not take into account added or dropped nodes or edges and would continue running as if new edges or nodes were not added. Therefore a worker is created and the forceAtlas2 layout is killed then started after every node and or edge is added or dropped. This can be quite difficult for the browser to handle.
+What happens when we actually run the above but _adding_ or _dropping_ nodes or edges? In actual fact the layout does not run constantly, as it would not take into account added or dropped nodes or edges and would continue running as if new edges or nodes were not added. Therefore a worker is created and the forceAtlas2 layout is killed then started after every node and or edge is added or dropped. This can be quite difficult for the browser to handle.
 
 Let's make a dummy example below to show how it works smoothly for the smaller graphs.
 
@@ -57,4 +57,4 @@ sigmajs(height = 300) %>%
   )
 ```
 
-The above runs smoothly.
+The above is much less draining on the browser and runs smoothly.

@@ -50,3 +50,33 @@ net <- tweets %>%
   gt_nodes() %>% 
   gt_collect()
 ```
+
+You can unpack the network just as before, though we bound edges, everything remains the same from here onward.
+
+```{r}
+c(edges, nodes) %<-% net
+
+edges <- edges2sg(edges)
+nodes <- nodes2sg(nodes)
+
+sigmajs() %>% 
+  sg_nodes(nodes, id, label, size) %>% 
+  sg_edges(edges, id, source, target) %>% 
+  sg_neighbours() %>% 
+  sg_layout(layout = igraph::layout_components) %>% 
+  sg_cluster(
+    colors = c(
+      "#0075a0",
+      "#0084b4",
+      "#00aced",
+      "#1dcaff",
+      "#c0deed"
+      )
+  ) %>% 
+  sg_settings(
+    minNodeSize = 1,
+    maxNodeSize = 2.5,
+    edgeColor = "default",
+    defaultEdgeColor = "rgba(211, 211, 211, 0.4)"
+  )
+```

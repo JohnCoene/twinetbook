@@ -277,6 +277,7 @@ sigmajs("webgl") %>%
   sg_layout(layout = igraph::layout_components) %>% 
   sg_cluster(
     colors = c(
+      "#0075a0",
       "#0084b4",
       "#00aced",
       "#1dcaff",
