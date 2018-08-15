@@ -8,3 +8,45 @@ TK <- readRDS("twitter_token.rds")
 
 At this point, if you have read the book up to here, you have been explored all the difference types of graphs that we can build with the _twinetverse._ Now we can introduce two more functions to bind edges together and form more complex graphs.
 
+Let's take two of our previous graphs and merge them into one. Let's build a graph where we not only connect users to the hashtags they use but also connect the hashtags used in the same tweets together.
+
+```{r adv search + build, eval=TRUE}
+# TK <- readRDS(file = "token.rds")
+tweets <- search_tweets("rstats", n = 1000, token = TK, include_rts = FALSE, lang = "en")
+```
+
+Technically, the two graphs we want to merge are below.
+
+```{r adv both graphs, eval = FALSE}
+# Users to hashtags
+users <- tweets %>% 
+  gt_edges(screen_name, hashtags) %>% 
+  gt_nodes() %>% 
+  gt_collect()
+
+# hashtags co-mentions
+hashtags <- tweets %>% 
+  gt_co_edges(hashtags) %>% 
+  gt_nodes() %>% 
+  gt_collect()
+```
+
+Building two graphs, as above, to then merge them into one would not be convienient. It works differently in graphTweets, we do not need to build two full graphs, we only need to bind edges together and thus can do it in one single pipe (`%>%`).
+
+```{r adv bind init}
+net <- tweets %>% 
+  gt_edges(screen_name, hashtags) %>% 
+  gt_co_edges_bind(hashtags) %>% 
+  gt_nodes() %>% 
+  gt_collect()
+```
+
+We just call `gt_co_edges_bind` (in essence the same function as `gt_co_edges`) to bind those edges to previously piped edges. This would totally work the other way around too.
+
+```{r adv bind init reverse}
+net <- tweets %>% 
+  gt_co_edges(hashtags) %>%
+  gt_edges_bind(screen_name, hashtags) %>% 
+  gt_nodes() %>% 
+  gt_collect()
+```

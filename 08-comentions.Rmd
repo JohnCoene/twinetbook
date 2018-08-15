@@ -6,37 +6,79 @@ library(twinetverse)
 TK <- readRDS("twitter_token.rds")
 ```
 
-The _twinetverse_ also enables building networks of co-mentions.
+The _twinetverse_ also enables building networks of co-mentions. Say, instead of connecting users posting tweets to the \@users they tag in their tweets or the #hashtags they mention in their tweets, we were to connect the #hashtags or the \@users mentioned in the tweets to each other, not taking into account the person posting the tweet.
 
 Let's collect some tweets for this chapter.
 
-```{r hash search, eval=TRUE}
+```{r com search, eval=TRUE}
 # TK <- readRDS(file = "token.rds")
 tweets <- search_tweets("rstats", n = 1000, token = TK, include_rts = FALSE, lang = "en")
 ```
 
-## Hastags 
+## Users
 
-It's failry similar to what we did in the previous section.
+Building graphs of co-mentions requires the use of another function, from the graphTweets package. Instead of using `gt_edges` we use `gt_co_edges`, simple enough. Moreover since we ignore the source of the tweets, we only have to pass one argument to the function, the column containing the variable of which we want to to graph the co-mentions; `hashtags`, or `mentions_screen_name`.
 
-```{block, type = "note"}
-Use `gt_co_edges` to build networks of co-mentions.
+```{r com users}
+net <- tweets %>% 
+  gt_co_edges(mentions_screen_name) %>% 
+  gt_nodes() %>% 
+  gt_collect()
+
+c(edges, nodes) %<-% net
+
+edges <- edges2sg(edges)
+nodes <- nodes2sg(nodes)
 ```
 
-We use `gt_co_edges` to which we pass our bare `hashtags` column name, this is all the function needs as we are plotting a network of hashtags only.
+Since we are going to graph more than one co-mention network, let's define a graph function that we can easily re-use.
 
-```{r hash net 2}
+```{r com fun}
+sg_graph <- function(nodes, edges){
+  
+  sigmajs() %>% 
+  sg_nodes(nodes, id, label, size) %>% 
+  sg_edges(edges, id, source, target) %>% 
+  sg_cluster(
+    colors = c(
+      "#0084b4",
+      "#00aced",
+      "#1dcaff",
+      "#c0deed"
+      )
+  ) %>% 
+  sg_layout(layout = igraph::layout_components) %>% 
+  sg_neighbours() %>% 
+  sg_settings(
+    defaultEdgeColor = "#a3a3a3",
+    edgeColor = "default"
+  )
+}
+
+sg_graph(nodes, edges)
+```
+
+## Hastags 
+
+Now let's do the same as we did in the previous section but using #hashtags, make the graph and plot the result.
+
+```{r com hash}
 net <- tweets %>% 
   gt_co_edges(hashtags) %>% 
   gt_nodes() %>% 
   gt_collect()
-```
 
-Now we can work on the visualisation. Since we got tweets on #rstats we know that all hashtags in the graph will be connected to it. Not being an important piece of information (we already know), we can just remove the #rstats node and all edges connecting to it.
-
-```{r hash filter}
 c(edges, nodes) %<-% net
 
+edges <- edges2sg(edges)
+nodes <- nodes2sg(nodes)
+
+sg_graph(nodes, edges)
+```
+
+It's obviously not as informative as the previous graph we made, there is a simple reason. Since we got tweets on #rstats all hashtags co-mention #rstats and are thus connected to it on the graph. This is a known piece of information and clutters the graph, let's remove it.
+
+```{r com filter}
 edges <- edges %>% 
   edges2sg() %>% 
   dplyr::filter(
@@ -55,26 +97,6 @@ Now that the filtering is done we can plot the data.
 Remember to filter both edges *and* nodes.
 ```
 
-```{r hash plot 2}
-sigmajs() %>% 
-  sg_nodes(nodes, id, label, size) %>% 
-  sg_edges(edges, id, source, target) %>% 
-  sg_cluster(
-    colors = c(
-      "#0084b4",
-      "#00aced",
-      "#1dcaff",
-      "#c0deed"
-      )
-  ) %>% 
-  sg_layout(layout = igraph::layout_components) %>% 
-  sg_neighbours() %>% 
-  sg_settings(
-    defaultEdgeColor = "#a3a3a3",
-    edgeColor = "default"
-  )
+```{r com plot hash}
+sg_graph(nodes, edges)
 ```
-
-## Users
-
-We can also build a network that shows the

@@ -1925,4 +1925,334 @@ Aborting[0K
 Updating 3306c53..077ebdb[0K
 [0K[?25h[?25l
 [0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[?25hA[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[?25hA[0Kwarning: LF will be replaced by CRLF in .Rproj.user/B7385CEA/sources/prop/42BC98BB.[0K[?25l
+The file will have its original line endings in your working directory.[0K
+warning: LF will be replaced by CRLF in .Rproj.user/B7385CEA/sources/prop/INDEX.[0K
+The file will have its original line endings in your working directory.[0K
+[0K[?25hwarning: LF will be replaced by CRLF in .Rproj.user/shared/notebooks/paths.[0K[?25l
+The file will have its original line endings in your working directory.[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$ git c[0K[?25ho[0Km[0Km[0K[?25li[0K[11G[?25h[12G[?25l$ git commit[0K[?25h[14G[?25l$ git commit -[0K[?25hm[0K[17G[?25l$ git commit -m "[0K[?25h"[0K[18G[?25l$ git commit -m "r"[0K[19G[?25h[?25l$ git commit -m "re"[0K[19G[?25h[20G[?25l$ git commit -m "reo"[0K[21G[?25h[?25l$ git commit -m "reor"[0K[22G[?25h[?25l$ git commit -m "reord"[0K[23G[?25h[?25l$ git commit -m "reorde"[0K[24G[?25h[?25l$ git commit -m "reorder"[0K[25G[?25h[?25l$ git commit -m "reorderi"[0K[26G[?25h[?25l$ git commit -m "reorderin"[0K[27G[?25h[?25l$ git commit -m "reordering"[0K[28G[?25h[?25l
+[0K[?25h[master b85cbf7] reordering[0K[?25l
+ 19 files changed, 1038 insertions(+), 278 deletions(-)[0K
+ rewrite .Rproj.user/B7385CEA/console06/INDEX001 (86%)[0K
+ create mode 100644 04-graphs.Rmd[0K
+ delete mode 100644 05-advanced.Rmd[0K
+ rename 04-starting.Rmd => 05-starting.Rmd (67%)[0K
+ create mode 100644 06-retweets.Rmd[0K
+ rename 06-hashtags.Rmd => 07-hashtags.Rmd (99%)[0K
+ rename 07-comentions.Rmd => 08-comentions.Rmd (100%)[0K
+ delete mode 100644 08-ego.Rmd[0K
+ create mode 100644 09-advanced.Rmd[0K
+ rename 09-dynamic.Rmd => 10-dynamic.Rmd (100%)[0K
+ rename 10-temporal.Rmd => 11-temporal.Rmd (100%)[0K
+ rename 11-ephemeral.Rmd => 12-ephemeral.Rmd (100%)[0K
+ rename 12-Performances.Rmd => 13-Performances.Rmd (100%)[0K
+ rename 13-Rmarkdown.Rmd => 15-Rmarkdown.Rmd (100%)[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Kl[0Kl[0K[?25l
+[0K[?25hAlready up-to-date.[0K[?25l
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Kl[0Kl[0K[12G[?25l$ git pull g[0K[?25hi[0Kt[0Kh[0Ku[0Kb[0K[19G[?25l$ git pull github m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
+[0K[?25hFrom https://github.com/JohnCoene/twinetbook[0K[?25l
+ * branch            master     -> FETCH_HEAD[0K
+[0K[?25hAuto-merging 08-comentions.Rmd[0K[?25l
+Auto-merging 05-starting.Rmd[0K
+CONFLICT (content): Merge conflict in 05-starting.Rmd[0K
+Auto-merging .Rproj.user/shared/notebooks/paths[0K
+CONFLICT (content): Merge conflict in .Rproj.user/shared/notebooks/paths[0K
+Automatic merge failed; fix conflicts and then commit the result.[0K
+[0K[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master|MERGING)[0m[0K
+$[0K[3G[?25h[?25l$ c[0K[?25hl[0K[?25le[0K[5G[?25h[6G[?25l$ clea[0K[?25hr[0K[?25l
+[0K[?25h[?25l
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[26A[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master|MERGING)[0m[0K
+$[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[3G[?25h[?25l$ g[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[4G[?25h[?25l$ gi[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[5G[?25h[?25l$ git[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[6G[?25h[7G[?25l$ git a[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[8G[?25h[?25l$ git ad[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[9G[?25h[?25l$ git add[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[10G[?25h[11G[?25l$ git add -[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[12G[?25h[?25l$ git add -a[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[24A[13G[?25h[?25l
+[?25herror: unknown switch `a'[0K[?25l
+usage: git add [<options>] [--] <pathspec>...[0K
+[0K
+    -n, --dry-run         dry run[0K
+    -v, --verbose         be verbose[0K
+[0K
+    -i, --interactive     interactive picking[0K
+    -p, --patch           select hunks interactively[0K
+    -e, --edit            edit current diff and apply[0K
+    -f, --force           allow adding otherwise ignored files[0K
+    -u, --update          update tracked files[0K
+    -N, --intent-to-add   record only the fact that the path will be added later[0K
+    -A, --all             add changes from all tracked and untracked files[0K
+    --ignore-removal      ignore paths removed in the working tree (same as --no-all)[0K
+    --refresh             don't add, only refresh the index[0K
+    --ignore-errors       just skip files which cannot be added because of errors[0K
+    --ignore-missing      check if - even missing - files are ignored in dry run[0K
+    --chmod <(+/-)x>      override the executable bit of the listed files[0K
+[0K
+[0K
+[0K
+[0K
+[0K
+[0K[4A[?25h[?25l
+[0;32mJCOE@LT1414 [0;35m [0;33m~/Documents/Projects/twinetbook[0;36m (master|MERGING)[0m[0K
+$[0K
+[0K
+[0K[2A[3G[?25h[?25l$ g[0K
+[0K
+[0K[2A[4G[?25h[?25l$ gi[0K
+[0K
+[0K[2A[5G[?25h[6G[5G[?25l$ g[0K
+[0K
+[0K[2A[4G[?25h[?25l$[0K
+[0K
+[0K[2A[3G[?25h[?25l$ git add -a[0K
+[0K
+[0K[2A[3G[?25h[13G[?25l$ git add -[0K
+[0K
+[0K[2A[12G[?25h[?25l$ git add -A[0K
+[0K
+[0K[2A[13G[?25h
