@@ -1,0 +1,10 @@
+# Advanced {#advanced}
+
+```{r, echo=FALSE, include=FALSE}
+library(twinetverse)
+
+TK <- readRDS("twitter_token.rds")
+```
+
+At this point, if you have read the book up to here, you have been explored all the difference types of graphs that we can build with the _twinetverse._ Now we can introduce two more functions to bind edges together and form more complex graphs.
+

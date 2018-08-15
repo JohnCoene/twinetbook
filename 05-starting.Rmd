@@ -7,7 +7,7 @@ library(twinetverse)
 TK <- readRDS("twitter_token.rds")
 ```
 
-In this chapter we briefly explore the twinetverse: we _collect_ tweets, _build_ and _visualise_ our first graph.
+In this chapter we briefly explore the twinetverse: we _collect_ tweets, _build_ and _visualise_ our first graph. The graphs are built with graphTweets (part of the 'verse) which allows building several kinds of graphs, most of which we will explore, however, we will start with a graph that attempts at depicting how users communicate with each other by looking at who \@tags who in their tweets.
 
 ```{block, type = "note"}
 If you follow this along in RStudio; the visualisations do not open in the viewer and instead open in your default browser.
@@ -118,7 +118,7 @@ head(edges)
 knitr::kable(head(edges))
 ```
 
-Edges simply consist of `source` and `target`, as explained earlier on, `source` essentially corresponds to `screen_name` passed in `gt_edges`, it is the user who posted the tweet. In contrast, `target` includes the users that were tagged in the `text` of the tweet.
+Edges simply consist of `source` and `target`, as explained earlier on, `source` essentially corresponds to `screen_name` passed in `gt_edges`, it is the user who posted the tweet. In contrast, `target` includes the users that were tagged in the `text` of the tweet. The `n` variable indicates how many tweets connect the `source` to the `target`.
 
 Now let's take a look at the nodes:
 
@@ -130,17 +130,17 @@ head(nodes)
 knitr::kable(head(nodes))
 ```
 
-In the nodes data frame the column `n_edges` is the number edges the node appears in, while the `nodes` column are the Twitter handles of _both_ the authors of the tweets (`screen_name`) and those who were tagged in the tweets (`text`). All nodes are users of course, but we will see another graph later in the book where they may not be.
+In the nodes data frame, the column `n` is the number of times the node appears (whether as `source` or as `target`), while the `nodes` column are the Twitter handles of _both_ the authors of the tweets (`screen_name`) and those who were \@tagged in the tweets. All nodes are users of course, but we will see another graph later in the book where they may not be.
 
 Below we rename a few columns, to meet sigmajs' naming convention.
 
 1. We add ids to our nodes, this can be a string and thus simply corresponds to our `nodes` column.
-2. We essentially rename `n_edges` to `size` as this is what sigmajs understands (more on this later).
+2. We essentially rename `n` to `size` as this is what sigmajs understands.
 3. We add ids to our edges as sigmajs requires each edge to have a unique id.
 
 ```{r intro prep, eval = FALSE}
 nodes$id <- as.factor(nodes$nodes) 
-nodes$size <- nodes$n_edges 
+nodes$size <- nodes$n 
 edges$id <- seq(1, nrow(edges)) 
 ```
 
@@ -179,7 +179,7 @@ This graph does not look great. We'll beautify that bit by bit as we move throug
 
 Nevermind beauty, what's on the graph exactly? Each disk/point on the graph is a twitter user, they are connected when one has tagged the other in the a tweet.
 
-You may also notice that the graph contains surprisingly few nodes, given that we queried 100 tweets you would expect over 100 nodes on the graph. This is because our visualisation only includes tweets that mention other users and most tweets are not targeted (tagged) at other users. There is an easy remedy to this which we'll look at in the [advanced](advanced) chapter.
+You may also notice that the graph contains surprisingly few nodes, given that we queried 100 tweets you would expect over 100 nodes on the graph. This is because our visualisation only includes tweets that mention other users and most tweets are not targeted (tagged) at other users. There is an easy remedy to this which we'll look at in the next section.
 
 ```{block, type = "note"}
 Remember the workflow of the _twinetverse_:
@@ -191,7 +191,7 @@ Remember the workflow of the _twinetverse_:
 
 ## Recap
 
-This chapter aimed at demonstrating the basic principles behind the packages and the order in which use them. The chapter may look long~ish but the code is not, here it is put together.
+Let's recapitulate before moving on to the next section. The section may look long~ish but the code is not, here it is put together.
 
 ```{r intro all code, eval=FALSE}
 library(dplyr)
@@ -216,3 +216,74 @@ sigmajs() %>%
   sg_nodes(nodes, id, size) %>% 
   sg_edges(edges, id, source, target)
 ```
+
+## Improve
+
+Let's collect more tweets this time, we'll also optimise our Twitter query. This is very useful as the Twitter API (like the vast majority of APIs) limits the amount of data you can access by imposing a [rate limit](https://developer.twitter.com/en/docs/basics/rate-limiting.html). You can always check where you stand with the various Twitter rate limits with `rate_limit()`.
+
+We set `include_rts = FALSE` as we don't need the same tweet multiple times, it does not add information to our graph (currently but it could). We also pass a slightly more sophisticated query to the search tweet endpoint. This is too often overlooked, the Twitter API provides [advanced operators](https://developer.twitter.com/en/docs/tweets/search/guides/standard-operators.html): you are not limited to searching a single keyword every time.
+
+```{block, type="warn"}
+Optimise your queries or you'll be hit by frustrating waiting times.
+```
+
+We query 1,000 tweets that:
+
+- Include `#rstats`
+- Include a [mention](https://help.twitter.com/en/using-twitter/mentions-and-replies) i.e.: `@jdatap`
+- Are original (not re-tweets)
+
+Remember to load your token if you're in a new environment.
+
+```{r adv search, eval=TRUE}
+# TK <- readRDS(file = "token.rds")
+tweets <- search_tweets("#rstats filter:mentions", n = 1000, token = TK, include_rts = FALSE)
+```
+
+Let's build the graph, just like we did before. There is more to graphTweets but we won't look into that just yet.
+
+```{r adv net, eval=TRUE}
+net <- tweets %>% 
+  gt_edges(screen_name, mentions_screen_name) %>% 
+  gt_nodes() %>% 
+  gt_collect()
+```
+
+Let's make a slightly more interesting visualisation this time. First, we'll prepare the data for sigmajs like we did in the [get started](#get-started) chapter.
+
+```{r adv unpack, eval=TRUE}
+c(edges, nodes) %<-% net
+
+nodes <- nodes2sg(nodes)
+edges <- edges2sg(edges)
+```
+
+Now onto the visualisation.
+
+* We add labels that will display on hover by simply passing the `label` column to `sg_nodes`.
+* We color the nodes by cluster with `sg_cluster`.
+* We layout the graph appropriately using one of igraph's [@R-igraph] many layout algorithms with `sg_layout`.
+* We use sigmajs' settings to change the edges color.
+
+```{r adv graph, eval=TRUE}
+sigmajs("webgl") %>% 
+  sg_nodes(nodes, id, label, size) %>% 
+  sg_edges(edges, id, source, target) %>% 
+  sg_layout(layout = igraph::layout_components) %>% 
+  sg_cluster(
+    colors = c(
+      "#0084b4",
+      "#00aced",
+      "#1dcaff",
+      "#c0deed"
+      )
+  ) %>% 
+  sg_settings(
+    minNodeSize = 1,
+    maxNodeSize = 2.5,
+    edgeColor = "default",
+    defaultEdgeColor = "#d3d3d3"
+  )
+```
+
+Already looking better.

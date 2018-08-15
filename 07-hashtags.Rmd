@@ -78,4 +78,3 @@ sigmajs() %>%
 ```
 
 It is interesting to see that few users actually tweet both hashtags, this _wouldn't_ have to be in the same tweet so it is somewhat surprising.
-

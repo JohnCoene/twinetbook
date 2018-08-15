@@ -1,0 +1,62 @@
+# Retweets {#retweets}
+
+```{r setup rt, echo=FALSE, include=FALSE}
+library(dplyr)
+library(twinetverse)
+
+TK <- readRDS("twitter_token.rds")
+```
+
+Thus far we built graphs that link the user tweeting to the users he or she \@tags in his or her tweets. This type of network, in essence, visualise how people discuss certain issues. We can build another graph, linking users to the users they retweet to fundamentally visualise how information spreads throughout Twitter.
+
+## Collect
+
+We will run a slightly different query to collect tweets. Since we want to focus on re-tweets let's ensure the tweets we collect include re-tweets.
+
+```{r rt collect, eval=TRUE}
+# TK <- readRDS("token.rds")
+tweets <- search_tweets("#rstats filter:retweets", n = 500, include_rts = TRUE, token = TK)
+```
+
+## Build
+
+In previous graphs we set `target = mentions_screen_name`, the only difference this time is that we pass `target = retweet_screen_name`.
+
+```{r rt graph, eval=TRUE}
+net <- tweets %>% 
+  gt_edges(screen_name, retweet_screen_name) %>% # get edges
+  gt_nodes() %>% # get nodes
+  gt_collect() # collect
+
+c(edges, nodes) %<-% net
+```
+
+## Visualise
+
+Regarding the visualisation not much changes. We have the nodes and edges as returned by graphTweets, now we just need to pipe them through our sigmajs functions to build up the visualisation.
+
+```{r rt prep}
+nodes <- nodes2sg(nodes)
+edges <- edges2sg(edges)
+
+sigmajs() %>% 
+  sg_nodes(nodes, id, label, size) %>% 
+  sg_edges(edges, id, source, target) %>% 
+  sg_layout(layout = igraph::layout_components) %>% 
+  sg_cluster(
+    colors = c(
+      "#0084b4",
+      "#00aced",
+      "#1dcaff",
+      "#c0deed"
+      )
+  ) %>% 
+  sg_settings(
+    minNodeSize = 1,
+    maxNodeSize = 2.5,
+    edgeColor = "default",
+    defaultEdgeColor = "#d3d3d3"
+  )
+```
+
+So, based on the retweet networks, the larger nodes, that are relatively closer to the center of the graph (centrality measure) are relatively more important to spreading the topic we searched: #rstats.

@@ -44,6 +44,6 @@ The source code for this book can be found on [Github](http://github.com/JohnCoe
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'twinetverse', 'rtweet', 'graphTweets', 'sigmajs',
-  'igraph', 'httr', "zeallot", "remotes", "devtools"
+  'igraph', 'httr', "zeallot", "remotes", "devtools", "bookdown"
 ), 'packages.bib')
 ```
