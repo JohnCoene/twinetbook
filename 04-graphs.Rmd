@@ -9,22 +9,28 @@ To explain the graphs let's first look at the anatomy of a basic tweet.
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Introducing the <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> {twinetverse} package; everything you need to collect, build, and visualise <a href="https://twitter.com/hashtag/twitter?src=hash&amp;ref_src=twsrc%5Etfw">#twitter</a> interactions. In depth documentation thanks to <a href="https://twitter.com/xieyihui?ref_src=twsrc%5Etfw">\@xieyihui</a> {bookdown}: <a href="https://t.co/Sf5WdI8m6p">https://t.co/Sf5WdI8m6p</a> <a href="https://t.co/GxDSeWpqJL">pic.twitter.com/GxDSeWpqJL</a></p>&mdash; John Coene (\@jdatap) <a href="https://twitter.com/jdatap/status/1022573515445297153?ref_src=twsrc%5Etfw">July 26, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-The above tweet is posted by someone (\@jdatap), the tweet uses a hashtag (#rstats and #twitter) and \@tags another user (\@xieyihui, the creator of bookdown [@R-bookdown] which is used to write this very book). #hashtags and \@users are the core components of tweets that the _twinetverse_ looks into.
+The above tweet is posted by a user (\@jdatap), the tweet uses a hashtag (#rstats and #twitter) and \@tags another user (\@xieyihui, the creator of bookdown [@R-bookdown] which is used to write this very book). #hashtags and \@users are the core components of tweets that the _twinetverse_ looks into.
 
 ## Types
 
-The first type of graph consists of linking the users posting a tweet to its content; the #hashtags he or she uses, or the \@users he tags in his or her tweets. However, we were told by people who worked with networks at Twitter that the more traditional form of Twitter networks are based on _retweets_ as this essentially allows studying and visualising how information spreads throughout the network.
+### 1. Conversations
 
-We can also built networks of co-mentions which essentially map co-occurences of either 1) users \@tagged in tweets or 2) #hashtags used in tweets.
+If we were to try to understand **how users communicate with one another** on a given topic, we could build a graph where each user is a node (disk/point), which are linked together (edges) when one has \@tagged another in a tweet. Thereby visualising who discusses with who.
 
-## Recap
+So using our tweet above as example: \@jdatap -> \@xieyihui.
 
-All the types above are listed below.
+### 2. Retweets
 
-1. User to @tagged user
-2. User to #hashtag
-3. User to user retweeted
-4. Co-mentioned hashtags
-5. Co-mentions user
+Using retweets we can understand **how information spreads** throughout the Twitter network. In this graph, each node is a user who is connected to other users who he retweeted.
 
-We will explore all of the above throughout the book.
+### 3. Co-mentions
+
+We can also build networks of co-mentions, for both users and hashtags. On these networks, nodes are connected when they are mentioned together in the same tweet. This reveals clusters (of users or hashtags)
+
+A network of hashtags co-mentions with our tweet above would result in: #rstats -> #twitter.
+
+```{block, type = "warn"}
+Conversations and Retweets graphs (1, 2) are directed while co-mentions (3) are undirected.
+```
+
+Finally, graphTweets provides functions to bind edges together, so you can combine any the of the networks mentioned above. We will explore all of the graphs discussed here throughout the book.

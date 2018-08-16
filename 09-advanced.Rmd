@@ -80,3 +80,5 @@ sigmajs() %>%
     defaultEdgeColor = "rgba(211, 211, 211, 0.4)"
   )
 ```
+
+You can technically bind any edges together. However, be careful that the resulting graph still makes sense. For instance, binding two networks of co-mentions, one of hashtags and another of users, would result in two entirely separate graph as none of the users are connected to hashtags or vice verse.
