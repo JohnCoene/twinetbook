@@ -152,7 +152,7 @@ We add the edges almost exactly as we did before, we use `sg_add_edges` instead 
 ```{r dyn nodes and edges}
 sigmajs() %>% 
   sg_nodes(nodes, id, size, label, x, y) %>%
-  sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE) %>% 
+  sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE, refresh = TRUE) %>% 
   sg_settings(
     defaultNodeColor = "#127ba3",
     edgeColor = "default",
