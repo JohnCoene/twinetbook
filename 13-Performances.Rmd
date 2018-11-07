@@ -48,7 +48,7 @@ sigmajs(height = 300) %>%
   sg_force_start() %>%
   sg_nodes(nodes, id, size, color) %>%
   sg_add_edges(edges, delay, id, source, target, refresh = TRUE) %>% # read delay documentation
-  sg_button("Add edges", c("add_edges")) %>% 
+  sg_button(c("add_edges"), "Add edges") %>% 
   sg_settings(
     mouseEnabled = FALSE,
 	  touchEnabled = FALSE,

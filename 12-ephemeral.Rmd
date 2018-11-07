@@ -164,13 +164,13 @@ sigmajs() %>%
   sg_drop_nodes(nodes, id, end, cumsum = FALSE) %>% 
   sg_drop_edges(edges, id, end, cumsum = FALSE) %>% 
   sg_button(
-    "Launch",
     c(
       "add_nodes",
       "add_edges",
       "drop_nodes",
       "drop_edges"
-    )
+    ),
+    "Launch"
   )
 ```
 
@@ -197,13 +197,13 @@ sigmajs() %>%
   sg_force_start() %>% 
   sg_force_restart(refresh, delay) %>% 
   sg_button(
-    "Launch",
     c(
       "add_nodes",
       "add_edges",
       "drop_nodes",
       "drop_edges",
       "force_start"
-    )
+    ),
+    "Launch"
   )
 ```

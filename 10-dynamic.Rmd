@@ -174,7 +174,7 @@ Click the button in the top right corner of the visualisation to add the edges, 
 sigmajs() %>% 
   sg_nodes(nodes, id, size, label, x, y) %>%
   sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE, refresh = TRUE) %>% 
-  sg_button("Add edges", "add_edges") %>% 
+  sg_button("add_edges", "Add edges") %>% 
   sg_settings(
     defaultNodeColor = "#127ba3",
     edgeColor = "default",

@@ -83,12 +83,15 @@ edges <- edges %>%
   edges2sg() %>% 
   dplyr::filter(
     source != "rstats", 
-    target != "rstats"
+    target != "#rstats"
   )
 
 nodes <- nodes %>% 
   nodes2sg() %>% 
-  dplyr::filter(id != "rstats") 
+  dplyr::filter(
+    id != "rstats",
+    id != "#rstats"
+  ) 
 ```
 
 Now that the filtering is done we can plot the data.

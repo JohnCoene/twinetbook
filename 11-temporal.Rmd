@@ -81,7 +81,7 @@ Now the actual visualisation, then again, we set `cumsum = FALSE`, and add a but
 sigmajs() %>% 
   sg_add_nodes(nodes, start, id, label, size, cumsum = FALSE) %>% 
   sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE) %>% 
-  sg_button("Start", c("add_nodes", "add_edges"))
+  sg_button(c("add_nodes", "add_edges"), "Start")
 ```
 
 We forgot the layout and we do not color the nodes, let's compute the layout and the clusters to color nodes.
@@ -103,7 +103,7 @@ nodes <- sg_get_cluster(
 sigmajs() %>% 
   sg_add_nodes(nodes, start, id, label, size, color, x, y, cumsum = FALSE) %>% 
   sg_add_edges(edges, created_at, id, source, target, cumsum = FALSE) %>% 
-  sg_button("Start", c("add_nodes", "add_edges"))
+  sg_button(c("add_nodes", "add_edges"), "Start")
 ```
 
 So we transformed our date time to milliseconds and rescaled to span 10 seconds. The problem with this is that we, in a way, lose track of time in the visualisation itself. It'd be great to add a ticker to display, say, the date.
@@ -148,7 +148,7 @@ sigmajs() %>%
     edgeColor = "default",
     defaultEdgeColor = "#d3d3d3"
   ) %>% 
-  sg_button("Start", c("add_nodes", "add_edges"))
+  sg_button(c("add_nodes", "add_edges"), "Start")
 ```
 
 We use the `sg_progress` function to which we pass both the ticker columns' variables.
