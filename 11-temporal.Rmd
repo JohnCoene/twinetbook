@@ -148,7 +148,7 @@ sigmajs() %>%
     edgeColor = "default",
     defaultEdgeColor = "#d3d3d3"
   ) %>% 
-  sg_button(c("add_nodes", "add_edges"), "Start")
+  sg_button(c("add_nodes", "add_edges", "progress"), "Start")
 ```
 
-We use the `sg_progress` function to which we pass both the ticker columns' variables.
+We use the `sg_progress` function to which we pass both the ticker columns' variables and we tie that event to our button.

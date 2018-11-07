@@ -26,18 +26,10 @@ HTMLWidgets.widget({
 
 			renderValue: function (x) {
 			  
-			  var widget = document.getElementById(el.id);
-			  var button = widget.getElementsByTagName("button")[0];
-			  if(x.button.event === 'none'){
-			    x.button.event = "none";
-			    
-			    if(typeof button !== "undefined"){
-			      widget.removeChild(button);
-			    }
-			    
-			  } else {
-			    button.className = x.button.className;
-			    button.innerHTML = x.button.label;
+			  var btn; 
+			  for (var i = 0; i < x.button.length; i++){
+			    btn = document.getElementById(x.button[i].id);
+			    x.button[i].btn = btn;
 			  }
 
 				// if gexf file
@@ -174,13 +166,17 @@ HTMLWidgets.widget({
 
 				// start forceAtlas
 				if (x.hasOwnProperty('force')) {
-				  if(x.button.event.indexOf('force') > -1 || x.button.event.indexOf('force_start') > -1){
-				    button.addEventListener("click", function(event) {
-				      s.startForceAtlas2(x.force);
-				    });
+				  if(x.buttonevent.indexOf('force') > -1 || x.buttonevent.indexOf('force_start') > -1){
+  				  for (var a = 0; a < x.button.length; a++){
+    				  if(x.button[a].event.indexOf('force') > -1 || x.button[a].event.indexOf('force_start') > -1){
+    				    x.button[a].btn.addEventListener("click", function(event) {
+    				      s.startForceAtlas2(x.force);
+    				    });
+    				  } 
+  				  }
 				  } else {
 				    s.startForceAtlas2(x.force);
-				  }
+				  } 
 				}
 				
 				// progress
@@ -193,26 +189,40 @@ HTMLWidgets.widget({
 				  var element = document.getElementById(el.id);
 				  
 				  element.appendChild(bar);
-				  button.addEventListener("click", function(event) {
-    				x.progressBar.data.forEach((element) => {
-    					setTimeout(function () {
-    						bar.innerHTML = element.text;
-    					}, element.delay);
-    				});
-				  });
+				  
+				  if(x.buttonevent.indexOf('progress') > -1){
+				    
+				    for (var i = 0; i < x.button.length; i++){
+				      if(x.button[i].event.indexOf('progress') > -1){
+      				  x.button[i].btn.addEventListener("click", function(event) {
+          				x.progressBar.data.forEach((element) => {
+          					setTimeout(function () {
+          						bar.innerHTML = element.text;
+          					}, element.delay);
+          				});
+      				  });   
+				      }
+				    }
+				  
+				  }
 				}
 
 				// start noverlap
 				if (x.hasOwnProperty('noverlap')) {
 					var noverlap = s.configNoverlap(x.noverlap);
 					
-				  if(x.button.event.indexOf('noverlap') > -1){
-				    button.addEventListener("click", function(event) {
-				      s.startNoverlap();
-				    });
-				  } else {
+					if(x.buttonevent.indexOf('noverlap') > -1){
+  					for (var i = 0; i < x.button.length; i++){
+    				  if(x.button[i].event.indexOf('noverlap') > -1){
+    				    x.button[i].btn.addEventListener("click", function(event) {
+    				      s.startNoverlap();
+    				    });
+    				  } 	  
+  					}
+					} else {
 				    s.startNoverlap();
 				  }
+				
 				}
 
 				// custom shapes
@@ -222,51 +232,74 @@ HTMLWidgets.widget({
 
 				if (x.animateLoop === false) {
 					
-				  if(x.button.event.indexOf('animate') > -1){
-				    button.addEventListener("click", function(event) {
-    					setTimeout(function () {
-    						sigma.plugins.animate(s, x.animateMapping, x.animateOptions);
-    					}, x.animateDelay);
-				    });
-				  } else {
+					if(x.buttonevent.indexOf('animate') > -1){
+  					for (var i = 0; i < x.button.length; i++){
+    				  if(x.button[i].event.indexOf('animate') > -1){
+    				    x.button[i],btn.addEventListener("click", function(event) {
+        					setTimeout(function () {
+        						sigma.plugins.animate(s, x.animateMapping, x.animateOptions);
+        					}, x.animateDelay);
+    				    });
+    				  }  
+  					}
+					} else {
   					setTimeout(function () {
   						sigma.plugins.animate(s, x.animateMapping, x.animateOptions);
   					}, x.animateDelay);
 				  }
+					
 				}
 
 				if(x.hasOwnProperty('dragNodes')){
-				  if(x.button.event.indexOf('drag_nodes') > -1){
-				    button.addEventListener("click", function(event) {
-				      var dragListener = sigma.plugins.dragNodes(s, s.renderers[0]);
-				    });
+				  
+				  if(x.buttonevent.indexOf('drag_nodes') > -1){
+  				  for (var i = 0; i < x.button.length; i++){
+    				  if(x.button[i].event.indexOf('drag_nodes') > -1){
+    				    x.button[i].btn.addEventListener("click", function(event) {
+    				      var dragListener = sigma.plugins.dragNodes(s, s.renderers[0]);
+    				    });
+    				  } 
+  				  }
 				  } else {
 				    var dragListener = sigma.plugins.dragNodes(s, s.renderers[0]);
-				  }
+				  } 
+				  
 				}
 
 				if (x.hasOwnProperty('relativeSize')) {
-				  if(x.button.event.indexOf('relative_size') > -1){
-				    button.addEventListener("click", function(event) {
-				      sigma.plugins.relativeSize(s, x.relativeSize);
-				    });
+				  
+				  if(x.buttonevent.indexOf('relative_size') > -1){
+  				  for (var i = 0; i < x.button.length; i++){
+    				  if(x.button[i].event.indexOf('relative_size') > -1){
+    				    x.button[i].btn.addEventListener("click", function(event) {
+    				      sigma.plugins.relativeSize(s, x.relativeSize);
+    				    });
+    				  } 
+  				  }
 				  } else {
 				    sigma.plugins.relativeSize(s, x.relativeSize);
-				  }
+				  } 
+				  
 				}
 				
 				if(x.hasOwnProperty('addNodesDelay')){
   				
-				  if(x.button.event.indexOf('add_nodes') > -1 || x.button.event.indexOf('add_nodes_edges') > -1){
-				    button.addEventListener("click", function(event) {
-      				x.addNodesDelay.forEach((element) => {
-        					setTimeout(function () {
-        						s.graph.addNode(element);
-        						s.refresh();
-        					}, element.sigmajsdelay);
-        			});
-				    });
-				  } else {
+  				if(x.buttonevent.indexOf('add_nodes') > -1 || x.buttonevent.indexOf('add_nodes_edges') > -1){
+  				  
+    				for (var i = 0; i < x.button.length; i++){
+      			  if(x.button[i].event.indexOf('add_nodes') > -1 || x.button[i].event.indexOf('add_nodes_edges') > -1){
+      				    x.button[i].btn.addEventListener("click", function(event) {
+            				x.addNodesDelay.forEach((element) => {
+              					setTimeout(function () {
+              						s.graph.addNode(element);
+              						s.refresh();
+              					}, element.sigmajsdelay);
+              			});
+      				    });
+      				  } 
+    				}
+  				  
+  				} else {
     				x.addNodesDelay.forEach((element) => {
     					setTimeout(function () {
     						s.graph.addNode(element);
@@ -274,28 +307,35 @@ HTMLWidgets.widget({
     					}, element.sigmajsdelay);
     				});
 				  }
+  				
 				}
 				
 				if(x.hasOwnProperty('addEdgesDelay')){
 				  var running = s.isForceAtlas2Running();
-  				
-				  if(x.button.event.indexOf('add_edges') > -1 || x.button.event.indexOf('add_nodes_edges') > -1){
-				    button.addEventListener("click", function(event) {
-        			x.addEdgesDelay.data.forEach((element) => {
-      					setTimeout(function () {
-    						if (x.addEdgesDelay.refresh === true && running === true) {
-    							s.killForceAtlas2();
-    						}
-    						s.graph.addEdge(element);
-    						if (x.addEdgesDelay.refresh === true && running === true) {
-    							s.startForceAtlas2();
-    						}
-    						if (x.addEdgesDelay.refresh === true) {
-    							s.refresh();
-    						}
-      					}, element.sigmajsdelay);
-      				});
-				    });
+				  
+				  if(x.buttonevent.indexOf('add_edges') > -1 || x.buttonevent.indexOf('add_nodes_edges') > -1){
+				    
+  				  for (var i = 0; i < x.button.length; i++){
+    				  if(x.button[i].event.indexOf('add_edges') > -1 || x.button[i].event.indexOf('add_nodes_edges') > -1){
+    				    x.button[i].btn.addEventListener("click", function(event) {
+            			x.addEdgesDelay.data.forEach((element) => {
+          					setTimeout(function () {
+        						if (x.addEdgesDelay.refresh === true && running === true) {
+        							s.killForceAtlas2();
+        						}
+        						s.graph.addEdge(element);
+        						if (x.addEdgesDelay.refresh === true && running === true) {
+        							s.startForceAtlas2();
+        						}
+        						if (x.addEdgesDelay.refresh === true) {
+        							s.refresh();
+        						}
+          					}, element.sigmajsdelay);
+          				});
+    				    });
+    				  }
+  				  }
+				    
 				  } else {
     				x.addEdgesDelay.data.forEach((element) => {
     					setTimeout(function () {
@@ -312,29 +352,36 @@ HTMLWidgets.widget({
     					}, element.sigmajsdelay);
     				});
 				  }
+  				
 				}
 				
 				if(x.hasOwnProperty("dropEdgesDelay")){
   				var is_running = s.isForceAtlas2Running();
   				
-				  if(x.button.event.indexOf('drop_edges') > -1){
-				    button.addEventListener("click", function(event) {
-      				x.dropEdgesDelay.data.forEach((drop_edg, index) => {
-      					setTimeout(function () {
-      						if (x.dropEdgesDelay.refresh === true && is_running === true) {
-      							s.killForceAtlas2();
-      						}
-      						s.graph.dropEdge(drop_edg.id);
-      						if (x.dropEdgesDelay.refresh === true && is_running === true) {
-      							s.startForceAtlas2();
-      						}
-      						if (x.dropEdgesDelay.refresh === true) {
-      							s.refresh();
-      						}
-      					}, drop_edg.sigmajsdelay);
-      				});
-				    });
-				  } else {
+  				if(x.buttonevent.indexOf('drop_edges') > -1){
+  				  
+    				for (var i = 0; i < x.button.length; i++){
+    				  if(x.button[i].event.indexOf('drop_edges') > -1){
+    				    x.button[i].btn.addEventListener("click", function(event) {
+          				x.dropEdgesDelay.data.forEach((drop_edg, index) => {
+          					setTimeout(function () {
+          						if (x.dropEdgesDelay.refresh === true && is_running === true) {
+          							s.killForceAtlas2();
+          						}
+          						s.graph.dropEdge(drop_edg.id);
+          						if (x.dropEdgesDelay.refresh === true && is_running === true) {
+          							s.startForceAtlas2();
+          						}
+          						if (x.dropEdgesDelay.refresh === true) {
+          							s.refresh();
+          						}
+          					}, drop_edg.sigmajsdelay);
+          				});
+    				    });
+    				  }	  
+    				}
+  				  
+  				} else {
     				x.dropEdgesDelay.data.forEach((drop_edg, index) => {
     					setTimeout(function () {
     						if (x.dropEdgesDelay.refresh === true && is_running === true) {
@@ -350,19 +397,24 @@ HTMLWidgets.widget({
     					}, drop_edg.sigmajsdelay);
     				});
 				  }
+  			
 				}
 				
 				if(x.hasOwnProperty("dropNodesDelay")){
-  				
-				  if(x.button.event.indexOf('drop_nodes') > -1){
-				    button.addEventListener("click", function(event) {
-      				x.dropNodesDelay.forEach((element) => {
-      					setTimeout(function () {
-      						s.graph.dropNode(element.id);
-      						s.refresh();
-      					}, element.sigmajsdelay);
-      				});
-				    });
+				  
+				  if(x.buttonevent.indexOf('drop_nodes') > -1){
+  				  for (var i = 0; i < x.button.length; i++){
+    				  if(x.button[i].event.indexOf('drop_nodes') > -1){
+    				    x.button[i].btn.addEventListener("click", function(event) {
+          				x.dropNodesDelay.forEach((element) => {
+          					setTimeout(function () {
+          						s.graph.dropNode(element.id);
+          						s.refresh();
+          					}, element.sigmajsdelay);
+          				});
+    				    });
+    				  }  
+  				  }
 				  } else {
     				x.dropNodesDelay.forEach((element) => {
     					setTimeout(function () {
@@ -371,21 +423,28 @@ HTMLWidgets.widget({
     					}, element.sigmajsdelay);
     				});
 				  }
+  				
 				}
 
 			// stop force
 			if(x.hasOwnProperty('forceStopDelay')){
-			  if(x.button.event === 'force_stop'){
-			    button.addEventListener("click", function(event) {
-    				setTimeout(function () {
-    					s.stopForceAtlas2();
-    				}, x.forceStopDelay);
-			    });
+			  
+			  if(x.buttonevent.indexOf('force_stop') > -1){
+  			  for (var i = 0; i < x.button.length; i++){
+    			  if(x.button[i].event.indexOf('force_stop') > -1){
+    			    x.button[i].btn.addEventListener("click", function(event) {
+        				setTimeout(function () {
+        					s.stopForceAtlas2();
+        				}, x.forceStopDelay);
+    			    });
+    			  }
+  			  }
 			  } else {
     			setTimeout(function () {
     				s.stopForceAtlas2();
     			}, x.forceStopDelay);
-			  }
+			  }  
+			  
 			}
 		
 			if(x.hasOwnProperty('forceRestartDelay')){
@@ -396,25 +455,37 @@ HTMLWidgets.widget({
 			    s.startForceAtlas2();
 			  }
 				
-  				x.forceRestartDelay.forEach((force) => {
-  					setTimeout(function () {
-  						s.killForceAtlas2();
-  						s.startForceAtlas2();
-  					}, force.sigmajsdelay);
-  				});
+				x.forceRestartDelay.forEach((force) => {
+					setTimeout(function () {
+						s.killForceAtlas2();
+						s.startForceAtlas2();
+					}, force.sigmajsdelay);
+				});
   				
 			}
 			
 			if(x.hasOwnProperty('exportSVG')){
-		    button.addEventListener("click", function(event) {
-  				var output = s.toSVG(x.exportSVG);
-		    });
+			  
+			  if(x.buttonevent.indexOf('export_svg') > -1){
+  			  for (var i = 0; i < x.button.length; i++){
+    		    x.button[i].btn.addEventListener("click", function(event) {
+      				var output = s.toSVG(x.exportSVG);
+    		    });   
+  			  }
+			  }
+			 
 			}
 			
 			if(x.hasOwnProperty('exportIMG')){
-		    button.addEventListener("click", function(event) {
-  				var output = renderer.snapshot(x.exportIMG);
-		    });
+			  
+			  if(x.buttonevent.indexOf('export_img') > -1){
+  			  for (var i = 0; i < x.button.length; i++){
+    		    x.button[i].btn.addEventListener("click", function(event) {
+      				var output = renderer.snapshot(x.exportIMG);
+    		    });  
+  			  }
+			  }
+			  
 			}
 			
       sel_handle.setGroup(x.crosstalk.crosstalk_group);
