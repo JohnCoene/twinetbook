@@ -82,14 +82,13 @@ It's obviously not as informative as the previous graph we made, there is a simp
 edges <- edges %>% 
   edges2sg() %>% 
   dplyr::filter(
-    source != "rstats", 
+    source != "#rstats", 
     target != "#rstats"
   )
 
 nodes <- nodes %>% 
   nodes2sg() %>% 
   dplyr::filter(
-    id != "rstats",
     id != "#rstats"
   ) 
 ```
