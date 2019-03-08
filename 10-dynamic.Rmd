@@ -18,7 +18,7 @@ We'll collect some tweets again, we'll use retweets this time, so we build the c
 
 ```{r dyn search, eval=TRUE}
 # TK <- readRDS(file = "token.rds")
-tweets <- search_tweets("#rstats filter:retweets", n = 3000, token = TK, include_rts = TRUE)
+tweets <- search_tweets("#rstats filter:retweets", n = 400, token = TK, include_rts = TRUE)
 ```
 
 ## Build

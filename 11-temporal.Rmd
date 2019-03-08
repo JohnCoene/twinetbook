@@ -14,7 +14,7 @@ We again collect tweets in a slightly different manner but feel free to use data
 
 ```{r temp search, eval=TRUE}
 # TK <- readRDS(file = "token.rds")
-tweets <- search_tweets("#rstats filter:mentions", n = 1000, token = TK, include_rts = FALSE, type = "mixed")
+tweets <- search_tweets("#rstats filter:mentions", n = 300, token = TK, include_rts = FALSE, type = "mixed")
 ```
 
 ## Build

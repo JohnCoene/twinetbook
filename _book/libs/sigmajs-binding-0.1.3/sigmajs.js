@@ -53,29 +53,23 @@ HTMLWidgets.widget({
 						}
 					);
 				} else {
-					// create
-					if(!initialized){
-					  initialized = true;
-    				s = new sigma({
-    					graph: x.data,
-    					settings: x.settings
-    				});
-					} 
-					
-					if(x.kill === true){
-					  
-					  s.kill();
-					  
-    				s = new sigma({
-    					graph: x.data,
-    					settings: x.settings
-    				});
+
+					if (HTMLWidgets.shinyMode) { 
+						sigInst = document.getElementById(el.id)
+						while (sigInst.firstChild) {
+							sigInst.removeChild(sigInst.firstChild);
+						}
 					}
 					
+					s = new sigma({
+						graph: x.data,
+						settings: x.settings
+					});
+					s.refresh();
+
 				  renderer = s.addRenderer({
 						container: el.id,
 						type: x.type
-						
 				  });
 				}
 				
@@ -502,7 +496,7 @@ HTMLWidgets.widget({
 
 					// click nodeS
 					s.bind('clickNodes', function (e) {
-						Shiny.setInputValue(el.id + '_click_nodes' + ":sigmajsParseJS", e.data.nodes);
+						Shiny.setInputValue(el.id + '_click_nodes' + ":sigmajsParseJS", e.data.node);
 					});
 
 					// click edge
@@ -512,22 +506,22 @@ HTMLWidgets.widget({
 
 					// click edgeS
 					s.bind('clickEdges', function (e) {
-						Shiny.setInputValue(el.id + '_click_edges' + ":sigmajsParseJS", e.data.edges);
+						Shiny.setInputValue(el.id + '_click_edges' + ":sigmajsParseJS", e.data.edge);
 					});
 
 					// click stage
 					s.bind('clickStage', function (e) {
-						Shiny.setInputValue(el.id + '_click_stage' + ":sigmajsParseJS", true);
+						Shiny.setInputValue(el.id + '_click_stage' + ":sigmajsParseJS", e.data, {priority: "event"});
 					});
 
 					// double click stage
 					s.bind('doubleClickStage', function (e) {
-						Shiny.setInputValue(el.id + '_double_click_stage' + ":sigmajsParseJS", true);
+						Shiny.setInputValue(el.id + '_double_click_stage' + ":sigmajsParseJS", e.data, {priority: "event"});
 					});
 
 					// right click stage
 					s.bind('rightClickStage', function (e) {
-						Shiny.setInputValue(el.id + '_right_click_stage' + ":sigmajsParseJS", true);
+						Shiny.setInputValue(el.id + '_right_click_stage' + ":sigmajsParseJS", e.data, {priority: "event"});
 					});
 
 					// double click node
@@ -537,7 +531,7 @@ HTMLWidgets.widget({
 
 					// double click nodeS
 					s.bind('doubleClickNodes', function (e) {
-						Shiny.setInputValue(el.id + '_double_click_nodes' + ":sigmajsParseJS", e.data.nodes);
+						Shiny.setInputValue(el.id + '_double_click_nodes' + ":sigmajsParseJS", e.data.node);
 					});
 
 					// double click edge
@@ -547,7 +541,7 @@ HTMLWidgets.widget({
 
 					// double click edgeS
 					s.bind('doubleClickEdges', function (e) {
-						Shiny.setInputValue(el.id + '_double_click_edges' + ":sigmajsParseJS", e.data.edges);
+						Shiny.setInputValue(el.id + '_double_click_edges' + ":sigmajsParseJS", e.data.edge);
 					});
 
 					// right click node
@@ -567,7 +561,7 @@ HTMLWidgets.widget({
 
 					// right click edgeS
 					s.bind('rightClickEdges', function (e) {
-						Shiny.setInputValue(el.id + '_right_click_edges' + ":sigmajsParseJS", e.data.edges);
+						Shiny.setInputValue(el.id + '_right_click_edges' + ":sigmajsParseJS", e.data.edge);
 					});
 
 					// over node
@@ -577,7 +571,7 @@ HTMLWidgets.widget({
 
 					// over nodeS
 					s.bind('overNodes', function (e) {
-						Shiny.setInputValue(el.id + '_over_nodes' + ":sigmajsParseJS", e.data.nodes);
+						Shiny.setInputValue(el.id + '_over_nodes' + ":sigmajsParseJS", e.data.node);
 					});
 
 					// over edge
@@ -587,7 +581,7 @@ HTMLWidgets.widget({
 
 					// over edgeS
 					s.bind('overEdges', function (e) {
-						Shiny.setInputValue(el.id + '_over_edges' + ":sigmajsParseJS", e.data.edges);
+						Shiny.setInputValue(el.id + '_over_edges' + ":sigmajsParseJS", e.data.edge);
 					});
 
 					// out node
@@ -597,7 +591,7 @@ HTMLWidgets.widget({
 
 					// out nodeS
 					s.bind('outNodes', function (e) {
-						Shiny.setInputValue(el.id + '_out_nodes' + ":sigmajsParseJS", e.data.nodes);
+						Shiny.setInputValue(el.id + '_out_nodes' + ":sigmajsParseJS", e.data.node);
 					});
 
 					// out edge
@@ -607,9 +601,11 @@ HTMLWidgets.widget({
 
 					// out edgeS
 					s.bind('outEdges', function (e) {
-						Shiny.setInputValue(el.id + '_out_edges' + ":sigmajsParseJS", e.data.edges);
+						Shiny.setInputValue(el.id + '_out_edges' + ":sigmajsParseJS", e.data.edge);
 					});
 				}
+
+				var initialized = true;
 			
 		},
 
@@ -620,6 +616,10 @@ HTMLWidgets.widget({
 		
 		getCamera: function() {
 		  return cam;
+		},
+
+		getEl: function() {
+		  return el.id;
 		},
 
 		getChart: function () {
@@ -644,6 +644,20 @@ function get_sigma_graph(id) {
 
 	if (typeof htmlWidgetsObj != 'undefined') { // get chart if defined
 		s = htmlWidgetsObj.getChart();
+	}
+
+	return (s);
+}
+
+// get element id
+function get_sigma_element(id) {
+
+	var htmlWidgetsObj = HTMLWidgets.find("#" + id); // find object
+
+	var s; // define
+
+	if (typeof htmlWidgetsObj != 'undefined') { // get chart if defined
+		s = htmlWidgetsObj.getEl();
 	}
 
 	return (s);
@@ -904,6 +918,42 @@ if (HTMLWidgets.shinyMode) {
 			}
 		}
 	);
+
+	Shiny.addCustomMessageHandler('sg_drop_nodes_p',
+		function (message) {
+			var s = get_sigma_graph(message.id);
+			if (typeof s != 'undefined') {
+				message.data.forEach((element) => {
+					s.graph.dropNode(element);
+					if (message.refresh === true && message.rate === "iteration") {
+						s.refresh();
+					}
+				});
+
+				if (message.refresh === true && message.rate === "once") {
+					s.refresh();
+				}
+			}
+		}
+	);
+
+	Shiny.addCustomMessageHandler('sg_drop_edges_p',
+	function (message) {
+		var s = get_sigma_graph(message.id);
+		if (typeof s != 'undefined') {
+			message.data.forEach((element) => {
+				s.graph.dropEdge(element);
+				if (message.refresh === true && message.rate === "iteration") {
+					s.refresh();
+				}
+			});
+
+			if (message.refresh === true && message.rate === "once") {
+				s.refresh();
+			}
+		}
+	}
+);
 	
 	// add edges delay
 	Shiny.addCustomMessageHandler('sg_drop_edges_delay_p',
@@ -976,6 +1026,50 @@ if (HTMLWidgets.shinyMode) {
 			}
 		}
 	);
+
+	// read data
+	Shiny.addCustomMessageHandler('sg_read_exec_p',
+		function (message) {
+			var s = get_sigma_graph(message.id);
+			if (typeof s != 'undefined') {
+				s.graph.read(message.data)
+			}
+		}
+	);
+
+	// read batch data
+	Shiny.addCustomMessageHandler('sg_read_bacth_exec_p',
+		function (message) {
+			var s = get_sigma_graph(message.id);
+			if (typeof s != 'undefined') {
+				message.data.forEach(function(data){
+					var running = s.isForceAtlas2Running();
+					setTimeout(function () {
+						if (message.refresh === true && running === true) {
+							s.killForceAtlas2();
+						}
+						s.graph.read(data);
+						if(message.refresh === true)
+							s.refresh();
+						if (message.refresh === true && running === true) {
+							s.startForceAtlas2();
+						}
+					}, data.nodes[0].delay);
+				});
+			}
+		}
+	);
+
+	// noverlap
+	Shiny.addCustomMessageHandler('sg_noverlap_p',
+		function (message) {
+			var s = get_sigma_graph(message.id);
+			if (typeof s != 'undefined') {
+				var listener_proxy = s.configNoverlap(message.config);
+				s.startNoverlap();
+			}
+		}
+	);
 	
 	// export
 	Shiny.addCustomMessageHandler('sg_export_svg_p',
@@ -995,6 +1089,85 @@ if (HTMLWidgets.shinyMode) {
 			}
 		}
 	);
+
+	Shiny.addCustomMessageHandler('sg_zoom_p',
+		function (message) {
+			var s = get_sigma_graph(message.id);
+			if (typeof s != 'undefined') {
+				let n = s.graph.nodes()[message.node];
+				sigma.misc.animation.camera(
+					s.camera, 
+					{
+						x: n[s.camera.readPrefix + 'x'], 
+						y: n[s.camera.readPrefix + 'y'],
+						ratio: message.ratio
+					}, 
+					{duration: message.duration}
+				);
+			}
+		}
+	);
+
+	Shiny.addCustomMessageHandler('sg_get_nodes_p',
+		function (message) {
+			var s = get_sigma_graph(message.id);
+			var id = get_sigma_element(message.id);
+			if (typeof s != 'undefined') {
+				Shiny.setInputValue(id + '_nodes' + ":sigmajsParseJS", s.graph.nodes(), {priority: "event"});
+			}
+		}
+	);
+
+	Shiny.addCustomMessageHandler('sg_get_edges_p',
+		function (message) {
+			var s = get_sigma_graph(message.id);
+			var id = get_sigma_element(message.id);
+			if (typeof s != 'undefined') {
+				Shiny.setInputValue(id + '_edges' + ":sigmajsParseJS", s.graph.edges(), {priority: "event"});
+			}
+		}
+	);
+
+	// change node attributes
+	Shiny.addCustomMessageHandler('sg_change_nodes_p',
+		function (message) {
+			var s = get_sigma_graph(message.id);
+			var i = 0;
+			if (typeof s != 'undefined') {
+				s.graph.nodes().forEach((n) => {
+					n[message.message.attribute] = message.message.value[i];
+					if (message.message.refresh === true && message.message.rate === "iteration") {
+						s.refresh();
+					}
+					i = i + 1
+				});
+
+				if (message.message.refresh === true && message.message.rate === "once") {
+					s.refresh();
+				}
+			}
+		}
+	);
+
+	Shiny.addCustomMessageHandler('sg_change_edges_p',
+		function (message) {
+			var s = get_sigma_graph(message.id);
+			var i = 0;
+			if (typeof s != 'undefined') {
+				s.graph.edges().forEach((n) => {
+					n[message.message.attribute] = message.message.value[i];
+					if (message.message.refresh === true && message.message.rate === "iteration") {
+						s.refresh();
+					}
+					i = i + 1
+				});
+
+				if (message.message.refresh === true && message.message.rate === "once") {
+					s.refresh();
+				}
+			}
+		}
+	);
 	
 	// filter greater than
 	Shiny.addCustomMessageHandler('sg_filter_gt_p',
@@ -1007,27 +1180,24 @@ if (HTMLWidgets.shinyMode) {
 			  
 			  if(message.target === "both"){
           filter
-            .undo()
             .nodesBy(function(n) {
               return n[message.var] > message.input;
-            })
+            }, message.name[0])
             .edgesBy(function(e) {
               return e[message.var] > message.input;
-            })
+            }, message.name[1])
             .apply();
 			  } else if(message.target === "nodes"){
           filter
-            .undo()
             .nodesBy(function(n) {
               return n[message.var] > message.input;
-            })
+            }, message.name)
             .apply();
 			  } else {
           filter
-            .undo()
             .edgesBy(function(e) {
               return e[message.var] > message.input;
-            })
+            }, message.name)
             .apply();
 			  }
 				
@@ -1046,29 +1216,115 @@ if (HTMLWidgets.shinyMode) {
 			  
 			  if(message.target === "both"){
           filter
-            .undo()
             .nodesBy(function(n) {
               return n[message.var] < message.input;
-            })
+            }, message.name[0])
             .edgesBy(function(e) {
               return e[message.var] < message.input;
-            })
+            }, message.name[1])
             .apply();
 			  } else if(message.target === "nodes"){
           filter
-            .undo()
             .nodesBy(function(n) {
               return n[message.var] < message.input;
-            })
+            }, message.name)
             .apply();
 			  } else {
           filter
-            .undo()
             .edgesBy(function(e) {
               return e[message.var] < message.input;
-            })
+            }, message.name)
             .apply();
 			  }
+				
+			}
+		}
+	);
+
+	// filter equal
+	Shiny.addCustomMessageHandler('sg_filter_eq_p',
+		function (message) {
+			var s = get_sigma_graph(message.id);
+			
+			if (typeof s != 'undefined') {
+			  
+			  var filter = new sigma.plugins.filter(s);
+			  
+			  if(message.target === "both"){
+          filter
+            .nodesBy(function(n) {
+              return n[message.var] == message.input;
+            }, message.name[0])
+            .edgesBy(function(e) {
+              return e[message.var] == message.input;
+            }, message.name[1])
+            .apply();
+			  } else if(message.target === "nodes"){
+          filter
+            .nodesBy(function(n) {
+              return n[message.var] == message.input;
+            }, message.name)
+            .apply();
+			  } else {
+          filter
+            .edgesBy(function(e) {
+              return e[message.var] == message.input;
+            }, message.name)
+            .apply();
+			  }
+				
+			}
+		}
+	);
+
+	// filter not equal
+	Shiny.addCustomMessageHandler('sg_filter_not_eq_p',
+		function (message) {
+			var s = get_sigma_graph(message.id);
+			
+			if (typeof s != 'undefined') {
+			  
+			  var filter = new sigma.plugins.filter(s);
+			  
+			  if(message.target === "both"){
+          filter
+            .nodesBy(function(n) {
+              return n[message.var] != message.input;
+            }, message.name[0])
+            .edgesBy(function(e) {
+              return e[message.var] != message.input;
+            }, message.name[1])
+            .apply();
+			  } else if(message.target === "nodes"){
+          filter
+            .nodesBy(function(n) {
+              return n[message.var] != message.input;
+            }, message.name)
+            .apply();
+			  } else {
+          filter
+            .edgesBy(function(e) {
+              return e[message.var] != message.input;
+            }, message.name)
+            .apply();
+			  }
+				
+			}
+		}
+	);
+
+	// filter undo
+	Shiny.addCustomMessageHandler('sg_filter_undo_p',
+		function (message) {
+			var s = get_sigma_graph(message.id);
+			
+			if (typeof s != 'undefined') {
+			  
+			  var filter = new sigma.plugins.filter(s);
+			  
+				filter
+					.undo(message.name)
+					.apply()
 				
 			}
 		}

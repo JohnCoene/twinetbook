@@ -178,7 +178,11 @@ sigmajs() %>%
 
 An issue you may observe has to do with the layout. The layout is calculated based on the full graph, but we never have the full graph on screen only a subgraph at every time step. A better way to layout the graph is to use a dynamic layout that adjusts to the visualisation as nodes and edges appear and disappear. 
 
-The [forceAtlas2](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0098679) layout algorithm does just that. However we cannot just launch the forceAtlas2 network as we would on a static graphs. We have to update it at regular intervals.
+The [forceAtlas2](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0098679) layout algorithm does just that. However we cannot just launch the forceAtlas2 network as we would on a static graphs. We have to update it at regular intervals. 
+
+```{block, type = "warn"}
+This may cause issues with large graphs, more on this in the [next chapter](#performances).
+```
 
 ```{block, type = "tip"}
 We will cover why we need to do so in the next chapter.

@@ -4,6 +4,10 @@ The graphTweets has already [seen great performance improvements](http://graphtw
 
 The sigmajs library needs some explanation, namely on layout, and renderers.
 
+## Read
+
+You might have noticed that we reduced the number of tweets we visualised in the last four chapters, fetching only 400 odd tweets. This is because dynamic graphs are quite draining for the website (more on that later in the chapter). There is however a remedy to it, or part of it anyway. Instead of using `sg_add_nodes` and `sg_add_edges` 
+
 ## Renderers
 
 The sigmajs package actually comes with three renderers out-of-the-box; `canvas`, the default, `svg` and `webgl`. `svg` makes for slightly nicer looking graphs but at performance costs so only use it for the smaller graphs. In contrast, `webgl` is extremely performant.
