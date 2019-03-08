@@ -1,12 +1,79 @@
 # Performances {#performances}
 
+```{r, echo=FALSE, include=FALSE}
+library(twinetverse)
+
+TK <- readRDS("twitter_token.rds")
+```
+
 The graphTweets has already [seen great performance improvements](http://graphtweets.john-coene.com/news/index.html) and can now build large graphs.
 
 The sigmajs library needs some explanation, namely on layout, and renderers.
 
 ## Read
 
-You might have noticed that we reduced the number of tweets we visualised in the last four chapters, fetching only 400 odd tweets. This is because dynamic graphs are quite draining for the website (more on that later in the chapter). There is however a remedy to it, or part of it anyway. Instead of using `sg_add_nodes` and `sg_add_edges` 
+You might have noticed that we reduced the number of tweets we visualised in the last four chapters, fetching only 400 odd tweets. This is because dynamic graphs are quite draining for the website (more on that later in the chapter). There is however a remedy to it, or part of it anyway. Instead of using `sg_add_nodes` and `sg_add_edges` we can use the `sg_read_*` family of functions.
+
+We'll collect some tweets setting `type` as `mixed` to ensure we get tweets that spread over a couple of days.
+
+```{r, eval=TRUE}
+# TK <- readRDS(file = "token.rds")
+tweets <- search_tweets("#rstats", n = 5000, token = TK, include_rts = FALSE, type = "mixed")
+```
+
+With the tweets we collected we'll build a dynamic network where nodes and edges appear on the _day_ they are created.
+
+```{r}
+graph <- tweets %>% 
+	gt_edges(screen_name, mentions_screen_name, created_at) %>% 
+	gt_nodes() %>% 
+	gt_dyn() %>% 
+	gt_collect()
+
+c(edges, nodes) %<-% graph
+```
+
+we'll start by changing the `created_at` from a datetime to a date then a numeric. Also, for a change, we'll rescale with the scales package [@R-scales] to rescale the nodes and edges date of appearance, the scales package makes it much more convenient.
+
+```{block, type = "tip"}
+You can install `scales` from CRAN with `install.packages("scales")`
+```
+
+Note that we also scales package to color the nodes according to their size.
+
+```{r}
+nodes <- nodes %>% 
+	dplyr::arrange(start) %>% 
+	dplyr::mutate(
+		start = as.Date(start),
+		start = as.integer(start),
+		start = scales::rescale(start, to = c(1, 10000)),
+		size = n,
+		label = nodes,
+		color = scales::col_numeric(c("#0075a0", "#c0deed"), domain = NULL,)(start)
+	) 
+
+edges <- edges %>% 
+	dplyr::arrange(created_at) %>% 
+	dplyr::mutate(
+		created_at = as.Date(created_at),
+		created_at = as.integer(created_at),
+		created_at = scales::rescale(created_at, to = c(1, 10000)),
+		id = 1:dplyr::n()
+	)
+```
+
+Now that nodes and edges are ready we can use our new functions, rest assured they work in very much the same way.
+
+```{r}
+sigmajs() %>% 
+	sg_force_start() %>% 
+	sg_read_nodes(nodes, id = nodes, size, label, color, delay = start) %>% 
+	sg_read_edges(edges, id, source, target, delay = created_at) %>% 
+	sg_force_stop(11000) %>% 
+	sg_button(c("read_exec", "force_stop")) %>% 
+	sg_read_exec()
+```
 
 ## Renderers
 

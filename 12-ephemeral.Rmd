@@ -8,6 +8,10 @@ TK <- readRDS("twitter_token.rds")
 
 At this stage we've pretty much fully covered temporal graphs; nodes and edges appear over time on the graph. This already comes closer to reflecting reality if we assume that tweets are _everlasting_. In practice tweets have a life span; it is unlikely that old tweets from 2015 will be seen today. Therefore, on our graph, nodes and edges should appear then disappear after some time.
 
+```{block, type = "tip"}
+We will cover an alternative/better way to have a dynamic layout in the [next chapter](#performance). However, this chapter will let you get some great intuition on how to use the twinetverse.
+```
+
 ## Collect
 
 Let's collect some tweets, just as we did previously.
@@ -180,13 +184,6 @@ An issue you may observe has to do with the layout. The layout is calculated bas
 
 The [forceAtlas2](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0098679) layout algorithm does just that. However we cannot just launch the forceAtlas2 network as we would on a static graphs. We have to update it at regular intervals. 
 
-```{block, type = "warn"}
-This may cause issues with large graphs, more on this in the [next chapter](#performances).
-```
-
-```{block, type = "tip"}
-We will cover why we need to do so in the next chapter.
-```
 
 ```{r}
 refresh <- data.frame(
@@ -211,3 +208,7 @@ sigmajs() %>%
     "Launch"
   )
 ```
+
+The reason the graph above is not running smoothly despite only showing a few tweets at a time is that it depends on some internal JavaScript functions pertaining to sigmajs that actually add nodes and edges _one by one_. Even though we update the graph (with `sg_force_restart`) only so often the browser is quickly overwhelmed by the amount of operations it has to run.
+
+We will learn more about that _and remedy to it_ in the next chapter.

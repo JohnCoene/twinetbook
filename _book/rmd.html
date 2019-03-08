@@ -79,59 +79,41 @@ ga('send', 'pageview');
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; min-height: 1.25em; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; }
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
 pre, code { background-color: #f8f8f8; }
-@media screen {
-a.sourceLine::before { text-decoration: underline; color: initial; }
-}
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.fl { color: #0000cf; } /* Float */
-code span.ch { color: #4e9a06; } /* Char */
-code span.st { color: #4e9a06; } /* String */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.ot { color: #8f5902; } /* Other */
-code span.al { color: #ef2929; } /* Alert */
-code span.fu { color: #000000; } /* Function */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-code span.cn { color: #000000; } /* Constant */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.im { } /* Import */
-code span.va { color: #000000; } /* Variable */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.ex { } /* Extension */
-code span.at { color: #c4a000; } /* Attribute */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -218,8 +200,9 @@ code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Infor
 <li class="chapter" data-level="13.4" data-path="ephemeral.html"><a href="ephemeral.html#dynamic-layout"><i class="fa fa-check"></i><b>13.4</b> Dynamic layout</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="performances.html"><a href="performances.html"><i class="fa fa-check"></i><b>14</b> Performances</a><ul>
-<li class="chapter" data-level="14.1" data-path="performances.html"><a href="performances.html#renderers"><i class="fa fa-check"></i><b>14.1</b> Renderers</a></li>
-<li class="chapter" data-level="14.2" data-path="performances.html"><a href="performances.html#layout"><i class="fa fa-check"></i><b>14.2</b> Layout</a></li>
+<li class="chapter" data-level="14.1" data-path="performances.html"><a href="performances.html#read"><i class="fa fa-check"></i><b>14.1</b> Read</a></li>
+<li class="chapter" data-level="14.2" data-path="performances.html"><a href="performances.html#renderers"><i class="fa fa-check"></i><b>14.2</b> Renderers</a></li>
+<li class="chapter" data-level="14.3" data-path="performances.html"><a href="performances.html#layout"><i class="fa fa-check"></i><b>14.3</b> Layout</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="rmd.html"><a href="rmd.html"><i class="fa fa-check"></i><b>15</b> R markdown</a><ul>
 <li class="chapter" data-level="15.1" data-path="rmd.html"><a href="rmd.html#buttons"><i class="fa fa-check"></i><b>15.1</b> Buttons</a></li>
@@ -250,27 +233,27 @@ code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Infor
 <h1><span class="header-section-number">Chapter 15</span> R markdown</h1>
 <p>This chapter covers R markdown-specific functions of the <em>twinetverse</em>.</p>
 <p>We’ve actually covered a few of those already, rtweet and graphTweets do not have functions specifically meant to be used in R markdown, all work just as well in a interactive and non-interactive environments. The dynamic nature of sigmajs, however, suggests the intriduction of additional functions.</p>
-<pre class="sourceCode r" id="cb116"><code class="sourceCode r"><span class="co"># TK &lt;- readRDS(file = &quot;token.rds&quot;)</span>
-tweets &lt;-<span class="st"> </span><span class="kw">search_tweets</span>(<span class="st">&quot;#rstats filter:mentions&quot;</span>, <span class="dt">n =</span> <span class="dv">1000</span>, <span class="dt">token =</span> TK, <span class="dt">include_rts =</span> <span class="ot">FALSE</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># TK &lt;- readRDS(file = &quot;token.rds&quot;)</span>
+tweets &lt;-<span class="st"> </span><span class="kw">search_tweets</span>(<span class="st">&quot;#rstats filter:mentions&quot;</span>, <span class="dt">n =</span> <span class="dv">1000</span>, <span class="dt">token =</span> TK, <span class="dt">include_rts =</span> <span class="ot">FALSE</span>)</code></pre></div>
 <div id="buttons" class="section level2">
 <h2><span class="header-section-number">15.1</span> Buttons</h2>
 <p>One of the functions of the sigmajs package that we have already covered enables adding buttons to make trigger events in sigmajs: <code>sg_button</code>.</p>
 <p>These events need to be tied to the visualisation, the button (<code>sg_button</code>) is only the trigger. Most events can be used without triggers, events that cannot just be used on their own are exports: <code>export_svg</code> and <code>export_img</code>. The events are simply the name of the function (event) they trigger without the starting <code>sg_</code>, i.e.: <code>export_svg</code> event triggers <code>sg_export_svg</code>.</p>
 <p>Let’s illustrate the above example. We first draw a graph.</p>
-<pre class="sourceCode r" id="cb117"><code class="sourceCode r"><span class="kw">sigmajs</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sigmajs</span>() <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">sg_nodes</span>(nodes, id, size, color) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">sg_edges</span>(edges, id, source, target)</code></pre>
-<div id="htmlwidget-de9b034a6ac66c7d1169" style="width:100%;height:480px;" class="sigmajs html-widget"></div>
-<script type="application/json" data-for="htmlwidget-de9b034a6ac66c7d1169">{"x":{"kill":false,"data":{"nodes":[{"id":"1","size":"2","color":"#0084B4","x":" 3.927164","y":" 1.600388"},{"id":"2","size":"4","color":"#0091C7","x":"15.808336","y":"12.445957"},{"id":"3","size":"4","color":"#009EDA","x":"17.172768","y":"10.240509"},{"id":"4","size":"2","color":"#00ACED","x":" 2.345079","y":"10.082690"},{"id":"5","size":"5","color":"#09B6F3","x":"10.121342","y":"12.371764"},{"id":"6","size":"2","color":"#13C0F9","x":" 2.540560","y":" 5.870760"},{"id":"7","size":"4","color":"#1DCAFF","x":" 8.620658","y":" 2.471646"},{"id":"8","size":"4","color":"#53D0F9","x":"13.625009","y":" 1.330177"},{"id":"9","size":"5","color":"#89D7F3","x":" 8.230647","y":" 1.260671"},{"id":"10","size":"5","color":"#C0DEED","x":" 6.358472","y":"15.474766"}],"edges":[{"id":"1","source":"1","target":"3"},{"id":"2","source":"8","target":"2"},{"id":"3","source":"3","target":"5"},{"id":"4","source":"7","target":"2"},{"id":"5","source":"8","target":"6"},{"id":"6","source":"10","target":"2"},{"id":"7","source":"10","target":"8"},{"id":"8","source":"6","target":"2"},{"id":"9","source":"6","target":"4"},{"id":"10","source":"1","target":"8"},{"id":"11","source":"8","target":"5"},{"id":"12","source":"7","target":"1"},{"id":"13","source":"2","target":"6"},{"id":"14","source":"1","target":"4"},{"id":"15","source":"9","target":"7"}]},"type":"canvas","button":[],"buttonevent":[],"crosstalk":{"crosstalk_key":null,"crosstalk_group":null}},"evals":[],"jsHooks":[]}</script>
+<span class="st">  </span><span class="kw">sg_edges</span>(edges, id, source, target)</code></pre></div>
+<div id="htmlwidget-457b5766cb2bc2c9c41f" style="width:100%;height:480px;" class="sigmajs html-widget"></div>
+<script type="application/json" data-for="htmlwidget-457b5766cb2bc2c9c41f">{"x":{"kill":false,"data":{"nodes":[{"id":"1","size":"3","color":"#0084B4","x":"19.705780","y":"14.484902"},{"id":"2","size":"2","color":"#0091C7","x":"18.167369","y":"11.227495"},{"id":"3","size":"2","color":"#009EDA","x":" 9.895051","y":" 8.336901"},{"id":"4","size":"3","color":"#00ACED","x":"13.012306","y":" 2.690121"},{"id":"5","size":"5","color":"#09B6F3","x":" 8.652630","y":" 6.599106"},{"id":"6","size":"2","color":"#13C0F9","x":"17.179719","y":"14.020204"},{"id":"7","size":"5","color":"#1DCAFF","x":"11.762254","y":" 8.970245"},{"id":"8","size":"4","color":"#53D0F9","x":"17.311945","y":" 1.870211"},{"id":"9","size":"4","color":"#89D7F3","x":"18.329163","y":"13.156078"},{"id":"10","size":"2","color":"#C0DEED","x":" 1.618520","y":" 5.530066"}],"edges":[{"id":"1","source":"8","target":"1"},{"id":"2","source":"2","target":"9"},{"id":"3","source":"9","target":"3"},{"id":"4","source":"7","target":"9"},{"id":"5","source":"1","target":"6"},{"id":"6","source":"7","target":"6"},{"id":"7","source":"10","target":"10"},{"id":"8","source":"7","target":"9"},{"id":"9","source":"1","target":"1"},{"id":"10","source":"6","target":"6"},{"id":"11","source":"6","target":"6"},{"id":"12","source":"7","target":"2"},{"id":"13","source":"7","target":"6"},{"id":"14","source":"7","target":"9"},{"id":"15","source":"5","target":"5"}]},"type":"canvas","button":[],"buttonevent":[],"crosstalk":{"crosstalk_key":null,"crosstalk_group":null}},"evals":[],"jsHooks":[]}</script>
 <p>Then add the event and the corresponding button.</p>
-<pre class="sourceCode r" id="cb118"><code class="sourceCode r"><span class="kw">sigmajs</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sigmajs</span>() <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">sg_nodes</span>(nodes, id, size, color) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">sg_edges</span>(edges, id, source, target) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">sg_force_start</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">sg_button</span>(<span class="st">&quot;force_start&quot;</span>, <span class="st">&quot;Start&quot;</span>)</code></pre>
-<button id="Z1C2K3B4J5Z6C7K8B9" class="sigmajsbtn btn btn-default">Start</button>
-<div id="htmlwidget-d4eb95b9b861e99dee47" style="width:100%;height:480px;" class="sigmajs html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d4eb95b9b861e99dee47">{"x":{"kill":false,"data":{"nodes":[{"id":"1","size":"2","color":"#0084B4","x":" 3.128806","y":"18.777034"},{"id":"2","size":"4","color":"#0091C7","x":"14.842094","y":" 7.827272"},{"id":"3","size":"4","color":"#009EDA","x":"11.135982","y":"11.471734"},{"id":"4","size":"2","color":"#00ACED","x":"17.822400","y":"16.773139"},{"id":"5","size":"5","color":"#09B6F3","x":" 8.486027","y":"15.218050"},{"id":"6","size":"2","color":"#13C0F9","x":" 1.339979","y":"16.069170"},{"id":"7","size":"4","color":"#1DCAFF","x":"15.518164","y":"10.164151"},{"id":"8","size":"4","color":"#53D0F9","x":" 5.555692","y":" 7.924120"},{"id":"9","size":"5","color":"#89D7F3","x":" 8.866906","y":"14.012923"},{"id":"10","size":"5","color":"#C0DEED","x":"11.742165","y":"10.571046"}],"edges":[{"id":"1","source":"1","target":"3"},{"id":"2","source":"8","target":"2"},{"id":"3","source":"3","target":"5"},{"id":"4","source":"7","target":"2"},{"id":"5","source":"8","target":"6"},{"id":"6","source":"10","target":"2"},{"id":"7","source":"10","target":"8"},{"id":"8","source":"6","target":"2"},{"id":"9","source":"6","target":"4"},{"id":"10","source":"1","target":"8"},{"id":"11","source":"8","target":"5"},{"id":"12","source":"7","target":"1"},{"id":"13","source":"2","target":"6"},{"id":"14","source":"1","target":"4"},{"id":"15","source":"9","target":"7"}]},"type":"canvas","button":[{"id":"Z1C2K3B4J5Z6C7K8B9","event":"force_start"}],"buttonevent":["force_start"],"crosstalk":{"crosstalk_key":null,"crosstalk_group":null},"force":[]},"evals":[],"jsHooks":[]}</script>
+<span class="st">  </span><span class="kw">sg_button</span>(<span class="st">&quot;force_start&quot;</span>, <span class="st">&quot;Start&quot;</span>)</code></pre></div>
+<button id="S1Z2C3N4I5S6Z7C8N9" class="sigmajsbtn btn btn-default">Start</button>
+<div id="htmlwidget-0ecbc7148fe61495f27d" style="width:100%;height:480px;" class="sigmajs html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0ecbc7148fe61495f27d">{"x":{"kill":false,"data":{"nodes":[{"id":"1","size":"3","color":"#0084B4","x":" 7.119384","y":" 7.295946"},{"id":"2","size":"2","color":"#0091C7","x":" 3.782860","y":" 6.011372"},{"id":"3","size":"2","color":"#009EDA","x":"19.206407","y":" 7.943031"},{"id":"4","size":"3","color":"#00ACED","x":"14.646915","y":" 2.258526"},{"id":"5","size":"5","color":"#09B6F3","x":"18.055254","y":"10.221574"},{"id":"6","size":"2","color":"#13C0F9","x":"19.282139","y":" 1.316765"},{"id":"7","size":"5","color":"#1DCAFF","x":" 5.222680","y":"18.780435"},{"id":"8","size":"4","color":"#53D0F9","x":" 8.238689","y":"14.521146"},{"id":"9","size":"4","color":"#89D7F3","x":" 6.159241","y":" 1.024089"},{"id":"10","size":"2","color":"#C0DEED","x":"17.298897","y":" 5.510515"}],"edges":[{"id":"1","source":"8","target":"1"},{"id":"2","source":"2","target":"9"},{"id":"3","source":"9","target":"3"},{"id":"4","source":"7","target":"9"},{"id":"5","source":"1","target":"6"},{"id":"6","source":"7","target":"6"},{"id":"7","source":"10","target":"10"},{"id":"8","source":"7","target":"9"},{"id":"9","source":"1","target":"1"},{"id":"10","source":"6","target":"6"},{"id":"11","source":"6","target":"6"},{"id":"12","source":"7","target":"2"},{"id":"13","source":"7","target":"6"},{"id":"14","source":"7","target":"9"},{"id":"15","source":"5","target":"5"}]},"type":"canvas","button":[{"id":"S1Z2C3N4I5S6Z7C8N9","event":"force_start"}],"buttonevent":["force_start"],"crosstalk":{"crosstalk_key":null,"crosstalk_group":null},"force":[]},"evals":[],"jsHooks":[]}</script>
 <p>Below are the events that can be tied to buttons.</p>
 <ul>
 <li><code>force_start</code></li>
@@ -291,15 +274,15 @@ tweets &lt;-<span class="st"> </span><span class="kw">search_tweets</span>(<span
 <div id="delays" class="section level2">
 <h2><span class="header-section-number">15.2</span> Delays</h2>
 <p>some functions of the sigmajs package take a <code>delay</code> argument, which, though can be used in any way or framework (shiny, R markdown, etc.), it is specifically designed with R markdown in mind. Take for instance the layout algorithm and button we used above; as you read this it is still running, which is draining for the browser and useless as the layout has stabilised. We could do the inverse of what we do above, of course, trigger the layout on page load and instead provide a button for the user to stop the layout. However, what would be ideal is for the layout to simply stop after a few seconds. Let’s implement the latter.</p>
-<pre class="sourceCode r" id="cb119"><code class="sourceCode r">nodes &lt;-<span class="st"> </span><span class="kw">sg_get_layout</span>(nodes, edges)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nodes &lt;-<span class="st"> </span><span class="kw">sg_get_layout</span>(nodes, edges)
 
 <span class="kw">sigmajs</span>() <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">sg_nodes</span>(nodes, id, size, color, x, y) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">sg_edges</span>(edges, id, source, target) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">sg_force_start</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">sg_force_stop</span>(<span class="dv">10000</span>)</code></pre>
-<div id="htmlwidget-9d92978bff040862bb48" style="width:100%;height:480px;" class="sigmajs html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9d92978bff040862bb48">{"x":{"kill":false,"data":{"nodes":[{"id":"1","size":"2","color":"#0084B4","x":"3.530356","y":"4.109561"},{"id":"2","size":"4","color":"#0091C7","x":"5.343453","y":"4.563910"},{"id":"3","size":"4","color":"#009EDA","x":"1.995941","y":"3.997671"},{"id":"4","size":"2","color":"#00ACED","x":"3.637843","y":"5.785924"},{"id":"5","size":"5","color":"#09B6F3","x":"2.506531","y":"5.000342"},{"id":"6","size":"2","color":"#13C0F9","x":"4.925452","y":"5.654936"},{"id":"7","size":"4","color":"#1DCAFF","x":"4.891060","y":"2.986659"},{"id":"8","size":"4","color":"#53D0F9","x":"4.324198","y":"4.976420"},{"id":"9","size":"5","color":"#89D7F3","x":"5.490477","y":"1.491630"},{"id":"10","size":"5","color":"#C0DEED","x":"5.978848","y":"5.352422"}],"edges":[{"id":"1","source":"1","target":"3"},{"id":"2","source":"8","target":"2"},{"id":"3","source":"3","target":"5"},{"id":"4","source":"7","target":"2"},{"id":"5","source":"8","target":"6"},{"id":"6","source":"10","target":"2"},{"id":"7","source":"10","target":"8"},{"id":"8","source":"6","target":"2"},{"id":"9","source":"6","target":"4"},{"id":"10","source":"1","target":"8"},{"id":"11","source":"8","target":"5"},{"id":"12","source":"7","target":"1"},{"id":"13","source":"2","target":"6"},{"id":"14","source":"1","target":"4"},{"id":"15","source":"9","target":"7"}]},"type":"canvas","button":[],"buttonevent":[],"crosstalk":{"crosstalk_key":null,"crosstalk_group":null},"force":[],"forceStopDelay":10000},"evals":[],"jsHooks":[]}</script>
+<span class="st">  </span><span class="kw">sg_force_stop</span>(<span class="dv">10000</span>)</code></pre></div>
+<div id="htmlwidget-c9eefa326e894058d2a8" style="width:100%;height:480px;" class="sigmajs html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c9eefa326e894058d2a8">{"x":{"kill":false,"data":{"nodes":[{"id":"1","size":"3","color":"#0084B4","x":"28.17854","y":"24.75465"},{"id":"2","size":"2","color":"#0091C7","x":"30.20652","y":"23.63681"},{"id":"3","size":"2","color":"#009EDA","x":"30.96059","y":"22.30769"},{"id":"4","size":"3","color":"#00ACED","x":"32.27941","y":"24.24745"},{"id":"5","size":"5","color":"#09B6F3","x":"30.17733","y":"26.49506"},{"id":"6","size":"2","color":"#13C0F9","x":"28.47933","y":"23.68932"},{"id":"7","size":"5","color":"#1DCAFF","x":"29.28015","y":"23.16656"},{"id":"8","size":"4","color":"#53D0F9","x":"28.43243","y":"25.71777"},{"id":"9","size":"4","color":"#89D7F3","x":"29.96897","y":"22.72710"},{"id":"10","size":"2","color":"#C0DEED","x":"31.59080","y":"25.76363"}],"edges":[{"id":"1","source":"8","target":"1"},{"id":"2","source":"2","target":"9"},{"id":"3","source":"9","target":"3"},{"id":"4","source":"7","target":"9"},{"id":"5","source":"1","target":"6"},{"id":"6","source":"7","target":"6"},{"id":"7","source":"10","target":"10"},{"id":"8","source":"7","target":"9"},{"id":"9","source":"1","target":"1"},{"id":"10","source":"6","target":"6"},{"id":"11","source":"6","target":"6"},{"id":"12","source":"7","target":"2"},{"id":"13","source":"7","target":"6"},{"id":"14","source":"7","target":"9"},{"id":"15","source":"5","target":"5"}]},"type":"canvas","button":[],"buttonevent":[],"crosstalk":{"crosstalk_key":null,"crosstalk_group":null},"force":[],"forceStopDelay":10000},"evals":[],"jsHooks":[]}</script>
 <p>We removed the button as we just trigger the layout algorithm when the page loads then we pass <code>sg_force_stop</code> specifying that we want the force layout to stop after 10,000 milliseconds (10 seconds).</p>
 
 </div>
