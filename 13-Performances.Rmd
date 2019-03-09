@@ -18,7 +18,7 @@ We'll collect some tweets setting `type` as `mixed` to ensure we get tweets that
 
 ```{r, eval=TRUE}
 # TK <- readRDS(file = "token.rds")
-tweets <- search_tweets("#rstats", n = 5000, token = TK, include_rts = FALSE, type = "mixed")
+tweets <- search_tweets("#rstats", n = 3500, token = TK, include_rts = FALSE, type = "mixed")
 ```
 
 With the tweets we collected we'll build a dynamic network where nodes and edges appear on the _day_ they are created.
@@ -39,17 +39,17 @@ we'll start by changing the `created_at` from a datetime to a date then a numeri
 You can install `scales` from CRAN with `install.packages("scales")`
 ```
 
-Note that we also scales package to color the nodes according to their size.
+Note that we also scales package to color the nodes according to their size. One additional thing, remember how, if not specified, `sg_nodes` randomly assigns coordinates? Perhaps we ought to initialise `x` and `y` in a circle to make the visualisation visually more appealing; it'll make the nodes appear from the outer edges of the graph.
 
-```{r}
+```{r, warning = FALSE}
 nodes <- nodes %>% 
+	sg_get_layout(edges, layout = igraph::layout_in_circle) %>% # get coordinates
 	dplyr::arrange(start) %>% 
 	dplyr::mutate(
 		start = as.Date(start),
 		start = as.integer(start),
 		start = scales::rescale(start, to = c(1, 10000)),
 		size = n,
-		label = nodes,
 		color = scales::col_numeric(c("#0075a0", "#c0deed"), domain = NULL,)(start)
 	) 
 
@@ -63,16 +63,34 @@ edges <- edges %>%
 	)
 ```
 
-Now that nodes and edges are ready we can use our new functions, rest assured they work in very much the same way.
+Now that nodes and edges are ready we can use our new functions, rest assured they work in very much the same way. Finally we'll add a date tracker with `sg_progress` as we have done in previous chapters.
 
 ```{r}
+progress <- tweets %>% 
+	dplyr::mutate(created_at = as.Date(created_at)) %>% 
+	dplyr::distinct(created_at) %>% 
+	dplyr::arrange(created_at) %>% 
+	dplyr::pull(created_at) %>% 
+	dplyr::tibble(
+		date = .,
+		delay = unique(nodes$start)
+	) %>% 
+	dplyr::mutate(text = format(date, "%d %b"))
+
 sigmajs() %>% 
 	sg_force_start() %>% 
-	sg_read_nodes(nodes, id = nodes, size, label, color, delay = start) %>% 
+	sg_read_nodes(nodes, id = nodes, size, color, x, y, delay = start) %>% 
 	sg_read_edges(edges, id, source, target, delay = created_at) %>% 
+	sg_read_exec() %>% 
 	sg_force_stop(11000) %>% 
-	sg_button(c("read_exec", "force_stop")) %>% 
-	sg_read_exec()
+	sg_progress(progress, delay, date, position = "bottom") %>% 
+	sg_button(c("read_exec", "force_stop", "progress"), "Add nodes and edges") %>% 
+  sg_settings(
+    minNodeSize = 1,
+    maxNodeSize = 4,
+    edgeColor = "default",
+    defaultEdgeColor = "#d3d3d3"
+  )
 ```
 
 ## Renderers
