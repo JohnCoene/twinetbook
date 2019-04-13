@@ -47,7 +47,8 @@ sg_graph <- function(nodes, edges){
       "#c0deed"
       )
   ) %>% 
-  sg_layout(layout = igraph::layout_components) %>% 
+  sg_force_start() %>% 
+  sg_force_stop(2000) %>% 
   sg_neighbours() %>% 
   sg_settings(
     defaultEdgeColor = "#a3a3a3",
@@ -58,7 +59,7 @@ sg_graph <- function(nodes, edges){
 sg_graph(nodes, edges)
 ```
 
-## Hastags 
+## Hashtags 
 
 Now let's do the same as we did in the previous section but using #hashtags, make the graph and plot the result.
 

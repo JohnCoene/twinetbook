@@ -25,7 +25,7 @@
 <meta name="author" content="John Coene">
 
 
-<meta name="date" content="2019-03-09">
+<meta name="date" content="2019-04-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -68,6 +68,7 @@
 <script src="libs/sigmajs-binding-0.1.3/sigmajs.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script src="https://hypothes.is/embed.js" async></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -117,6 +118,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="toc.css" type="text/css" />
 </head>
 
 <body>
@@ -129,7 +131,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">The twinetverse Book</a></li>
+<li><center><img src="images/cover.png" alt="logo" width="50%" height="50%"style="margin: 15px 0 0 0"></center></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
@@ -155,9 +157,9 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5" data-path="graphs.html"><a href="graphs.html"><i class="fa fa-check"></i><b>5</b> Graphs</a><ul>
 <li class="chapter" data-level="5.1" data-path="graphs.html"><a href="graphs.html#anatomy"><i class="fa fa-check"></i><b>5.1</b> Anatomy</a></li>
 <li class="chapter" data-level="5.2" data-path="graphs.html"><a href="graphs.html#types"><i class="fa fa-check"></i><b>5.2</b> Types</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="graphs.html"><a href="graphs.html#conversations"><i class="fa fa-check"></i><b>5.2.1</b> 1. Conversations</a></li>
-<li class="chapter" data-level="5.2.2" data-path="graphs.html"><a href="graphs.html#retweets"><i class="fa fa-check"></i><b>5.2.2</b> 2. Retweets</a></li>
-<li class="chapter" data-level="5.2.3" data-path="graphs.html"><a href="graphs.html#co-mentions"><i class="fa fa-check"></i><b>5.2.3</b> 3. Co-mentions</a></li>
+<li class="chapter" data-level="5.2.1" data-path="graphs.html"><a href="graphs.html#conv"><i class="fa fa-check"></i><b>5.2.1</b> 1. Conversations</a></li>
+<li class="chapter" data-level="5.2.2" data-path="graphs.html"><a href="graphs.html#rt"><i class="fa fa-check"></i><b>5.2.2</b> 2. Retweets</a></li>
+<li class="chapter" data-level="5.2.3" data-path="graphs.html"><a href="graphs.html#co"><i class="fa fa-check"></i><b>5.2.3</b> 3. Co-mentions</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>6</b> Get Started</a><ul>
@@ -167,8 +169,8 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.4" data-path="get-started.html"><a href="get-started.html#recap"><i class="fa fa-check"></i><b>6.4</b> Recap</a></li>
 <li class="chapter" data-level="6.5" data-path="get-started.html"><a href="get-started.html#improve"><i class="fa fa-check"></i><b>6.5</b> Improve</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="graphs.html"><a href="graphs.html#retweets"><i class="fa fa-check"></i><b>7</b> Retweets</a><ul>
-<li class="chapter" data-level="7.1" data-path="retweets.html"><a href="retweets.html"><i class="fa fa-check"></i><b>7.1</b> Collect</a></li>
+<li class="chapter" data-level="7" data-path="retweets.html"><a href="retweets.html"><i class="fa fa-check"></i><b>7</b> Retweets</a><ul>
+<li class="chapter" data-level="7.1" data-path="retweets.html"><a href="retweets.html#collect-1"><i class="fa fa-check"></i><b>7.1</b> Collect</a></li>
 <li class="chapter" data-level="7.2" data-path="retweets.html"><a href="retweets.html#build-1"><i class="fa fa-check"></i><b>7.2</b> Build</a></li>
 <li class="chapter" data-level="7.3" data-path="retweets.html"><a href="retweets.html#visualise-1"><i class="fa fa-check"></i><b>7.3</b> Visualise</a></li>
 </ul></li>
@@ -177,9 +179,9 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.2" data-path="hashtags.html"><a href="hashtags.html#build-2"><i class="fa fa-check"></i><b>8.2</b> Build</a></li>
 <li class="chapter" data-level="8.3" data-path="hashtags.html"><a href="hashtags.html#visualise-2"><i class="fa fa-check"></i><b>8.3</b> Visualise</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="graphs.html"><a href="graphs.html#co-mentions"><i class="fa fa-check"></i><b>9</b> Co-mentions</a><ul>
-<li class="chapter" data-level="9.1" data-path="co-mentions.html"><a href="co-mentions.html"><i class="fa fa-check"></i><b>9.1</b> Users</a></li>
-<li class="chapter" data-level="9.2" data-path="co-mentions.html"><a href="co-mentions.html#hastags"><i class="fa fa-check"></i><b>9.2</b> Hastags</a></li>
+<li class="chapter" data-level="9" data-path="co-mentions.html"><a href="co-mentions.html"><i class="fa fa-check"></i><b>9</b> Co-mentions</a><ul>
+<li class="chapter" data-level="9.1" data-path="co-mentions.html"><a href="co-mentions.html#users"><i class="fa fa-check"></i><b>9.1</b> Users</a></li>
+<li class="chapter" data-level="9.2" data-path="hashtags.html"><a href="hashtags.html#hashtags"><i class="fa fa-check"></i><b>9.2</b> Hashtags</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="advanced.html"><a href="advanced.html"><i class="fa fa-check"></i><b>10</b> Advanced</a></li>
 <li class="chapter" data-level="11" data-path="dynamic.html"><a href="dynamic.html"><i class="fa fa-check"></i><b>11</b> Dynamic Edges</a><ul>
@@ -249,7 +251,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <p>Kearney, Michael W. 2018. <em>Rtweet: Collecting Twitter Data</em>. <a href="https://CRAN.R-project.org/package=rtweet" class="uri">https://CRAN.R-project.org/package=rtweet</a>.</p>
 </div>
 <div>
-<p>R Core Team. 2018. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+<p>R Core Team. 2019. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
 </div>
 <div>
 <p>Teetor, Nathan. 2018. <em>Zeallot: Multiple, Unpacking, and Destructuring Assignment</em>. <a href="https://CRAN.R-project.org/package=zeallot" class="uri">https://CRAN.R-project.org/package=zeallot</a>.</p>
@@ -282,11 +284,11 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
+"github": true,
 "facebook": true,
 "twitter": true,
 "google": false,
-"linkedin": false,
+"linkedin": true,
 "weibo": false,
 "instapaper": false,
 "vk": false,
@@ -298,8 +300,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/JohnCoene/twinetbook/edit/master/15-references.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
@@ -307,7 +309,7 @@ gitbook.start({
 },
 "download": null,
 "toc": {
-"collapse": "section",
+"collapse": "subsection",
 "scroll_highlight": true,
 "fontsettings": {
 "theme": "Night"

@@ -12,7 +12,7 @@ Let's take two of our previous graphs and merge them into one. Let's build a gra
 
 ```{r adv search + build, eval=TRUE}
 # TK <- readRDS(file = "token.rds")
-tweets <- search_tweets("rstats", n = 1000, token = TK, include_rts = FALSE, lang = "en")
+tweets <- search_tweets("#rstats", n = 1000, token = TK, include_rts = FALSE, lang = "en")
 ```
 
 Technically, the two graphs we want to merge are below.
@@ -51,7 +51,7 @@ net <- tweets %>%
   gt_collect()
 ```
 
-You can unpack the network just as before, though we bound edges, everything remains the same from here onward.
+You can unpack the network just as before. We'll clean the graph a bit, remove the rstats hashtag and color the nodes by type (whether it is a user or hashtag).
 
 ```{r}
 c(edges, nodes) %<-% net
@@ -59,20 +59,26 @@ c(edges, nodes) %<-% net
 edges <- edges2sg(edges)
 nodes <- nodes2sg(nodes)
 
+edges <- edges %>% 
+  edges2sg() %>% 
+  dplyr::filter(
+    source != "#rstats", 
+    target != "#rstats"
+  )
+
+nodes <- nodes %>% 
+  nodes2sg() %>% 
+  dplyr::filter(
+    id != "#rstats"
+  ) 
+
+nodes$color <- ifelse(nodes$type == "user", "#0084b4", "#1dcaff")
+
 sigmajs() %>% 
-  sg_nodes(nodes, id, label, size) %>% 
+  sg_nodes(nodes, id, label, size, color) %>% 
   sg_edges(edges, id, source, target) %>% 
   sg_neighbours() %>% 
   sg_layout(layout = igraph::layout_components) %>% 
-  sg_cluster(
-    colors = c(
-      "#0075a0",
-      "#0084b4",
-      "#00aced",
-      "#1dcaff",
-      "#c0deed"
-      )
-  ) %>% 
   sg_settings(
     minNodeSize = 1,
     maxNodeSize = 2.5,

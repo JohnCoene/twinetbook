@@ -1,16 +1,22 @@
 bookdown::gitbook:
   highlight: tango
-  css: style.css
+  css: [style.css, toc.css]
   config:
     toc:
-      collapse: section 
+      collapse: subsection 
       scroll_highlight: yes
       before: |
-        <li><a href="./">The twinetverse Book</a></li>
+        <li><center><img src="images/cover.png" alt="logo" width="50%" height="50%"style="margin: 15px 0 0 0"></center></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
       fontsettings:
         theme: Night
+    edit: https://github.com/JohnCoene/twinetbook/edit/master/%s
+    download: null
+    sharing:
+      github: yes
+      facebook: yes
+      linkedin: yes
   includes:
     in_header: _includes/analytics.html
 bookdown::pdf_book:

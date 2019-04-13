@@ -13,17 +13,17 @@ The above tweet is posted by a user (\@jdatap), the tweet uses a hashtag (#rstat
 
 ## Types
 
-### 1. Conversations
+### 1. Conversations {#conv}
 
 If we were to try to understand **how users communicate with one another** on a given topic, we could build a graph where each user is a node (disk/point), which are linked together (edges) when one has \@tagged another in a tweet. Thereby visualising who discusses with who.
 
 So using our tweet above as example: \@jdatap -> \@xieyihui.
 
-### 2. Retweets
+### 2. Retweets {#rt}
 
 Using retweets we can understand **how information spreads** throughout the Twitter network. In this graph, each node is a user who is connected to other users who he retweeted.
 
-### 3. Co-mentions
+### 3. Co-mentions {#co}
 
 We can also build networks of co-mentions, for both users and hashtags. On these networks, nodes are connected when they are mentioned together in the same tweet. This reveals clusters (of users or hashtags)
 

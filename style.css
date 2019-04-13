@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Ubuntu+Mono');
+
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
+code{
+  font-family: 'Ubuntu Mono', monospace;
+}
+
 p.caption {
   color: #777;
   margin-top: 10px;
@@ -11,6 +21,34 @@ pre {
 }
 pre code {
   white-space: inherit;
+}
+
+section.normal strong {
+  color: #0084b4;
+}
+
+section.normal h1  {
+  color: #0084b4;
+}
+
+section.normal h2  {
+  color: #0084b4;
+}
+
+section.normal h3  {
+  color: #0084b4;
+}
+
+section.normal h4  {
+  color: #0084b4;
+}
+
+section.normal h5  {
+  color: #0084b4;
+}
+
+section.normal h6  {
+  color: #0084b4;
 }
 
 .warn, .note, .tip {
@@ -32,4 +70,28 @@ pre code {
 
 .btn-default {
   border-style: solid;
+}
+
+.btn {
+  background-color: #0084b4; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.book-header.fixed a:link { color: #0084b4 !important; }
+.book-header.fixed a:visited { color: #0084b4 !important; }
+.book-header.fixed a:hover { color: #0084b4 !important; }
+.book-header.fixed a:active { color: #0084b4 !important; }
+
+.page-wrapper a:link { color: #0084b4 !important; }
+.page-wrapper a:visited { color: #0084b4 !important; }
+.page-wrapper a:hover { color: #0084b4 !important; }
+.page-wrapper a:active { color: #0084b4 !important; }
+
+.dropdown-menu .buttons .button {
+    color: #0084b4;
 }
