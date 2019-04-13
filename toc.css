@@ -38,8 +38,6 @@
   text-decoration: none;
 }
 
-/* Tables */
-
 td, tr, th {
   color:white !important;
   background-color: transparent !important;
@@ -48,8 +46,4 @@ td, tr, th {
 table {
   color:white !important;
   background-color: #0084b4 !important;
-}
-
-caption {
-  color:black;
 }

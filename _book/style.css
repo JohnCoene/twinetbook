@@ -18,6 +18,10 @@ p code {
 pre {
   word-break: normal;
   word-wrap: normal;
+  box-shadow:
+    rgba(0, 0, 0, 0.1) 0 2px 3px 1px,
+    rgba(0, 0, 0, 0.1) 0 1px 3px 1px,
+    rgba(0, 0, 0, 0.2) 0 1px 1px -1px;
 }
 pre code {
   white-space: inherit;
@@ -82,10 +86,25 @@ section.normal h6  {
   font-size: 16px;
 }
 
-.book-header.fixed a:link { color: #0084b4 !important; }
-.book-header.fixed a:visited { color: #0084b4 !important; }
-.book-header.fixed a:hover { color: #0084b4 !important; }
-.book-header.fixed a:active { color: #0084b4 !important; }
+.book-header.fixed a:link { 
+  background-color:#FFF;
+  color: #0084b4
+}
+.book-header.fixed a:visited{ 
+  background-color:#FFF;
+  color: #0084b4
+}
+.book-header.fixed a:hover{ 
+  background-color:#FFF;
+  color: #0084b4
+}
+.book-header.fixed a:active{ 
+  background-color:#FFF;
+  color: #0084b4
+}
+.book-header { 
+  border-color: #fff!important;
+}
 
 .page-wrapper a:link { color: #0084b4 !important; }
 .page-wrapper a:visited { color: #0084b4 !important; }
