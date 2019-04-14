@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 4 Prerequisites | The twinetverse</title>
+  <title>4 Prerequisites | The twinetverse</title>
   <meta name="description" content="A guide to visualise networks of Twitter interactions in R using the twinetverse.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 4 Prerequisites | The twinetverse" />
+  <meta property="og:title" content="4 Prerequisites | The twinetverse" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/cover.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="JohnCoene/twinetverse" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Prerequisites | The twinetverse" />
+  <meta name="twitter:title" content="4 Prerequisites | The twinetverse" />
   
   <meta name="twitter:description" content="A guide to visualise networks of Twitter interactions in R using the twinetverse." />
   <meta name="twitter:image" content="images/cover.png" />
@@ -238,18 +238,17 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="prerequisites" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Prerequisites</h1>
-<p>In this chapter we get you set up and running with the <em>twinetverse</em>, namely the package installation and setting up rtweet to fetch tweets.</p>
+<h1><span class="header-section-number">4</span> Prerequisites</h1>
+<p>In this chapter we get you set up and running with the <em>twinetverse</em>, namely installing the packages and setting up rtweet to fetch tweets.</p>
 <div id="install" class="section level2">
 <h2><span class="header-section-number">4.1</span> Install</h2>
-<p>The package can be installed with devtools <span class="citation">(Wickham, Hester, and Chang <a href="#ref-R-devtools">2018</a>)</span> or remotes <span class="citation">(Csárdi et al. <a href="#ref-R-remotes">2018</a>)</span>, it is available from Github or Bitbucket:</p>
-<p>The <em>twinetverse</em> package can be installed from <a href="https://github.com/JohnCoene/twinetverse">Github</a>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;JohnCoene/twinetverse&quot;</span>)</code></pre></div>
-<p>or from <a href="https://bitbucket.org/JohnCoene/twinetbook/src/master/">Bitbucket</a>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">remotes<span class="op">::</span><span class="kw">install_bitbucket</span>(<span class="st">&quot;JohnCoene/twinetverse&quot;</span>)</code></pre></div>
+<p>The package is available from <a href="https://github.com/JohnCoene/twinetverse">Github</a> can be installed with devtools <span class="citation">(Wickham, Hester, and Chang <a href="#ref-R-devtools">2018</a>)</span> or remotes <span class="citation">(Csárdi et al. <a href="#ref-R-remotes">2018</a>)</span>. First install the remotes package with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</code></pre></div>
+<p>Then install the twinetverse with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;JohnCoene/twinetverse&quot;</span>)</code></pre></div>
 <div class="note">
 <p>
-In the book we don’t explicitly load the package and assume you have it loaded in your environment.
+In the book we don’t explicitly load the package and assume you have it loaded in your environment (snippet below).
 </p>
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(twinetverse)</code></pre></div>
@@ -263,7 +262,7 @@ In the book we don’t explicitly load the package and assume you have it loaded
 <li>Click create an app.</li>
 <li>In the following form, enter an app name, whatever you want, this does not matter.</li>
 <li>Enter a description, then again, it doesn’t matter.</li>
-<li>Website, simply put a valid website, you can link to your Twitter profile if you do not have one, i.e.: <a href="https://twitter.com/jdatap" class="uri">https://twitter.com/jdatap</a></li>
+<li>Under website, simply put a valid website, you can link to your Twitter profile if you do not have one, i.e.: <a href="https://twitter.com/jdatap" class="uri">https://twitter.com/jdatap</a></li>
 <li>Callback URL, this is <strong>important</strong>, in there put the following: <code>http://127.0.0.1:1410</code>, <strong>exactly as is</strong>.</li>
 </ol>
 <p>You’re now setup with an app, take note of the crendentials of your app under “Keys and Access Tokens”, as you will need it to create your token and fetch tweets:</p>
@@ -279,7 +278,7 @@ Do <strong>NOT</strong> share those credentials or your token with anyone.
 </p>
 </div>
 <p>Create your token with like so.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># library(twinetverse)</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(twinetverse)
 
 TK &lt;-<span class="st"> </span><span class="kw">create_token</span>(
   <span class="st">&quot;My Application Name&quot;</span>,
@@ -290,7 +289,7 @@ TK &lt;-<span class="st"> </span><span class="kw">create_token</span>(
 )</code></pre></div>
 <p>Ideally, also save it. There is no need to re-create a token everytime you want to download data. Once saved you can easily load it <code>readRDS</code> (we’ll demonstrate that in the next chapter).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveRDS</span>(TK, <span class="dt">file =</span> <span class="st">&quot;token.rds&quot;</span>)</code></pre></div>
-<p>You’re all set to use the <em>twinetverse</em>!</p>
+<p>You’re now all set to build Twitter networks!</p>
 
 </div>
 </div>
