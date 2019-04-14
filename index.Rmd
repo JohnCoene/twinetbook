@@ -23,25 +23,18 @@ knitr::opts_chunk$set(warning = FALSE)
 
 # Preface
 
-The goal of the _twinetverse_ is to provide everything one might need to view Twitter interactions, from data collection to visualisation.
+The goal of the _twinetverse_ is to provide everything one might need to analyset and visualise Twitter interactions, from data collection to visualisation.
 
 <a>
-<img src="images/cover.png" align="left" style="max-height:150px;margin-right:2%;"/>
+<img src="images/cover.png" style="max-height:150px;margin-right:2%;"/>
 </a>
 
-The _twinetverse_ package is available on [Github](https://github.com/JohnCoene/twinetverse) and [Bitbucket](https://bitbucket.org/JohnCoene/twinetverse).
-
-```{r eval=FALSE}
-devtools::install_bitbucket("JohnCoene/twinetverse")
-remotes::install_github("JohnCoene/twinetverse")
-```
-
-The package is unlikely to make it onto CRAN, it may be considered once all of its children packages are on the archive network, but not until then.
+The following pages will walk you trough the packages contained within the _twinetverse_, from collecting twitter data to building various types of networks to visualising them. The 'verse focuses on ease of use and interactivity.
 
 The source code for this book can be found on [Github](http://github.com/JohnCoene/twinetbook).
 
 ```{block, type = "tip"}
-You can suggest edits to this book by highlighting a section and annotate the text.
+You can suggest edits to this book by highlighting a section of text and clicking the "anotate" button.
 ```
 
 ```{r include=FALSE}

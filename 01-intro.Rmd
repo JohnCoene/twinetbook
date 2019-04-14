@@ -8,6 +8,6 @@ The _twinetverse_ includes three packages:
 * _graphTweets_ [@R-graphTweets]
 * _sigmajs_ [@R-sigmajs]
 
-Within the context of visualising Twitter interactions, each of the packages listed above fill in a specific need and a distinct step of the process, 1) _collecting_ the data, 2) _building_ the graphs and finally 3) _visualising_ the graphs of said interactions.
+Within the context of visualising Twitter interactions, each of the packages listed above fill in a specific need and a distinct step of the network-building process, 1) _collecting_ the data, 2) _building_ the graphs and finally 3) _visualising_ the graphs of said interactions.
 
 In the next chapter, we look at the [packages](pkgs) that make up the _twinetverse_ in more depth.

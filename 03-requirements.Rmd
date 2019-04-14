@@ -1,25 +1,23 @@
 # Prerequisites {#prerequisites}
 
-In this chapter we get you set up and running with the _twinetverse_, namely the package installation and setting up rtweet to fetch tweets.
+In this chapter we get you set up and running with the _twinetverse_, namely installing the packages and setting up rtweet to fetch tweets.
 
 ## Install
 
-The package can be installed with devtools [@R-devtools] or remotes [@R-remotes], it is available from Github or Bitbucket:
-
-The _twinetverse_ package can be installed from [Github](https://github.com/JohnCoene/twinetverse):
+The package is available from [Github](https://github.com/JohnCoene/twinetverse) can be installed with devtools [@R-devtools] or remotes [@R-remotes]. First install the remotes package with:
 
 ```{r eval=FALSE}
-devtools::install_github("JohnCoene/twinetverse")
+install.packages("remotes")
 ```
 
-or from [Bitbucket](https://bitbucket.org/JohnCoene/twinetbook/src/master/):
+Then install the twinetverse with:
 
 ```{r eval=FALSE}
-remotes::install_bitbucket("JohnCoene/twinetverse")
+remotes::install_github("JohnCoene/twinetverse")
 ```
 
 ```{block, type="note"}
-In the book we don't explicitly load the package and assume you have it loaded in your environment.
+In the book we don't explicitly load the package and assume you have it loaded in your environment (snippet below).
 ```
 
 ```{r eval=FALSE}
@@ -36,7 +34,7 @@ In essence, you will need a Twitter "app" to access its API, to create one:
 2. Click create an app.
 3. In the following form, enter an app name, whatever you want, this does not matter.
 4. Enter a description, then again, it doesn't matter.
-5. Website, simply put a valid website, you can link to your Twitter profile if you do not have one, i.e.: [https://twitter.com/jdatap](https://twitter.com/jdatap)
+5. Under website, simply put a valid website, you can link to your Twitter profile if you do not have one, i.e.: [https://twitter.com/jdatap](https://twitter.com/jdatap)
 6. Callback URL, this is **important**, in there put the following: `http://127.0.0.1:1410`, **exactly as is**.
 
 You're now setup with an app, take note of the crendentials of your app under "Keys and Access Tokens", as you will need it to create your token and fetch tweets:
@@ -53,7 +51,7 @@ Do **NOT** share those credentials or your token with anyone.
 Create your token with like so.
 
 ```{r, eval=FALSE}
-# library(twinetverse)
+library(twinetverse)
 
 TK <- create_token(
   "My Application Name",
@@ -70,4 +68,4 @@ Ideally, also save it. There is no need to re-create a token everytime you want 
 saveRDS(TK, file = "token.rds")
 ```
 
-You're all set to use the _twinetverse_!
+You're now all set to build Twitter networks!

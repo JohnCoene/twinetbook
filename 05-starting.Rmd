@@ -7,7 +7,7 @@ library(twinetverse)
 TK <- readRDS("twitter_token.rds")
 ```
 
-In this chapter we briefly explore the twinetverse: we _collect_ tweets, _build_ and _visualise_ our first graph. The graphs are built with graphTweets (part of the 'verse) which allows building several kinds of graphs, most of which we will explore, however, we will start with a graph that attempts at depicting how users communicate with each other by looking at who \@tags who in their tweets.
+In this chapter we briefly explore the twinetverse: we _collect_ tweets, _build_ and _visualise_ our first graph. The graphs are built with graphTweets (part of the 'verse) which allows building several kinds of graphs, most of which we will explore, however, we will start with a graph that attempts at depicting how users communicate with each other by looking at who \@tags who tweets.
 
 ```{block, type = "note"}
 If you follow this along in RStudio; the visualisations do not open in the viewer and instead open in your default browser.
@@ -82,7 +82,7 @@ Great, so it looks like we have both nodes and edges, not really. We only have e
 lapply(net, class)
 ```
 
-Well, we only ran `gt_edges` so it make sense to only have edges. Let's scrap that and get both nodes and edges.
+In hindsights, we only ran `gt_edges` so it make sense to only have edges. Let's scrap that and get both nodes and edges.
 
 ```{r intro redone graph with nodes, eval=TRUE}
 net <- tweets %>% 
@@ -99,7 +99,7 @@ Before we move on, something to note. graphTweets _requires_ that you run the fu
 Run graphTweets' functions in the correct order, first get the edges _then_ the nodes.
 ```
 
-Now we're ready to visualise the data, we have downloaded tweets used them to build a of nodes and another of edges.
+We have downloaded tweets used them to build a data.frame of nodes and another of edges. Now we're ready to visualise the data.
 
 ## Visualise
 
@@ -123,7 +123,7 @@ head(edges)
 knitr::kable(head(edges))
 ```
 
-Edges simply consist of `source` and `target`, as explained earlier on, `source` essentially corresponds to `screen_name` passed in `gt_edges`, it is the user who posted the tweet. In contrast, `target` includes the users that were tagged in the `text` of the tweet. The `n` variable indicates how many tweets connect the `source` to the `target`.
+Each edge simply consists of a `source` and a `target`. In this network, the `source` essentially corresponds to `screen_name` passed in `gt_edges`, it is the user who posted the tweet. In contrast, `target` includes the users that were tagged in the `text` of the tweet. The `n` variable indicates how many tweets connect the `source` to the `target`.
 
 Now let's take a look at the nodes:
 
@@ -135,7 +135,7 @@ head(nodes)
 knitr::kable(head(nodes))
 ```
 
-In the nodes data frame, the column `n` is the number of times the node appears (whether as `source` or as `target`), while the `nodes` column are the Twitter handles of _both_ the authors of the tweets (`screen_name`) and those who were \@tagged in the tweets. All nodes are users of course, but we will see another graph later in the book where they may not be.
+In the nodes data frame, the column `n` is the number of times the node appears (whether as `source` or as `target`), while the `nodes` column are the Twitter handles of _both_ the authors of the tweets (`screen_name`) and those who were \@tagged in the tweets. All nodes are of `type` user in this network, but we will have examples later in the book where it may not be.
 
 Below we rename a few columns, to meet sigmajs' naming convention.
 
@@ -154,7 +154,7 @@ sigmajs has a specific but sensible naming convention as well as basic _minimal 
 * Nodes must at least include `id`, and `size`.
 * Edges must at least include `id`, `source`, and `target`.
 
-Well actually, the _twinetverse_ comes with helper functions to prepare the nodes and edges build from graphTweets for use in sigmajs (these are the only functions the 'verse provides).
+Actually, the _twinetverse_ comes with helper functions to prepare the nodes and edges built by graphTweets for use in sigmajs (these are the only functions the 'verse provides).
 
 ```{r intro prep twinetverse}
 nodes <- nodes2sg(nodes)

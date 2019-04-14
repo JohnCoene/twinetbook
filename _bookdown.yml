@@ -1,5 +1,2 @@
 book_filename: "twinetbook"
 delete_merged_file: true
-language:
-  ui:
-    chapter_name: "Chapter "
